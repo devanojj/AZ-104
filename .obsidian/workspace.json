@@ -1,0 +1,229 @@
+{
+  "main": {
+    "id": "76b1f24860f8be0b",
+    "type": "split",
+    "children": [
+      {
+        "id": "6ae0867666a11ca5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "54a968be8a08d861",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1. Identities & Governance/1.4 Azure Policy/Unit 1 - Introduction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Unit 1 - Introduction"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2f28dcf9f028fb2d",
+    "type": "split",
+    "children": [
+      {
+        "id": "c9389f753cafc457",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "12d87f6cf56ba3c9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "bf43e06dde943612",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#Microsoft_Entra_Connect_Sync",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "dcdaa9b88259c3b0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7a20a43a0cebb1c5",
+    "type": "split",
+    "children": [
+      {
+        "id": "2019993f524b287d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b021cef76f687bf8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Exam Structure.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Exam Structure"
+            }
+          },
+          {
+            "id": "9f36d64f6ebdeeb3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Exam Structure.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Exam Structure"
+            }
+          },
+          {
+            "id": "e0bc43c24863d604",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "88c84924098f083a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "f33bcd6d9e3f55f8",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Exam Structure.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Exam Structure"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "54a968be8a08d861",
+  "lastOpenFiles": [
+    "1. Identities & Governance/1.3 Core Azure/Exam Questions.md",
+    "1. Identities & Governance/1.4 Azure Policy/Unit 1 - Introduction.md",
+    "1. Identities & Governance/1.3 Core Azure/SCIM.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Exam Questions.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 1 - Introduction.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 12 - Automatic Use Creation.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 11 - Custom Security Attribute.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 9 - Change Group License.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 8 - Manage Licenses.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 7 - Device Registration.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 5 - Manage Groups.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 6.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 4 - Restore Deleted User.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 3 - Assign Licenses.md",
+    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 2 - Create & Configure Users.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Exam Questions.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 1 - Introduction.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 6 - Domain Services.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 5 - P1 vs P2 Plans.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 3 - Vs Active Directory.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 4 - Directory Service for Cloud Apps.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 2 - Examine Entra ID.md",
+    "0. General Concepts/GPO.md",
+    "0. General Concepts/OU.md",
+    "0. General Concepts/AD.md",
+    "Images",
+    "1. Identities & Governance/1.1 Understand Entra ID/General.md",
+    "Images/Pasted image 20260803225946.png",
+    "1. Identities & Governance/1.6 Password Reset",
+    "1. Identities & Governance/1.5 RBAC",
+    "1. Identities & Governance/1.4 Azure Policy",
+    "1. Identities & Governance/1.3 Core Azure",
+    "1. Identities & Governance/1.2 Create & Configure Identities",
+    "1. Identities & Governance/1.1 Understand Entra ID",
+    "0. General Concepts",
+    "5. Monitor Resources",
+    "4. Virtual Networking"
+  ]
+}
