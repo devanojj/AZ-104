@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. Identities & Governance/1.4 Azure Policy/Unit 1 - Introduction.md",
+                "file": "1. Identities & Governance/1.4 Azure Policy/Unit 3 - Design Azure Policy.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 1 - Introduction"
+              "title": "Unit 3 - Design Azure Policy"
             }
           }
         ]
@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Microsoft_Entra_Connect_Sync",
+                "query": "Azure ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -166,13 +166,23 @@
               "icon": "lucide-list",
               "title": "Outline of Exam Structure"
             }
+          },
+          {
+            "id": "32e54aab1174cfdd",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,8 +198,11 @@
   },
   "active": "54a968be8a08d861",
   "lastOpenFiles": [
-    "1. Identities & Governance/1.3 Core Azure/Exam Questions.md",
+    "1. Identities & Governance/1.4 Azure Policy/Unit 2 - Cloud Adoption.md",
+    "1. Identities & Governance/1.4 Azure Policy/Unit 3 - Design Azure Policy.md",
+    "0. General Concepts/ARM.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 1 - Introduction.md",
+    "1. Identities & Governance/1.3 Core Azure/Exam Questions.md",
     "1. Identities & Governance/1.3 Core Azure/SCIM.md",
     "1. Identities & Governance/1.2 Create & Configure Identities/Exam Questions.md",
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 1 - Introduction.md",
@@ -211,10 +224,7 @@
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 4 - Directory Service for Cloud Apps.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 2 - Examine Entra ID.md",
     "0. General Concepts/GPO.md",
-    "0. General Concepts/OU.md",
-    "0. General Concepts/AD.md",
     "Images",
-    "1. Identities & Governance/1.1 Understand Entra ID/General.md",
     "Images/Pasted image 20260803225946.png",
     "1. Identities & Governance/1.6 Password Reset",
     "1. Identities & Governance/1.5 RBAC",
