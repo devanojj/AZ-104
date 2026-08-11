@@ -9,5 +9,5 @@
 
 ![[Pasted image 20260803225946.png|462]]
 
-An azure subscription must be associated with one Entra tenant
+An Azure subscription must be associated with one Entra tenant
 You can associate the same Microsoft Entra tenant with multiple Azure subscriptions.

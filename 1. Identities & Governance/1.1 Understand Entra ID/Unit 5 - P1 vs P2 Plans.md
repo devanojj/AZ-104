@@ -11,6 +11,16 @@
 
 
 **P2**
-- **Microsoft Entra ID Protection**. This feature provides enhanced functionalities for monitoring and protecting user accounts. You can define user risk policies and sign-in policies. In addition, you can review users’ behavior and flag users for risk.
+- **Microsoft Entra ID Protection**. This feature provides enhanced functionalities for monitoring and protecting user accounts. You can define user risk policies and sign-in policies. In addition, you can review users’ behaviour and flag users for risk.
 - **Microsoft Entra Privileged Identity Management**. This functionality lets you configure additional security levels for privileged users such as administrators. With Privileged Identity Management, you define permanent and temporary administrators. You also define a policy workflow that activates whenever someone wants to use administrative privileges to perform some task.
 - **Microsoft Identity Manager** 
+
+
+
+
+|Feature|Free|P1|P2|
+|---|---|---|---|
+|Basic SSPR (Cloud only)|Yes|Yes|Yes|
+|Dynamic Groups|No|**Yes**|**Yes**|
+|Password Writeback (Hybrid SSPR)|No|**Yes**|**Yes**|
+|Risk-Based Conditional Access|No|No|**Yes**|

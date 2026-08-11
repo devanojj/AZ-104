@@ -1,0 +1,1 @@
+Specialised role is strictly required to create, update, and manage custom security attribute definitions and attribute sets in Microsoft Entra ID.

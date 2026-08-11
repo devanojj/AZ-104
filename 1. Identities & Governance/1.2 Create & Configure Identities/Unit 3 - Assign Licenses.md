@@ -1,4 +1,3 @@
-
 ## Create a User
 **Microsoft Entra admin center**
 - **Identity** → **Users** → **All users**
