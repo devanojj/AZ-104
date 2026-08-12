@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3b8e0c8bd392806e",
+        "id": "7b2c62091369d325",
         "type": "tabs",
         "children": [
           {
-            "id": "3338839fb18106b6",
+            "id": "a5cb5b230a938ed4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 6 - Associate Public IP.md",
+                "file": "1. Identities & Governance/1.1 Understand Entra ID/Exam Questions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 6 - Associate Public IP"
+              "title": "Exam Questions"
             }
           }
         ]
@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Administrative_Unit",
+                "query": "Identity",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -197,10 +197,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "3338839fb18106b6",
+  "active": "a5cb5b230a938ed4",
   "lastOpenFiles": [
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
+    "0. General Concepts/Identity protection.md",
+    "0. General Concepts/Conditional Access.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 2 - Examine Entra ID.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Exam Questions.md",
+    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 7 - Associate Private IP.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 6 - Associate Public IP.md",
+    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 4 - Plan IP Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 3 - Subnets.md",
     "0. General Concepts/AU vs Security Group.md",
@@ -220,11 +225,6 @@
     "0. General Concepts/Resource Lock vs RBAC.md",
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 11 - Custom Security Attribute.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 6 - Policy Evaluation Resources.md",
-    "1. Identities & Governance/1.5 RBAC/Unit 2 - What is RBAC.md",
-    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 7 - Device Registration.md",
-    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 4 - Restore Deleted User.md",
-    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 3 - Assign Licenses.md",
-    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 2 - Create & Configure Users.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks",
     "Images",
     "Images/Pasted image 20260803225946.png",

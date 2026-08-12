@@ -1,7 +1,7 @@
 - PaaS
 - Access to features not native to [[AD]]
 	- MFA
-	- Identity protection 
+	- [[Identity protection ]]
 	- Self-service password reset
 - No computer class but has a device class
 - No [[OU]]
