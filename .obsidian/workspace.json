@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. Identities & Governance/1.1 Understand Entra ID/Exam Questions.md",
+                "file": "1. Identities & Governance/1.1 Understand Entra ID/Unit 5 - P1 vs P2 Plans.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Exam Questions"
+              "title": "Unit 5 - P1 vs P2 Plans"
             }
           }
         ]
@@ -199,10 +199,12 @@
   },
   "active": "a5cb5b230a938ed4",
   "lastOpenFiles": [
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 4 - Directory Service for Cloud Apps.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 6 - Domain Services.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Exam Questions.md",
     "0. General Concepts/Identity protection.md",
     "0. General Concepts/Conditional Access.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 2 - Examine Entra ID.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Exam Questions.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 7 - Associate Private IP.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 6 - Associate Public IP.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
@@ -223,8 +225,6 @@
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 9 - Change Group License.md",
     "1. Identities & Governance/1.2 Create & Configure Identities/Exam Questions.md",
     "0. General Concepts/Resource Lock vs RBAC.md",
-    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 11 - Custom Security Attribute.md",
-    "1. Identities & Governance/1.4 Azure Policy/Unit 6 - Policy Evaluation Resources.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks",
     "Images",
     "Images/Pasted image 20260803225946.png",
