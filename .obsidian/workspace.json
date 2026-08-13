@@ -25,12 +25,14 @@
             "id": "2ece5a3db2f3c5bb",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.13.7"
+                "file": "4. Virtual Networking/4.2 Configure NSG/Unit 2 - Implement NSG.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.13.7"
+              "icon": "lucide-file",
+              "title": "Unit 2 - Implement NSG"
             }
           }
         ],
@@ -212,6 +214,7 @@
   },
   "active": "2ece5a3db2f3c5bb",
   "lastOpenFiles": [
+    "4. Virtual Networking/4.2 Configure NSG/Unit 2 - Implement NSG.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 9 - Redo Lab.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 1 - NSG Introduction.md",
     "4. Virtual Networking/4.2 Configure NSG",
@@ -238,7 +241,6 @@
     "0. General Concepts/Exam Structure.md",
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 5 - Manage Groups.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 3 - Vs Active Directory.md",
-    "0. General Concepts/Modify.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks",
     "Images",
     "Images/Pasted image 20260803225946.png",
