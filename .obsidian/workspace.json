@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/4.2 Configure NSG/Unit 5 - Rules.md",
+                "file": "4. Virtual Networking/4.2 Configure NSG/EQ Configure NSG.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 5 - Rules"
+              "title": "EQ Configure NSG"
             }
           }
         ],
@@ -214,8 +214,11 @@
   },
   "active": "2ece5a3db2f3c5bb",
   "lastOpenFiles": [
-    "4. Virtual Networking/4.2 Configure NSG/Unit 4 - Effective Rules.md",
+    "4. Virtual Networking/4.2 Configure NSG/Unit 7 - Go back over!!!!.md",
+    "4. Virtual Networking/4.2 Configure NSG/EQ Configure NSG.md",
+    "4. Virtual Networking/4.2 Configure NSG/Unit 6 - Application Security Groups.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 5 - Rules.md",
+    "4. Virtual Networking/4.2 Configure NSG/Unit 4 - Effective Rules.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 3 - NSG Rules.md",
     "0. General Concepts/VNet Peering.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 2 - Plan Virtual Networks.md",
@@ -238,9 +241,6 @@
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 3 - Subnets.md",
     "0. General Concepts/AU vs Security Group.md",
     "0. General Concepts/AU.md",
-    "0. General Concepts/Azure CLI.md",
-    "0. General Concepts/Attribute Definition Administrator.md",
-    "0. General Concepts/ARM.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks",
     "Images",
     "Images/Pasted image 20260803225946.png",
