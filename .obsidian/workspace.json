@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/4.3 DNS/Unit 2 - What is Azure DNS.md",
+                "file": "4. Virtual Networking/4.3 DNS/Unit 3 - Configure DNS Zones.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 2 - What is Azure DNS"
+              "title": "Unit 3 - Configure DNS Zones"
             }
           }
         ]
@@ -199,8 +199,9 @@
   },
   "active": "0a7745b9fa676ea4",
   "lastOpenFiles": [
-    "4. Virtual Networking/4.2 Configure NSG/Unit 6 - Application Security Groups.md",
     "4. Virtual Networking/4.3 DNS/Unit 2 - What is Azure DNS.md",
+    "4. Virtual Networking/4.3 DNS/Unit 3 - Configure DNS Zones.md",
+    "4. Virtual Networking/4.2 Configure NSG/Unit 6 - Application Security Groups.md",
     "4. Virtual Networking/4.3 DNS",
     "4. Virtual Networking/Untitled.canvas",
     "4. Virtual Networking/Untitled.md",
@@ -227,7 +228,6 @@
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 6 - Associate Public IP.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 4 - Plan IP Addressing.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 3 - Subnets.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks",
     "Images",
     "Images/Pasted image 20260803225946.png",
