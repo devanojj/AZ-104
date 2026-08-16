@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/4.4 Configure Peering/Unit 2 - Peering Uses.md",
+                "file": "4. Virtual Networking/4.4 Configure Peering/Unit 5 - Extend Peering.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 2 - Peering Uses"
+              "title": "Unit 5 - Extend Peering"
             }
           }
         ]
@@ -199,8 +199,10 @@
   },
   "active": "0a7745b9fa676ea4",
   "lastOpenFiles": [
-    "4. Virtual Networking/4.3 Configure DNS/Unit 6 - Exercise Go Back Over!!!!.md",
+    "4. Virtual Networking/4.4 Configure Peering/Unit 3 - Transit Gateway.md",
+    "4. Virtual Networking/4.4 Configure Peering/Unit 5 - Extend Peering.md",
     "4. Virtual Networking/4.4 Configure Peering/Unit 2 - Peering Uses.md",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 6 - Exercise Go Back Over!!!!.md",
     "4. Virtual Networking/4.4 Configure Peering",
     "4. Virtual Networking/4.3 Configure DNS/Unit 5 - Alias Records.md",
     "4. Virtual Networking/4.3 Configure DNS/Unit 4 - Create A record.md",
@@ -227,8 +229,6 @@
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 6 - Domain Services.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Exam Questions.md",
     "0. General Concepts/Identity protection.md",
-    "0. General Concepts/Conditional Access.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Unit 2 - Examine Entra ID.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks",
     "Images",
     "Images/Pasted image 20260803225946.png",
