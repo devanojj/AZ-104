@@ -4,39 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "7b2c62091369d325",
+        "id": "918216006e1f2073",
         "type": "tabs",
         "children": [
           {
-            "id": "a5cb5b230a938ed4",
+            "id": "0a7745b9fa676ea4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4. Virtual Networking/4.2 Configure NSG/Unit 1 - NSG Introduction.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Unit 1 - NSG Introduction"
-            }
-          },
-          {
-            "id": "2ece5a3db2f3c5bb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4. Virtual Networking/4.2 Configure NSG/EQ Configure NSG.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "EQ Configure NSG"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -212,11 +193,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "2ece5a3db2f3c5bb",
+  "active": "12d87f6cf56ba3c9",
   "lastOpenFiles": [
-    "4. Virtual Networking/4.2 Configure NSG/Unit 7 - Go back over!!!!.md",
-    "4. Virtual Networking/4.2 Configure NSG/EQ Configure NSG.md",
+    "4. Virtual Networking/4.3 DNS",
+    "4. Virtual Networking/Untitled.canvas",
     "4. Virtual Networking/4.2 Configure NSG/Unit 6 - Application Security Groups.md",
+    "4. Virtual Networking/Untitled.md",
+    "4. Virtual Networking/4.2 Configure NSG/Unit 8 - EQ Configure NSG.md",
+    "4. Virtual Networking/4.2 Configure NSG/Unit 7 - Go back over!!!!.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 5 - Rules.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 4 - Effective Rules.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 3 - NSG Rules.md",
@@ -239,8 +223,6 @@
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 4 - Plan IP Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 3 - Subnets.md",
-    "0. General Concepts/AU vs Security Group.md",
-    "0. General Concepts/AU.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks",
     "Images",
     "Images/Pasted image 20260803225946.png",
