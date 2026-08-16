@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/4.3 DNS/Unit 3 - Configure DNS Zones.md",
+                "file": "4. Virtual Networking/4.3 Configure DNS/Unit 6 - Exercise Go Back Over!!!!.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 3 - Configure DNS Zones"
+              "title": "Unit 6 - Exercise Go Back Over!!!!"
             }
           }
         ]
@@ -197,12 +197,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "0a7745b9fa676ea4",
+  "active": "12d87f6cf56ba3c9",
   "lastOpenFiles": [
-    "4. Virtual Networking/4.3 DNS/Unit 2 - What is Azure DNS.md",
-    "4. Virtual Networking/4.3 DNS/Unit 3 - Configure DNS Zones.md",
+    "4. Virtual Networking/4.4 Configure Peering",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 5 - Alias Records.md",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 6 - Exercise Go Back Over!!!!.md",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 4 - Create A record.md",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 3 - Configure DNS Zones.md",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 2 - What is Azure DNS.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 6 - Application Security Groups.md",
-    "4. Virtual Networking/4.3 DNS",
+    "4. Virtual Networking/4.3 Configure DNS",
     "4. Virtual Networking/Untitled.canvas",
     "4. Virtual Networking/Untitled.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 8 - EQ Configure NSG.md",
@@ -224,10 +228,6 @@
     "0. General Concepts/Identity protection.md",
     "0. General Concepts/Conditional Access.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 2 - Examine Entra ID.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 7 - Associate Private IP.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 6 - Associate Public IP.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 4 - Plan IP Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks",
     "Images",
     "Images/Pasted image 20260803225946.png",
