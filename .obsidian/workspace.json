@@ -192,11 +192,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "12d87f6cf56ba3c9",
+  "active": "32e54aab1174cfdd",
   "lastOpenFiles": [
+    "4. Virtual Networking/4.4 Configure Peering/Unit 6 - Go back over!!.md",
     "4. Virtual Networking/4.5 Routes",
     "4. Virtual Networking/4.4 Configure Peering/Unit 5 - Extend Peering.md",
-    "4. Virtual Networking/4.4 Configure Peering/Unit 6 - Go back over!!.md",
     "0. General Concepts/NVA.md",
     "4. Virtual Networking/4.4 Configure Peering/Unit 3 - Transit Gateway.md",
     "4. Virtual Networking/4.4 Configure Peering/Unit 2 - Peering Uses.md",
@@ -230,7 +230,6 @@
     "1. Identities & Governance/1.6 Password Reset",
     "1. Identities & Governance/1.5 RBAC",
     "1. Identities & Governance/1.4 Azure Policy",
-    "1. Identities & Governance/1.3 Core Azure",
-    "1. Identities & Governance/1.2 Create & Configure Identities"
+    "1. Identities & Governance/1.3 Core Azure"
   ]
 }
