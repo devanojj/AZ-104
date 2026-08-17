@@ -11,10 +11,14 @@
             "id": "c0e7484a1ef1d79b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "4. Virtual Networking/4.5 Routes/Unit 2 - Azure Routes.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Unit 2 - Azure Routes"
             }
           }
         ]
@@ -76,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -178,7 +183,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,8 +198,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "32e54aab1174cfdd",
+  "active": "c0e7484a1ef1d79b",
   "lastOpenFiles": [
+    "4. Virtual Networking/4.5 Routes/Unit 2 - Azure Routes.md",
     "4. Virtual Networking/4.4 Configure Peering/Unit 6 - Go back over!!.md",
     "4. Virtual Networking/4.5 Routes",
     "4. Virtual Networking/4.4 Configure Peering/Unit 5 - Extend Peering.md",
