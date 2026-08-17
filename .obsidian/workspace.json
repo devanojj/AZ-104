@@ -13,12 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/4.5 Routes/Unit 2 - Azure Routes.md",
+                "file": "4. Virtual Networking/4.5 Routes/Unit 4 - NVA.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 2 - Azure Routes"
+              "title": "Unit 4 - NVA"
+            }
+          },
+          {
+            "id": "b2bd75195b6977fe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0. General Concepts/NVA.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "NVA"
             }
           }
         ]
@@ -80,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -200,11 +213,13 @@
   },
   "active": "c0e7484a1ef1d79b",
   "lastOpenFiles": [
+    "4. Virtual Networking/4.5 Routes/Unit 3 - Go back over!!!!.md",
+    "4. Virtual Networking/4.5 Routes/Unit 4 - NVA.md",
     "4. Virtual Networking/4.5 Routes/Unit 2 - Azure Routes.md",
+    "0. General Concepts/NVA.md",
     "4. Virtual Networking/4.4 Configure Peering/Unit 6 - Go back over!!.md",
     "4. Virtual Networking/4.5 Routes",
     "4. Virtual Networking/4.4 Configure Peering/Unit 5 - Extend Peering.md",
-    "0. General Concepts/NVA.md",
     "4. Virtual Networking/4.4 Configure Peering/Unit 3 - Transit Gateway.md",
     "4. Virtual Networking/4.4 Configure Peering/Unit 2 - Peering Uses.md",
     "4. Virtual Networking/4.3 Configure DNS/Unit 6 - Exercise Go Back Over!!!!.md",
@@ -229,8 +244,6 @@
     "4. Virtual Networking/4.2 Configure NSG/Unit 1 - NSG Introduction.md",
     "4. Virtual Networking/4.2 Configure NSG",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 10 - EQ Configure Virtual Networks.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Unit 5 - P1 vs P2 Plans.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Unit 4 - Directory Service for Cloud Apps.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks",
     "Images",
     "Images/Pasted image 20260803225946.png",
