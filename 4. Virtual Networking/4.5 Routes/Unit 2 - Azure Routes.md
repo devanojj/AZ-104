@@ -1,13 +1,14 @@
 Azure routing determines how network traffic moves between subnets, VNets, on-premises networks, and the internet.
-
 - **System routes** = automatically created by Azure
 - **User-defined routes (UDRs)** = custom routes created by you
 - **BGP routes** = routes learned from on-premises/network gateways
 
+- VNet peering = connects two VNets
+- Azure routes = control where traffic goes inside/between networks
+
 ---
 
 #### System Routes
-
 - Automatically assigned to every subnet
 - **Cannot be created/deleted**
 - Can be **overridden by UDRs**
@@ -23,7 +24,6 @@ Azure routing determines how network traffic moves between subnets, VNets, on-pr
 |`100.64.0.0/10`|**None**|
 
 **Next-hop types:**
-
 - **Virtual network** → traffic stays within VNet
 - **Internet** → traffic goes to internet
 - **None** → traffic is dropped
@@ -31,7 +31,6 @@ Azure routing determines how network traffic moves between subnets, VNets, on-pr
 ---
 
 #### Additional System Routes
-
 Azure can create additional routes when using:
 
 - **VNet peering**
