@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
+                "file": "2. Storage/2.3 Storage Security/All Units - Storage Security.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "All Units - Blob Storage"
+              "title": "All Units - Storage Security"
             }
           }
         ]
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -199,8 +200,11 @@
   },
   "active": "fa19e2a830947221",
   "lastOpenFiles": [
-    "2. Storage/2.2 Configure Blob/Unit 10 - EQ Configure Blob.md",
+    "2. Storage/2.3 Storage Security/Unit 9 - Configure Storage Security.md",
+    "2. Storage/2.3 Storage Security/All Units - Storage Security.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
+    "2. Storage/2.3 Storage Security",
+    "2. Storage/2.2 Configure Blob/Unit 10 - EQ Configure Blob.md",
     "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
     "2. Storage/2.2 Configure Blob",
     "2. Storage/2.1 Configure Storage/Unit 7 - Networking Storage Endpoints.md",
@@ -226,16 +230,13 @@
     "4. Virtual Networking/4.7 Application Gateway/Unit 5 - EQ Application Gateway.md",
     "4. Virtual Networking/4.7 Application Gateway/Unit 3 - How it works.md",
     "4. Virtual Networking/4.7 Application Gateway/Unit 2 - Application Gateway.md",
-    "4. Virtual Networking/4.6 Load Balancer/Unit 4 - When to use.md",
     "4. Virtual Networking/4.7 Application Gateway",
-    "4. Virtual Networking/4.6 Load Balancer/Unit 5 - EQ Load Balancer.md",
     "4. Virtual Networking/4.6 Load Balancer",
     "4. Virtual Networking/4.5 Routes",
     "4. Virtual Networking/4.4 Configure Peering",
     "4. Virtual Networking/4.3 Configure DNS",
     "4. Virtual Networking/Untitled.canvas",
     "4. Virtual Networking/4.2 Configure NSG",
-    "4. Virtual Networking/4.1 Configure Virtual Networks",
     "Images/Pasted image 20260803225946.png"
   ]
 }
