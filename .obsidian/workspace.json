@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/2.3 Storage Security/Unit 9 -  EQ Configure Storage Security.md",
+                "file": "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 9 -  EQ Configure Storage Security"
+              "title": "All Units - Intro VM"
             }
           }
         ]
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -199,8 +200,10 @@
   },
   "active": "fa19e2a830947221",
   "lastOpenFiles": [
-    "2. Storage/2.4 Configure Azure Files/Unit 8 - EQ Configure Azure Files.md",
     "2. Storage/2.3 Storage Security/Unit 9 -  EQ Configure Storage Security.md",
+    "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
+    "3. Compute Resources/3.1 Introduction to VM",
+    "2. Storage/2.4 Configure Azure Files/Unit 8 - EQ Configure Azure Files.md",
     "2. Storage/2.4 Configure Azure Files/All Units - Configure Azure Files.md",
     "2. Storage/2.3 Storage Security/All Units - Storage Security.md",
     "2. Storage/2.4 Configure Azure Files",
@@ -229,12 +232,10 @@
     "4. Virtual Networking/4.8 Network Watcher/Unit 2 - Network Watcher.md",
     "4. Virtual Networking/4.7 Application Gateway/Unit 4 - When to use.md",
     "4. Virtual Networking/4.8 Network Watcher",
-    "4. Virtual Networking/4.7 Application Gateway/Unit 5 - EQ Application Gateway.md",
     "4. Virtual Networking/4.7 Application Gateway",
     "4. Virtual Networking/4.6 Load Balancer",
     "4. Virtual Networking/4.5 Routes",
     "4. Virtual Networking/4.4 Configure Peering",
-    "4. Virtual Networking/4.3 Configure DNS",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]
