@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
+                "file": "3. Compute Resources/3.3 App Service/All Units - App Service.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "All Units - Intro VM"
+              "title": "All Units - App Service"
             }
           }
         ]
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -200,8 +199,13 @@
   },
   "active": "fa19e2a830947221",
   "lastOpenFiles": [
-    "2. Storage/2.3 Storage Security/Unit 9 -  EQ Configure Storage Security.md",
+    "3. Compute Resources/3.2 VM Availability/All Units - VM Availability.md",
+    "3. Compute Resources/3.3 App Service/All Units - App Service.md",
+    "3. Compute Resources/3.3 App Service",
     "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
+    "3. Compute Resources/3.2 VM Availability",
+    "3. Compute Resources/Untitled.md",
+    "2. Storage/2.3 Storage Security/Unit 9 -  EQ Configure Storage Security.md",
     "3. Compute Resources/3.1 Introduction to VM",
     "2. Storage/2.4 Configure Azure Files/Unit 8 - EQ Configure Azure Files.md",
     "2. Storage/2.4 Configure Azure Files/All Units - Configure Azure Files.md",
@@ -228,14 +232,9 @@
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 2 - Plan Virtual Networks.md",
     "4. Virtual Networking/4.8 Network Watcher/Unit 4 - When to use.md",
     "2. Storage/2.1 Configure Storage",
-    "4. Virtual Networking/4.8 Network Watcher/Unit 3 - How it works.md",
-    "4. Virtual Networking/4.8 Network Watcher/Unit 2 - Network Watcher.md",
-    "4. Virtual Networking/4.7 Application Gateway/Unit 4 - When to use.md",
     "4. Virtual Networking/4.8 Network Watcher",
     "4. Virtual Networking/4.7 Application Gateway",
     "4. Virtual Networking/4.6 Load Balancer",
-    "4. Virtual Networking/4.5 Routes",
-    "4. Virtual Networking/4.4 Configure Peering",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]
