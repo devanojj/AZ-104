@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3. Compute Resources/3.5 Containers/All Units - Container.md",
+                "file": "0. General Concepts/Azure Managed Disks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "All Units - Container"
+              "title": "Azure Managed Disks"
             }
           }
         ]
@@ -199,8 +199,9 @@
   },
   "active": "fa19e2a830947221",
   "lastOpenFiles": [
-    "3. Compute Resources/3.5 Containers/Unit 7 - Container Instances.md",
     "3. Compute Resources/3.5 Containers/All Units - Container.md",
+    "0. General Concepts/Azure Managed Disks.md",
+    "3. Compute Resources/3.5 Containers/Unit 7 - Container Instances.md",
     "3. Compute Resources/3.4 App Service 2/All Units - Configure App Services 2.md",
     "3. Compute Resources/3.5 Containers",
     "3. Compute Resources/3.4 App Service 2",
@@ -232,7 +233,6 @@
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 6 - Associate Public IP.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 4 - Plan IP Addressing.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 3 - Subnets.md",
     "2. Storage/2.1 Configure Storage",
     "4. Virtual Networking/4.8 Network Watcher",
     "4. Virtual Networking/Untitled.canvas",
