@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3. Compute Resources/3.4 App Service 2/All Units - Configure App Services 2.md",
+                "file": "3. Compute Resources/3.5 Containers/All Units - Container.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "All Units - Configure App Services 2"
+              "title": "All Units - Container"
             }
           }
         ]
@@ -197,11 +197,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "12d87f6cf56ba3c9",
+  "active": "fa19e2a830947221",
   "lastOpenFiles": [
+    "3. Compute Resources/3.5 Containers/Unit 7 - Container Instances.md",
+    "3. Compute Resources/3.5 Containers/All Units - Container.md",
+    "3. Compute Resources/3.4 App Service 2/All Units - Configure App Services 2.md",
+    "3. Compute Resources/3.5 Containers",
     "3. Compute Resources/3.4 App Service 2",
     "3. Compute Resources/3.3 App Service/All Units - App Service.md",
-    "3. Compute Resources/3.4 App Service 2/All Units - Configure App Services 2.md",
     "3. Compute Resources/3.2 VM Availability/All Units - VM Availability.md",
     "3. Compute Resources/3.3 App Service",
     "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
@@ -230,11 +233,8 @@
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 4 - Plan IP Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 3 - Subnets.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 2 - Plan Virtual Networks.md",
     "2. Storage/2.1 Configure Storage",
     "4. Virtual Networking/4.8 Network Watcher",
-    "4. Virtual Networking/4.7 Application Gateway",
-    "4. Virtual Networking/4.6 Load Balancer",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]
