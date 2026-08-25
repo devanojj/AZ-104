@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "86d3ac6dbdace454",
+        "id": "2685c9d52bc78f05",
         "type": "tabs",
         "children": [
           {
-            "id": "fa19e2a830947221",
+            "id": "13e4c6f2bef4ed25",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "0. General Concepts/Azure Managed Disks.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Azure Managed Disks"
+              "title": "New tab"
             }
           }
         ]
@@ -197,10 +193,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "fa19e2a830947221",
+  "active": "12d87f6cf56ba3c9",
   "lastOpenFiles": [
-    "3. Compute Resources/3.5 Containers/All Units - Container.md",
+    "5. Monitor Resources/5.3 Azure Monitor VM",
+    "5. Monitor Resources/Untitled.canvas",
+    "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - Monitor & Backup.md",
+    "5. Monitor Resources/5.2 Backup VM",
+    "0. General Concepts/Azure Workbooks.md",
+    "5. Monitor Resources/5.1 Monitor & Backup",
+    "0. General Concepts/MARS.md",
+    "0. General Concepts/Azure Disks.md",
     "0. General Concepts/Azure Managed Disks.md",
+    "3. Compute Resources/3.5 Containers/All Units - Container.md",
     "3. Compute Resources/3.5 Containers/Unit 7 - Container Instances.md",
     "3. Compute Resources/3.4 App Service 2/All Units - Configure App Services 2.md",
     "3. Compute Resources/3.5 Containers",
@@ -228,13 +232,6 @@
     "2. Storage/2.1 Configure Storage/Unit 3 - Storage Types.md",
     "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 7 - Go back over!!!!.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 9 - Redo Lab.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 7 - Associate Private IP.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 6 - Associate Public IP.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 4 - Plan IP Addressing.md",
-    "2. Storage/2.1 Configure Storage",
-    "4. Virtual Networking/4.8 Network Watcher",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]
