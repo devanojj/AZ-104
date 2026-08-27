@@ -11,10 +11,14 @@
             "id": "13e4c6f2bef4ed25",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Azure Monitor"
             }
           }
         ]
@@ -193,10 +197,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "12d87f6cf56ba3c9",
+  "active": "13e4c6f2bef4ed25",
   "lastOpenFiles": [
-    "5. Monitor Resources/5.3 Azure Monitor VM",
+    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
+    "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
     "5. Monitor Resources/Untitled.canvas",
+    "5. Monitor Resources/5.3 Azure Monitor VM",
     "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - Monitor & Backup.md",
     "5. Monitor Resources/5.2 Backup VM",
     "0. General Concepts/Azure Workbooks.md",
@@ -224,14 +230,12 @@
     "2. Storage/2.3 Storage Security",
     "2. Storage/2.2 Configure Blob/Unit 10 - EQ Configure Blob.md",
     "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
-    "2. Storage/2.2 Configure Blob",
     "2. Storage/2.1 Configure Storage/Unit 7 - Networking Storage Endpoints.md",
     "2. Storage/2.1 Configure Storage/Unit 6 - Storage Endpoints.md",
     "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
     "2. Storage/2.1 Configure Storage/Unit 4 - Storage Account Types.md",
     "2. Storage/2.1 Configure Storage/Unit 3 - Storage Types.md",
     "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
-    "4. Virtual Networking/4.2 Configure NSG/Unit 7 - Go back over!!!!.md",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]
