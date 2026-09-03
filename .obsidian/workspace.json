@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
+                "file": "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - Monitor & Backup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Azure Monitor"
+              "title": "Unit 5 - Monitor & Backup"
             }
           }
         ]
@@ -199,8 +199,8 @@
   },
   "active": "13e4c6f2bef4ed25",
   "lastOpenFiles": [
-    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
     "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
+    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
     "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - Monitor & Backup.md",
