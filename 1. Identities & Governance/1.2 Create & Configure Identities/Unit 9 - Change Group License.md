@@ -5,7 +5,6 @@
 ---
 
 # Common License Errors
-
 ### Not Enough Licenses
 - Buy more licenses or free unused ones.
 - **PowerShell:** `CountViolation`

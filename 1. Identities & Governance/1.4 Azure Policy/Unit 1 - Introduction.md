@@ -1,11 +1,11 @@
 ## What is Azure Policy?
-Enforces **rules** on Azure resources to ensure **compliance** with organisational standards.
-Policies are written in **JSON**.
+Enforces **rules** on Azure resources to ensure **compliance** with standards.
+Policies are written in **JSON**
 
 ---
 
 ## Azure Policy Initiative
-A collection of **multiple policy definitions** grouped together for a common goal.
+A collection of **multiple policy definitions** 
 
 Used to:
 - Simplify policy management

@@ -13,7 +13,6 @@ Azure governance uses **4 management levels**:
 - Management groups can extend **6 levels below the tenant root group**.
 
 ---
-
 #### Resource
 Basic building block of Azure.
 
@@ -24,7 +23,6 @@ Examples:
 - AI Service
 
 ---
-
 #### Resource Group
 Logical container for Azure resources.
 
@@ -35,7 +33,6 @@ Logical container for Azure resources.
 - Access permissions applied to a resource group → apply to its resources.
 
 ---
-
 #### Subscription
 Unit of **management, billing, and scale**.
 
@@ -45,7 +42,6 @@ Unit of **management, billing, and scale**.
 - Linked to an **Azure account / Microsoft Entra identity**.
 
 ---
-
 #### Management Group
 Container for **subscriptions**.
 

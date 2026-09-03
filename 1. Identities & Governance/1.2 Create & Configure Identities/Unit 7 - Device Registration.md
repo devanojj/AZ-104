@@ -1,6 +1,5 @@
 
 ## Microsoft Entra Registered
-
 > **Best for:** Bring Your Own Device (BYOD) / Personal devices
 
 ### Key Features
@@ -11,7 +10,7 @@
 - Can be managed with **Microsoft Intune (MDM)**
 
 ### Device Ownership
-- User-owned (or organization-owned)
+- User-owned (or organisation-owned)
 
 ### Management
 - Microsoft Intune (MDM)

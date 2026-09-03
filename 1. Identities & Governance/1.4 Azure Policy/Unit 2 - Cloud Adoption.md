@@ -1,7 +1,6 @@
-
 #### Cloud Adoption Framework (CAF)
 Microsoft framework for planning, adopting, governing, and managing Azure.
-Provides **best practices, documentation, and tools** for cloud adoption.
+Provides **best practices, documentation, and tools** for cloud adoption. (Made by the hyperscalers)
 
 ---
 #### Cloud Governance
@@ -23,7 +22,6 @@ Managing Azure usage to ensure **security, compliance, cost control, and operati
 ---
 
 #### Governance Policy Considerations
-
 - **Business Risk** → Identify risks & risk tolerance.
 - **Policy & Compliance** → Convert risks into policies.
 - **Process** → Monitor compliance & policy violations.
@@ -31,7 +29,6 @@ Managing Azure usage to ensure **security, compliance, cost control, and operati
 ---
 
 #### Five Governance Disciplines
-
 - **Cost Management** → Control and optimise cloud spending.
 - **Security Baseline** → Apply minimum security standards.
 - **Resource Consistency** → Standardise resource configuration.
@@ -45,7 +42,7 @@ Azure governance service that **enforces rules** and **checks compliance** acros
 
 - Built-in **policies** and **initiatives**.
 - Compliance dashboard.
-- Centralized compliance reporting.
+- Centralised compliance reporting.
 - Evaluates **existing** and **new** resources.
 - Can automatically remediate non-compliant resources.
 - Supports **policy exceptions**.
