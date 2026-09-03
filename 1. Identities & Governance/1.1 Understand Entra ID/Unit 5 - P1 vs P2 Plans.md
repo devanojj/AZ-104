@@ -1,30 +1,27 @@
-### P1 License
-*Self-service group management.*
-Users given the rights to create and manage the groups. End users can create requests to join other groups, and group owners can approve requests and maintain their groups’ memberships.
 
+| Feature Area                           | Free                               | Microsoft Entra ID P1                                   | Microsoft Entra ID P2                                   |
+| -------------------------------------- | ---------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| **SLA**                                | No financially-backed SLA          | 99.9% uptime SLA                                        | 99.9% uptime SLA                                        |
+| **Self-Service Password Reset (SSPR)** | Cloud-only users                   | Cloud + On-premises writeback                           | Cloud + On-premises writeback                           |
+| **Group Management**                   | Basic static groups                | Dynamic groups, self-service group management           | Dynamic groups, self-service group management           |
+| **Hybrid Identity & Sync**             | Microsoft Entra Connect sync       | Entra Connect Health + Microsoft Identity Manager (MIM) | Entra Connect Health + Microsoft Identity Manager (MIM) |
+| **Conditional Access**                 | Security defaults (all or nothing) | Granular (by user, device, location, app)               | Risk-based (real-time user and sign-in risk)            |
+| **Cloud App Discovery**                | Not included                       | Included (basic SaaS discovery)                         | Included                                                |
+| **Identity Protection**                | Not included                       | Not included                                            | Full (ML-driven automated risk remediation)             |
+| **Privileged Access (PIM)**            | Not included                       | Not included                                            | Full (Just-In-Time role activation, approval flows)     |
+| **Access Reviews & Governance**        | Not included                       | Not included                                            | Full (automated recurring access recertification)       |
 
-*Advanced security reports and alerts*
-You can monitor and protect access to your cloud applications by viewing detailed logs that show advanced anomalies and inconsistent access pattern reports. Advanced reports are machine learning based and can help you gain new insights to improve access security and respond to potential threats.
-- **Multi-factor authentication**. Full multi-factor authentication (MFA) works with on-premises applications (using virtual private network [VPN], RADIUS, and others), Azure, Microsoft 365, Dynamics 365, and third-party Microsoft Entra gallery applications. It doesn't work with non-browser off-the-shelf apps, such as Microsoft Outlook. Full multi-factor authentication is covered in more detail in the following units in this lesson.
-- **Microsoft Identity Manager (MIM) licensing**. MIM integrates with Microsoft Entra ID P1 or P2 to provide hybrid identity solutions. MIM can bridge multiple on-premises authentication stores such as AD DS, LDAP, Oracle, and other applications with Microsoft Entra ID. This provides consistent experiences to on-premises line-of-business (LOB) applications and SaaS solutions.
-- **Enterprise SLA of 99.9%**. You're guaranteed at least 99.9% availability of the Microsoft Entra ID P1 or P2 service. The same SLA applies to Microsoft Entra Basic.
-- **Password reset with writeback**. Self-service password reset follows the Active Directory on-premises password policy.
-- **Cloud App Discovery feature of Microsoft Entra ID**. This feature discovers the most frequently used cloud-based applications.
-- **Conditional Access based on device, group, or location**. This lets you configure conditional access for critical resources, based on several criteria.
-- **Microsoft Entra Connect Health**. You can use this tool to gain operational insight into Microsoft Entra ID. It works with alerts, performance counters, usage patterns, and configuration settings, and presents the collected information in the Microsoft Entra Connect Health portal.
+**Microsoft Entra ID Free**
+- Foundation-level directory for Microsoft 365 or Azure subscriptions.
+- Supports user/group creation, cloud-only authentication, basic SSO across 10 apps per user, and security defaults.
+- Lacks granular security controls, dynamic assignment, and automated identity governance.
 
+**Microsoft Entra ID P1 (Workforce Security & Hybrid Foundation)**
+- **Granular Conditional Access:** Enforces MFA and access policies based on trusted locations, device compliance (Intune), or specific user groups.
+- **Hybrid Enablement:** Supports self-service password reset with on-premises Active Directory writeback, Microsoft Identity Manager (MIM), and Entra Connect Health monitoring.
+- **Advanced Administration:** Introduces dynamic user/device groups and delegated self-service group management.
 
-**P2**
-- **Microsoft Entra ID Protection**. This feature provides enhanced functionalities for monitoring and protecting user accounts. You can define user risk policies and sign-in policies. In addition, you can review users’ behaviour and flag users for risk.
-- **Microsoft Entra Privileged Identity Management**. This functionality lets you configure additional security levels for privileged users such as administrators. With Privileged Identity Management, you define permanent and temporary administrators. You also define a policy workflow that activates whenever someone wants to use administrative privileges to perform some task.
-- **Microsoft Identity Manager** 
-
-
-
-
-|Feature|Free|P1|P2|
-|---|---|---|---|
-|Basic SSPR (Cloud only)|Yes|Yes|Yes|
-|Dynamic Groups|No|**Yes**|**Yes**|
-|Password Writeback (Hybrid SSPR)|No|**Yes**|**Yes**|
-|Risk-Based Conditional Access|No|No|**Yes**|
+**Microsoft Entra ID P2 (Zero Trust & Privileged Governance)**
+- **Microsoft Entra ID Protection:** Uses machine learning to evaluate real-time sign-in risk (e.g., anonymous IP, atypical travel) and user risk (e.g., leaked credentials) to automate self-remediation (blocking access or forcing password reset).
+- **Privileged Identity Management (PIM):** Eliminates standing admin privileges by providing time-bound, just-in-time (JIT) role elevation, multi-party approval workflows, and audit trails.
+- **Access Reviews & Lifecycle Workflows:** Automates periodic audits of external guests, group memberships, and privileged roles to prevent entitlement drift.

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - Monitor & Backup.md",
+                "file": "1. Identities & Governance/1.1 Understand Entra ID/Exam Questions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 5 - Monitor & Backup"
+              "title": "Exam Questions"
             }
           }
         ]
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -199,11 +200,20 @@
   },
   "active": "13e4c6f2bef4ed25",
   "lastOpenFiles": [
+    "1. Identities & Governance/1.2 Create & Configure Identities/Exam Questions.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 6 - Domain Services.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 5 - P1 vs P2 Plans.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 4 - Directory Service for Cloud Apps.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 3 - Vs Active Directory.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 2 - Examine Entra ID.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 1 - Introduction.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Exam Questions.md",
+    "0. General Concepts/AD.md",
+    "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - Monitor & Backup.md",
     "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
     "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
-    "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - Monitor & Backup.md",
     "5. Monitor Resources/5.2 Backup VM",
     "0. General Concepts/Azure Workbooks.md",
     "5. Monitor Resources/5.1 Monitor & Backup",
@@ -226,16 +236,7 @@
     "2. Storage/2.4 Configure Azure Files/All Units - Configure Azure Files.md",
     "2. Storage/2.3 Storage Security/All Units - Storage Security.md",
     "2. Storage/2.4 Configure Azure Files",
-    "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
     "2. Storage/2.3 Storage Security",
-    "2. Storage/2.2 Configure Blob/Unit 10 - EQ Configure Blob.md",
-    "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
-    "2. Storage/2.1 Configure Storage/Unit 7 - Networking Storage Endpoints.md",
-    "2. Storage/2.1 Configure Storage/Unit 6 - Storage Endpoints.md",
-    "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
-    "2. Storage/2.1 Configure Storage/Unit 4 - Storage Account Types.md",
-    "2. Storage/2.1 Configure Storage/Unit 3 - Storage Types.md",
-    "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]
