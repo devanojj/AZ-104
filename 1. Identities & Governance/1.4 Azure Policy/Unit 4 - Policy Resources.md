@@ -25,14 +25,11 @@ Groups multiple **policy definitions** into one manageable unit.
 - Used for broader goals such as **regulatory compliance**.
 
 **Built-in Initiative** → Collection of built-in policies.
-
 **Custom Initiative** → Collection of custom policies.
 
 #### Built-in vs Custom Policy
-
 - **Built-in Policy** → Provided by Azure Resource Providers.
 - **Custom Policy** → Created when no built-in policy meets requirements.
-
 ---
 
 #### Policy Assignment
