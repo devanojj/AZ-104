@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. Identities & Governance/1.5 RBAC/Unit 3 - Exam Questions.md",
+                "file": "1. Identities & Governance/1.6 Password Reset/Unit 5 - Company Branding.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 3 - Exam Questions"
+              "title": "Unit 5 - Company Branding"
             }
           }
         ]
@@ -199,9 +199,15 @@
   },
   "active": "2742813e8efecc5f",
   "lastOpenFiles": [
-    "1. Identities & Governance/1.5 RBAC/Unit 2 - What is RBAC.md",
+    "1. Identities & Governance/1.6 Password Reset/Unit 3 - Implement Self-Service Reset.md",
+    "1. Identities & Governance/1.6 Password Reset/Unit 2 - Self Service Reset.md",
+    "1. Identities & Governance/1.6 Password Reset/Unit 1 - Introduction.md",
+    "1. Identities & Governance/1.5 RBAC/Unit 6 - Activity Log.md",
+    "1. Identities & Governance/1.5 RBAC/Unit 5 - Grant Access.md",
     "1. Identities & Governance/1.5 RBAC/Unit 3 - Exam Questions.md",
+    "1. Identities & Governance/1.5 RBAC/Unit 2 - What is RBAC.md",
     "1. Identities & Governance/1.5 RBAC/Unit 1 - Introduction.md",
+    "1. Identities & Governance/1.5 RBAC/Unit 4 - List Access.md",
     "1. Identities & Governance/1.4 Azure Policy/Exam Questions.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 6 - Policy Evaluation Resources.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 5 - Policy Definitions.md",
@@ -219,12 +225,6 @@
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 5 - Manage Groups.md",
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 4 - Restore Deleted User.md",
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 3 - Assign Licenses.md",
-    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 2 - Create & Configure Users.md",
-    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 1 - Introduction.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Exam Questions.md",
-    "0. General Concepts/Identity.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Unit 6 - Domain Services.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Unit 5 - P1 vs P2 Plans.md",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
     "5. Monitor Resources/5.2 Backup VM",

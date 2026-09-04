@@ -1,6 +1,6 @@
 _Steps_
 
-**Microsoft Entra ID → Company branding → Customize**
+**Microsoft Entra ID → Company branding → Customise**
 
 1. Upload **Favicon/logo**.
 2. Upload **Background image**.
@@ -10,7 +10,6 @@ _Steps_
 ---
 
 #### Test
-
 - Go to **login.microsoft.com**.
 - Sign in with a test account.
 - Verify branding appears on:

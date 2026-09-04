@@ -14,7 +14,6 @@
 - **All** → all users can use SSPR.
 
 **Exam Tip**
-
 - Use **Selected** for a trial/pilot deployment.
 
 ---

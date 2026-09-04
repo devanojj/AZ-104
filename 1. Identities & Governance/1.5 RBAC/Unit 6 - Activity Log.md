@@ -8,7 +8,6 @@
 - Generate reports of role assignment and custom role changes.
 
 ---
-
 #### View RBAC Changes
 _Steps_
 1. Select **All services**.
@@ -23,15 +22,11 @@ _Steps_
     - **Create or update custom role definition**
     - **Delete custom role definition**
 8. Select an operation to view its **activity log details**.
-
 ---
-
 #### Export Activity Log
 - Activity Log results can be downloaded as a **CSV**.
 - Useful for creating an RBAC **audit report**.
-
 ---
-
 #### RBAC Operations to Know
 
 |Operation|Purpose|
@@ -42,7 +37,6 @@ _Steps_
 |**Delete custom role definition**|Removes a custom role|
 
 ---
-
 #### Exam Facts
 - **Azure Activity Log** → tracks Azure resource operations.
 - Use **Activity Log** to audit **RBAC changes**.

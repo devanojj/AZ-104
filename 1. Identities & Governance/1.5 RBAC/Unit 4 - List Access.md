@@ -14,7 +14,6 @@ _Steps_
     - Role **scope**
 
 **Exam Tip**
-
 - **My permissions** → shows the roles assigned to **you**.
 
 ---
@@ -33,7 +32,6 @@ Shows:
 - Where the role applies
 
 **Important**
-
 - **This resource** → role assigned directly at that resource group.
 - **Inherited** → role inherited from a **parent scope**.
 
@@ -46,7 +44,6 @@ Shows:
     - **Custom**
 
 _Steps_
-
 1. Open **Access control (IAM)**.
 2. Select **Roles**.
 3. Select **View** for a role.
