@@ -1,5 +1,4 @@
 #### Azure RBAC
-
 **Azure Role-Based Access Control (RBAC)** = Authorization system for managing access to Azure resources.
 
 - **Who** → Who can access.

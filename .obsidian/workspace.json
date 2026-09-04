@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "2685c9d52bc78f05",
+        "id": "64804bdce70c0f29",
         "type": "tabs",
         "children": [
           {
-            "id": "13e4c6f2bef4ed25",
+            "id": "2742813e8efecc5f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. Identities & Governance/1.4 Azure Policy/Unit 4 - Policy Resources.md",
+                "file": "1. Identities & Governance/1.5 RBAC/Unit 1 - Introduction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 4 - Policy Resources"
+              "title": "Unit 1 - Introduction"
             }
           }
         ]
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -198,8 +197,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "13e4c6f2bef4ed25",
+  "active": "2742813e8efecc5f",
   "lastOpenFiles": [
+    "1. Identities & Governance/1.4 Azure Policy/Exam Questions.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 6 - Policy Evaluation Resources.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 5 - Policy Definitions.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 4 - Policy Resources.md",
@@ -225,7 +225,6 @@
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 4 - Directory Service for Cloud Apps.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 3 - Vs Active Directory.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 2 - Examine Entra ID.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Unit 1 - Introduction.md",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
     "5. Monitor Resources/5.2 Backup VM",

@@ -41,7 +41,6 @@ Can be assigned at:
 - Resource group
 
 *Key Options*
-
 - **Resource selectors** → Gradual rollout by resource type/location.
 - **Overrides** → Change policy effect without changing definition.
 - **enforcementMode** → Disable enforcement for **what-if** scenarios.
@@ -49,7 +48,6 @@ Can be assigned at:
 - **Parameters** → Set policy parameter values.
 - **Noncompliance messages** → Custom compliance messages.
 - **Managed identity** → Required for remediation with `deployIfNotExists`.
-
 ---
 
 #### Policy Exemption
@@ -63,7 +61,6 @@ Excludes resources or resource hierarchies from **policy evaluation**.
 
 - **Mitigated** → Compliance achieved through another method.
 - **Waiver** → Temporary acceptance of noncompliance.
-
 ---
 
 #### Policy Attestation
@@ -71,7 +68,6 @@ Used to manually set a resource/scope's **compliance state**.
 
 - Used with **manual policies**.
 - Each applicable resource requires an attestation for each manual policy assignment.
-
 ---
 
 #### Policy Remediation
@@ -80,11 +76,9 @@ Brings **non-compliant resources into compliance**.
 - Used with `modify`.
 - Used with `deployIfNotExists`.
 - New/updated applicable resources can be **automatically remediated**.
-
 ---
 
 #### AZ-104 Exam Facts
-
 - **Definition** → Defines compliance conditions + effect.
 - **Initiative** → Groups policies.
 - **Assignment** → Determines what resources are evaluated.
