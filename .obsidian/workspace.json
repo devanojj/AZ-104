@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. Identities & Governance/1.5 RBAC/Unit 1 - Introduction.md",
+                "file": "1. Identities & Governance/1.5 RBAC/Unit 3 - Exam Questions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 1 - Introduction"
+              "title": "Unit 3 - Exam Questions"
             }
           }
         ]
@@ -199,6 +199,9 @@
   },
   "active": "2742813e8efecc5f",
   "lastOpenFiles": [
+    "1. Identities & Governance/1.5 RBAC/Unit 2 - What is RBAC.md",
+    "1. Identities & Governance/1.5 RBAC/Unit 3 - Exam Questions.md",
+    "1. Identities & Governance/1.5 RBAC/Unit 1 - Introduction.md",
     "1. Identities & Governance/1.4 Azure Policy/Exam Questions.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 6 - Policy Evaluation Resources.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 5 - Policy Definitions.md",
@@ -222,9 +225,6 @@
     "0. General Concepts/Identity.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 6 - Domain Services.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 5 - P1 vs P2 Plans.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Unit 4 - Directory Service for Cloud Apps.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Unit 3 - Vs Active Directory.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Unit 2 - Examine Entra ID.md",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
     "5. Monitor Resources/5.2 Backup VM",
