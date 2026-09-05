@@ -397,3 +397,120 @@ Azure Network Watcher variable packet capture allows you to create packet captur
 [Introduction to Packet capture in Azure Network Watcher | Microsoft Learn](https://learn.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)
 
 [Introduction to Azure Network Watcher](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/)
+
+
+
+You have an Azure subscription that contains 20 virtual networks and 500 virtual machines.
+
+You deploy a new virtual machine named VM501.
+
+You discover that VM501 is unable to communicate with a virtual machine named VM20 in the subscription. You suspect that a network security group (NSG) is the cause of the issue.
+
+You need to identify whether an NSG is blocking communications. The solution must minimize administrative effort.
+
+What should you use?
+
+Select only one answer.
+
+diagnostic logs
+
+IP flow verify
+
+**This answer is correct.**
+
+virtual network flow logs
+
+packet capture
+
+**This answer is incorrect.**
+
+IP flow verify lets you specify a source and destination IPv4 address, port, protocol (TCP or UDP), and traffic direction (inbound or outbound). IP flow verify can identify the specific network security group (NSG) that prevents communication. NSG flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Although the logs may help you identify the source of the issue, it requires much more configuration and manual evaluation. Packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine. Packet capture may help narrow down the scope of the issue, but it will not identify the specific NSG that prevents communication.
+
+[Azure Network Watcher | Microsoft Learn](https://learn.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+
+[Introduction to Azure Network Watcher - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/)
+
+
+
+You have a Log Analytics workspace that collects data from various data sources.
+
+You create a new Azure Monitor log query.
+
+You plan to view data pinned as a chart to a shared dashboard.
+
+What is the maximum number of days for which data can be shown on the shared dashboard?
+
+Select only one answer.
+
+14
+
+30
+
+**This answer is correct.**
+
+90
+
+**This answer is incorrect.**
+
+180
+
+Data shown on a shared dashboard can only be displayed for a maximum of 30 days.
+
+[Azure Monitor workbook chart visualizations - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-chart-visualizations)
+
+[Introduction to Azure Monitor](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-monitor/)
+
+
+You need to create Azure alerts based on metric values and activity log events.
+
+The solution must meet the following requirements:
+
+- Set a limit on how many times an alert notification is sent.
+- Call an Azure function when an alert is triggered.
+- Configure the alert to have a severity of warning when triggered.
+
+Which two resources should you create? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+an action group
+
+**This answer is correct.**
+
+an alert rule
+
+**This answer is correct.**
+
+a notification
+
+a secure webhook
+
+**This answer is incorrect.**
+
+You must create an action group to set up an action and create an alert rule to set the severity of the errors. A notification is only used to send email and you do not need to call a webhook.
+
+[Manage action groups in the Azure portal - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups)
+
+You have 100 virtual machines deployed to Azure. You have Azure Monitor alerts configured for CPU and memory utilization for the virtual machines.
+
+You open Azure Monitor alerts and discover 50 closed alerts for the virtual machines.
+
+What can cause the alert state to be Closed?
+
+Select only one answer.
+
+An administrator manually changed the state of the alerts.
+
+**This answer is correct.**
+
+The alerts are older than 60 days.
+
+The alert rule contains an action group that remediates the alert conditions.
+
+**This answer is incorrect.**
+
+The conditions that caused the alerts are no longer present.
+
+The alert state is manually set by the user and does not have any automated logic behind it. The alert state can be either New, Acknowledged, or Closed.
+
+[Manage Azure Monitor alerts - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-alerts/2-manage-azure-monitor-alerts)
