@@ -950,3 +950,208 @@ Azure tags
 You can use API server authorized IP ranges if you want to maintain a public endpoint for the API server but restrict access to a set of trusted IP ranges. You can use a private cluster if you want to limit the API server to only be accessible from within your virtual network.
 
 [Introduction to Kubernetes - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/configure-azure-kubernetes-service/)
+
+
+
+You have an Azure subscription that contains an Azure container app named cont1.
+
+You plan to add scaling rules to cont1.
+
+You need to ensure that cont1 replicas are created based on received messages in Azure Service Bus.
+
+Which scale trigger should you use?
+
+Select only one answer.
+
+CPU usage
+
+**This answer is incorrect.**
+
+event-driven
+
+**This answer is correct.**
+
+HTTP traffic
+
+memory usage
+
+Azure Container Apps allows a set of triggers to create new instances, called replicas. For Azure Service Bus, an event-driven trigger can be used to run the escalation method. The remaining scale triggers cannot use a scale rule based on messages in an Azure service bus.
+
+[Scaling in Azure Container Apps | Microsoft Learn](https://learn.microsoft.com/azure/container-apps/scale-app#event-driven)
+
+[Configure Azure Container Instances - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-container-instances/)
+
+
+You have an Azure subscription that contains an Azure App Service web app named App1.
+
+You have the following diagnostic logging configurations:
+
+- Application Logging (FileSystem): Error
+- Application Logging (Blob): Information
+- Detailed Error Message: Warning
+- Web Server Logging: Verbose
+
+You need to configure diagnostic logging to store all warnings or higher.  
+
+Which types of diagnostic logging and severity should you enable?
+
+Select all answers that apply.
+
+Application Logging (Blob)
+
+**This answer is correct.**
+
+Application Logging (FileSystem)
+
+**This answer is correct.**
+
+Detailed Error Message
+
+Verbose
+
+Warning
+
+**This answer is correct.**
+
+You must enable the Application Logging (Blob) diagnostic, which can be stored for more than a week. You must also set the severity level to warning, to store warning, error, and critical log messages.
+
+[Enable diagnostics logging - Azure App Service | Microsoft Learn](https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
+
+[Configure Azure App Service - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/)
+
+
+
+You have a Microsoft Entra tenant that contains a user named User1.
+
+You need to ensure that User1 can invite external users to the tenant. The solution must follow the principle of least privilege.
+
+Which role should you assign to User1?
+
+Select only one answer.
+
+Global Administrator
+
+Groups Administrator
+
+**This answer is incorrect.**
+
+Guest Inviter
+
+**This answer is correct.**
+
+Security Administrator
+
+The correct solution is to assign the Guest Inviter role, because it grants only the specific ability to invite external users into the Microsoft Entra tenant, aligning with the principle of least privilege. The Global Administrator role would allow full tenant-wide control and far exceeds the requirement. The Groups Administrator role allows management of groups but not external user invitations. The Security Administrator role manages security settings and reports but does not enable guest invitations. Therefore, the Guest Inviter role provides the exact permissions needed without granting unnecessary rights.
+
+[Exercise - add guest users to directory](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/6-exercise-add-guest-users-to-directory)  
+[Invite external users - individually and in bulk](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/5-invite-external-users-individually-bulk)  
+[Manage external user accounts in Microsoft Entra ID](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/9-user-accounts-azure-active-directory)  
+[Manage external collaboration](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/3-collaboration)  
+[Exercise - configure external collaboration](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/4-exercise-configure-external-collaboration)
+
+
+You have an Azure subscription.
+
+You run the following command:
+
+```
+  Get-AzRoleDefinition | Format-Table -Property Name, Id
+```
+
+The command output contains data that includes the following:
+
+```
+CustomRole1   111-222-333-444-555
+Owner         8e3af657-a8ff-443c-a75c-2fe8c4bcb635
+Contributor   b24988ac-6180-42a0-ab88-20f7382dd24c
+Reader        acdd72a7-3385-48ef-bd42-f606fba81ae7
+```
+
+You have a script that manages access to resources at the resource group level. The assignment process is automated by running the following PowerShell script nightly.
+
+```
+$rg = "RG1"
+$RoleName = "111-222-333-444-555"
+$Role = Get-AzRoleDefinition -Name $RoleName
+New-AzRoleAssignment -SignInName user1@contoso.com
+    -RoleDefinitionName $Role.Name `
+    -ResourceGroupName $rg
+```
+
+User1 is unable to access the RG1 resource group. You discover that the script fails to complete for User1.
+
+You need to modify the script to ensure that it does not fail.
+
+What should you change in the script?
+
+Select only one answer.
+
+`$Role = Add-AzRoleDefinition -Name $RoleName` 
+
+`$Role = Get-AzRoleAssignment -Name $RoleName`
+
+`$Role = Set-AzRoleAssignment -Name $RoleName` 
+
+**This answer is incorrect.**
+
+`$RoleName = "CustomRole1"`
+
+**This answer is correct.**
+
+For the script to work as written, the $RoleName variable should refer to the name instead of the ID.
+
+[Assign Azure roles using Azure PowerShell - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+
+[Secure your Azure resources with Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)
+
+
+  
+You need to identify which virtual machines are underutilized.
+
+Which Azure Advisor settings should you use?
+
+Select only one answer.
+
+Cost
+
+**This answer is correct.**
+
+High Availability
+
+Operational Excellence
+
+Performance
+
+**This answer is incorrect.**
+
+The Cost blade allows you to optimize and reduce your overall Azure spending. You can use this to identify the virtual machines that are underutilized. The Performance blade allows you to improve the speed of your applications. High availability is unavailable via Azure Advisor. Operational Excellence helps you achieve process and workflow efficiency, resource manageability, and deployment best practices.
+
+[Introduction to Azure Advisor - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/intro-to-azure-advisor/)
+
+
+You need to ensure that a user named User1 can tag all the virtual machines by using the Azure portal. The solution must follow the principle of least privilege.
+
+What should you do?
+
+Select only one answer.
+
+From the Azure portal, create a custom role that has the Microsoft.Compute virtual machines/*/write permission.
+
+From the Azure portal, modify the Access control (IAM) settings of the virtual machines.
+
+**This answer is correct.**
+
+From the Azure portal, modify the Policies settings of the Azure subscription.
+
+From the command line, run the az role assignment create command.
+
+**This answer is incorrect.**
+
+The correct solution is to update the Access control (IAM) settings of the virtual machines in the Azure portal and assign User1 a role that grants tagging rights, such as the built-in Tag Contributor role. This follows the principle of least privilege because it gives User1 only the permissions required to apply and manage tags, without granting full write or administrative rights. Creating a custom role with full virtualMachines/*/write permission is unnecessary and too broad, modifying Policies only enforces tagging rules rather than granting permissions, and using the az role assignment create command is another way to assign roles but does not specify the least-privilege role or the portal-based method requested in the scenario.
+
+[Apply tags with Azure portal](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources-portal)  
+[Understand Azure Automation](https://learn.microsoft.com/en-us/training/modules/manage-azure-paas-resources-using-automated-methods/3-understand-azure-automation)  
+[Apply tags with Azure CLI](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources-cli)  
+[Apply tags with Azure PowerShell](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources-powershell)  
+[Label mission-critical workloads](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-mission-critical-workload)  
+[Use tagging to organize resources](https://learn.microsoft.com/en-us/training/modules/control-and-organize-with-azure-resource-manager/3-use-tagging-to-organize-resources)

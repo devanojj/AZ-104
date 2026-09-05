@@ -573,3 +573,290 @@ To protect against datacenter level failures, and if you want connectivity to mu
 [What are Azure regions and availability zones? | Microsoft Learn](https://learn.microsoft.com/azure/reliability/availability-zones-overview)
 
 [Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
+
+
+You have a Basic Azure App Service plan that contains a web app.
+
+You need to ensure that the web app can scale automatically when the CPU usage is over 80% for a duration of 15 minutes.
+
+Which two actions should you perform? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+Configure a deployment slot.
+
+Configure a scaling condition to scale based on a metric, and then add the rules.
+
+**This answer is correct.**
+
+Configure a scaling condition to scale based on an instance count, and then set the instance count.
+
+Scale out the App Service plan.
+
+Scale up the App Service plan.
+
+**This answer is correct.**
+
+The Basic app service plan does not support automatic scaling - you must scale up the plan to Premium (or higher) to support automatic scaling. After that you must configure a scaling condition, based on a metric (CPU), which will automatically trigger scaling (out) of the app service web app.
+
+[Scale up features and capacities - Azure App Service | Microsoft Learn](https://learn.microsoft.com/azure/app-service/manage-scale-up)
+
+[Configure Azure App Service - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/)
+
+
+ou have an Azure subscription.
+
+You plan to deploy a web app in a Linux-based Docker container.
+
+You need to recommend a solution for the deployment of the web app that meets the following requirements:
+
+- Supports a custom domain name
+- Provides the ability to scale out automatically based on demand.
+- Minimizes administrative effort
+- Minimizes costs
+
+Which solution should you recommend?
+
+Select only one answer.
+
+Azure App Service
+
+**This answer is correct.**
+
+Azure Container Instances
+
+Azure Kubernetes Service (AKS)
+
+Azure Virtual Machine Scale Sets
+
+Azure App Service fulfills all the stated requirements. Azure Virtual Machine Scale Sets, Azure Kubernetes Service (AKS), and Azure Container Instances are more difficult to administer and more costly.
+
+[Overview - Azure App Service | Microsoft Learn](https://learn.microsoft.com/azure/app-service/overview)
+
+[Configure Azure App Service plans - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-app-service-plans/)
+
+
+You have an Azure subscription that contains an App Service web app named App1.
+
+You configure App1 with a custom domain name of webapp1.contoso.com.
+
+You need to create a DNS record for App1. The solution must ensure that App1 remains accessible if the IP address changes.
+
+Which type of DNS record should you create?
+
+Select only one answer.
+
+A
+
+**This answer is incorrect.**
+
+CNAME
+
+**This answer is correct.**
+
+SOA
+
+SRV
+
+TXT
+
+For web apps, you create either an A (Address) record or a CNAME (Canonical Name) record. An A record maps a domain name to an IP address. A CNAME record maps a domain name to another domain name. DNS uses the second name to look up the address. Users still see the first domain name in their browser. If the IP address changes, a CNAME entry is still valid, whereas an A record must be updated.
+
+[Configure Azure App Service - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/)
+
+[Create custom domain names - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/8-create-custom-domain-names)
+
+4. Implement and manage virtual networking
+
+
+
+
+You have a Microsoft Entra tenant.
+
+You create a new user named User1.
+
+You need to assign a Microsoft 365 E5 license to User1.
+
+Which user attribute should be configured for User1 before you can assign the license?
+
+Select only one answer.
+
+First name
+
+Last name
+
+Other email address
+
+Usage location
+
+**This answer is correct.**
+
+User type
+
+Not all Microsoft 365 services are available in all locations. Before a license can be assigned to a user, you must specify the Usage location. The attributes of First name, Last name, Other email address, and User type are not mandatory for license assignment.
+
+[Assign or remove licenses - Microsoft Entra | Microsoft Learn](https://learn.microsoft.com/azure/active-directory/fundamentals/license-users-groups)
+
+
+You have an Azure subscription that contains multiple users and administrators.  
+
+You are creating a new custom role by using the following JSON.  
+
+``
+
+{   "Name": "Custom Role",   "Id": null,   "IsCustom": true,   "Description": "Custom Role description",   "Actions": [     "Microsoft.Compute/*/read",     “Microsoft.Compute/snapshots/write”,     “Microsoft.Compute/snapshots/read”,   ],   "NotActions": [   “Microsoft.Compute/snapshots/delete”   ],   "AssignableScopes": [     "/subscriptions/00000000-0000-0000-0000-000000000000",     "/subscriptions/11111111-1111-1111-1111-111111111111"   ] }
+
+Which two actions can be performed by a user that is assigned the custom role? Each correct answer presents a complete solution.
+
+Select all answers that apply.
+
+Create and delete a snapshot.
+
+Create and read a snapshot.
+
+**This answer is correct.**
+
+Create virtual machines.
+
+Read all virtual machine settings.
+
+**This answer is correct.**
+
+The role can read all compute resources, call Microsoft support roles, and allow the creation and reading of a snapshot.
+
+[Azure custom roles - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/custom-roles)
+
+[Secure your Azure resources with Azure role-based access control (Azure RBAC](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)
+
+
+You have the following resource groups, management groups, and Azure subscriptions:
+
+- Two resource groups named RG1 and RG2 in a subscription named Sub1 and a management group named MG1.
+- Two resource groups named RG3 and RG4 in a subscription named Sub2 and a management group named MG1.
+- Two resource groups named RG5 and RG6 in a subscription named Sub3 and a management group named MG1.
+- Two resource group named RG10 and RG11 in a subscription named Sub4 and a management group named MG2.
+- Two resource group named RG11 and RG12 in a subscription named Sub5 and a management group named MG2.
+
+You need to assign a role to a user to ensure the user can view all the resources in the subscriptions. The solution must use the principle of least privilege.
+
+Which role should you assign?
+
+Select only one answer.
+
+the Billing Reader role for all the subscriptions
+
+the Billing Reader role for MG1 and MG2
+
+the Contributor role for MG1 and MG2
+
+the Reader role for MG1 and MG2
+
+**This answer is correct.**
+
+Assigning the Reader role for MG1 and MG2 is correct because the simplest way to give user access to all resources is to assign a role at the management group level.
+
+[Steps to assign an Azure role - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-steps)
+
+[Secure your Azure resources with Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)
+
+
+You have an Azure subscription that contains multiple virtual machines.  
+
+You need to ensure that a user named User1 can view all the resources in a resource group named RG1. You must use the principle of least privilege.
+
+Which role should you assign to User1?
+
+Select only one answer.
+
+Billing Reader
+
+Contributor
+
+Reader
+
+**This answer is correct.**
+
+Tag Contributor
+
+The Reader role allows you to view all the resources but does not allow you to make any changes. The Contributor role allows you to manage all the resources, the Billing Reader role provides read access only to billing data, and the Tag Contributor role allows you to manage entity tags without providing access to the entities themselves.
+
+[Azure built-in roles - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles)
+
+[Secure your Azure resources with Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)
+
+ou have an Azure subscription that contains a resource group named RG1. RG1 contains a virtual machine that runs daily reports.
+
+You need to ensure that the virtual machine shuts down when resource group costs exceed 75 percent of the allocated budget.
+
+Which two actions should you perform? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+Create an action group of type Runbook, and then select **Scale Up VM**.
+
+Create an action group of type Runbook, and then select **Stop VM** as an action.
+
+**This answer is correct.**
+
+From Cost Management + Billing, create a new cost analysis.
+
+From Cost Management + Billing, modify the Budgets settings.
+
+**This answer is correct.**
+
+You must go to Cost Management + Billing, and then Budgets to edit the budget associated with the resource group resources. You must also create a new action group of the Runbook type, and then choose Stop VM as an action. The cost analysis will not stop the virtual machine from running and the Scale Up VM action group is not required.
+
+[Tutorial - Create and manage Azure budgets - Microsoft Cost Management | Microsoft Learn](https://learn.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
+
+
+You have an Azure subscription that contains 200 virtual machines.
+
+You plan to use Azure Advisor to provide cost recommendations.
+
+You need to ensure that all Azure admins are notified whenever an Advisor alert is generated. The solution must minimize administrative effort.
+
+What should you include in the solution?
+
+Select only one answer.
+
+an action group
+
+**This answer is correct.**
+
+an application security group
+
+an Azure Automation account
+
+a capacity reservation group
+
+Whenever Azure Advisor detects a new recommendation for resources, an event is stored in the Azure Activity log. You can set up alerts for these events from Azure Advisor. You can select a subscription and optionally a resource group to specify the resources for which you want to receive alerts. You also need to create an action group that will contain all the users to be notified.
+
+[Create action groups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-alerts/4-create-action-groups?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources)
+
+[Create Azure Advisor alerts for new recommendations using Azure portal - Azure Advisor | Microsoft Learn](https://learn.microsoft.com/azure/advisor/advisor-alerts-portal)
+
+
+
+You have an Azure subscription that contains a resource group named RG1.
+
+RG1 contains 10 resources.
+
+You need to prevent the resources from being deleted accidentally. The solution must ensure that RG1 can be deleted if it no longer contains any resources.
+
+What should you do?
+
+Select only one answer.
+
+From Azure Cloud Shell, run the New-AzureRmResourceGroup cmdlet.
+
+From Azure Cloud Shell, run the Set-AzResourceGroup cmdlet.
+
+From the Azure portal, add a tag on RG1.
+
+From the Azure portal, add a lock on RG1.
+
+**This answer is correct.**
+
+The correct solution is to configure a lock on RG1 from the Azure portal, because a Delete lock prevents accidental deletion of resources within the resource group while still allowing the resource group itself to be deleted once it is empty. Creating a new resource group with New-AzureRmResourceGroup is irrelevant, and using Set-AzResourceGroup changes properties but does not enforce deletion protection. The “handlers” option does not exist in Azure resource group settings. Locks are the supported mechanism for safeguarding resources against accidental deletion while maintaining flexibility to remove the resource group if needed.
+
+[Lock your Azure resources to protect your infrastructure](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources)
