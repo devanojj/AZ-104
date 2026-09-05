@@ -1,17 +1,17 @@
-You have an Azure subscription that contains the following virtual networks:
+*You have an Azure subscription that contains the following virtual networks:*
 
-- VNet1: Has an IP address space of 10.10.0.0/16 and contains a subnet named Subnet1 (10.10.1.0/24) that hosts a virtual machine named VM1 that runs Windows Server.
-- VNet2: Has an IP address space of 10.20.0.0/16 and contains a subnet named Subnet2 (10.20.1.0/24) that hosts a virtual machine named VM2 that runs Windows Server.
+- *VNet1: Has an IP address space of 10.10.0.0/16 and contains a subnet named Subnet1 (10.10.1.0/24) that hosts a virtual machine named VM1 that runs Windows Server.*
+- *VNet2: Has an IP address space of 10.20.0.0/16 and contains a subnet named Subnet2 (10.20.1.0/24) that hosts a virtual machine named VM2 that runs Windows Server.*
 
-VNet1 and VNet2 are connected by using virtual network peering.
+*VNet1 and VNet2 are connected by using virtual network peering.*
 
-Users report that VM1 cannot connect to VM2.
+*Users report that VM1 cannot connect to VM2.*
 
-You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses virtual network peering as the next hop.
+*You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses virtual network peering as the next hop.*
 
-What should you use?
+*What should you use?*
 
-Select only one answer.
+*Select only one answer.*
 
 Connection troubleshoot in Azure Network Watcher from VM1 to VM2
 
