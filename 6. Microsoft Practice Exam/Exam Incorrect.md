@@ -333,3 +333,67 @@ Delete the SSL certificate from RG1 and upload it to RG2.
 
 Move all the resources from RG1 to RG2.
 
+
+
+
+You have an Azure virtual network named VNet1.
+
+You need to ensure that email is sent to an administrator when a virtual machine is connected to VNet1.
+
+What two settings should you configure? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+an action group
+
+**This answer is correct.**
+
+an alert processing rule
+
+an alert rule
+
+**This answer is correct.**
+
+a mail-enabled security group
+
+**This answer is incorrect.**
+
+a Microsoft 365 group
+
+The correct answers are an action group and an alert rule. An alert rule in Azure Monitor is used to detect a specific condition or event—in this case, when a virtual machine is connected to VNet1. The alert rule monitors the relevant activity or resource signal and triggers when the defined condition occurs. An action group defines what happens when the alert fires, such as sending an email notification to an administrator. Therefore, the alert rule detects the event, and the action group performs the notification action. The other options do not directly provide the mechanism to both detect the event and send the email notification.
+
+[Monitoring Azure virtual networks | Microsoft Docs](https://docs.microsoft.com/azure/virtual-network/monitor-virtual-network)
+
+[Introduction to Azure Monitor](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-monitor/)
+
+
+
+You have an Azure subscription that contains a resource group named RG1. RG1 contains two virtual machines named VM1 and VM2.
+
+You need to inspect all the network traffic from VM1 to VM2.The solution must use Azure Monitor metrics.
+
+Which two actions should you perform? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+Configure a log alert.
+
+**This answer is incorrect.**
+
+Configure Network In and Network Out.
+
+Install AzureNetworkWatcherExtension.
+
+**This answer is correct.**
+
+Use packet capture.
+
+**This answer is correct.**
+
+Azure Network Watcher variable packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine. Packet capture helps to diagnose network anomalies both reactively and proactively.
+
+[Tutorial: Monitor network communication between two virtual machines using the Azure portal | Microsoft Learn](https://learn.microsoft.com/azure/network-watcher/connection-monitor)
+
+[Introduction to Packet capture in Azure Network Watcher | Microsoft Learn](https://learn.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)
+
+[Introduction to Azure Network Watcher](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/)
