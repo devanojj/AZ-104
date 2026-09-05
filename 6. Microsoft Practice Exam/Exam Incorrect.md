@@ -17,9 +17,9 @@ Connection troubleshoot in Azure Network Watcher from VM1 to VM2
 
 **This answer is incorrect.**
 
-the effective routes for the network interface of VM1
+~~the effective routes for the network interface of VM1~~
 
-**This answer is correct.**
+~~**This answer is correct.**~~
 
 Azure Network Watcher next hop for the network interface of VM1
 
@@ -43,7 +43,7 @@ Create and configure virtual networks and subnets
 
 **Rationale:**
 
-Viewing the effective routes on the network interface of VM1 shows all the system, peering, and user-defined routes that Azure applies to outbound traffic, including the next hop type for the 10.20.0.0/16 prefix.
+~~Viewing the effective routes on the network interface of VM1 shows all the system, peering, and user-defined routes that Azure applies to outbound traffic, including the next hop type for the 10.20.0.0/16 prefix.~~
 
 Connection troubleshoot validates reachability but does not display routing decisions.
 
