@@ -746,3 +746,207 @@ Zone-redundant storage (ZRS) replicates a storage account synchronously across t
 [Data redundancy - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-redundancy)
 
 [Determine replication strategies - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/5-determine-replication-strategies)
+
+
+ou have two premium block blob Azure Storage accounts named storage1 and storage2.
+
+You need to configure object replication from storage1 to storage2.
+
+Which three features should be enabled before configuring object replication? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+blob versioning for storage1
+
+**This answer is correct.**
+
+blob versioning for storage2
+
+**This answer is correct.**
+
+change feed for storage1
+
+**This answer is correct.**
+
+change feed for storage2
+
+**This answer is incorrect.**
+
+point-in-time restore for the containers on storage1
+
+**This answer is incorrect.**
+
+point-in-time restore for the containers on storage2
+
+Object replication can be used to replicate blobs between storage accounts. Before configuring object replication, you must enable blob versioning for both storage accounts, and you must enable the change feed for the source account.
+
+[Configure object replication - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/object-replication-configure?tabs=portal)
+
+[Configure Azure Blob Storage - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-blob-storage/)
+
+You create an Azure Storage account.
+
+You need to create a lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days.
+
+What should you do first?
+
+Select only one answer.
+
+Enable access tracking.
+
+**This answer is correct.**
+
+Enable versioning for blobs.
+
+**This answer is incorrect.**
+
+Refresh the blob inventory.
+
+Rotate the storage account keys.
+
+A lifecycle management rule can be used to move or delete blobs automatically. The rule can be based on the time the blob was last modified or the time the blob was last accessed (read or write). To perform an action based on the access time, access tracking must be enabled. This can incur additional storage costs.
+
+[Configure a lifecycle management policy - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal)
+
+[Configure Azure Blob Storage - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-blob-storage/)
+
+
+You are deploying a virtual machine by using an availability set in the East US Azure region.
+
+You have deployed 18 virtual machines in two fault domains and 10 update domains.
+
+Microsoft performed planned physical hardware maintenance in the East US region.
+
+What is the maximum number of virtual machines that will be unavailable?
+
+Select only one answer.
+
+2
+
+**This answer is correct.**
+
+8
+
+9
+
+**This answer is incorrect.**
+
+18
+
+18 virtual machines are shared across 10 update domains. The first 10 virtual machines go to 10 update domains, so eight update domains will have two virtual machines. When there is physical hardware maintenance, some virtual machines will be unavailable based on their configuration. If there was a rack failure, then 18 virtual machines will be distributed to two fault domains with nine virtual machines each.
+
+[Availability sets overview - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview)
+
+[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
+
+
+
+You plan to deploy an Azure virtual machine.
+
+You are evaluating whether to use an Azure Spot instance.
+
+Which two factors can cause an Azure Spot instance to be evicted? Each correct answer presents a complete solution.
+
+Select all answers that apply.
+
+the average CPU usages of the instance
+
+**This answer is incorrect.**
+
+the Azure capacity needs
+
+**This answer is correct.**
+
+the current price of the instance
+
+**This answer is correct.**
+
+the time of day
+
+Azure Spot instances allow you to provision virtual machines at a reduced cost, but these virtual machines can be stopped by Azure when Azure needs the capacity for other pay-as-you-go workloads, or when the price of the spot instance exceeds the maximum price that you have set. These virtual machines are good for dev, testing, or for workloads that do not require any specific SLA.
+
+[Use Azure Spot Virtual Machines - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/spot-vms)
+
+[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
+
+
+
+ou have an Azure subscription that contains an Azure Storage account named vmstorageaccount1.  
+
+You create an Azure container instance named container1.
+
+You need to configure persistent storage for container1.
+
+What should you create in vmstorageaccount1?
+
+Select only one answer.
+
+a blob container
+
+**This answer is incorrect.**
+
+a file share
+
+**This answer is correct.**
+
+a queue
+
+a table
+
+n Azure container instance (Docker container) can mount Azure File Storage shares as directories and use them as persistent storage. An Azure container instance cannot mount and use as persistent storage blob containers, queues and tables.
+
+.
+
+[Persistent Docker volumes with Azure File Storage | Azure Blog and Updates | Microsoft Azure](https://azure.microsoft.com/blog/persistent-docker-volumes-with-azure-file-storage/)
+
+[Configure Azure Container Instances - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-container-instances/)
+
+Your development team plans to deploy an Azure container instance. The container needs a persistent storage layer.
+
+Which service should you use?
+
+Select only one answer.
+
+Azure Blob storage
+
+Azure Files
+
+**This answer is correct.**
+
+Azure Queue Storage
+
+Azure SQL Database
+
+**This answer is incorrect.**
+
+You can persist data for Azure Container Instances with the use of Azure Files. Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol.
+
+[Mount Azure Files volume to container group - Azure Container Instances | Microsoft Learn](https://learn.microsoft.com/azure/container-instances/container-instances-volume-azure-files)
+
+[Explore Azure Storage services - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/3-explore-azure-storage-services?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage)
+
+Your company has an Azure subscription that is linked to a Microsoft Entra tenant.
+
+You have been asked to limit the access to the Kubernetes API server.
+
+Which two options should you choose? Each correct answer presents a complete solution.
+
+Select all answers that apply.
+
+API server authorized IP ranges
+
+**This answer is correct.**
+
+public cluster
+
+private cluster
+
+**This answer is correct.**
+
+Azure tags
+
+**This answer is incorrect.**
+
+You can use API server authorized IP ranges if you want to maintain a public endpoint for the API server but restrict access to a set of trusted IP ranges. You can use a private cluster if you want to limit the API server to only be accessible from within your virtual network.
+
+[Introduction to Kubernetes - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/configure-azure-kubernetes-service/)

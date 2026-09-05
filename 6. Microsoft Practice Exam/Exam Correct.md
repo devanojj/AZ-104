@@ -512,3 +512,64 @@ Versioning must be enabled for both the source and destination accounts. In this
 [Object replication overview - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/object-replication-overview)
 
 [Configure Azure Blob Storage - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-blob-storage/)
+
+
+You have an Azure Resource Manager (ARM) template named Template1 that is used to deploy Azure virtual machines.
+
+Template1 contains the following text. 
+
+"resources": [  
+  {  
+    "type": "Microsoft.Compute/virtualMachines",  
+    "apiVersion": "2025-04-01",  
+    "name": "[parameters('vmName')]",  
+    "location": "[resourceGroup().location]",  
+    "properties": {  
+      &lt;text removed&gt;  
+    }  
+  }  
+]
+
+You need to deploy two Azure virtual machines by using Template1.
+
+What should you add to Template1?
+
+Select only one answer.
+
+a copy element
+
+**This answer is correct.**
+
+the API version
+
+the Azure subscription ID
+
+the resource group location
+
+The correct solution is to add a copy element, because ARM templates use the copy property to deploy multiple instances of a resource, such as two virtual machines, in a single deployment. The API version is already specified in the template and does not control the number of resources deployed. The subscription ID is never hardcoded in ARM templates since deployments are scoped to a subscription, and the resource group location is already provided through "[resourceGroup().location]". Therefore, only the copy element enables the template to create two virtual machines from a single resource definition.
+
+[Add flexibility to your Azure Resource Manager template by using template functions](https://learn.microsoft.com/en-us/training/modules/modify-azure-resource-manager-template-reuse/2-azure-resource-manager-functions)  
+[Examine Azure Resource Manager templates](https://learn.microsoft.com/en-us/training/modules/explore-azure-governance-manageability/3-examine-azure-resource-manager-templates)  
+[Azure Resource Manager documentation](https://learn.microsoft.com/en-us/training/modules/arm-template-whatif/2-deployment-modes)
+
+our company plans to host an application on four Azure virtual machines.
+
+You need to ensure that at least two virtual machines are available if a single Azure datacenter fails.
+
+Which availability option should you select for the virtual machine?
+
+Select only one answer.
+
+an availability set
+
+an availability zone
+
+**This answer is correct.**
+
+scale sets
+
+To protect against datacenter level failures, and if you want connectivity to multiple machines, you must ensure that the virtual machines are deployed across various availability zones.
+
+[What are Azure regions and availability zones? | Microsoft Learn](https://learn.microsoft.com/azure/reliability/availability-zones-overview)
+
+[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
