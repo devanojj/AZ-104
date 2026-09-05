@@ -514,3 +514,235 @@ The conditions that caused the alerts are no longer present.
 The alert state is manually set by the user and does not have any automated logic behind it. The alert state can be either New, Acknowledged, or Closed.
 
 [Manage Azure Monitor alerts - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-alerts/2-manage-azure-monitor-alerts)
+
+
+You have an Azure subscription that contains the following virtual networks:
+
+- VNet1: Has an IP address space of 10.10.0.0/16 and contains a subnet named Subnet1 (10.10.1.0/24) that hosts a virtual machine named VM1 that runs Windows Server.
+- VNet2: Has an IP address space of 10.20.0.0/16 and contains a subnet named Subnet2 (10.20.1.0/24) that hosts a virtual machine named VM2 that runs Windows Server.
+
+VNet1 and VNet2 are connected by using virtual network peering.
+
+Users report that VM1 cannot connect to VM2.
+
+You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses virtual network peering as the next hop.
+
+What should you use?
+
+Select only one answer.
+
+Connection troubleshoot in Azure Network Watcher from VM1 to VM2
+
+the effective routes for the network interface of VM1
+
+**This answer is correct.**
+
+Azure Network Watcher next hop for the network interface of VM1
+
+the Network Controller role in VM1
+
+**This answer is incorrect.**
+
+**Objective:**
+
+4.1 Configure and manage virtual networks in Azure
+
+**What This Item Tests:**
+
+Create and configure virtual networks and subnets
+
+**Additional Reading:**
+
+[Constraints for peered virtual networks - Training | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview#troubleshoot)
+
+[Network troubleshooter - Training | Microsoft Learn](https://learn.microsoft.com/en-us/troubleshoot/azure/app-service/troubleshoot-vnet-integration-apps#network-troubleshooter)
+
+[Manage virtual networks - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/describe-microsoft-azure-resources-management/4-manage-virtual-networks)
+
+**Rationale:**
+
+Viewing the effective routes on the network interface of VM1 shows all the system, peering, and user-defined routes that Azure applies to outbound traffic, including the next hop type for the 10.20.0.0/16 prefix.
+
+Connection troubleshoot validates reachability but does not display routing decisions.
+
+Azure Network Watcher next hop is a diagnostic tool that identifies the next routing hop (type, IP address, and route table ID) for traffic leaving a virtual machine. Next hop does not display routing decisions.
+
+The Network Controller role in Windows Server is a centralized, programmable management point for Software Defined Networking (SDN).
+
+
+You have an Azure subscription that contains two resource groups named RG1 and RG2.
+
+RG1 contains the following resources:
+
+- A virtual network named VNet1 located in the East US Azure region
+- A network security group (NSG) named NSG1 located in the West US Azure region
+
+RG2 contains the following resources:
+
+- A virtual network named VNet2 located in the East US Azure region
+- A virtual network named VNet3 located in the West US Azure region
+
+You need to associate NSG1.
+
+To which subnets can you associate NSG1?
+
+Select only one answer.
+
+the subnets of all the virtual networks
+
+the subnets of VNet1 only
+
+the subnets of VNet1 and VNet2
+
+**This answer is incorrect.**
+
+the subnets of VNet3 only
+
+**This answer is correct.**
+
+You can assign an NSG to the subnet of the virtual network in the same region as the NSG and NSG1 is in the West US region.
+
+[Plan Azure virtual networks | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)
+
+[Configure network security groups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-network-security-groups/)
+
+You have an Azure subscription that contains an Azure DNS zone named contoso.com.
+
+You add a new subdomain named test.contoso.com.
+
+You plan to delegate test.contoso.com to a different DNS server.
+
+How should you configure the domain delegation?
+
+Select only one answer.
+
+Add an A record for test.contoso.com.
+
+Add an NS record set named test to the contoso.com zone.
+
+**This answer is correct.**
+
+Create the SOA record for test.contoso.com.
+
+Modify the A record for contoso.com.
+
+**This answer is incorrect.**
+
+You must create a DNS NS record set named test in the contoso.com zone. An NS zone must be created at the apex of the zone named contoso.com. You do not need to create the SOA record set in test.contoso.com. It must only be created in contoso.com. You do not need to create or modify the DNS A record.
+
+[Delegate a subdomain - Azure DNS | Microsoft Learn](https://learn.microsoft.com/azure/dns/delegate-subdomain)
+
+[Host your domain on Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/host-domain-azure-dns/)
+
+Your organization uses an Azure Load Balancer to manage traffic for VMs hosting a web application. Users experience uneven traffic distribution, with some VMs receiving more traffic than others.
+
+You need to configure the load balancer to ensure even traffic distribution across all VMs in the backend pool.
+
+What should you do?
+
+Select only one answer.
+
+Add more VMs to the pool.
+
+Adjust the load balancing rule settings.
+
+Disable session persistence.
+
+**This answer is correct.**
+
+Enable session persistence (source IP affinity).
+
+**This answer is incorrect.**
+
+Disabling session persistence ensures even traffic distribution by removing any affinity that directs traffic to the same VM. Adjusting the load balancing rule settings might seem like a solution but does not address the root cause of uneven distribution. Enabling source IP affinity maintains session persistence, potentially exacerbating the uneven distribution of traffic. Adding more VMs does not solve the distribution issue caused by session persistence settings.
+
+[Configure Azure virtual machine network settings - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/create-windows-virtual-machine-in-azure/6-manage-vm)
+
+
+You have an Azure subscription that contains a storage account named storage1. storage1 contains an Azure Files share named share1.
+
+You need to ensure that users can authenticate to share1 by using Microsoft Entra and access the file share by using SMB.
+
+What should you do?
+
+Select only one answer.
+
+Configure identity-based access.
+
+**This answer is correct.**
+
+Generate a shared access signature (SAS) and a connection string.
+
+Enable public network access.
+
+Regenerate the access keys.
+
+**Objective:**
+
+2.1 Configure access to storage
+
+**What This Item Tests:**
+
+Configure identity-based access for Azure Files
+
+**Additional Reading:**
+
+[Review Azure Storage security strategies - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/configure-storage-security/2-review-strategies)
+
+Correct - Identity-based access for an Azure Storage account is a security model that uses Microsoft Entra ID or Active Directory to authorize requests to storage data, rather than relying on a static storage account key or SAS.  
+Incorrect – SAS tokens and access keys provide key-based access, rather than identity-based access, and enabling public network access does not configure authentication or authorization.
+
+
+ou need to create an Azure Storage account that supports the Azure Data Lake Storage Gen2 capabilities.
+
+Which two types of storage accounts can you use? Each correct answer presents a complete solution.
+
+Select all answers that apply.
+
+premium block blobs
+
+**This answer is correct.**
+
+premium file shares
+
+standard general-purpose v2
+
+**This answer is correct.**
+
+premium page blobs
+
+**This answer is incorrect.**
+
+To support Data Lake Storage, the storage account must support blob storage, which is available as standard general-purpose v2 and premium block blobs. Additionally, when you create the storage account, you must enable the hierarchical namespace.
+
+[Create a storage account for Azure Data Lake Storage Gen2 - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/create-data-lake-storage-account)
+
+[Determine storage account types - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/4-determine-storage-account-kinds)
+
+
+Your need to create an Azure Storage account that meets the following requirements:
+
+- Stores data in a minimum of two availability zones
+- Provides high availability
+
+Which type of storage redundancy should you use?
+
+Select only one answer.
+
+geo-redundant storage (GRS)
+
+locally-redundant storage (LRS)
+
+read-access geo-redundant storage (RA-GRS)
+
+**This answer is incorrect.**
+
+zone-redundant storage (ZRS)
+
+**This answer is correct.**
+
+Zone-redundant storage (ZRS) replicates a storage account synchronously across three Azure availability zones in the primary region. For ensuring high availability, Microsoft recommends using ZRS in the primary region and also replicating to a secondary region.
+
+[Data redundancy - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-redundancy)
+
+[Determine replication strategies - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/5-determine-replication-strategies)
