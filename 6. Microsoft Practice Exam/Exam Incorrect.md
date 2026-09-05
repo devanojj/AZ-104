@@ -53,6 +53,15 @@ The Network Controller role in Windows Server is a centralized, programmable man
 
 
 
+
+
+
+
+
+
+
+
+
 You have an Azure subscription that contains an ASP.NET application. The application is hosted on four Azure virtual machines that run Windows Server.
 
 You have a load balancer named LB1 that load balances requests to the virtual machines.
