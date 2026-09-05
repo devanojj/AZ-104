@@ -305,3 +305,31 @@ Azure Container Apps manages the details of Kubernetes and container orchestrati
 
 [Containers in Azure Container Apps | Microsoft Learn](https://learn.microsoft.com/azure/container-apps/containers)
 
+
+
+You have an Azure subscription that contains multiple resource groups and Azure App Service web apps. A resource group named RG1 hosts a web app named appservice1.
+
+The App Service uses an SSL certificate.
+
+You create a resource group named RG2.
+
+You plan to move all the resources in RG1 to RG2.  
+
+Which two actions should you perform? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+Create a new App Service plan in RG2.
+
+**This answer is incorrect.**
+
+Create a new web app in RG2.
+
+**This answer is incorrect.**
+
+Delete the SSL certificate from RG1 and upload it to RG2.
+
+**This answer is correct.**
+
+Move all the resources from RG1 to RG2.
+
