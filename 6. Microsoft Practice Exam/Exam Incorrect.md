@@ -8,19 +8,17 @@ Users report that VM1 cannot connect to VM2.
 
 You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses virtual network peering as the next hop.
 
-What should you use? Select only one answer.
 
 ~~Connection troubleshoot in Azure Network Watcher from VM1 to VM2~~ ~~**This answer is incorrect.**~~
 
 ~~the effective routes for the network interface of VM1~~ ~~**This answer is correct.**~~
 
 ~~Azure Network Watcher next hop for the network interface of VM1~~ 
+~~The Network Controller role in VM1~~
 
-The Network Controller role in VM1
+~~**Objective:** 4.1 Configure and manage virtual networks in Azure~~
 
-**Objective:** 4.1 Configure and manage virtual networks in Azure
-
-**What This Item Tests:** Create and configure virtual networks and subnets
+~~**What This Item Tests:** Create and configure virtual networks and subnets~~
 
 **Additional Reading:**
 [Constraints for peered virtual networks - Training | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview#troubleshoot)
@@ -46,32 +44,22 @@ The Network Controller role in VM1
 You have an Azure subscription that contains an ASP.NET application. The application is hosted on four Azure virtual machines that run Windows Server.
 
 You have a load balancer named LB1 that load balances requests to the virtual machines.
-
 You need to ensure that site users connect to the same web server for all requests made to the application.
-
 Which two actions should you perform? Each correct answer presents part of the solution.
 
-Select all answers that apply.
-
-Configure an inbound NAT rule.
-
-**This answer is incorrect.**
-
-Set Session persistence to **Client IP**.
-
-**This answer is correct.**
-
-Set Session persistence to **None**.
-
-Set Session persistence to **Protocol**.
-
-**This answer is correct.**
+- Configure an inbound NAT rule. **This answer is incorrect.**
+- Set Session persistence to **Client IP**. **This answer is correct.**
+- Set Session persistence to **None**.
+- Set Session persistence to **Protocol**. **This answer is correct.**
 
 By setting Session persistence to Client IP and Protocol, you ensure that site users connect to the same web server for all requests made to the application. Setting Session persistence to None disables sticky sessions and an inbound NAT rule is used to forward traffic from a load balancer frontend to a backend pool.
 
 [Azure Load Balancer distribution modes | Microsoft Learn](https://learn.microsoft.com/azure/load-balancer/distribution-mode-concepts)
-
 [Introduction to Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/)
+
+
+
+
 
 
 You have an Azure subscription that contains an Azure DNS zone named contoso.com.
