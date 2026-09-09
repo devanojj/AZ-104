@@ -1,0 +1,1 @@
+**Connection troubleshoot** checks whether one Azure resource can connect to another and identifies where the connection is failing.

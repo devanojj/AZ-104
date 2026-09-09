@@ -33,12 +33,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6. Microsoft Practice Exam/Exam Incorrect.md",
+                "file": "0. General Concepts/Azure Network Watcher.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Exam Incorrect"
+              "title": "Azure Network Watcher"
             }
           }
         ]
@@ -219,8 +219,9 @@
   },
   "active": "c398f1e776aeaf4f",
   "lastOpenFiles": [
-    "0. General Concepts/Effective Routes.md",
     "6. Microsoft Practice Exam/Exam Incorrect.md",
+    "0. General Concepts/Azure Network Watcher.md",
+    "0. General Concepts/Effective Routes.md",
     "6. Microsoft Practice Exam/Exam Correct.md",
     "1. Identities & Governance/1.6 Password Reset/Unit 5 - Company Branding.md",
     "6. Microsoft Practice Exam",
@@ -245,7 +246,6 @@
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 12 - Automatic Use Creation.md",
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 11 - Custom Security Attribute.md",
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 9 - Change Group License.md",
-    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 8 - Manage Licenses.md",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
     "5. Monitor Resources/5.2 Backup VM",
