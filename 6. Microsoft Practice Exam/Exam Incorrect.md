@@ -45,7 +45,7 @@ Create and configure virtual networks and subnets
 
 ~~Viewing the effective routes on the network interface of VM1 shows all the system, peering, and user-defined routes that Azure applies to outbound traffic, including the next hop type for the 10.20.0.0/16 prefix.~~
 
-Connection troubleshoot validates reachability but does not display routing decisions.
+~~Connection troubleshoot validates reachability but does not display routing decisions.~~
 
 Azure Network Watcher next hop is a diagnostic tool that identifies the next routing hop (type, IP address, and route table ID) for traffic leaving a virtual machine. Next hop does not display routing decisions.
 
