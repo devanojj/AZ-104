@@ -1,12 +1,12 @@
-You have an Azure subscription that contains the following virtual networks:
+~~You have an Azure subscription that contains the following virtual networks:~~
 
-- VNet1: Has an IP address space of 10.10.0.0/16 and contains a subnet named Subnet1 (10.10.1.0/24) that hosts a virtual machine named VM1 that runs Windows Server.
-- VNet2: Has an IP address space of 10.20.0.0/16 and contains a subnet named Subnet2 (10.20.1.0/24) that hosts a virtual machine named VM2 that runs Windows Server.
+- ~~VNet1: Has an IP address space of 10.10.0.0/16 and contains a subnet named Subnet1 (10.10.1.0/24) that hosts a virtual machine named VM1 that runs Windows Server.~~
+- ~~VNet2: Has an IP address space of 10.20.0.0/16 and contains a subnet named Subnet2 (10.20.1.0/24) that hosts a virtual machine named VM2 that runs Windows Server.~~
 
-VNet1 and VNet2 are connected by using virtual network peering.
-Users report that VM1 cannot connect to VM2.
+~~VNet1 and VNet2 are connected by using virtual network peering.~~
+~~Users report that VM1 cannot connect to VM2.~~
 
-You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses virtual network peering as the next hop.
+~~You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses virtual network peering as the next hop.~~
 
 
 ~~Connection troubleshoot in Azure Network Watcher from VM1 to VM2~~ ~~**This answer is incorrect.**~~
@@ -199,19 +199,16 @@ You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses 
 
 
 
-You have an Azure subscription that contains multiple resource groups and Azure App Service web apps. A resource group named RG1 hosts a web app named appservice1.
+~~You have an Azure subscription that contains multiple resource groups and Azure App Service web apps. A resource group named RG1 hosts a web app named appservice1.~~
 
-The App Service uses an SSL certificate. You create a resource group named RG2. You plan to move all the resources in RG1 to RG2.  
-Which two actions should you perform? Each correct answer presents part of the solution.
+~~The App Service uses an SSL certificate. You create a resource group named RG2. You plan to move all the resources in RG1 to RG2.~~  
+~~Which two actions should you perform? Each correct answer presents part of the solution.~~
 
-Select all answers that apply.
-- Create a new App Service plan in RG2. **This answer is incorrect.**
-- Create a new web app in RG2. **This answer is incorrect.**
-- Delete the SSL certificate from RG1 and upload it to RG2. **This answer is correct.**
-- Move all the resources from RG1 to RG2. **This answer is correct.**
-
-
-
+~~Select all answers that apply.~~
+- ~~Create a new App Service plan in RG2. **This answer is incorrect.**~~
+- ~~Create a new web app in RG2. **This answer is incorrect.**~~
+- ~~Delete the SSL certificate from RG1 and upload it to RG2. **This answer is correct.**~~
+- ~~Move all the resources from RG1 to RG2. **This answer is correct.**~~
 
 
 
@@ -219,33 +216,19 @@ Select all answers that apply.
 
 
 You have an Azure virtual network named VNet1.
-
 You need to ensure that email is sent to an administrator when a virtual machine is connected to VNet1.
-
 What two settings should you configure? Each correct answer presents part of the solution.
-
 Select all answers that apply.
 
-an action group
-
-**This answer is correct.**
-
+an action group **This answer is correct.**
 an alert processing rule
-
-an alert rule
-
-**This answer is correct.**
-
-a mail-enabled security group
-
-**This answer is incorrect.**
-
+an alert rule **This answer is correct.**
+a mail-enabled security group *This answer is incorrect.**
 a Microsoft 365 group
 
 The correct answers are an action group and an alert rule. An alert rule in Azure Monitor is used to detect a specific condition or event—in this case, when a virtual machine is connected to VNet1. The alert rule monitors the relevant activity or resource signal and triggers when the defined condition occurs. An action group defines what happens when the alert fires, such as sending an email notification to an administrator. Therefore, the alert rule detects the event, and the action group performs the notification action. The other options do not directly provide the mechanism to both detect the event and send the email notification.
 
 [Monitoring Azure virtual networks | Microsoft Docs](https://docs.microsoft.com/azure/virtual-network/monitor-virtual-network)
-
 [Introduction to Azure Monitor](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-monitor/)
 
 
