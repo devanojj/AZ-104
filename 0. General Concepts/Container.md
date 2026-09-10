@@ -1,0 +1,3 @@
+- **Init** → Runs **before** the main container starts; not continuously alongside it.
+- **Privileged** → Gives a container elevated permissions; unrelated to cache refreshing.
+- **Sidecar** → Runs alongside container and can handle supporting tasks such as cache management.

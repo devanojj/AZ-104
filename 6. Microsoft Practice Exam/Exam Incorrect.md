@@ -173,57 +173,47 @@ You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses 
 ~~[Explore Azure Storage services - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/3-explore-azure-storage-services?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage)~~
 
 
-You have an Azure subscription that contains a container app named App1. App1 is configured to use cached data.
+~~You have an Azure subscription that contains a container app named App1. App1 is configured to use cached data.~~
 
-You plan to create a new container.
-You need to ensure that the new container automatically refreshes the cache used by App1.
-Which type of container should you configure?
+~~You plan to create a new container.~~
+~~You need to ensure that the new container automatically refreshes the cache used by App1.~~
+~~Which type of container should you configure?~~
 
-Select only one answer.
+~~Select only one answer.~~
 
-blob
+~~blob~~
 
-**This answer is incorrect.**
+~~**This answer is incorrect.**~~
 
-init
+~~init~~
 
-privileged
+~~privileged~~
 
-sidecar
+~~sidecar~~
 
-**This answer is correct.**
+~~**This answer is correct.**~~
 
-Azure Container Apps manages the details of Kubernetes and container orchestration. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice. You can define multiple containers in a single container app to implement the sidecar pattern, for example, an agent that reads logs from the primary app container in a shared volume and forwards them to a logging service.
+~~Azure Container Apps manages the details of Kubernetes and container orchestration. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice. You can define multiple containers in a single container app to implement the sidecar pattern, for example, an agent that reads logs from the primary app container in a shared volume and forwards them to a logging service.~~
 
-[Containers in Azure Container Apps | Microsoft Learn](https://learn.microsoft.com/azure/container-apps/containers)
+~~[Containers in Azure Container Apps | Microsoft Learn](https://learn.microsoft.com/azure/container-apps/containers)~~
 
 
 
 You have an Azure subscription that contains multiple resource groups and Azure App Service web apps. A resource group named RG1 hosts a web app named appservice1.
 
-The App Service uses an SSL certificate.
-
-You create a resource group named RG2.
-
-You plan to move all the resources in RG1 to RG2.  
-
+The App Service uses an SSL certificate. You create a resource group named RG2. You plan to move all the resources in RG1 to RG2.  
 Which two actions should you perform? Each correct answer presents part of the solution.
 
 Select all answers that apply.
+- Create a new App Service plan in RG2. **This answer is incorrect.**
+- Create a new web app in RG2. **This answer is incorrect.**
+- Delete the SSL certificate from RG1 and upload it to RG2. **This answer is correct.**
+- Move all the resources from RG1 to RG2. **This answer is correct.**
 
-Create a new App Service plan in RG2.
 
-**This answer is incorrect.**
 
-Create a new web app in RG2.
 
-**This answer is incorrect.**
 
-Delete the SSL certificate from RG1 and upload it to RG2.
-
-**This answer is correct.**
-
-Move all the resources from RG1 to RG2.
 
 
 
