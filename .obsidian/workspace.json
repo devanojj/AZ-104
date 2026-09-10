@@ -24,6 +24,20 @@
             }
           },
           {
+            "id": "fd1d5b72a4e4fad4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0. General Concepts/BCDR.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "BCDR"
+            }
+          },
+          {
             "id": "99b12d6dba13f55f",
             "type": "leaf",
             "state": {
@@ -65,7 +79,8 @@
               "title": "All Units - VM Availability"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -99,7 +114,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Load Balancer",
+                "query": "Availabilit",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -241,12 +256,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "4f2d08334639eea1",
+  "active": "12d87f6cf56ba3c9",
   "lastOpenFiles": [
-    "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
     "6. Microsoft Practice Exam/Exam Incorrect.md",
+    "0. General Concepts/BCDR.md",
+    "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
     "3. Compute Resources/3.2 VM Availability/All Units - VM Availability.md",
-    "Azure Spot Instance.md",
+    "0. General Concepts/Azure Spot Instance.md",
     "6. Microsoft Practice Exam/Exam Notes.md",
     "4. Virtual Networking/4.6 Load Balancer/Unit 2 - Load Balancer.md",
     "4. Virtual Networking/4.6 Load Balancer/Unit 4 - When to use.md",
@@ -268,7 +284,6 @@
     "0. General Concepts/DNS.md",
     "0. General Concepts/Conditional Access.md",
     "0. General Concepts/Azure Workbooks.md",
-    "0. General Concepts/Azure Virtual Network Manager.md",
     "6. Microsoft Practice Exam",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
