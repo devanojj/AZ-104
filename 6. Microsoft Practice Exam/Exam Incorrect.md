@@ -41,54 +41,42 @@ You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses 
 
 
 
-You have an Azure subscription that contains an ASP.NET application. The application is hosted on four Azure virtual machines that run Windows Server.
+~~You have an Azure subscription that contains an ASP.NET application. The application is hosted on four Azure virtual machines that run Windows Server.~~
 
-You have a load balancer named LB1 that load balances requests to the virtual machines.
-You need to ensure that site users connect to the same web server for all requests made to the application.
-Which two actions should you perform? Each correct answer presents part of the solution.
+~~You have a load balancer named LB1 that load balances requests to the virtual machines.~~
+~~You need to ensure that site users connect to the same web server for all requests made to the application.~~
+~~Which two actions should you perform? Each correct answer presents part of the solution.~~
 
-- Configure an inbound NAT rule. **This answer is incorrect.**
-- Set Session persistence to **Client IP**. **This answer is correct.**
-- Set Session persistence to **None**.
-- Set Session persistence to **Protocol**. **This answer is correct.**
+- ~~Configure an inbound NAT rule. **This answer is incorrect.**~~
+- ~~Set Session persistence to **Client IP**. **This answer is correct.**~~
+- ~~Set Session persistence to **None**.~~
+- ~~Set Session persistence to **Protocol**. **This answer is correct.**~~
 
-By setting Session persistence to Client IP and Protocol, you ensure that site users connect to the same web server for all requests made to the application. Setting Session persistence to None disables sticky sessions and an inbound NAT rule is used to forward traffic from a load balancer frontend to a backend pool.
+~~By setting Session persistence to Client IP and Protocol, you ensure that site users connect to the same web server for all requests made to the application. Setting Session persistence to None disables sticky sessions and an inbound NAT rule is used to forward traffic from a load balancer frontend to a backend pool.~~
 
-[Azure Load Balancer distribution modes | Microsoft Learn](https://learn.microsoft.com/azure/load-balancer/distribution-mode-concepts)
-[Introduction to Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/)
-
-
-
+~~[Azure Load Balancer distribution modes | Microsoft Learn](https://learn.microsoft.com/azure/load-balancer/distribution-mode-concepts)~~
+~~[Introduction to Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/)~~
 
 
 
 You have an Azure subscription that contains an Azure DNS zone named contoso.com.
-
 You add a new subdomain named test.contoso.com.
-
 You plan to delegate test.contoso.com to a different DNS server.
-
 How should you configure the domain delegation?
 
 Select only one answer.
-
-Add an A record for test.contoso.com.
-
-Add an NS record set named test to the contoso.com zone.
-
-**This answer is correct.**
-
-Create the SOA record for test.contoso.com.
-
-**This answer is incorrect.**
-
-Modify the A record for contoso.com.
+- Add an A record for test.contoso.com.
+- Add an NS record set named test to the contoso.com zone. **This answer is correct.**
+- Create the SOA record for test.contoso.com. **This answer is incorrect.**
+- Modify the A record for contoso.com.
 
 You must create a DNS NS record set named test in the contoso.com zone. An NS zone must be created at the apex of the zone named contoso.com. You do not need to create the SOA record set in test.contoso.com. It must only be created in contoso.com. You do not need to create or modify the DNS A record.
 
 [Delegate a subdomain - Azure DNS | Microsoft Learn](https://learn.microsoft.com/azure/dns/delegate-subdomain)
-
 [Host your domain on Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/host-domain-azure-dns/)
+
+
+
 
 
 Your company has deployed an Azure Load Balancer to distribute traffic across multiple VMs in a web farm. Users report intermittent connection timeouts when accessing the web app.
