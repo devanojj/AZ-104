@@ -94,4 +94,7 @@ Higher tier and more advanced version
 *Scale Sets*
 configure the virtual machine scale set from the availability options
 
-You can detach a disk from a running virtual machine
+You can detach a disk from a running virtual machine without restarting or turning it off
+
+*Redeploy*
+Redeploy VM will allow it to be moved to a different host (Azure move it to a different host)

@@ -119,99 +119,64 @@ You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses 
 
 
 
-You have an Azure virtual machine.
+~~You have an Azure virtual machine.~~
+~~You receive a notification that the virtual machine is going to be affected by an underlying maintenance activity on the physical infrastructure.~~
+~~You need to move the virtual machine to a different host to avoid a service interruption.~~
 
-You receive a notification that the virtual machine is going to be affected by an underlying maintenance activity on the physical infrastructure.
+~~What should you do?~~
+~~Select only one answer.~~
 
-You need to move the virtual machine to a different host to avoid a service interruption.
+~~Apply an Azure policy.~~
+~~Apply an Azure tag.~~
+~~Move the virtual machine to another Azure subscription. **This answer is incorrect.**~~
+~~Redeploy the virtual machine.~~
 
-What should you do?
+~~**This answer is correct.**~~
 
-Select only one answer.
+~~You must redeploy the virtual machine, which can move the virtual machine to a different host. Azure will shut down the virtual machine and move the virtual machine to a new node within the Azure infrastructure.~~
 
-Apply an Azure policy.
+~~[Redeploy Windows virtual machines in Azure - Virtual Machines | Microsoft Learn](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows)~~
 
-Apply an Azure tag.
-
-Move the virtual machine to another Azure subscription.
-
-**This answer is incorrect.**
-
-Redeploy the virtual machine.
-
-**This answer is correct.**
-
-You must redeploy the virtual machine, which can move the virtual machine to a different host. Azure will shut down the virtual machine and move the virtual machine to a new node within the Azure infrastructure.
-
-[Redeploy Windows virtual machines in Azure - Virtual Machines | Microsoft Learn](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows)
-
-[Introduction to Azure virtual machines](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/)
+~~[Introduction to Azure virtual machines](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/)~~
 
 
 
-You have an Azure subscription that contains an Azure Storage account named vmstorageaccount1.  
+~~You have an Azure subscription that contains an Azure Storage account named vmstorageaccount1.~~  
+~~You create an Azure container instance named container1.~~
+~~You need to configure persistent storage for container1.~~
+~~What should you create in vmstorageaccount1?~~
 
-You create an Azure container instance named container1.
+~~Select only one answer.~~
+- ~~a blob container **This answer is incorrect.**~~
+- ~~a file share **This answer is correct.**~~
+- ~~a queue~~
+- ~~a table~~
 
-You need to configure persistent storage for container1.
-
-What should you create in vmstorageaccount1?
-
-Select only one answer.
-
-a blob container
-
-**This answer is incorrect.**
-
-a file share
-
-**This answer is correct.**
-
-a queue
-
-a table
-
-An Azure container instance (Docker container) can mount Azure File Storage shares as directories and use them as persistent storage. An Azure container instance cannot mount and use as persistent storage blob containers, queues and tables.
-
-.
-
-[Persistent Docker volumes with Azure File Storage | Azure Blog and Updates | Microsoft Azure](https://azure.microsoft.com/blog/persistent-docker-volumes-with-azure-file-storage/)
-
-[Configure Azure Container Instances - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-container-instances/)
+~~An Azure container instance (Docker container) can mount Azure File Storage shares as directories and use them as persistent storage. An Azure container instance cannot mount and use as persistent storage blob containers, queues and tables.~~
 
 
+[Persistent Docker volumes with Azure File Storage | Azure Blog and Updates | Microsoft Azure](https://azure.microsoft.com/blog/persistent-docker-volumes-with-azure-file-storage/)[Configure Azure Container Instances - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-container-instances/)
 
-Your development team plans to deploy an Azure container instance. The container needs a persistent storage layer.
 
-Which service should you use?
+~~Your development team plans to deploy an Azure container instance. The container needs a persistent storage layer.~~
+~~Which service should you use?~~
+~~Select only one answer.~~
 
-Select only one answer.
+- ~~Azure Blob storage **This answer is incorrect.**~~
+- ~~Azure Files **This answer is correct.**~~
+- ~~Azure Queue Storage~~
+- ~~Azure SQL Database~~
 
-Azure Blob storage
+~~You can persist data for Azure Container Instances with the use of Azure Files. Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol.~~
 
-**This answer is incorrect.**
-
-Azure Files
-
-**This answer is correct.**
-
-Azure Queue Storage
-
-Azure SQL Database
-
-You can persist data for Azure Container Instances with the use of Azure Files. Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol.
-
-[Mount Azure Files volume to container group - Azure Container Instances | Microsoft Learn](https://learn.microsoft.com/azure/container-instances/container-instances-volume-azure-files)
-
-[Explore Azure Storage services - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/3-explore-azure-storage-services?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage)
+~~[Mount Azure Files volume to container group - Azure Container Instances | Microsoft Learn](https://learn.microsoft.com/azure/container-instances/container-instances-volume-azure-files)~~
+~~[Explore Azure Storage services - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/3-explore-azure-storage-services?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage)~~
 
 
 You have an Azure subscription that contains a container app named App1. App1 is configured to use cached data.
 
 You plan to create a new container.
-
 You need to ensure that the new container automatically refreshes the cache used by App1.
-
 Which type of container should you configure?
 
 Select only one answer.
