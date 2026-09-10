@@ -75,50 +75,39 @@ You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses 
 ~~[Host your domain on Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/host-domain-azure-dns/)~~
 
 
+~~Your company has deployed an Azure Load Balancer to distribute traffic across multiple VMs in a web farm. Users report intermittent connection timeouts when accessing the web app.~~
+~~You need to resolve the connection timeout issues and ensure even traffic distribution by the load balancer.~~
+~~What should you do?~~
 
-Your company has deployed an Azure Load Balancer to distribute traffic across multiple VMs in a web farm. Users report intermittent connection timeouts when accessing the web app.
-
-You need to resolve the connection timeout issues and ensure even traffic distribution by the load balancer.
-
-What should you do?
-
-Select only one answer.
-- Change the distribution mode to five-tuple hash. **This answer is correct.**
-- Configure a health probe for the load balancer. **This answer is incorrect.**
-- Enable session persistence with source IP affinity.
-- Upgrade the load balancer to a higher SKU.
-
-
+~~Select only one answer.~~
+- ~~Change the distribution mode to five-tuple hash. **This answer is correct.**~~
+- ~~Configure a health probe for the load balancer. **This answer is incorrect.**~~
+- ~~Enable session persistence with source IP affinity.~~
+- ~~Upgrade the load balancer to a higher SKU.~~
 
 
 
 
 
 You are creating an Azure virtual machine that will run Windows Server.
-
 You need to ensure that VM1 will be part of a virtual machine scale set.
-
 Which setting should you configure during the creation of the virtual machine?
 
 Select only one answer.
 
-Availability options
-
-**This answer is correct.**
-
-Azure Spot instance
-
-**This answer is incorrect.**
-
-Management
-
-Region
+- Availability options **This answer is correct.**
+- Azure Spot instance **This answer is incorrect.**
+- Management
+- Region
 
 You must configure the virtual machine scale set from the availability options. Azure spot instance is used to add virtual machines with a discounted price. Region will not affect the configuration of the availability options. The management setting allows you to configure the monitoring and management options for the virtual machine.
 
 [Availability options for Azure Virtual Machines - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/availability)
-
 [Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
+
+
+
+
 
 
 
