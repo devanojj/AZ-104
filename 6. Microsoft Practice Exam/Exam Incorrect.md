@@ -58,24 +58,21 @@ You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses 
 ~~[Introduction to Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/)~~
 
 
+~~You have an Azure subscription that contains an Azure DNS zone named contoso.com.~~
+~~You add a new subdomain named test.contoso.com.~~
+~~You plan to delegate test.contoso.com to a different DNS server.~~
+~~How should you configure the domain delegation?~~
 
-You have an Azure subscription that contains an Azure DNS zone named contoso.com.
-You add a new subdomain named test.contoso.com.
-You plan to delegate test.contoso.com to a different DNS server.
-How should you configure the domain delegation?
+~~Select only one answer.~~
+- ~~Add an A record for test.contoso.com.~~
+- ~~Add an NS record set named test to the contoso.com zone. **This answer is correct.**~~
+- ~~Create the SOA record for test.contoso.com. **This answer is incorrect.**~~
+- ~~Modify the A record for contoso.com.~~
 
-Select only one answer.
-- Add an A record for test.contoso.com.
-- Add an NS record set named test to the contoso.com zone. **This answer is correct.**
-- Create the SOA record for test.contoso.com. **This answer is incorrect.**
-- Modify the A record for contoso.com.
+~~You must create a DNS NS record set named test in the contoso.com zone. An NS zone must be created at the apex of the zone named contoso.com. You do not need to create the SOA record set in test.contoso.com. It must only be created in contoso.com. You do not need to create or modify the DNS A record.~~
 
-You must create a DNS NS record set named test in the contoso.com zone. An NS zone must be created at the apex of the zone named contoso.com. You do not need to create the SOA record set in test.contoso.com. It must only be created in contoso.com. You do not need to create or modify the DNS A record.
-
-[Delegate a subdomain - Azure DNS | Microsoft Learn](https://learn.microsoft.com/azure/dns/delegate-subdomain)
-[Host your domain on Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/host-domain-azure-dns/)
-
-
+~~[Delegate a subdomain - Azure DNS | Microsoft Learn](https://learn.microsoft.com/azure/dns/delegate-subdomain)~~
+~~[Host your domain on Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/host-domain-azure-dns/)~~
 
 
 
@@ -86,18 +83,15 @@ You need to resolve the connection timeout issues and ensure even traffic distri
 What should you do?
 
 Select only one answer.
+- Change the distribution mode to five-tuple hash. **This answer is correct.**
+- Configure a health probe for the load balancer. **This answer is incorrect.**
+- Enable session persistence with source IP affinity.
+- Upgrade the load balancer to a higher SKU.
 
-Change the distribution mode to five-tuple hash.
 
-**This answer is correct.**
 
-Configure a health probe for the load balancer.
 
-**This answer is incorrect.**
 
-Enable session persistence with source IP affinity.
-
-Upgrade the load balancer to a higher SKU.
 
 
 You are creating an Azure virtual machine that will run Windows Server.

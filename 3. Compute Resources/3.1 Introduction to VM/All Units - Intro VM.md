@@ -86,3 +86,7 @@ Small applications that provide post-deployment configuration and automation tas
 | **Availability Zones SLA** | Requires $\ge 2$ VMs deployed across distinct Availability Zones for 99.99% SLA. |
 | **Custom Script Timeout** | Default execution limit is 90 minutes. |
 | **Azure Bastion** | Fully managed PaaS proxy; requires a dedicated subnet named `AzureBastionSubnet` (minimum `/26`). |
+
+
+*Higher SKU*
+Higher tier and more advanced version 

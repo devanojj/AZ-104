@@ -30,3 +30,4 @@ Distributes incoming network traffic across multiple **VMs or VM Scale Set inst
 - **Health probe → determines healthy backend instances**
 - **Load-balancing rule → determines how traffic is distributed**
 - Both types support **inbound + outbound** scenarios.
+- Load Balancer Health Probes, determine which VMs are healthy
