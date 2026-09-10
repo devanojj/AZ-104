@@ -103,39 +103,20 @@ You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses 
 [Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
 
 
+~~You have two Azure virtual machines named VM1 and VM2 that run Windows Server.~~
+~~VM1 has a single data disk that stores backup files.~~  
+~~You need to move the data disk from VM1 to VM2 as quickly as possible. What should you do first?~~
 
+~~Select only one answer.~~
+- ~~Detach the data disk from VM1. **This answer is correct.**~~
+- ~~Restart VM1.~~
+- ~~Stop VM1. **This answer is incorrect.**~~
+- ~~Stop VM2.~~
 
+~~You can detach a disk from a running virtual machine (hot removal). You do not need to stop VM2 or restart the VM1.~~
+~~[Detach a data disk from a Windows VM - Azure - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/windows/detach-disk)~~
+~~[Introduction to Azure virtual machines](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/)~~
 
-
-
-
-You have two Azure virtual machines named VM1 and VM2 that run Windows Server.
-
-VM1 has a single data disk that stores backup files.  
-
-You need to move the data disk from VM1 to VM2 as quickly as possible.
-
-What should you do first?
-
-Select only one answer.
-
-Detach the data disk from VM1.
-
-**This answer is correct.**
-
-Restart VM1.
-
-Stop VM1.
-
-**This answer is incorrect.**
-
-Stop VM2.
-
-You can detach a disk from a running virtual machine (hot removal). You do not need to stop VM2 or restart the VM1.
-
-[Detach a data disk from a Windows VM - Azure - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/windows/detach-disk)
-
-[Introduction to Azure virtual machines](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/)
 
 
 You have an Azure virtual machine.

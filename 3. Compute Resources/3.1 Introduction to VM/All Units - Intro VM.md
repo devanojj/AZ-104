@@ -93,3 +93,5 @@ Higher tier and more advanced version
 
 *Scale Sets*
 configure the virtual machine scale set from the availability options
+
+You can detach a disk from a running virtual machine
