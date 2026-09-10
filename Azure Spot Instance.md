@@ -1,0 +1,1 @@
+Used to add virtual machines with a discounted price

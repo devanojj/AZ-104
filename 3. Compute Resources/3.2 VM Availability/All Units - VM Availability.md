@@ -109,3 +109,5 @@ When demand drops, determines which VM instances are deleted first:
 | **VMSS Uniform vs Flexible** | Uniform = identical VMs/large scale; Flexible = mixed VM sizes, Spot + On-Demand. |
 | **VMSS Scale-in Flapping** | Resolved by tuning threshold deltas and extending the **cool-down period**. |
 | **Scale-in Selection** | Default balances across FDs/Zones first, then removes newest VM. |
+
+Region will not affect the configuration of the availability options. The management setting allows you to configure the monitoring and management options for the virtual machine.

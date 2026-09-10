@@ -90,3 +90,6 @@ Small applications that provide post-deployment configuration and automation tas
 
 *Higher SKU*
 Higher tier and more advanced version 
+
+*Scale Sets*
+configure the virtual machine scale set from the availability options

@@ -87,20 +87,17 @@ You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses 
 
 
 
+~~You are creating an Azure virtual machine that will run Windows Server.~~
+~~You need to ensure that VM1 will be part of a virtual machine scale set.~~
+~~Which setting should you configure during the creation of the virtual machine?~~
 
+~~Select only one answer.~~
+- ~~Availability options **This answer is correct.**~~
+- ~~[[Azure Spot Instance]] **This answer is incorrect.**~~
+- ~~Management~~
+- ~~Region~~
 
-You are creating an Azure virtual machine that will run Windows Server.
-You need to ensure that VM1 will be part of a virtual machine scale set.
-Which setting should you configure during the creation of the virtual machine?
-
-Select only one answer.
-
-- Availability options **This answer is correct.**
-- Azure Spot instance **This answer is incorrect.**
-- Management
-- Region
-
-You must configure the virtual machine scale set from the availability options. Azure spot instance is used to add virtual machines with a discounted price. Region will not affect the configuration of the availability options. The management setting allows you to configure the monitoring and management options for the virtual machine.
+~~You must configure the virtual machine scale set from the availability options. Azure spot instance is used to add virtual machines with a discounted price. Region will not affect the configuration of the availability options. The management setting allows you to configure the monitoring and management options for the virtual machine.~~
 
 [Availability options for Azure Virtual Machines - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/availability)
 [Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
