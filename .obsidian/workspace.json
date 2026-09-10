@@ -114,7 +114,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -233,12 +234,12 @@
   },
   "active": "c398f1e776aeaf4f",
   "lastOpenFiles": [
-    "0. General Concepts/Inbound NAT.md",
+    "6. Microsoft Practice Exam/Exam Incorrect.md",
     "4. Virtual Networking/4.6 Load Balancer/Microsoft Learn - LB Distribution.md",
+    "0. General Concepts/Inbound NAT.md",
     "0. General Concepts/Session Persistence.md",
     "4. Virtual Networking/4.6 Load Balancer/Unit 5 - EQ Load Balancer.md",
     "0. General Concepts/Hash.md",
-    "6. Microsoft Practice Exam/Exam Incorrect.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Microsoft Learn - Peered VNs.md",
     "0. General Concepts/Azure Network Watcher.md",
     "Azure Virtual Network Manager.md",
