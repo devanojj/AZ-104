@@ -15,3 +15,4 @@
 
 NSG flow logs, allows you to log information about IP traffic flowing through an NSG. 
 
+Packet capture may help narrow down the scope of the issue, but it will not identify the specific NSG that prevents communication.

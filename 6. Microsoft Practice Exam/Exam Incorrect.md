@@ -251,42 +251,39 @@
 
 
 
-You have an Azure subscription that contains 20 virtual networks and 500 virtual machines.
-You deploy a new virtual machine named VM501.
-You discover that VM501 is unable to communicate with a virtual machine named VM20 in the subscription. You suspect that a network security group (NSG) is the cause of the issue.
-You need to identify whether an NSG is blocking communications. The solution must minimise administrative effort.
+~~You have an Azure subscription that contains 20 virtual networks and 500 virtual machines.~~
+~~You deploy a new virtual machine named VM501.~~
+~~You discover that VM501 is unable to communicate with a virtual machine named VM20 in the subscription. You suspect that a network security group (NSG) is the cause of the issue.~~
+~~You need to identify whether an NSG is blocking communications. The solution must minimise administrative effort.~~
 
-What should you use?
-Select only one answer.
+~~What should you use?~~
+~~Select only one answer.~~
 
-diagnostic logs
+~~diagnostic logs~~
 
-IP flow verify
+~~IP flow verify~~
 
-**This answer is correct.**
+~~**This answer is correct.**~~
 
-virtual network flow logs
+~~virtual network flow logs~~
 
-packet capture
+~~packet capture~~
 
-**This answer is incorrect.**
+~~**This answer is incorrect.**~~
 
-IP flow verify lets you specify a source and destination IPv4 address, port, protocol (TCP or UDP), and traffic direction (inbound or outbound). 
+~~IP flow verify lets you specify a source and destination IPv4 address, port, protocol (TCP or UDP), and traffic direction (inbound or outbound).~~ 
 
-IP flow verify can identify the specific network security group (NSG) that prevents communication. NSG flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. 
+~~IP flow verify can identify the specific network security group (NSG) that prevents communication. NSG flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG.~~ 
 
-Although the logs may help you identify the source of the issue, it requires much more configuration and manual evaluation. Packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine. Packet capture may help narrow down the scope of the issue, but it will not identify the specific NSG that prevents communication.
+~~Although the logs may help you identify the source of the issue, it requires much more configuration and manual evaluation. Packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine. Packet capture may help narrow down the scope of the issue, but it will not identify the specific NSG that prevents communication.~~
 
-[Azure Network Watcher | Microsoft Learn](https://learn.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
-
-[Introduction to Azure Network Watcher - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/)
+~~[Azure Network Watcher | Microsoft Learn](https://learn.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)~~
+~~[Introduction to Azure Network Watcher - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/)~~
 
 
 
 You have a Log Analytics workspace that collects data from various data sources.
-
 You create a new Azure Monitor log query.
-
 You plan to view data pinned as a chart to a shared dashboard.
 
 What is the maximum number of days for which data can be shown on the shared dashboard?
