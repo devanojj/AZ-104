@@ -8,3 +8,10 @@
 
 
 **Next hop** tool that to check the next routing hop (type, IP address, and route table ID) for traffic leaving a virtual machine. Next hop does not display routing decisions.
+
+
+*Install AzureNetworkWatcherExtension*
+*Use packet capture*
+
+NSG flow logs, allows you to log information about IP traffic flowing through an NSG. 
+
