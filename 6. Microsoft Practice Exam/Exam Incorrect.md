@@ -212,19 +212,17 @@
 
 
 
+~~You have an Azure virtual network named VNet1.~~
+~~You need to ensure that email is sent to an administrator when a virtual machine is connected to VNet1.~~
+~~What two settings should you configure? Each correct answer presents part of the solution.~~
+~~Select all answers that apply.~~
 
+~~an action group **This answer is correct.**~~
+~~an alert processing rule~~
+~~an alert rule **This answer is correct.**~~
+~~a mail-enabled security group **This answer is incorrect.**~~
+~~a Microsoft 365 group~~
 
-
-You have an Azure virtual network named VNet1.
-You need to ensure that email is sent to an administrator when a virtual machine is connected to VNet1.
-What two settings should you configure? Each correct answer presents part of the solution.
-Select all answers that apply.
-
-an action group **This answer is correct.**
-an alert processing rule
-an alert rule **This answer is correct.**
-a mail-enabled security group *This answer is incorrect.**
-a Microsoft 365 group
 
 The correct answers are an action group and an alert rule. An alert rule in Azure Monitor is used to detect a specific condition or event—in this case, when a virtual machine is connected to VNet1. The alert rule monitors the relevant activity or resource signal and triggers when the defined condition occurs. An action group defines what happens when the alert fires, such as sending an email notification to an administrator. Therefore, the alert rule detects the event, and the action group performs the notification action. The other options do not directly provide the mechanism to both detect the event and send the email notification.
 
