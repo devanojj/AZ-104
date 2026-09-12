@@ -541,47 +541,46 @@
 
 
 
-You plan to deploy an Azure virtual machine.
-You are evaluating whether to use an Azure Spot instance.
-Which two factors can cause an Azure Spot instance to be evicted? Each correct answer presents a complete solution.
-Select all answers that apply.
+~~You plan to deploy an Azure virtual machine.~~
+~~You are evaluating whether to use an Azure Spot instance.~~
+~~Which two factors can cause an Azure Spot instance to be evicted? Each correct answer presents a complete solution.~~
+~~Select all answers that apply.~~
 
-the average CPU usages of the instance **This answer is incorrect.**
-the Azure capacity needs **This answer is correct.**
-the current price of the instance **This answer is correct.**
-the time of day
+~~the average CPU usages of the instance **This answer is incorrect.**~~
+~~the Azure capacity needs **This answer is correct.**~~
+~~the current price of the instance **This answer is correct.**~~
+~~the time of day~~
 
-Azure Spot instances allow you to provision virtual machines at a reduced cost, but these virtual machines can be stopped by Azure when Azure needs the capacity for other pay-as-you-go workloads, or when the price of the spot instance exceeds the maximum price that you have set. These virtual machines are good for dev, testing, or for workloads that do not require any specific SLA.
+~~Azure Spot instances allow you to provision virtual machines at a reduced cost, but these virtual machines can be stopped by Azure when Azure needs the capacity for other pay-as-you-go workloads, or when the price of the spot instance exceeds the maximum price that you have set. These virtual machines are good for dev, testing, or for workloads that do not require any specific SLA.~~
 
-[Use Azure Spot Virtual Machines - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/spot-vms)
+~~[Use Azure Spot Virtual Machines - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/spot-vms)~~
 
-[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
+~~[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)~~
 
 
 
-ou have an Azure subscription that contains an Azure Storage account named vmstorageaccount1.  
+~~You have an Azure subscription that contains an Azure Storage account named vmstorageaccount1.~~  
 
-You create an Azure container instance named container1.
+~~You create an Azure container instance named container1.~~
+~~You need to configure persistent storage for container1.~~
 
-You need to configure persistent storage for container1.
+~~What should you create in vmstorageaccount1?~~
 
-What should you create in vmstorageaccount1?
+~~Select only one answer.~~
 
-Select only one answer.
+~~a blob container~~
 
-a blob container
+~~**This answer is incorrect.**~~
 
-**This answer is incorrect.**
+~~a file share~~
 
-a file share
+~~**This answer is correct.**~~
 
-**This answer is correct.**
+~~a queue~~
 
-a queue
+~~a table~~
 
-a table
-
-n Azure container instance (Docker container) can mount Azure File Storage shares as directories and use them as persistent storage. An Azure container instance cannot mount and use as persistent storage blob containers, queues and tables.
+~~Azure container instance (Docker container) can mount Azure File Storage shares as directories and use them as persistent storage. An Azure container instance cannot mount and use as persistent storage blob containers, queues and tables.~~
 
 .
 
@@ -589,89 +588,52 @@ n Azure container instance (Docker container) can mount Azure File Storage share
 
 [Configure Azure Container Instances - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-container-instances/)
 
-Your development team plans to deploy an Azure container instance. The container needs a persistent storage layer.
 
-Which service should you use?
+~~Your development team plans to deploy an Azure container instance. The container needs a persistent storage layer.~~
+~~Which service should you use?~~
+~~Select only one answer.~~
+~~Azure Blob storage~~
+~~Azure Files~~ ~~**This answer is correct.**~~
+~~Azure Queue Storage~~
+~~Azure SQL Database~~ ~~**This answer is incorrect.**~~
 
-Select only one answer.
+~~You can persist data for Azure Container Instances with the use of Azure Files. Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol.~~
 
-Azure Blob storage
+~~[Mount Azure Files volume to container group - Azure Container Instances | Microsoft Learn](https://learn.microsoft.com/azure/container-instances/container-instances-volume-azure-files)~~
 
-Azure Files
-
-**This answer is correct.**
-
-Azure Queue Storage
-
-Azure SQL Database
-
-**This answer is incorrect.**
-
-You can persist data for Azure Container Instances with the use of Azure Files. Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol.
-
-[Mount Azure Files volume to container group - Azure Container Instances | Microsoft Learn](https://learn.microsoft.com/azure/container-instances/container-instances-volume-azure-files)
-
-[Explore Azure Storage services - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/3-explore-azure-storage-services?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage)
-
-Your company has an Azure subscription that is linked to a Microsoft Entra tenant.
-
-You have been asked to limit the access to the Kubernetes API server.
-
-Which two options should you choose? Each correct answer presents a complete solution.
-
-Select all answers that apply.
-
-API server authorized IP ranges
-
-**This answer is correct.**
-
-public cluster
-
-private cluster
-
-**This answer is correct.**
-
-Azure tags
-
-**This answer is incorrect.**
-
-You can use API server authorized IP ranges if you want to maintain a public endpoint for the API server but restrict access to a set of trusted IP ranges. You can use a private cluster if you want to limit the API server to only be accessible from within your virtual network.
-
-[Introduction to Kubernetes - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/configure-azure-kubernetes-service/)
+~~[Explore Azure Storage services - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/3-explore-azure-storage-services?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage)~~
 
 
+~~Your company has an Azure subscription that is linked to a Microsoft Entra tenant.~~
+~~You have been asked to limit the access to the Kubernetes API server.~~
+~~Which two options should you choose? Each correct answer presents a complete solution.~~
 
-You have an Azure subscription that contains an Azure container app named cont1.
+~~Select all answers that apply.~~
+- ~~API server authorized IP ranges **This answer is correct.**~~
+- ~~public cluster~~
+- ~~private cluster **This answer is correct.**~~
+- ~~Azure tags **This answer is incorrect.**~~
 
-You plan to add scaling rules to cont1.
+~~You can use API server authorized IP ranges if you want to maintain a public endpoint for the API server but restrict access to a set of trusted IP ranges. You can use a private cluster if you want to limit the API server to only be accessible from within your virtual network.~~
 
-You need to ensure that cont1 replicas are created based on received messages in Azure Service Bus.
+~~[Introduction to Kubernetes - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/configure-azure-kubernetes-service/)~~
 
-Which scale trigger should you use?
+~~You have an Azure subscription that contains an Azure container app named cont1.~~
+~~You plan to add scaling rules to cont1.~~
+~~You need to ensure that cont1 replicas are created based on received messages in Azure Service Bus.~~
 
-Select only one answer.
-
-CPU usage
-
-**This answer is incorrect.**
-
-event-driven
-
-**This answer is correct.**
-
-HTTP traffic
-
-memory usage
-
-Azure Container Apps allows a set of triggers to create new instances, called replicas. For Azure Service Bus, an event-driven trigger can be used to run the escalation method. The remaining scale triggers cannot use a scale rule based on messages in an Azure service bus.
-
-[Scaling in Azure Container Apps | Microsoft Learn](https://learn.microsoft.com/azure/container-apps/scale-app#event-driven)
-
-[Configure Azure Container Instances - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-container-instances/)
+~~Which scale trigger should you use?~~
+~~Select only one answer.~~
+~~CPU usage **This answer is incorrect.**~~
+~~Event-driven **This answer is correct.**~~
+~~HTTP traffic~~
+~~memory usage~~
+~~Azure Container Apps allows a set of triggers to create new instances, called replicas. For Azure Service Bus, an event-driven trigger can be used to run the escalation method. The remaining scale triggers cannot use a scale rule based on messages in an Azure service bus.~~
+~~[Scaling in Azure Container Apps | Microsoft Learn](https://learn.microsoft.com/azure/container-apps/scale-app#event-driven)~~
+~~[Configure Azure Container Instances - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-container-instances/)~~
 
 
 You have an Azure subscription that contains an Azure App Service web app named App1.
-
 You have the following diagnostic logging configurations:
 
 - Application Logging (FileSystem): Error
@@ -680,26 +642,14 @@ You have the following diagnostic logging configurations:
 - Web Server Logging: Verbose
 
 You need to configure diagnostic logging to store all warnings or higher.  
-
 Which types of diagnostic logging and severity should you enable?
-
 Select all answers that apply.
 
-Application Logging (Blob)
-
-**This answer is correct.**
-
-Application Logging (FileSystem)
-
-**This answer is correct.**
-
+Application Logging (Blob) **This answer is correct.**
+Application Logging (FileSystem) **This answer is correct.**
 Detailed Error Message
-
 Verbose
-
-Warning
-
-**This answer is correct.**
+Warning **This answer is correct.**
 
 You must enable the Application Logging (Blob) diagnostic, which can be stored for more than a week. You must also set the severity level to warning, to store warning, error, and critical log messages.
 
