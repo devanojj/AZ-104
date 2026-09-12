@@ -484,119 +484,71 @@
 ~~[Determine replication strategies - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/5-determine-replication-strategies)~~
 
 
-ou have two premium block blob Azure Storage accounts named storage1 and storage2.
+~~You have two premium block blob Azure Storage accounts named storage1 and storage2.~~
+~~You need to configure object replication from storage1 to storage2.~~
+~~Which three features should be enabled before configuring object replication? Each correct answer presents part of the solution.~~
 
-You need to configure object replication from storage1 to storage2.
+~~Select all answers that apply.~~
 
-Which three features should be enabled before configuring object replication? Each correct answer presents part of the solution.
+~~blob versioning for storage1 **This answer is correct.**~~
+~~blob versioning for storage2 **This answer is correct.**~~
+~~change feed for storage1 **This answer is correct.**~~
+~~change feed for storage2 **This answer is incorrect.**~~
+~~point-in-time restore for the containers on storage1 **This answer is incorrect.**~~
+~~point-in-time restore for the containers on storage2~~
 
-Select all answers that apply.
+~~Object replication can be used to replicate blobs between storage accounts. Before configuring object replication, you must enable blob versioning for both storage accounts, and you must enable the change feed for the source account.~~
 
-blob versioning for storage1
+~~[Configure object replication - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/object-replication-configure?tabs=portal)~~
+~~[Configure Azure Blob Storage - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-blob-storage/)~~
 
-**This answer is correct.**
-
-blob versioning for storage2
-
-**This answer is correct.**
-
-change feed for storage1
-
-**This answer is correct.**
-
-change feed for storage2
-
-**This answer is incorrect.**
-
-point-in-time restore for the containers on storage1
-
-**This answer is incorrect.**
-
-point-in-time restore for the containers on storage2
-
-Object replication can be used to replicate blobs between storage accounts. Before configuring object replication, you must enable blob versioning for both storage accounts, and you must enable the change feed for the source account.
-
-[Configure object replication - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/object-replication-configure?tabs=portal)
-
-[Configure Azure Blob Storage - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-blob-storage/)
-
-You create an Azure Storage account.
-
-You need to create a lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days.
-
-What should you do first?
-
-Select only one answer.
-
-Enable access tracking.
-
-**This answer is correct.**
-
-Enable versioning for blobs.
-
-**This answer is incorrect.**
-
-Refresh the blob inventory.
-
-Rotate the storage account keys.
-
-A lifecycle management rule can be used to move or delete blobs automatically. The rule can be based on the time the blob was last modified or the time the blob was last accessed (read or write). To perform an action based on the access time, access tracking must be enabled. This can incur additional storage costs.
-
-[Configure a lifecycle management policy - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal)
-
-[Configure Azure Blob Storage - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-blob-storage/)
+~~You create an Azure Storage account.~~
 
 
-You are deploying a virtual machine by using an availability set in the East US Azure region.
 
-You have deployed 18 virtual machines in two fault domains and 10 update domains.
+~~You need to create a lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days.~~
 
-Microsoft performed planned physical hardware maintenance in the East US region.
+~~What should you do first?~~
+~~Select only one answer.~~
 
-What is the maximum number of virtual machines that will be unavailable?
+~~Enable access tracking. **This answer is correct.**~~
+~~Enable versioning for blobs. **This answer is incorrect.**~~
+~~Refresh the blob inventory.~~
+~~Rotate the storage account keys.~~
 
-Select only one answer.
+~~A lifecycle management rule can be used to move or delete blobs automatically. The rule can be based on the time the blob was last modified or the time the blob was last accessed (read or write). To perform an action based on the access time, access tracking must be enabled. This can incur additional storage costs.~~
 
-2
+~~[Configure a lifecycle management policy - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal)~~
+~~[Configure Azure Blob Storage - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-blob-storage/)~~
 
-**This answer is correct.**
 
-8
+~~You are deploying a virtual machine by using an availability set in the East US Azure region.~~
+~~You have deployed 18 virtual machines in two fault domains and 10 update domains.~~
+~~Microsoft performed planned physical hardware maintenance in the East US region.~~
+~~What is the maximum number of virtual machines that will be unavailable?~~
 
-9
+~~Select only one answer.~~
 
-**This answer is incorrect.**
+~~2~~~~**This answer is correct.**~~
+~~8~~
+~~9~~~**This answer is incorrect.**~~
+~~18~~
 
-18
+~~18 virtual machines are shared across 10 update domains. The first 10 virtual machines go to 10 update domains, so eight update domains will have two virtual machines. When there is physical hardware maintenance, some virtual machines will be unavailable based on their configuration. If there was a rack failure, then 18 virtual machines will be distributed to two fault domains with nine virtual machines each.~~
 
-18 virtual machines are shared across 10 update domains. The first 10 virtual machines go to 10 update domains, so eight update domains will have two virtual machines. When there is physical hardware maintenance, some virtual machines will be unavailable based on their configuration. If there was a rack failure, then 18 virtual machines will be distributed to two fault domains with nine virtual machines each.
-
-[Availability sets overview - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview)
-
-[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
+~~[Availability sets overview - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview)~~
+~~[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)~~
 
 
 
 You plan to deploy an Azure virtual machine.
-
 You are evaluating whether to use an Azure Spot instance.
-
 Which two factors can cause an Azure Spot instance to be evicted? Each correct answer presents a complete solution.
-
 Select all answers that apply.
 
-the average CPU usages of the instance
-
-**This answer is incorrect.**
-
-the Azure capacity needs
-
-**This answer is correct.**
-
-the current price of the instance
-
-**This answer is correct.**
-
+the average CPU usages of the instance **This answer is incorrect.**
+the Azure capacity needs **This answer is correct.**
+the current price of the instance **This answer is correct.**
 the time of day
 
 Azure Spot instances allow you to provision virtual machines at a reduced cost, but these virtual machines can be stopped by Azure when Azure needs the capacity for other pay-as-you-go workloads, or when the price of the spot instance exceeds the maximum price that you have set. These virtual machines are good for dev, testing, or for workloads that do not require any specific SLA.

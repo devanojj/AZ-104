@@ -119,3 +119,17 @@ Asynchronously copies block blobs between a source and destination storage accou
 |**Block blob**|📦 **Files**|Images, videos, documents, backups|
 |**Page blob**|💽 **Disks**|VHDs / unmanaged VM disks|
 |**Append blob**|➕ **Appending**|Logs|
+
+
+|Feature|Purpose|
+|---|---|
+|**Blob versioning**|Keep previous versions of blobs|
+|**Change feed**|Record changes made to blobs|
+|**Object replication**|Replicate blobs between storage accounts|
+|**Point-in-time restore**|Recover data to an earlier point in time|
+
+To replicate blobs, versioning in blob 1 and blob 2 and change feed in blob 1
+
+
+*Access tracking*
+Lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days
