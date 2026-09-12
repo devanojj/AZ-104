@@ -385,91 +385,65 @@
 ~~The Network Controller role in Windows Server is a centralized, programmable management p~~
 
 
+~~You have an Azure subscription that contains two resource groups named RG1 and RG2.~~
+~~RG1 contains the following resources:~~
+- ~~A virtual network named VNet1 located in the East US Azure region~~
+- ~~A network security group (NSG) named NSG1 located in the West US Azure region~~
+
+~~RG2 contains the following resources:~~
+- ~~A virtual network named VNet2 located in the East US Azure region~~
+- ~~A virtual network named VNet3 located in the West US Azure region~~
+
+~~You need to associate NSG1.~~
+~~To which subnets can you associate NSG1?~~
+~~Select only one answer.~~
+- ~~the subnets of all the virtual networks~~
+- ~~the subnets of VNet1 only~~
+- ~~the subnets of VNet1 and VNet2 **This answer is incorrect.**~~
+- ~~the subnets of VNet3 only **This answer is correct.**~~
+
+~~You can assign an NSG to the subnet of the virtual network in the same region as the NSG and NSG1 is in the West US region.~~
+
+~~[Plan Azure virtual networks | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)~~
+~~[Configure network security groups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-network-security-groups/)~~
 
 
-You have an Azure subscription that contains two resource groups named RG1 and RG2.
-RG1 contains the following resources:
-- A virtual network named VNet1 located in the East US Azure region
-- A network security group (NSG) named NSG1 located in the West US Azure region
 
-RG2 contains the following resources:
+~~You have an Azure subscription that contains an Azure DNS zone named contoso.com.~~
+~~You add a new subdomain named test.contoso.com.~~
+~~You plan to delegate test.contoso.com to a different DNS server.~~
+~~How should you configure the domain delegation?~~
 
-- A virtual network named VNet2 located in the East US Azure region
-- A virtual network named VNet3 located in the West US Azure region
+~~Select only one answer.~~
+- ~~Add an A record for test.contoso.com.~~
+- ~~Add an NS record set named test to the contoso.com zone. **This answer is correct.**~~
+- ~~Create the SOA record for test.contoso.com.~~
+- ~~Modify the A record for contoso.com. **This answer is incorrect.**~~
 
-You need to associate NSG1.
+~~You must create a DNS NS record set named test in the contoso.com zone. An NS zone must be created at the apex of the zone named contoso.com. You do not need to create the SOA record set in test.contoso.com. It must only be created in contoso.com. You do not need to create or modify the DNS A record.~~
 
-To which subnets can you associate NSG1?
+~~[Delegate a subdomain - Azure DNS | Microsoft Learn](https://learn.microsoft.com/azure/dns/delegate-subdomain)~~
+~~[Host your domain on Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/host-domain-azure-dns/)~~
 
-Select only one answer.
 
-the subnets of all the virtual networks
 
-the subnets of VNet1 only
+~~Your organisation uses an Azure Load Balancer to manage traffic for VMs hosting a web application. Users experience uneven traffic distribution, with some VMs receiving more traffic than others.~~
 
-the subnets of VNet1 and VNet2
+~~You need to configure the load balancer to ensure even traffic distribution across all VMs in the backend pool.~~
 
-**This answer is incorrect.**
+~~What should you do?~~
 
-the subnets of VNet3 only
+~~Select only one answer.~~
 
-**This answer is correct.**
+~~Add more VMs to the pool.~~
 
-You can assign an NSG to the subnet of the virtual network in the same region as the NSG and NSG1 is in the West US region.
+~~Adjust the load balancing rule settings.~~
 
-[Plan Azure virtual networks | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)
+~~Disable session persistence. **This answer is correct.**~~
 
-[Configure network security groups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-network-security-groups/)
+~~Enable session persistence (source IP affinity). **This answer is incorrect.**~~
 
-You have an Azure subscription that contains an Azure DNS zone named contoso.com.
-
-You add a new subdomain named test.contoso.com.
-
-You plan to delegate test.contoso.com to a different DNS server.
-
-How should you configure the domain delegation?
-
-Select only one answer.
-
-Add an A record for test.contoso.com.
-
-Add an NS record set named test to the contoso.com zone.
-
-**This answer is correct.**
-
-Create the SOA record for test.contoso.com.
-
-Modify the A record for contoso.com.
-
-**This answer is incorrect.**
-
-You must create a DNS NS record set named test in the contoso.com zone. An NS zone must be created at the apex of the zone named contoso.com. You do not need to create the SOA record set in test.contoso.com. It must only be created in contoso.com. You do not need to create or modify the DNS A record.
-
-[Delegate a subdomain - Azure DNS | Microsoft Learn](https://learn.microsoft.com/azure/dns/delegate-subdomain)
-
-[Host your domain on Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/host-domain-azure-dns/)
-
-Your organization uses an Azure Load Balancer to manage traffic for VMs hosting a web application. Users experience uneven traffic distribution, with some VMs receiving more traffic than others.
-
-You need to configure the load balancer to ensure even traffic distribution across all VMs in the backend pool.
-
-What should you do?
-
-Select only one answer.
-
-Add more VMs to the pool.
-
-Adjust the load balancing rule settings.
-
-Disable session persistence.
-
-**This answer is correct.**
-
-Enable session persistence (source IP affinity).
-
-**This answer is incorrect.**
-
-Disabling session persistence ensures even traffic distribution by removing any affinity that directs traffic to the same VM. Adjusting the load balancing rule settings might seem like a solution but does not address the root cause of uneven distribution. Enabling source IP affinity maintains session persistence, potentially exacerbating the uneven distribution of traffic. Adding more VMs does not solve the distribution issue caused by session persistence settings.
+~~Disabling session persistence ensures even traffic distribution by removing any affinity that directs traffic to the same VM. Adjusting the load balancing rule settings might seem like a solution but does not address the root cause of uneven distribution. Enabling source IP affinity maintains session persistence, potentially exacerbating the uneven distribution of traffic. Adding more VMs does not solve the distribution issue caused by session persistence settings.~~
 
 [Configure Azure virtual machine network settings - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/create-windows-virtual-machine-in-azure/6-manage-vm)
 

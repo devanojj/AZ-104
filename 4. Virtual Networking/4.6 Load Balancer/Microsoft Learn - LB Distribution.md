@@ -22,3 +22,12 @@ Traffic from same IP + Protocol going to the same backend
 
 
 
+|Requirement|Think|
+|---|---|
+|Keep client connected to same backend VM|**Session persistence ON**|
+|Distribute connections as evenly as possible|**Session persistence OFF**|
+|Users can't connect / backend unavailable|**Health probe / connection troubleshooting**|
+|Need more capacity|**Add VMs / scale out**|
+
+
+
