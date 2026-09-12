@@ -448,93 +448,40 @@
 [Configure Azure virtual machine network settings - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/create-windows-virtual-machine-in-azure/6-manage-vm)
 
 
-You have an Azure subscription that contains a storage account named storage1. storage1 contains an Azure Files share named share1.
+~~You need to create an Azure Storage account that supports the Azure Data Lake Storage Gen2 capabilities.~~
 
-You need to ensure that users can authenticate to share1 by using Microsoft Entra and access the file share by using SMB.
+~~Which two types of storage accounts can you use? Each correct answer presents a complete solution.~~
 
-What should you do?
+~~Select all answers that apply.~~
 
-Select only one answer.
+~~premium block blobs **This answer is correct.**~~
+~~premium file shares~~
+~~standard general-purpose v2 **This answer is correct.**~~
+~~premium page blobs **This answer is incorrect.**~~
 
-Configure identity-based access.
+~~To support Data Lake Storage, the storage account must support blob storage, which is available as standard general-purpose v2 and premium block blobs. Additionally, when you create the storage account, you must enable the hierarchical namespace.~~
 
-**This answer is correct.**
-
-Generate a shared access signature (SAS) and a connection string.
-
-Enable public network access.
-
-Regenerate the access keys.
-
-**Objective:**
-
-2.1 Configure access to storage
-
-**What This Item Tests:**
-
-Configure identity-based access for Azure Files
-
-**Additional Reading:**
-
-[Review Azure Storage security strategies - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/configure-storage-security/2-review-strategies)
-
-Correct - Identity-based access for an Azure Storage account is a security model that uses Microsoft Entra ID or Active Directory to authorize requests to storage data, rather than relying on a static storage account key or SAS.  
-Incorrect – SAS tokens and access keys provide key-based access, rather than identity-based access, and enabling public network access does not configure authentication or authorization.
+~~[Create a storage account for Azure Data Lake Storage Gen2 - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/create-data-lake-storage-account)~~
+~~[Determine storage account types - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/4-determine-storage-account-kinds)~~
 
 
-ou need to create an Azure Storage account that supports the Azure Data Lake Storage Gen2 capabilities.
 
-Which two types of storage accounts can you use? Each correct answer presents a complete solution.
+~~Your need to create an Azure Storage account that meets the following requirements:~~
+- ~~Stores data in a minimum of two availability zones~~
+- ~~Provides high availability~~
 
-Select all answers that apply.
+~~Which type of storage redundancy should you use?~~
+~~Select only one answer.~~
 
-premium block blobs
+~~geo-redundant storage (GRS)~~
+~~locally-redundant storage (LRS)~~
+~~read-access geo-redundant storage (RA-GRS) **This answer is incorrect.**~~
+~~zone-redundant storage (ZRS) **This answer is correct.**~~
 
-**This answer is correct.**
+~~Zone-redundant storage (ZRS) replicates a storage account synchronously across three Azure availability zones in the primary region. For ensuring high availability, Microsoft recommends using ZRS in the primary region and also replicating to a secondary region.~~
 
-premium file shares
-
-standard general-purpose v2
-
-**This answer is correct.**
-
-premium page blobs
-
-**This answer is incorrect.**
-
-To support Data Lake Storage, the storage account must support blob storage, which is available as standard general-purpose v2 and premium block blobs. Additionally, when you create the storage account, you must enable the hierarchical namespace.
-
-[Create a storage account for Azure Data Lake Storage Gen2 - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/create-data-lake-storage-account)
-
-[Determine storage account types - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/4-determine-storage-account-kinds)
-
-
-Your need to create an Azure Storage account that meets the following requirements:
-
-- Stores data in a minimum of two availability zones
-- Provides high availability
-
-Which type of storage redundancy should you use?
-
-Select only one answer.
-
-geo-redundant storage (GRS)
-
-locally-redundant storage (LRS)
-
-read-access geo-redundant storage (RA-GRS)
-
-**This answer is incorrect.**
-
-zone-redundant storage (ZRS)
-
-**This answer is correct.**
-
-Zone-redundant storage (ZRS) replicates a storage account synchronously across three Azure availability zones in the primary region. For ensuring high availability, Microsoft recommends using ZRS in the primary region and also replicating to a secondary region.
-
-[Data redundancy - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-redundancy)
-
-[Determine replication strategies - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/5-determine-replication-strategies)
+~~[Data redundancy - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-redundancy)~~
+~~[Determine replication strategies - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/5-determine-replication-strategies)~~
 
 
 ou have two premium block blob Azure Storage accounts named storage1 and storage2.

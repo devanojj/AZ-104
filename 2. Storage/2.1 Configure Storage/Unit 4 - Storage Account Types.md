@@ -1,5 +1,5 @@
  Storage accounts are **Standard** or **Premium**, depending on cost and performance requirements.
----
+
 #### Standard Storage
 - **Lower cost per GB**
 - Best for:

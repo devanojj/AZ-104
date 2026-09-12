@@ -1,4 +1,4 @@
-## 1. Blob Storage Overview & Types
+### 1. Blob Storage Overview & Types
 Azure Blob Storage provides massively scalable, unstructured object storage in the cloud.
 
 ### Blob Types
@@ -13,7 +13,7 @@ Azure Blob Storage provides massively scalable, unstructured object storage in t
 
 ---
 
-## 2. Containers & Public Access Levels
+### 2. Containers & Public Access Levels
 Blobs reside within **Containers** (flat hierarchy).
 
 ### Container Naming Rules
@@ -30,7 +30,7 @@ Blobs reside within **Containers** (flat hierarchy).
 
 ---
 
-## 3. Blob Access Tiers
+### 3. Blob Access Tiers
 
 | Access Tier | Use Case | Storage Cost | Access Cost | Minimum Retention |
 | :--- | :--- | :--- | :--- | :--- |
@@ -54,7 +54,7 @@ Blobs reside within **Containers** (flat hierarchy).
 
 ---
 
-## 4. Blob Lifecycle Management
+### 4. Blob Lifecycle Management
 Automates data movement across tiers and data deletion using JSON-based rule sets.
 
 ### Rule Structure
@@ -77,7 +77,7 @@ Automates data movement across tiers and data deletion using JSON-based rule set
 
 ---
 
-## 5. Blob Object Replication
+### 5. Blob Object Replication
 Asynchronously copies block blobs between a source and destination storage account across Azure regions or within the same region.
 
 ### Requirements & Constraints
@@ -89,7 +89,7 @@ Asynchronously copies block blobs between a source and destination storage accou
 
 ---
 
-## 6. Data Protection & Immutability
+### 6. Data Protection & Immutability
 
 ### Soft Delete
 * **Blob Soft Delete:** Retains deleted blob data for a configurable retention window (1–365 days).
@@ -107,8 +107,15 @@ Asynchronously copies block blobs between a source and destination storage accou
 
 ---
 
-## 7. Blob Storage Pricing Components
+### 7. Blob Storage Pricing Components
 1. **Storage Capacity:** Volume of stored data per GB/month across tiers.
 2. **Data Access & Operations:** Read, write, list, and tier-change transaction costs.
 3. **Data Egress:** Outbound data transfer (inbound is free; cross-region and internet egress incur costs).
 4. **Rehydration & Early Deletion:** Charges for early tier movement or priority rehydration.
+
+### Additional
+|Blob type|Think|Examples|
+|---|---|---|
+|**Block blob**|📦 **Files**|Images, videos, documents, backups|
+|**Page blob**|💽 **Disks**|VHDs / unmanaged VM disks|
+|**Append blob**|➕ **Appending**|Logs|
