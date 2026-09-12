@@ -5,9 +5,10 @@
 - Remember the direction: **VM1 → VM2**.
 - Doesn't check reachability
 - **NSG rules are stateful** — return traffic is automatically allowed when the initial connection is permitted.
+- (Can these two things actually talk)
 
 
-**Next hop** tool that to check the next routing hop (type, IP address, and route table ID) for traffic leaving a virtual machine. Next hop does not display routing decisions.
+**Next hop** tool that to check the next routing hop (type, IP address, and route table ID) for traffic leaving a virtual machine. Next hop does not display routing decisions. (Where does this packet go next)
 
 
 *Install AzureNetworkWatcherExtension*

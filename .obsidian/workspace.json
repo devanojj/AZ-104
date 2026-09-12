@@ -69,7 +69,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "init",
+                "query": "effective r",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -90,7 +90,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -214,9 +215,11 @@
   },
   "active": "5d06ffcbeba7acd8",
   "lastOpenFiles": [
-    "0. General Concepts/Azure Monitor.md",
-    "6. Microsoft Practice Exam/Exam Incorrect.md",
     "0. General Concepts/Azure Network Watcher.md",
+    "0. General Concepts/Effective Routes.md",
+    "6. Microsoft Practice Exam/Exam Incorrect.md",
+    "0. General Concepts/Network Controller.md",
+    "0. General Concepts/Azure Monitor.md",
     "0. General Concepts/Azure Disks.md",
     "0. General Concepts/Azure Container.md",
     "0. General Concepts/Azure CLI.md",
@@ -238,8 +241,6 @@
     "4. Virtual Networking/4.6 Load Balancer/Unit 4 - When to use.md",
     "4. Virtual Networking/4.6 Load Balancer/Unit 3 - Load Balancer Works.md",
     "0. General Concepts/Azure Health Probe.md",
-    "4. Virtual Networking/4.6 Load Balancer/Microsoft Learn - LB Distribution.md",
-    "0. General Concepts/VNet Peering.md",
     "6. Microsoft Practice Exam",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",

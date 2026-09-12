@@ -4,4 +4,4 @@
 
 Azure Monitor Query can only show 30 days
 
-For Monitor Alerts, can only be closed by 
+For Monitor Alerts, can only be closed manually

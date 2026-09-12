@@ -339,80 +339,56 @@
 
 ~~[Manage action groups in the Azure portal - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups)~~
 
-You have 100 virtual machines deployed to Azure. You have Azure Monitor alerts configured for CPU and memory utilisation for the virtual machines.
-You open Azure Monitor alerts and discover 50 closed alerts for the virtual machines.
-What can cause the alert state to be Closed?
-
-Select only one answer.
-
-An administrator manually changed the state of the alerts. **This answer is correct.**
-The alerts are older than 60 days.
-The alert rule contains an action group that remediates the alert conditions. **This answer is incorrect.**
-The conditions that caused the alerts are no longer present.
-
-The alert state is manually set by the user and does not have any automated logic behind it. The alert state can be either New, Acknowledged, or Closed.
-
-[Manage Azure Monitor alerts - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-alerts/2-manage-azure-monitor-alerts)
+~~You have 100 virtual machines deployed to Azure. You have Azure Monitor alerts configured for CPU and memory utilisation for the virtual machines.~~
+~~You open Azure Monitor alerts and discover 50 closed alerts for the virtual machines.~~
+~~What can cause the alert state to be Closed?~~
+~~Select only one answer.~~
+~~An administrator manually changed the state of the alerts. **This answer is correct.**~~
+~~The alerts are older than 60 days.~~
+~~The alert rule contains an action group that remediates the alert conditions. **This answer is incorrect.**~~
+~~The conditions that caused the alerts are no longer present.~~
+~~The alert state is manually set by the user and does not have any automated logic behind it. The alert state can be either New, Acknowledged, or Closed.~~
+~~[Manage Azure Monitor alerts - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-alerts/2-manage-azure-monitor-alerts)~~
 
 
-You have an Azure subscription that contains the following virtual networks:
+~~You have an Azure subscription that contains the following virtual networks:~~
+- ~~VNet1: Has an IP address space of 10.10.0.0/16 and contains a subnet named Subnet1 (10.10.1.0/24) that hosts a virtual machine named VM1 that runs Windows Server.~~
+- ~~VNet2: Has an IP address space of 10.20.0.0/16 and contains a subnet named Subnet2 (10.20.1.0/24) that hosts a virtual machine named VM2 that runs Windows Server.~~
+~~VNet1 and VNet2 are connected by using virtual network peering.~~
+~~Users report that VM1 cannot connect to VM2.~~
+~~You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses virtual network peering as the next hop.~~
+~~What should you use?~~
 
-- VNet1: Has an IP address space of 10.10.0.0/16 and contains a subnet named Subnet1 (10.10.1.0/24) that hosts a virtual machine named VM1 that runs Windows Server.
-- VNet2: Has an IP address space of 10.20.0.0/16 and contains a subnet named Subnet2 (10.20.1.0/24) that hosts a virtual machine named VM2 that runs Windows Server.
+~~Select only one answer.~~
+- ~~Connection troubleshoot in Azure Network Watcher from VM1 to VM2~~
+- ~~The effective routes for the network interface of VM1 **This answer is correct.**~~
+- ~~Azure Network Watcher next hop for the network interface of VM1~~
+- ~~the Network Controller role in VM1 **This answer is incorrect.**~~
 
-VNet1 and VNet2 are connected by using virtual network peering.
+~~**Objective:** 4.1 Configure and manage virtual networks in Azure~~
+~~**What This Item Tests:**~~
+~~Create and configure virtual networks and subnets~~
 
-Users report that VM1 cannot connect to VM2.
+~~**Additional Reading:**~~
+~~[Constraints for peered virtual networks - Training | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview#troubleshoot)~~
+~~[Network troubleshooter - Training | Microsoft Learn](https://learn.microsoft.com/en-us/troubleshoot/azure/app-service/troubleshoot-vnet-integration-apps#network-troubleshooter)~~
+~~[Manage virtual networks - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/describe-microsoft-azure-resources-management/4-manage-virtual-networks)~~
 
-You need to verify whether the traffic from VM1 to the 10.20.0.0/16 subnet uses virtual network peering as the next hop.
+~~**Rationale:**~~
 
-What should you use?
+~~Viewing the effective routes on the network interface of VM1 shows all the system, peering, and user-defined routes that Azure applies to outbound traffic, including the next hop type for the 10.20.0.0/16 prefix.~~
 
-Select only one answer.
+~~Connection troubleshoot validates reachability but does not display routing decisions.~~
 
-Connection troubleshoot in Azure Network Watcher from VM1 to VM2
+~~Azure Network Watcher next hop is a diagnostic tool that identifies the next routing hop (type, IP address, and route table ID) for traffic leaving a virtual machine. Next hop does not display routing decisions.~~
 
-the effective routes for the network interface of VM1
+~~The Network Controller role in Windows Server is a centralized, programmable management p~~
 
-**This answer is correct.**
 
-Azure Network Watcher next hop for the network interface of VM1
-
-the Network Controller role in VM1
-
-**This answer is incorrect.**
-
-**Objective:**
-
-4.1 Configure and manage virtual networks in Azure
-
-**What This Item Tests:**
-
-Create and configure virtual networks and subnets
-
-**Additional Reading:**
-
-[Constraints for peered virtual networks - Training | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview#troubleshoot)
-
-[Network troubleshooter - Training | Microsoft Learn](https://learn.microsoft.com/en-us/troubleshoot/azure/app-service/troubleshoot-vnet-integration-apps#network-troubleshooter)
-
-[Manage virtual networks - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/describe-microsoft-azure-resources-management/4-manage-virtual-networks)
-
-**Rationale:**
-
-Viewing the effective routes on the network interface of VM1 shows all the system, peering, and user-defined routes that Azure applies to outbound traffic, including the next hop type for the 10.20.0.0/16 prefix.
-
-Connection troubleshoot validates reachability but does not display routing decisions.
-
-Azure Network Watcher next hop is a diagnostic tool that identifies the next routing hop (type, IP address, and route table ID) for traffic leaving a virtual machine. Next hop does not display routing decisions.
-
-The Network Controller role in Windows Server is a centralized, programmable management point for Software Defined Networking (SDN).
 
 
 You have an Azure subscription that contains two resource groups named RG1 and RG2.
-
 RG1 contains the following resources:
-
 - A virtual network named VNet1 located in the East US Azure region
 - A network security group (NSG) named NSG1 located in the West US Azure region
 
