@@ -29,16 +29,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6. Microsoft Practice Exam/Exam Incorrect.md",
+                "file": "0. General Concepts/Logging.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Exam Incorrect"
+              "title": "Logging"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -97,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -214,10 +214,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "690e08ea99de8aa4",
+  "active": "d0a06c4e648ea1e0",
   "lastOpenFiles": [
-    "0. General Concepts/Azure Message Bus.md",
+    "0. General Concepts/Logging.md",
     "6. Microsoft Practice Exam/Exam Incorrect.md",
+    "0. General Concepts/Azure Message Bus.md",
     "0. General Concepts/Azure Tags.md",
     "0. General Concepts/Kubernetes API.md",
     "0. General Concepts/Azure Container.md",
@@ -241,7 +242,6 @@
     "4. Virtual Networking/4.2 Configure NSG/Unit 1 - NSG Introduction.md",
     "0. General Concepts/Azure Monitor.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 8 - EQ Configure NSG.md",
-    "4. Virtual Networking/4.2 Configure NSG/Unit 2 - Implement NSG.md",
     "6. Microsoft Practice Exam",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",

@@ -633,50 +633,40 @@
 ~~[Configure Azure Container Instances - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-container-instances/)~~
 
 
-You have an Azure subscription that contains an Azure App Service web app named App1.
-You have the following diagnostic logging configurations:
+~~You have an Azure subscription that contains an Azure App Service web app named App1.~~
+~~You have the following diagnostic logging configurations:~~
 
-- Application Logging (FileSystem): Error
-- Application Logging (Blob): Information
-- Detailed Error Message: Warning
-- Web Server Logging: Verbose
+- ~~Application Logging (FileSystem): Error~~
+- ~~Application Logging (Blob): Information~~
+- ~~Detailed Error Message: Warning~~
+- ~~Web Server Logging: Verbose~~
 
-You need to configure diagnostic logging to store all warnings or higher.  
-Which types of diagnostic logging and severity should you enable?
-Select all answers that apply.
+~~You need to configure diagnostic logging to store all warnings or higher.~~  
+~~Which types of diagnostic logging and severity should you enable?~~
+~~Select all answers that apply.~~
 
-Application Logging (Blob) **This answer is correct.**
-Application Logging (FileSystem) **This answer is correct.**
-Detailed Error Message
-Verbose
-Warning **This answer is correct.**
+~~Application Logging (Blob) **This answer is correct.**~~
+~~Application Logging (FileSystem) **This answer is correct.**~~
+~~Detailed Error Message~~
+~~Verbose~~
+~~Warning **This answer is correct.**~~
 
-You must enable the Application Logging (Blob) diagnostic, which can be stored for more than a week. You must also set the severity level to warning, to store warning, error, and critical log messages.
+~~You must enable the Application Logging (Blob) diagnostic, which can be stored for more than a week. You must also set the severity level to warning, to store warning, error, and critical log messages.~~
 
-[Enable diagnostics logging - Azure App Service | Microsoft Learn](https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
+~~[Enable diagnostics logging - Azure App Service | Microsoft Learn](https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)~~
+~~[Configure Azure App Service - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/)~~
 
-[Configure Azure App Service - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/)
 
 
 
 You have a Microsoft Entra tenant that contains a user named User1.
-
 You need to ensure that User1 can invite external users to the tenant. The solution must follow the principle of least privilege.
-
 Which role should you assign to User1?
 
 Select only one answer.
-
 Global Administrator
-
-Groups Administrator
-
-**This answer is incorrect.**
-
-Guest Inviter
-
-**This answer is correct.**
-
+Groups Administrator **This answer is incorrect.**
+Guest Inviter **This answer is correct.**
 Security Administrator
 
 The correct solution is to assign the Guest Inviter role, because it grants only the specific ability to invite external users into the Microsoft Entra tenant, aligning with the principle of least privilege. The Global Administrator role would allow full tenant-wide control and far exceeds the requirement. The Groups Administrator role allows management of groups but not external user invitations. The Security Administrator role manages security settings and reports but does not enable guest invitations. Therefore, the Guest Inviter role provides the exact permissions needed without granting unnecessary rights.
@@ -686,6 +676,8 @@ The correct solution is to assign the Guest Inviter role, because it grants only
 [Manage external user accounts in Microsoft Entra ID](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/9-user-accounts-azure-active-directory)  
 [Manage external collaboration](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/3-collaboration)  
 [Exercise - configure external collaboration](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/4-exercise-configure-external-collaboration)
+
+
 
 
 You have an Azure subscription.
