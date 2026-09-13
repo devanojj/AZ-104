@@ -659,23 +659,23 @@
 
 
 
-You have a Microsoft Entra tenant that contains a user named User1.
-You need to ensure that User1 can invite external users to the tenant. The solution must follow the principle of least privilege.
-Which role should you assign to User1?
+~~You have a Microsoft Entra tenant that contains a user named User1.~~
+~~You need to ensure that User1 can invite external users to the tenant. The solution must follow the principle of least privilege.~~
+~~Which role should you assign to User1?~~
 
-Select only one answer.
-Global Administrator
-Groups Administrator **This answer is incorrect.**
-Guest Inviter **This answer is correct.**
-Security Administrator
+~~Select only one answer.~~
+~~Global Administrator~~
+~~Groups Administrator **This answer is incorrect.**~~
+~~Guest Inviter **This answer is correct.**~~
+~~Security Administrator~~
 
-The correct solution is to assign the Guest Inviter role, because it grants only the specific ability to invite external users into the Microsoft Entra tenant, aligning with the principle of least privilege. The Global Administrator role would allow full tenant-wide control and far exceeds the requirement. The Groups Administrator role allows management of groups but not external user invitations. The Security Administrator role manages security settings and reports but does not enable guest invitations. Therefore, the Guest Inviter role provides the exact permissions needed without granting unnecessary rights.
+~~The correct solution is to assign the Guest Inviter role, because it grants only the specific ability to invite external users into the Microsoft Entra tenant, aligning with the principle of least privilege. The Global Administrator role would allow full tenant-wide control and far exceeds the requirement. The Groups Administrator role allows management of groups but not external user invitations. The Security Administrator role manages security settings and reports but does not enable guest invitations. Therefore, the Guest Inviter role provides the exact permissions needed without granting unnecessary rights.~~
 
-[Exercise - add guest users to directory](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/6-exercise-add-guest-users-to-directory)  
-[Invite external users - individually and in bulk](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/5-invite-external-users-individually-bulk)  
-[Manage external user accounts in Microsoft Entra ID](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/9-user-accounts-azure-active-directory)  
-[Manage external collaboration](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/3-collaboration)  
-[Exercise - configure external collaboration](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/4-exercise-configure-external-collaboration)
+~~[Exercise - add guest users to directory](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/6-exercise-add-guest-users-to-directory)~~  
+~~[Invite external users - individually and in bulk](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/5-invite-external-users-individually-bulk)~~  
+~~[Manage external user accounts in Microsoft Entra ID](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/9-user-accounts-azure-active-directory)~~  
+~~[Manage external collaboration](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/3-collaboration)~~  
+~~[Exercise - configure external collaboration](https://learn.microsoft.com/en-us/training/modules/implement-manage-external-identities/4-exercise-configure-external-collaboration)~~
 
 
 
