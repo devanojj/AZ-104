@@ -1,9 +1,6 @@
 You have an Azure subscription that contains a virtual network named VNet1.
-
 You plan to deploy a virtual machine named VM1 to be used as a network inspection appliance.
-
 You need to ensure that all network traffic passes through VM1.
-
 What should you do?
 
 Select only one answer.
