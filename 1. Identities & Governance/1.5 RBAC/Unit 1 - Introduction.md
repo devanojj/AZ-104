@@ -25,3 +25,15 @@
 - **`Get-AzRoleAssignment`** → Find **who has access**
 - **`New-AzRoleAssignment`** → **Assign** a role
 - **`Set-AzRoleAssignment`** → Modify an **existing assignment**
+
+
+#### VM Tagging — RBAC
+- **Goal:** User can **tag all VMs** with **least privilege**
+- Tags are managed through **Azure RBAC → Access control (IAM)**
+- Assign appropriate **VM-level/tagging permissions** to User1 via IAM
+---
+#### Exam Tip
+- **Access control (IAM)** → Manage **who can access/modify resources**
+- **Azure Policy** → Enforce **rules/compliance**, not user permissions
+- **Custom role** → Only needed when built-in roles don't provide sufficient permissions
+- `az role assignment create` → CLI alternative, but question specifically asks to use **Azure portal**

@@ -736,33 +736,32 @@ New-AzRoleAssignment -SignInName user1@contoso.com
 
 
   
-You need to identify which virtual machines are underutilized.
+~~You need to identify which virtual machines are underutilized.~~
 
-Which Azure Advisor settings should you use?
+~~Which Azure Advisor settings should you use?~~
 
-Select only one answer.
+~~Select only one answer.~~
 
-Cost
+~~Cost~~
 
-**This answer is correct.**
+~~**This answer is correct.**~~
 
-High Availability
+~~High Availability~~
 
-Operational Excellence
+~~Operational Excellence~~
 
-Performance
+~~Performance~~
 
-**This answer is incorrect.**
+~~**This answer is incorrect.**~~
 
-The Cost blade allows you to optimize and reduce your overall Azure spending. You can use this to identify the virtual machines that are underutilized. The Performance blade allows you to improve the speed of your applications. High availability is unavailable via Azure Advisor. Operational Excellence helps you achieve process and workflow efficiency, resource manageability, and deployment best practices.
+~~The Cost blade allows you to optimise and reduce your overall Azure spending. You can use this to identify the virtual machines that are underutilised. The Performance blade allows you to improve the speed of your applications. High availability is unavailable via Azure Advisor. Operational Excellence helps you achieve process and workflow efficiency, resource manageability, and deployment best practices.~~
 
-[Introduction to Azure Advisor - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/intro-to-azure-advisor/)
+~~[Introduction to Azure Advisor - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/intro-to-azure-advisor/)~~
 
 
 You need to ensure that a user named User1 can tag all the virtual machines by using the Azure portal. The solution must follow the principle of least privilege.
 
 What should you do?
-
 Select only one answer.
 
 From the Azure portal, create a custom role that has the Microsoft.Compute virtual machines/*/write permission.
@@ -777,7 +776,9 @@ From the command line, run the az role assignment create command.
 
 **This answer is incorrect.**
 
-The correct solution is to update the Access control (IAM) settings of the virtual machines in the Azure portal and assign User1 a role that grants tagging rights, such as the built-in Tag Contributor role. This follows the principle of least privilege because it gives User1 only the permissions required to apply and manage tags, without granting full write or administrative rights. Creating a custom role with full virtualMachines/*/write permission is unnecessary and too broad, modifying Policies only enforces tagging rules rather than granting permissions, and using the az role assignment create command is another way to assign roles but does not specify the least-privilege role or the portal-based method requested in the scenario.
+The correct solution is to update the Access control (IAM) settings of the virtual machines in the Azure portal and assign User1 a role that grants tagging rights, such as the built-in Tag Contributor role. This follows the principle of least privilege because it gives User1 only the permissions required to apply and manage tags, without granting full write or administrative rights. 
+
+Creating a custom role with full virtualMachines/*/write permission is unnecessary and too broad, modifying Policies only enforces tagging rules rather than granting permissions, and using the az role assignment create command is another way to assign roles but does not specify the least-privilege role or the portal-based method requested in the scenario.
 
 [Apply tags with Azure portal](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources-portal)  
 [Understand Azure Automation](https://learn.microsoft.com/en-us/training/modules/manage-azure-paas-resources-using-automated-methods/3-understand-azure-automation)  
@@ -785,3 +786,21 @@ The correct solution is to update the Access control (IAM) settings of the virtu
 [Apply tags with Azure PowerShell](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources-powershell)  
 [Label mission-critical workloads](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-mission-critical-workload)  
 [Use tagging to organize resources](https://learn.microsoft.com/en-us/training/modules/control-and-organize-with-azure-resource-manager/3-use-tagging-to-organize-resources)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

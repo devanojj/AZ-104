@@ -14,13 +14,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6. Microsoft Practice Exam/Exam Incorrect.md",
+                "file": "6. Microsoft Practice Exam/Exam Incorrect (Done).md",
                 "mode": "source",
                 "source": false
               },
               "pinned": true,
               "icon": "lucide-file",
-              "title": "Exam Incorrect"
+              "title": "Exam Incorrect (Done)"
             }
           }
         ]
@@ -102,7 +102,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -222,7 +223,8 @@
   "active": "d0a06c4e648ea1e0",
   "lastOpenFiles": [
     "1. Identities & Governance/1.5 RBAC/Unit 1 - Introduction.md",
-    "6. Microsoft Practice Exam/Exam Incorrect.md",
+    "6. Microsoft Practice Exam/Exam Incorrect (Done).md",
+    "0. General Concepts/Azure Advisor.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Unit 1 - Introduction.md",
     "0. General Concepts/Logging.md",
     "0. General Concepts/Azure Message Bus.md",
@@ -246,7 +248,6 @@
     "0. General Concepts/Azure Data Lake Storage.md",
     "4. Virtual Networking/4.6 Load Balancer/Microsoft Learn - LB Distribution.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 1 - NSG Introduction.md",
-    "0. General Concepts/Azure Monitor.md",
     "6. Microsoft Practice Exam",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
