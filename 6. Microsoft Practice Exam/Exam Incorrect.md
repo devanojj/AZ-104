@@ -680,15 +680,15 @@
 
 
 
-You have an Azure subscription.
+~~You have an Azure subscription.~~
 
-You run the following command:
+~~You run the following command:~~
 
 ```
   Get-AzRoleDefinition | Format-Table -Property Name, Id
 ```
 
-The command output contains data that includes the following:
+~~The command output contains data that includes the following:~~
 
 ```
 CustomRole1   111-222-333-444-555
@@ -697,7 +697,7 @@ Contributor   b24988ac-6180-42a0-ab88-20f7382dd24c
 Reader        acdd72a7-3385-48ef-bd42-f606fba81ae7
 ```
 
-You have a script that manages access to resources at the resource group level. The assignment process is automated by running the following PowerShell script nightly.
+~~You have a script that manages access to resources at the resource group level. The assignment process is automated by running the following PowerShell script nightly.~~
 
 ```
 $rg = "RG1"
@@ -708,31 +708,31 @@ New-AzRoleAssignment -SignInName user1@contoso.com
     -ResourceGroupName $rg
 ```
 
-User1 is unable to access the RG1 resource group. You discover that the script fails to complete for User1.
+~~User1 is unable to access the RG1 resource group. You discover that the script fails to complete for User1.~~
 
-You need to modify the script to ensure that it does not fail.
+~~You need to modify the script to ensure that it does not fail.~~
 
-What should you change in the script?
+~~What should you change in the script?~~
 
-Select only one answer.
+~~Select only one answer.~~
 
-`$Role = Add-AzRoleDefinition -Name $RoleName` 
+~~`$Role = Add-AzRoleDefinition -Name $RoleName`~~ 
 
-`$Role = Get-AzRoleAssignment -Name $RoleName`
+~~`$Role = Get-AzRoleAssignment -Name $RoleName`~~
 
-`$Role = Set-AzRoleAssignment -Name $RoleName` 
+~~`$Role = Set-AzRoleAssignment -Name $RoleName`~~ 
 
-**This answer is incorrect.**
+~~**This answer is incorrect.**~~
 
-`$RoleName = "CustomRole1"`
+~~`$RoleName = "CustomRole1"`~~
 
-**This answer is correct.**
+~~**This answer is correct.**~~
 
-For the script to work as written, the $RoleName variable should refer to the name instead of the ID.
+~~For the script to work as written, the $RoleName variable should refer to the name instead of the ID.~~
 
-[Assign Azure roles using Azure PowerShell - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+~~[Assign Azure roles using Azure PowerShell - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-powershell)~~
 
-[Secure your Azure resources with Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)
+~~[Secure your Azure resources with Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)~~
 
 
   

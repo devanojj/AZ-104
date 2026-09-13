@@ -18,3 +18,10 @@
 - **RBAC = Authorization**, not authentication.
 - Controls **who can do what, where**.
 - Used to manage access to **Azure resources**.
+
+
+- **`Get-AzRoleDefinition`** → Get an existing **role definition**
+- **`Add-AzRoleDefinition`** → Create a **custom role**
+- **`Get-AzRoleAssignment`** → Find **who has access**
+- **`New-AzRoleAssignment`** → **Assign** a role
+- **`Set-AzRoleAssignment`** → Modify an **existing assignment**
