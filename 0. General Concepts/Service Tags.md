@@ -1,0 +1,1 @@
+Service tags are for specific Azure services, such as Azure App Service or Azure Backup.

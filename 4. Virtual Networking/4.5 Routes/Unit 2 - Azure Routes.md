@@ -118,3 +118,5 @@ If routes have the **same address prefix**:
 - **None = drop traffic**
 - **Virtual appliance = NVA/firewall**
 - **BGP = dynamic route exchange**
+
+Due to the UDR priority, all traffic can be routed through it
