@@ -87,43 +87,29 @@
 - ~~VM4~~
 
 
+~~You have an Azure subscription that contains a resource group named RG1. RG1 contains an Azure virtual machine named VM1.~~
+~~You need to use VM1 as a template to create a new Azure virtual machine.~~
+~~Which three methods can you use to complete the task? Each correct answer presents a complete solution.~~
+~~Select all answers that apply.~~
 
-You have an Azure subscription that contains a resource group named RG1. RG1 contains an Azure virtual machine named VM1.
-You need to use VM1 as a template to create a new Azure virtual machine.
+~~From Azure Cloud Shell, run the `Get-AzVM` and `New-AzVM` cmdlets.~~
+~~From Azure Cloud Shell, run the `Save-AzDeploymentScriptLog` and `New-AzResourceGroupDeployment` cmdlets.~~
+~~From Azure Cloud Shell, run the `Save-AzDeploymentTemplate` and `New-AzResourceGroupDeployment` cmdlets.~ ~~**This answer is correct.**~~
+~~From RG1, select **Export template**, select **Download**, and then, from Azure Cloud Shell, run the `New-AzResourceGroupDeployment` cmdlet.~~
+~~**This answer is correct.**~~
+~~From VM1, select **Export template**, and then select **Deploy**.~~
+~~**This answer is correct.**~~
+~~From RG1, selecting the Download option from the Export template page exports the Azure Resource Manager (ARM) template from the resource group properties. You can then deploy the ARM template by running the `New-AzResourceGroupDeployment` cmdlet.~~
+~~By using the `Save-AzDeploymentTemplate` cmdlet, you can save the resource ARM template. You can then deploy the ARM template by running the `New-AzResourceGroupDeployment` cmdlet.~~
+~~From VM1, selecting the Deploy option from the Export template page allows you to deploy a new Azure virtual machine and use the configuration of VM1 as the template.~~
 
-Which three methods can you use to complete the task? Each correct answer presents a complete solution.
+~~The `Save-AzDeploymentScriptLog` cmdlet is used to save the log of a deployment script execution.~~
 
-Select all answers that apply.
+~~The `Get-AzVM` cmdlet generates a list of virtual machines that are created in the Azure subscription.~~
 
-From Azure Cloud Shell, run the `Get-AzVM` and `New-AzVM` cmdlets.
+~~[Use Azure portal to export a template - Training | Microsoft Learn](https://learn.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)~~ 
 
-From Azure Cloud Shell, run the `Save-AzDeploymentScriptLog` and `New-AzResourceGroupDeployment` cmdlets.
-
-From Azure Cloud Shell, run the `Save-AzDeploymentTemplate` and `New-AzResourceGroupDeployment` cmdlets.
-
-**This answer is correct.**
-
-From RG1, select **Export template**, select **Download**, and then, from Azure Cloud Shell, run the `New-AzResourceGroupDeployment` cmdlet.
-
-**This answer is correct.**
-
-From VM1, select **Export template**, and then select **Deploy**.
-
-**This answer is correct.**
-
-From RG1, selecting the Download option from the Export template page exports the Azure Resource Manager (ARM) template from the resource group properties. You can then deploy the ARM template by running the `New-AzResourceGroupDeployment` cmdlet.
-
-By using the `Save-AzDeploymentTemplate` cmdlet, you can save the resource ARM template. You can then deploy the ARM template by running the `New-AzResourceGroupDeployment` cmdlet.
-
-From VM1, selecting the Deploy option from the Export template page allows you to deploy a new Azure virtual machine and use the configuration of VM1 as the template.
-
-The `Save-AzDeploymentScriptLog` cmdlet is used to save the log of a deployment script execution.
-
-The `Get-AzVM` cmdlet generates a list of virtual machines that are created in the Azure subscription.
-
-[Use Azure portal to export a template - Training | Microsoft Learn](https://learn.microsoft.com/azure/azure-resource-manager/templates/export-template-portal) 
-
-[Export template in Azure PowerShell - Azure Resource Manager | Microsoft Learn](https://learn.microsoft.com/azure/azure-resource-manager/templates/export-template-powershell)
+~~[Export template in Azure PowerShell - Azure Resource Manager | Microsoft Learn](https://learn.microsoft.com/azure/azure-resource-manager/templates/export-template-powershell)~~
 
 
 

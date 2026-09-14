@@ -7,6 +7,19 @@ Lists resource groups
 `az group delete -n testazure-2`
 Deletes test resource group
 
+`Get-AzVM`
+Gets the list of VM's in the subscription 
+
+`Save-AzDeploymentScriptLog`
+Save the log of a deployment script execution 
+(Output)
+
+`Save-DeploymentTemplate`
+You cane save the ARM template 
+
+`New-AzResourceGroupDeployment`
+You can deploy the ARM template
+
 
 
 
