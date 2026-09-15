@@ -283,49 +283,32 @@ Y~~ou create several Azure virtual machines that run Windows Server.~~
 
 ~~[Improve application scalability and resiliency by using Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/improve-app-scalability-resiliency-with-load-balancer)~~
 
+~~You have an Azure subscription that contains a storage account named storage1.~~
+~~You need to provide a partner organisation with access to storage1. Access to storage1 must automatically expire after 24 hours.~~
+~~What should you configure?~~
+~~Select only one answer.~~
+- ~~a shared access signature (SAS) **This answer is correct.**~~
+- ~~an access key~~
+- ~~Azure Content Delivery Network (CDN)~~
+- ~~lifecycle management~~
+
+~~A SAS provides secure delegated access to resources in a storage account. With a SAS, you have granular control over how a client can access data, including time restrictions.~~
+
+~~Access keys and Azure CDN provide permanent access to resources. They will require manual steps to remove access. Lifecycle management is not needed.~~
+
+~~[Configure Azure Storage security - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-security/)~~
+
+~~[Grant limited access to data with shared access signatures (SAS) - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-sas-overview)~~
+
 You have an Azure subscription that contains a storage account named storage1.
-
-You need to provide a partner organization with access to storage1. Access to storage1 must automatically expire after 24 hours.
-
-What should you configure?
-
-Select only one answer.
-
-a shared access signature (SAS)
-
-**This answer is correct.**
-
-an access key
-
-Azure Content Delivery Network (CDN)
-
-lifecycle management
-
-A SAS provides secure delegated access to resources in a storage account. With a SAS, you have granular control over how a client can access data, including time restrictions.
-
-Access keys and Azure CDN provide permanent access to resources. They will require manual steps to remove access. Lifecycle management is not needed.
-
-[Configure Azure Storage security - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-security/)
-
-[Grant limited access to data with shared access signatures (SAS) - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-sas-overview)
-
-ou have an Azure subscription that contains a storage account named storage1.
-
 You need to ensure that access to storage1 is prevented from the internet.
-
 What should you configure on storage1?
-
 Select only one answer.
 
 Access keys
-
 Data protection
-
 Encryption
-
-Networking
-
-**This answer is correct.**
+Networking **This answer is correct.**
 
 The Networking node of a storage account provides settings to configure public network access and network routing. To disable public network access, you can disable public network access, or configure the access to only allow specific virtual networks and IP addresses.
 
