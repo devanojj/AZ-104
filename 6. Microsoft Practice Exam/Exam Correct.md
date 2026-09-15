@@ -113,157 +113,130 @@
 
 
 
-Your company plans to host an application on four Azure virtual machines.
+~~Your company plans to host an application on four Azure virtual machines.~~
+~~You need to ensure that at least two virtual machines are available if a single Azure datacenter fails.~~
+~~Which availability option should you select for the virtual machine?~~
+~~Select only one answer.~~
+~~an availability set~~
+~~an availability zone~~
 
-You need to ensure that at least two virtual machines are available if a single Azure datacenter fails.
+~~**This answer is correct.**~~
 
-Which availability option should you select for the virtual machine?
+~~scale sets~~
 
-Select only one answer.
+~~To protect against datacenter level failures, and if you want connectivity to multiple machines, you must ensure that the virtual machines are deployed across various availability zones.~~
 
-an availability set
+~~[What are Azure regions and availability zones? | Microsoft Learn](https://learn.microsoft.com/azure/reliability/availability-zones-overview)~~
 
-an availability zone
+~~[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)~~
 
-**This answer is correct.**
 
-scale sets
+~~You have an Azure subscription that contains an Azure container app named cont1.~~
+~~You plan to add scaling rules to cont1.~~
+~~You need to ensure that cont1 replicas are created based on received messages in Azure Service Bus.~~
 
-To protect against datacenter level failures, and if you want connectivity to multiple machines, you must ensure that the virtual machines are deployed across various availability zones.
+~~Which scale trigger should you use?~~
 
-[What are Azure regions and availability zones? | Microsoft Learn](https://learn.microsoft.com/azure/reliability/availability-zones-overview)
+~~Select only one answer.~~
+~~CPU usage~~
+~~event-driven **This answer is correct.**~~
+~~HTTP traffic~~
+~~memory usage~~
 
-[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
+~~Azure Container Apps allows a set of triggers to create new instances, called replicas. For Azure Service Bus, an event-driven trigger can be used to run the escalation method. The remaining scale triggers cannot use a scale rule based on messages in an Azure service bus.~~
 
+~~[Scaling in Azure Container Apps | Microsoft Learn](https://learn.microsoft.com/azure/container-apps/scale-app#event-driven)~~
+~~[Configure Azure Container Instances - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-container-instances/)~~
 
-You have an Azure subscription that contains an Azure container app named cont1.
 
-You plan to add scaling rules to cont1.
+~~You have an Azure virtual machine that you back up by using Azure Backup.~~
+~~The backup policy sub type is Standard, and the backup policy has the following configurations:~~
+- ~~Backup schedule frequency: Weekly~~
+- ~~Retain instant recovery snapshot(s) for: 5 days~~
+- ~~Retention of weekly backup point: On Sunday at 8:00 AM for 12 weeks~~
+~~You discover that Instant Restore is consuming more storage than expected.~~
+~~You need to reduce the amount of storage consumed by Instant Restore.~~
+~~What should you do first?~~
+~~Select only one answer.~~
 
-You need to ensure that cont1 replicas are created based on received messages in Azure Service Bus.
+~~Change the backup schedule frequency to Daily.~~
+~~Change the retention of weekly backup points to 1 week.~~
+~~Modify the backup policy to reduce the retention of instant recovery snapshots.~~
+~~**This answer is correct.**~~
+~~Provision an additional blob storage container.~~
 
-Which scale trigger should you use?
+~~Correct – The “Retain instant recovery snapshot(s)” setting directly determines how long snapshots are stored locally before being transferred to the Recovery Services vault. Reducing this from 5 days to 2 days lowers Instant Restore storage usage.~~
 
-Select only one answer.
+~~[Azure Instant Restore Capability - Azure Backup | Microsoft Learn](https://learn.microsoft.com/azure/backup/backup-instant-restore-capability)~~
+~~[Configure file and folder backups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-file-folder-backups/)~~
 
-CPU usage
 
-event-driven
+~~You have an Azure subscription that contains a virtual network named VNet1.~~
+~~You plan to enable VNet1 connectivity to on-premises resources by using an encrypted connection.~~
+~~What should you configure for VNet1?~~
 
-**This answer is correct.**
+~~Select only one answer.~~
 
-HTTP traffic
+~~a private endpoint connection~~
 
-memory usage
+~~a public IP address~~
 
-Azure Container Apps allows a set of triggers to create new instances, called replicas. For Azure Service Bus, an event-driven trigger can be used to run the escalation method. The remaining scale triggers cannot use a scale rule based on messages in an Azure service bus.
+~~a virtual network gateway~~
 
-[Scaling in Azure Container Apps | Microsoft Learn](https://learn.microsoft.com/azure/container-apps/scale-app#event-driven)
+~~**This answer is correct.**~~
 
-[Configure Azure Container Instances - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-container-instances/)
+~~internet routing~~
 
+~~A VPN gateway is a type of virtual network gateway that sends encrypted traffic between a virtual network and an on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks across the Azure backbone. A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings.~~
 
-You have an Azure virtual machine that you back up by using Azure Backup.
+~~[Introduction to Azure VPN Gateway - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-vpn-gateway/)~~
 
-The backup policy sub type is Standard, and the backup policy has the following configurations:
 
-- Backup schedule frequency: Weekly
-- Retain instant recovery snapshot(s) for: 5 days
-- Retention of weekly backup point: On Sunday at 8:00 AM for 12 weeks
+~~You have a virtual machine named VM1 that is assigned to a network security group (NSG) named NSG1.~~
+~~NSG1 has the following outbound security rules:~~
+~~Rule1:~~
 
-You discover that Instant Restore is consuming more storage than expected.
+- ~~Priority: 900~~
+- ~~Name: BlockInternet~~
+- ~~Port: 80~~
+- ~~Protocol: TCP~~
+- ~~Source: Any~~
+- ~~Destination: Any~~
+- ~~Action: Block~~
 
-You need to reduce the amount of storage consumed by Instant Restore.
+~~Rule2:~~
+- ~~Priority: 1000~~
+- ~~Name: AllowInternet~~
+- ~~Port: 80~~
+- ~~Protocol: TCP~~
+- ~~Source: Any~~
+- ~~Destination: Any~~
+- ~~Action: Allow~~
 
-What should you do first?
+~~You need to ensure that internet access to VM1 on port 80 is allowed.~~
 
-Select only one answer.
+~~What should you do?~~
 
-Change the backup schedule frequency to Daily.
+~~Select only one answer.~~
 
-Change the retention of weekly backup points to 1 week.
+~~Change the action of Rule2.~~
 
-Modify the backup policy to reduce the retention of instant recovery snapshots.
+~~Change the name of Rule1.~~
 
-**This answer is correct.**
+~~Change the priority of Rule2.~~
 
-Provision an additional blob storage container.
+~~**This answer is correct.**~~
 
-Correct – The “Retain instant recovery snapshot(s)” setting directly determines how long snapshots are stored locally before being transferred to the Recovery Services vault. Reducing this from 5 days to 2 days lowers Instant Restore storage usage.
+~~Change the source in Rule2.~~
 
-[Azure Instant Restore Capability - Azure Backup | Microsoft Learn](https://learn.microsoft.com/azure/backup/backup-instant-restore-capability)
+~~Rule1 has higher priority, so the action will be blocked. You can increase the priority of Rule2, decrease the priority of Rule1, or change the action of Rule1 to achieve the goal.~~
 
-[Configure file and folder backups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-file-folder-backups/)
+~~[Azure network security groups overview | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview)~~
 
+~~[Configure network se](https://learn.microsoft.com/training/modules/configure-network-security-groups/)~~
 
-You have an Azure subscription that contains a virtual network named VNet1.
 
-You plan to enable VNet1 connectivity to on-premises resources by using an encrypted connection.
 
-What should you configure for VNet1?
-
-Select only one answer.
-
-a private endpoint connection
-
-a public IP address
-
-a virtual network gateway
-
-**This answer is correct.**
-
-internet routing
-
-A VPN gateway is a type of virtual network gateway that sends encrypted traffic between a virtual network and an on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks across the Azure backbone. A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings.
-
-[Introduction to Azure VPN Gateway - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-vpn-gateway/)
-
-
-You have a virtual machine named VM1 that is assigned to a network security group (NSG) named NSG1.
-
-NSG1 has the following outbound security rules:
-
-Rule1:
-
-- Priority: 900
-- Name: BlockInternet
-- Port: 80
-- Protocol: TCP
-- Source: Any
-- Destination: Any
-- Action: Block
-
-Rule2:
-
-- Priority: 1000
-- Name: AllowInternet
-- Port: 80
-- Protocol: TCP
-- Source: Any
-- Destination: Any
-- Action: Allow
-
-You need to ensure that internet access to VM1 on port 80 is allowed.
-
-What should you do?
-
-Select only one answer.
-
-Change the action of Rule2.
-
-Change the name of Rule1.
-
-Change the priority of Rule2.
-
-**This answer is correct.**
-
-Change the source in Rule2.
-
-Rule1 has higher priority, so the action will be blocked. You can increase the priority of Rule2, decrease the priority of Rule1, or change the action of Rule1 to achieve the goal.
-
-[Azure network security groups overview | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview)
-
-[Configure network se](https://learn.microsoft.com/training/modules/configure-network-security-groups/)
 
 You create several Azure virtual machines that run Windows Server.
 
