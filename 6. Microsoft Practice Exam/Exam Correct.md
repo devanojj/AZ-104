@@ -252,46 +252,36 @@ Y~~ou create several Azure virtual machines that run Windows Server.~~
 ~~[Configure virtual networks - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-networks/)~~
 
 
-You have an Azure subscription.
-You plan to implement four Azure virtual networks that will be peered. All virtual machines will use a DNS suffix of contoso.com.
-You need to configure name resolution for the virtual networks to ensure that all the virtual machines can communicate by using their FQDNs. The solution must minimize administrative effort.
+~~You have an Azure subscription.~~
+~~You plan to implement four Azure virtual networks that will be peered. All virtual machines will use a DNS suffix of contoso.com.~~
+~~You need to configure name resolution for the virtual networks to ensure that all the virtual machines can communicate by using their FQDNs. The solution must minimise administrative effort.~~
 
-What should you use?
-Select only one answer.
-- A DNS server on an Azure virtual machine
-- An Azure Private DNS zone **This answer is correct.**
-- An Azure public DNS zone
-- Azure-provided name resolution
+~~What should you use?~~
+~~Select only one answer.~~
+- ~~A DNS server on an Azure virtual machine~~
+- ~~An Azure Private DNS zone **This answer is correct.**~~
+- ~~An Azure public DNS zone~~
+- ~~Azure-provided name resolution~~
 
-Azure Private DNS allows for private name resolution between Azure virtual networks. Azure public DNS provides DNS for public access, such as name resolution for a publicly accessible website. Azure-provided name resolution does not support user-defined domain names and only supports a single virtual network. A DNS server on a virtual machine can also be used to achieve the goal but involves much more administrative effort to implement and maintain than using Azure Private DNS.
+~~Azure Private DNS allows for private name resolution between Azure virtual networks. Azure public DNS provides DNS for public access, such as name resolution for a publicly accessible website. Azure-provided name resolution does not support user-defined domain names and only supports a single virtual network. A DNS server on a virtual machine can also be used to achieve the goal but involves much more administrative effort to implement and maintain than using Azure Private DNS.~~
 
-[Name resolution for resources in Azure virtual networks | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#azure-provided-name-resolution)
-[Host your domain on Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/host-domain-azure-dns/)
+~~[Name resolution for resources in Azure virtual networks | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#azure-provided-name-resolution)~~
+~~[Host your domain on Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/host-domain-azure-dns/)~~
 
 
-You have deployed a web application in Microsoft Azure using a public Microsoft Load Balancer to distribute traffic across virtual machines. Users report intermittent connectivity issues.
+~~You have deployed a web application in Microsoft Azure using a public Microsoft Load Balancer to distribute traffic across virtual machines. Users report intermittent connectivity issues.~~
+~~You need to troubleshoot the connectivity issues for consistent application access.~~
+~~Each correct answer presents part of the solution. Which two actions should you take?~~
+~~Select all answers that apply.~~
 
-You need to troubleshoot the connectivity issues for consistent application access.
+- ~~Change the load balancer's distribution mode to Source IP affinity.~~
+- ~~Check the health probe configuration. **This answer is correct.**~~
+- ~~Check the network security group rules for the virtual machines.~~
+- ~~Verify matching SKUs for the load balancer and public IP. **This answer is correct.**~~
 
-Each correct answer presents part of the solution. Which two actions should you take?
+~~Checking the health probe configuration is crucial because an inactive or incorrectly configured probe can lead to traffic being routed to unhealthy instances, causing connectivity issues. Verifying matching SKUs for the load balancer and public IP is also essential, as mismatched SKUs can disrupt proper operation and lead to connectivity problems. Checking the network security group rules might seem relevant but does not address the root cause of the connectivity issues. Changing the load balancer's distribution mode might seem like it could improve session persistence but does not resolve the underlying configuration problems causing the connectivity issues.~~
 
-Select all answers that apply.
-
-Change the load balancer's distribution mode to Source IP affinity.
-
-Check the health probe configuration.
-
-**This answer is correct.**
-
-Check the network security group rules for the virtual machines.
-
-Verify matching SKUs for the load balancer and public IP.
-
-**This answer is correct.**
-
-Checking the health probe configuration is crucial because an inactive or incorrectly configured probe can lead to traffic being routed to unhealthy instances, causing connectivity issues. Verifying matching SKUs for the load balancer and public IP is also essential, as mismatched SKUs can disrupt proper operation and lead to connectivity problems. Checking the network security group rules might seem relevant but does not address the root cause of the connectivity issues. Changing the load balancer's distribution mode might seem like it could improve session persistence but does not resolve the underlying configuration problems causing the connectivity issues.
-
-[Improve application scalability and resiliency by using Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/improve-app-scalability-resiliency-with-load-balancer)
+~~[Improve application scalability and resiliency by using Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/improve-app-scalability-resiliency-with-load-balancer)~~
 
 You have an Azure subscription that contains a storage account named storage1.
 

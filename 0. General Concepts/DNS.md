@@ -17,6 +17,19 @@ gatehouse.systems $\rightarrow$ 54.33.177.89
 To create a subdomain, create NS record in the "gatehouse.com" for example put "ticket" for "ticket.gatehouse.com"
 
 
+### Azure-provided name resolution
+- **Built-in DNS** provided by Azure.
+- Automatically available to VMs/resources in a **VNet**.
+
+
+### Azure Private DNS
+- Used for **private DNS zones** within Azure.
+- Resolves **private IP addresses**.
+- For private name resolution between Azure virtual networks
+
+*Azure public DNS provides DNS for public access, such as name resolution for a publicly accessible website.* 
+
+
 
 
 

@@ -31,3 +31,11 @@ Distributes incoming network traffic across multiple **VMs or VM Scale Set inst
 - **Load-balancing rule → determines how traffic is distributed**
 - Both types support **inbound + outbound** scenarios.
 - Load Balancer Health Probes, determine which VMs are healthy
+
+*Troubleshoot Load Balancer*
+Intermittent connectivity issues : Check health probe + verify SKU's match for public IP & load balancer 
+
+Why? : Inactive or incorrectly configured probe can lead to traffic being routed to unhealthy instances, causing connectivity issues. 
+Mismatched SKUs can disrupt proper operation and lead to connectivity problems.
+
+What not to do : Changing the load balancer's distribution mode, does not resolve the underlying configuration problems
