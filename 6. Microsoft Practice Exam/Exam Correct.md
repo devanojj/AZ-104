@@ -300,55 +300,44 @@ Y~~ou create several Azure virtual machines that run Windows Server.~~
 
 ~~[Grant limited access to data with shared access signatures (SAS) - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-sas-overview)~~
 
-You have an Azure subscription that contains a storage account named storage1.
-You need to ensure that access to storage1 is prevented from the internet.
-What should you configure on storage1?
-Select only one answer.
+~~You have an Azure subscription that contains a storage account named storage1.~~
+~~You need to ensure that access to storage1 is prevented from the internet.~~
+~~What should you configure on storage1?~~
+~~Select only one answer.~~
 
-Access keys
-Data protection
-Encryption
-Networking **This answer is correct.**
+~~Access keys~~
+~~Data protection~~
+~~Encryption~~
+~~Networking **This answer is correct.**~~
 
-The Networking node of a storage account provides settings to configure public network access and network routing. To disable public network access, you can disable public network access, or configure the access to only allow specific virtual networks and IP addresses.
+~~The Networking node of a storage account provides settings to configure public network access and network routing. To disable public network access, you can disable public network access, or configure the access to only allow specific virtual networks and IP addresses.~~
 
-[Configure Azure Storage security - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-security/)
+~~[Configure Azure Storage security - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-security/)~~
+~~[Configure Azure Storage firewalls and virtual networks | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal)~~
 
-[Configure Azure Storage firewalls and virtual networks | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal)
+~~You have an on-premises network.~~
+~~You have an Azure subscription that contains a virtual network named VNet1. VNet1 is connected to the on-premises network by using ExpressRoute.~~
+~~You perform the following actions:~~
+- ~~Create a storage account named storage1~~
+- ~~Associate VNet1 to storage1 and configure network routing to use Microsoft network routing.~~
+~~You need to ensure that only connections from the on-premises network are allowed to access storage1. The solution must minimise administrative effort.~~
 
-ou have an on-premises network.
+~~What should you do?~~
 
-You have an Azure subscription that contains a virtual network named VNet1. VNet1 is connected to the on-premises network by using ExpressRoute.
+~~Select only one answer.~~
 
-You perform the following actions:
+~~Configure the network settings of storage1. **This answer is correct.**~~
+~~Create a routing table. Add a filter rule to the table.~~
+~~Create a shared access signature (SAS).~~
+~~Create an ExpressRoute circuit. Create a filter on the ExpressRoute connection.~~
 
-- Create a storage account named storage1
-- Associate VNet1 to storage1 and configure network routing to use Microsoft network routing.
+~~The correct solution is to configure the network settings of the storage account, because Azure Storage allows you to restrict access by enabling firewall and virtual network rules so that only traffic from specific VNets or on-premises networks (via ExpressRoute or VPN) is allowed. This approach directly satisfies the requirement with minimal administrative effort, since it leverages built-in network settings. Creating a routing table with filter rules would not block storage access—it only influences packet routing. A SAS token controls authentication and permissions but does not restrict the network source of requests. Creating another ExpressRoute circuit and configuring filters adds unnecessary complexity when network rules on the storage account already provide the needed control.~~
 
-You need to ensure that only connections from the on-premises network are allowed to access storage1. The solution must minimize administrative effort.
-
-What should you do?
-
-Select only one answer.
-
-Configure the network settings of storage1.
-
-**This answer is correct.**
-
-Create a routing table. Add a filter rule to the table.
-
-Create a shared access signature (SAS).
-
-Create an ExpressRoute circuit. Create a filter on the ExpressRoute connection.
-
-The correct solution is to configure the network settings of the storage account, because Azure Storage allows you to restrict access by enabling firewall and virtual network rules so that only traffic from specific VNets or on-premises networks (via ExpressRoute or VPN) is allowed. This approach directly satisfies the requirement with minimal administrative effort, since it leverages built-in network settings. Creating a routing table with filter rules would not block storage access—it only influences packet routing. A SAS token controls authentication and permissions but does not restrict the network source of requests. Creating another ExpressRoute circuit and configuring filters adds unnecessary complexity when network rules on the storage account already provide the needed control.
-
-[Secure storage endpoints](https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/7-secure-storage-endpoints)   
-[Control network access to your storage account](https://learn.microsoft.com/en-us/training/modules/secure-azure-storage-account/5-control-network-access)
+~~[Secure storage endpoints](https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/7-secure-storage-endpoints)~~   
+~~[Control network access to your storage account](https://learn.microsoft.com/en-us/training/modules/secure-azure-storage-account/5-control-network-access)~~
 
 
 You plan to configure object replication between two Azure Storage accounts.
-
 The Blob service of the source storage account has the following settings:
 
 - Hierarchical namespace: Disabled

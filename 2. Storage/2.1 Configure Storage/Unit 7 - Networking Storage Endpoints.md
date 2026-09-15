@@ -33,3 +33,5 @@
 - **Service endpoint → public endpoint + VNet restriction**
 - **Private endpoint → private IP + private network access**
 - **Production/isolation → Private Endpoint**
+
+*The Networking node of a storage account provides settings to configure public network access and network routing.* 
