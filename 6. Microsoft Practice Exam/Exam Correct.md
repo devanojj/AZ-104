@@ -238,55 +238,34 @@
 
 
 
-You create several Azure virtual machines that run Windows Server.
+Y~~ou create several Azure virtual machines that run Windows Server.~~
+~~You need to connect to the virtual machines without exposing RDP ports over the internet.~~
+~~Which Azure service should you deploy?~~
+~~Select only one answer.~~
+~~Azure Bastion~~ ~~**This answer is correct.**~~
+~~Azure Front Door~~
+~~Azure Network Watcher~~
+~~Azure Virtual Desktop~~
 
-You need to connect to the virtual machines without exposing RDP ports over the internet.
-
-Which Azure service should you deploy?
-
-Select only one answer.
-
-Azure Bastion
-
-**This answer is correct.**
-
-Azure Front Door
-
-Azure Network Watcher
-
-Azure Virtual Desktop
-
-Azure Bastion is a service that lets you connect to a virtual machine by using a browser, without exposing RDP and SSH ports. Azure Monitor helps you maximize the availability and performance of applications and services. Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Remote Desktop is a feature of the operating system, which exposes the RDP port to connect to a server from the internet.
-
-[About Azure Bastion | Microsoft Learn](https://learn.microsoft.com/azure/bastion/bastion-overview)
-
-[Configure virtual networks - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-networks/)
+~~Azure Bastion is a service that lets you connect to a virtual machine by using a browser, without exposing RDP and SSH ports. Azure Monitor helps you maximise the availability and performance of applications and services. Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Remote Desktop is a feature of the operating system, which exposes the RDP port to connect to a server from the internet.~~
+~~[About Azure Bastion | Microsoft Learn](https://learn.microsoft.com/azure/bastion/bastion-overview)~~
+~~[Configure virtual networks - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-networks/)~~
 
 
 You have an Azure subscription.
-
 You plan to implement four Azure virtual networks that will be peered. All virtual machines will use a DNS suffix of contoso.com.
-
 You need to configure name resolution for the virtual networks to ensure that all the virtual machines can communicate by using their FQDNs. The solution must minimize administrative effort.
 
 What should you use?
-
 Select only one answer.
-
-a DNS server on an Azure virtual machine
-
-an Azure Private DNS zone
-
-**This answer is correct.**
-
-an Azure public DNS zone
-
-Azure-provided name resolution
+- A DNS server on an Azure virtual machine
+- An Azure Private DNS zone **This answer is correct.**
+- An Azure public DNS zone
+- Azure-provided name resolution
 
 Azure Private DNS allows for private name resolution between Azure virtual networks. Azure public DNS provides DNS for public access, such as name resolution for a publicly accessible website. Azure-provided name resolution does not support user-defined domain names and only supports a single virtual network. A DNS server on a virtual machine can also be used to achieve the goal but involves much more administrative effort to implement and maintain than using Azure Private DNS.
 
 [Name resolution for resources in Azure virtual networks | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#azure-provided-name-resolution)
-
 [Host your domain on Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/host-domain-azure-dns/)
 
 
