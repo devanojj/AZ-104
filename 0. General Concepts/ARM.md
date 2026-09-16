@@ -15,3 +15,12 @@ Deploy the same template many times and get the same resource types in the same 
 | **functions**      | An optional section where you can define [user-defined functions](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-user-defined-functions) that are available within the template. User-defined functions can simplify your template when complicated expressions are used repeatedly in your template. |
 | **resources**      | A required section that defines the actual items you want to deploy or update in a resource group or a subscription.                                                                                                                                                                                                                     |
 
+Copy element can allow you to create multiple instances 
+
+```
+"copy": {
+    "name": "vmCopy",
+    "count": 2
+}
+```
+
