@@ -418,127 +418,98 @@ Y~~ou create several Azure virtual machines that run Windows Server.~~
 ~~[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)~~
 
 
-You have a Basic Azure App Service plan that contains a web app.
+~~You have a Basic Azure App Service plan that contains a web app.~~
+~~You need to ensure that the web app can scale automatically when the CPU usage is over 80% for a duration of 15 minutes.~~
+~~Which two actions should you perform? Each correct answer presents part of the solution.~~
+~~Select all answers that apply.~~
 
-You need to ensure that the web app can scale automatically when the CPU usage is over 80% for a duration of 15 minutes.
+~~Configure a deployment slot.~~
+~~Configure a scaling condition to scale based on a metric, and then add the rules **This answer is correct.**~~
+~~Configure a scaling condition to scale based on an instance count, and then set the instance count.~~
+~~Scale out the App Service plan.~~
+~~Scale up the App Service plan. **This answer is correct.**~~
 
-Which two actions should you perform? Each correct answer presents part of the solution.
+~~The Basic app service plan does not support automatic scaling - you must scale up the plan to Premium (or higher) to support automatic scaling. After that you must configure a scaling condition, based on a metric (CPU), which will automatically trigger scaling (out) of the app service web app.~~
 
-Select all answers that apply.
-
-Configure a deployment slot.
-
-Configure a scaling condition to scale based on a metric, and then add the rules.
-
-**This answer is correct.**
-
-Configure a scaling condition to scale based on an instance count, and then set the instance count.
-
-Scale out the App Service plan.
-
-Scale up the App Service plan.
-
-**This answer is correct.**
-
-The Basic app service plan does not support automatic scaling - you must scale up the plan to Premium (or higher) to support automatic scaling. After that you must configure a scaling condition, based on a metric (CPU), which will automatically trigger scaling (out) of the app service web app.
-
-[Scale up features and capacities - Azure App Service | Microsoft Learn](https://learn.microsoft.com/azure/app-service/manage-scale-up)
-
-[Configure Azure App Service - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/)
+~~[Scale up features and capacities - Azure App Service | Microsoft Learn](https://learn.microsoft.com/azure/app-service/manage-scale-up)~~
+~~[Configure Azure App Service - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/)~~
 
 
-ou have an Azure subscription.
+~~You have an Azure subscription.~~
+~~You plan to deploy a web app in a Linux-based Docker container.~~
+~~You need to recommend a solution for the deployment of the web app that meets the following requirements:~~
 
-You plan to deploy a web app in a Linux-based Docker container.
+- ~~Supports a custom domain name~~
+- ~~Provides the ability to scale out automatically based on demand.~~
+- ~~Minimises administrative effort~~
+- ~~Minimises costs~~
 
-You need to recommend a solution for the deployment of the web app that meets the following requirements:
+~~Which solution should you recommend?~~
 
-- Supports a custom domain name
-- Provides the ability to scale out automatically based on demand.
-- Minimizes administrative effort
-- Minimizes costs
+~~Select only one answer.~~
 
-Which solution should you recommend?
+~~Azure App Service~~
 
-Select only one answer.
+~~**This answer is correct.**~~
 
-Azure App Service
+~~Azure Container Instances~~
 
-**This answer is correct.**
+~~Azure Kubernetes Service (AKS)~~
 
-Azure Container Instances
+~~Azure Virtual Machine Scale Sets~~
 
-Azure Kubernetes Service (AKS)
+~~Azure App Service fulfils all the stated requirements. Azure Virtual Machine Scale Sets, Azure Kubernetes Service (AKS), and Azure Container Instances are more difficult to administer and more costly.~~
 
-Azure Virtual Machine Scale Sets
+~~[Overview - Azure App Service | Microsoft Learn](https://learn.microsoft.com/azure/app-service/overview)~~
 
-Azure App Service fulfills all the stated requirements. Azure Virtual Machine Scale Sets, Azure Kubernetes Service (AKS), and Azure Container Instances are more difficult to administer and more costly.
-
-[Overview - Azure App Service | Microsoft Learn](https://learn.microsoft.com/azure/app-service/overview)
-
-[Configure Azure App Service plans - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-app-service-plans/)
+~~[Configure Azure App Service plans - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-app-service-plans/)~~
 
 
-You have an Azure subscription that contains an App Service web app named App1.
+~~You have an Azure subscription that contains an App Service web app named App1.~~
+~~You configure App1 with a custom domain name of webapp1.contoso.com.~~
 
-You configure App1 with a custom domain name of webapp1.contoso.com.
+~~You need to create a DNS record for App1. The solution must ensure that App1 remains accessible if the IP address changes.~~
 
-You need to create a DNS record for App1. The solution must ensure that App1 remains accessible if the IP address changes.
+~~Which type of DNS record should you create?~~
 
-Which type of DNS record should you create?
+~~Select only one answer.~~
 
-Select only one answer.
+~~A~~
 
-A
+~~**This answer is incorrect.**~~
 
-**This answer is incorrect.**
+~~CNAME~~
 
-CNAME
+~~**This answer is correct.**~~
 
-**This answer is correct.**
+~~SOA~~
 
-SOA
+~~SRV~~
 
-SRV
+~~TXT~~
 
-TXT
+~~For web apps, you create either an A (Address) record or a CNAME (Canonical Name) record. An A record maps a domain name to an IP address. A CNAME record maps a domain name to another domain name. DNS uses the second name to look up the address. Users still see the first domain name in their browser. If the IP address changes, a CNAME entry is still valid, whereas an A record must be updated.~~
 
-For web apps, you create either an A (Address) record or a CNAME (Canonical Name) record. An A record maps a domain name to an IP address. A CNAME record maps a domain name to another domain name. DNS uses the second name to look up the address. Users still see the first domain name in their browser. If the IP address changes, a CNAME entry is still valid, whereas an A record must be updated.
+~~[Configure Azure App Service - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/)~~
 
-[Configure Azure App Service - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/)
-
-[Create custom domain names - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/8-create-custom-domain-names)
-
-4. Implement and manage virtual networking
+~~[Create custom domain names - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-app-services/8-create-custom-domain-names)~~
 
 
 
 
-You have a Microsoft Entra tenant.
+~~You have a Microsoft Entra tenant. You create a new user named User1.~~
+~~You need to assign a Microsoft 365 E5 license to User1.~~
+~~Which user attribute should be configured for User1 before you can assign the license?~~
 
-You create a new user named User1.
+~~Select only one answer.~~
+~~First name~~
+~~Last name~~
+~~Other email address~~
+~~Usage location **This answer is correct.**~~
+~~User type~~
 
-You need to assign a Microsoft 365 E5 license to User1.
-
-Which user attribute should be configured for User1 before you can assign the license?
-
-Select only one answer.
-
-First name
-
-Last name
-
-Other email address
-
-Usage location
-
-**This answer is correct.**
-
-User type
-
-Not all Microsoft 365 services are available in all locations. Before a license can be assigned to a user, you must specify the Usage location. The attributes of First name, Last name, Other email address, and User type are not mandatory for license assignment.
-
-[Assign or remove licenses - Microsoft Entra | Microsoft Learn](https://learn.microsoft.com/azure/active-directory/fundamentals/license-users-groups)
+~~Not all Microsoft 365 services are available in all locations. Before a license can be assigned to a user, you must specify the Usage location. The attributes of First name, Last name, Other email address, and User type are not mandatory for license assignment.~~
+~~[Assign or remove licenses - Microsoft Entra | Microsoft Learn](https://learn.microsoft.com/azure/active-directory/fundamentals/license-users-groups)~~
 
 
 You have an Azure subscription that contains multiple users and administrators.  
@@ -681,11 +652,8 @@ Whenever Azure Advisor detects a new recommendation for resources, an event is s
 
 
 You have an Azure subscription that contains a resource group named RG1.
-
 RG1 contains 10 resources.
-
 You need to prevent the resources from being deleted accidentally. The solution must ensure that RG1 can be deleted if it no longer contains any resources.
-
 What should you do?
 
 Select only one answer.

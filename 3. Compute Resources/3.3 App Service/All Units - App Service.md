@@ -79,4 +79,6 @@ Autoscale automatically adjusts instance counts to meet workload demand and mini
 | **Shared Plan Resource Contention** | Multiple apps in 1 ASP share CPU/RAM limits; separate ASPs to isolate critical workloads. |
 | **Autoscale Flapping** | Resolved by adjusting threshold margins and increasing the **cool-down period**. |
 | **Move Web App to New Plan** | Both App Service Plans must reside in the **same Resource Group and geographical region/webspace**. |
-```
+
+
+For scaling based on metric + rules, its possible to autoscale with premium app service plan 
