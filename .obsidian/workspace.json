@@ -24,11 +24,11 @@
         ]
       },
       {
-        "id": "440d45b057a79e30",
+        "id": "2c3f8f90f895f588",
         "type": "tabs",
         "children": [
           {
-            "id": "0978b1b5b05289b7",
+            "id": "10e63fe64419b27e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -75,7 +75,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "`Get-AzVM",
+                "query": "sidecar",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -217,10 +217,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "0978b1b5b05289b7",
+  "active": "10e63fe64419b27e",
   "lastOpenFiles": [
     "6. Microsoft Practice Exam/2nd/Correct.md",
     "6. Microsoft Practice Exam/2nd/Incorrect.md",
+    "0. General Concepts/Azure Network Watcher.md",
+    "0. General Concepts/Azure Spot Instance.md",
+    "0. General Concepts/Container.md",
+    "3. Compute Resources/3.5 Containers/All Units - Container.md",
     "6. Microsoft Practice Exam/Exam Notes.md",
     "3. Compute Resources/3.3 App Service/All Units - App Service.md",
     "6. Microsoft Practice Exam/Untitled.canvas",
@@ -244,10 +248,6 @@
     "0. General Concepts/Azure Managed Disks.md",
     "0. General Concepts/Azure Health Probe.md",
     "0. General Concepts/Azure Front Door vs Express Route.md",
-    "0. General Concepts/Azure Disks.md",
-    "0. General Concepts/Azure Data Lake Storage.md",
-    "0. General Concepts/Azure CLI.md",
-    "0. General Concepts/Azure Bastion.md",
     "6. Microsoft Practice Exam",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
