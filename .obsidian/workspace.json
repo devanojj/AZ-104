@@ -24,11 +24,11 @@
         ]
       },
       {
-        "id": "3d7a2b9c74993ee7",
+        "id": "440d45b057a79e30",
         "type": "tabs",
         "children": [
           {
-            "id": "fc1564ad962b9250",
+            "id": "0978b1b5b05289b7",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -100,8 +100,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -218,10 +217,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "fc1564ad962b9250",
+  "active": "0978b1b5b05289b7",
   "lastOpenFiles": [
     "6. Microsoft Practice Exam/2nd/Correct.md",
     "6. Microsoft Practice Exam/2nd/Incorrect.md",
+    "6. Microsoft Practice Exam/Exam Notes.md",
+    "3. Compute Resources/3.3 App Service/All Units - App Service.md",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "6. Microsoft Practice Exam/2nd",
     "6. Microsoft Practice Exam/1st/Exam Correct (Done).md",
@@ -247,8 +248,6 @@
     "0. General Concepts/Azure Data Lake Storage.md",
     "0. General Concepts/Azure CLI.md",
     "0. General Concepts/Azure Bastion.md",
-    "0. General Concepts/Azure Advisor.md",
-    "0. General Concepts/Kubernetes API.md",
     "6. Microsoft Practice Exam",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",

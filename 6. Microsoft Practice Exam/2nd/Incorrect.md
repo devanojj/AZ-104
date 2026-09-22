@@ -57,3 +57,95 @@ SSPR registration is required for users in scope who are eligible to use SSPR. I
 [Exercise configure and deploy self-service password reset](https://learn.microsoft.com/en-us/training/modules/manage-user-authentication/5-exercise-configure-deploy-self-service-password-reset)  
 [Tutorial: Enable Microsoft Entra self-service password reset writeback to an on-premises environment](https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr-writeback)  
 [What is Microsoft Entra authentication?](https://learn.microsoft.com/en-us/training/modules/manage-security-controls-identity-access/16-what-microsoft-entra-authentication)
+
+
+You have an Azure subscription.
+
+You plan to create an Azure Policy definition named Policy1.
+
+You need to include remediation information in Policy.
+
+To which definition section should you add remediation information for Policy1?
+
+Select only one answer.
+
+metadata
+
+**This answer is correct.**
+
+mode
+
+parameters
+
+policyRule
+
+**This answer is incorrect.**
+
+You must use the RemediationDescription field in the metadata section from properties to specify a custom recommendation. The remaining options are Azure policies, but do not allow specific custom remediation information.
+
+[Create custom Azure security policies in Microsoft Defender for Cloud | Microsoft Learn](https://learn.microsoft.com/azure/defender-for-cloud/custom-security-policies?pivots=azure-portal#enhance-your-custom-recommendations-with-detailed-information)
+
+[Improve incident response with alerting on Azure - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/)
+
+
+
+ou have an Azure virtual network named VNet1.
+
+You create an Azure Private DNS zone named contoso.com.
+
+You need to ensure that the virtual machines on VNet1 register in the contoso.com private DNS zone.
+
+What should you do?
+
+Select only one answer.
+
+Add a virtual network link to contoso.com.
+
+**This answer is correct.**
+
+Add Azure DNS Private Resolver to VNet1.
+
+**This answer is incorrect.**
+
+Configure each virtual machine to use a custom DNS server.
+
+Configure VNet1 to use a custom DNS server.
+
+To associate a virtual network to a private DNS zone, you add the virtual network to the zone by creating a virtual network link.
+
+Azure DNS Private Resolver is used to proxy DNS queries between on-premises environments and Azure DNS.
+
+A custom DNS server will work if you deploy a DNS server as a virtual machine or an appliance, however, this configuration does not work with a private DNS zone.
+
+[Quickstart - Create an Azure private DNS zone using the Azure portal | Microsoft Learn](https://learn.microsoft.com/azure/dns/private-dns-getstarted-portal)
+
+[Configure Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-dns/)
+
+5. Monitor and maintain Azure resources
+
+
+You are creating an Azure virtual machine that will run Windows Server.
+
+You need to ensure that VM1 will be part of a virtual machine scale set.
+
+Which setting should you configure during the creation of the virtual machine?
+
+Select only one answer.
+
+Availability options
+
+**This answer is correct.**
+
+Azure Spot instance
+
+**This answer is incorrect.**
+
+Management
+
+Region
+
+You must configure the virtual machine scale set from the availability options. Azure spot instance is used to add virtual machines with a discounted price. Region will not affect the configuration of the availability options. The management setting allows you to configure the monitoring and management options for the virtual machine.
+
+[Availability options for Azure Virtual Machines - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/availability)
+
+[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)

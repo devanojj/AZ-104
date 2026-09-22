@@ -6,3 +6,7 @@ Write = Create Snapshot
 
 To stop at a certain budget, action group with Runbook to stop VM, then Cost management and billing to set up Budget.  
 
+Cost can be used to see which machines are underutilised 
+
+
+
