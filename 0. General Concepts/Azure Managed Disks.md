@@ -1,4 +1,4 @@
-block-level storage volumes managed entirely by Microsoft and attached to Azure Virtual Machines. They abstract away physical storage accounts, handling provisioning, replication, scaling, and fault tolerance automatically.
+Block-level storage volumes managed entirely by Microsoft and attached to Azure Virtual Machines. They abstract away physical storage accounts, handling provisioning, replication, scaling, and fault tolerance automatically.
 
  **High Availability & Durability:** Engineered for 99.999% availability, providing 3 internal replicas within a region.Redundancy options include Locally Redundant Storage (LRS) and Zone-Redundant Storage (ZRS).
 

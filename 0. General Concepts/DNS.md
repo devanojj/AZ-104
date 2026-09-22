@@ -6,7 +6,7 @@ Contains authoritative information about DNS
 Primary DNS / Zone Administrator / Serial Number
 
 *NS - Name Server*
-Shows DNS server for zones 
+Shows DNS server for zones, (handles questions for DNS)
 gatehouse.com 
 
 *A - Address*

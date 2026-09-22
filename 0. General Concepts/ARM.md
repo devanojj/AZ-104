@@ -24,3 +24,6 @@ Copy element can allow you to create multiple instances
 }
 ```
 
+
+
+[![Azure Resource Manager (ARM) Templates | Simple Talk|557](https://www.red-gate.com/simple-talk/wp-content/uploads/2017/08/word-image-97.png)](https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fwww.red-gate.com%2Fsimple-talk%2Fcloud%2Finfrastructure-as-a-service%2Fazure-resource-manager-arm-templates%2F&ved=0CBYQjRxqFwoTCOjd57C3gpcDFQAAAAAdAAAAABA5&opi=89978449)

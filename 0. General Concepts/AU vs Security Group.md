@@ -9,5 +9,5 @@
 | Dynamic membership for access                     | **Security Group**      |
 | Organise users for delegated helpdesk             | **Administrative Unit** |
 
-- Group users for access → #Security_Group
-- Restrict administrators to specific users/devices → #Administrative_Unit
+- Security group users for access → #Security_Group
+- Restrict administrators to specific users/devices (admin boundary) → #Administrative_Unit

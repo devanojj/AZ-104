@@ -4,5 +4,4 @@ The Performance blade allows you to improve the speed of your applications
 
 Operational Excellence helps you achieve process and workflow efficiency, resource manageability, and deployment best practices.
 
-
 Azure advisor alert goes to azure activity log, you can create action group to get notified.   

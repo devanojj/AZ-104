@@ -1,3 +1,4 @@
+
 |               | **Azure Front Door**                             | **Azure ExpressRoute**                        |
 | ------------- | ------------------------------------------------ | --------------------------------------------- |
 | Main purpose  | Improve **web application access**               | Connect **on-premises networks to Azure**     |

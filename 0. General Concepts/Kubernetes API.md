@@ -1,1 +1,3 @@
 How to limit access, have authorised IP ranges and a private cluster where you would be limited to be accessible from your virtual network. 
+
+Interface used to communicate with API 

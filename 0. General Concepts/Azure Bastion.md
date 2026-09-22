@@ -1,1 +1,1 @@
- Connect to the virtual machines without exposing RDP ports over the internet.
+Connect to the virtual machines without exposing RDP ports over the internet.
