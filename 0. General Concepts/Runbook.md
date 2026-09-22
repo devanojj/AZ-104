@@ -1,0 +1,1 @@
+Basically an automated script or procedure that Azure runs for you.

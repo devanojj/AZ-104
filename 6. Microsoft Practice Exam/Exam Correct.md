@@ -512,162 +512,116 @@ Y~~ou create several Azure virtual machines that run Windows Server.~~
 ~~[Assign or remove licenses - Microsoft Entra | Microsoft Learn](https://learn.microsoft.com/azure/active-directory/fundamentals/license-users-groups)~~
 
 
-You have an Azure subscription that contains multiple users and administrators.  
+~~You have an Azure subscription that contains multiple users and administrators.~~  
+~~You are creating a new custom role by using the following JSON.~~  
+~~``~~
+~~{   "Name": "Custom Role",   "Id": null,   "IsCustom": true,   "Description": "Custom Role description",   "Actions": [     "Microsoft.Compute/*/read",     “Microsoft.Compute/snapshots/write”,     “Microsoft.Compute/snapshots/read”,   ],   "NotActions": [   “Microsoft.Compute/snapshots/delete”   ],   "AssignableScopes": [     "/subscriptions/00000000-0000-0000-0000-000000000000",     "/subscriptions/11111111-1111-1111-1111-111111111111"   ] }~~
 
-You are creating a new custom role by using the following JSON.  
+~~Which two actions can be performed by a user that is assigned the custom role? Each correct answer presents a complete solution.~~
 
-``
+- ~~Create and delete a snapshot.~~
+- ~~Create and read a snapshot. **This answer is correct.**~~
+- ~~Create virtual machines.~~
+- ~~Read all virtual machine settings. **This answer is correct.**~~
 
-{   "Name": "Custom Role",   "Id": null,   "IsCustom": true,   "Description": "Custom Role description",   "Actions": [     "Microsoft.Compute/*/read",     “Microsoft.Compute/snapshots/write”,     “Microsoft.Compute/snapshots/read”,   ],   "NotActions": [   “Microsoft.Compute/snapshots/delete”   ],   "AssignableScopes": [     "/subscriptions/00000000-0000-0000-0000-000000000000",     "/subscriptions/11111111-1111-1111-1111-111111111111"   ] }
+~~The role can read all compute resources, call Microsoft support roles, and allow the creation and reading of a snapshot.~~
+~~[Azure custom roles - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/custom-roles)~~
+~~[Secure your Azure resources with Azure role-based access control (Azure RBAC](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)~~
 
-Which two actions can be performed by a user that is assigned the custom role? Each correct answer presents a complete solution.
+~~You have the following resource groups, management groups, and Azure subscriptions:~~
+- ~~Two resource groups named RG1 and RG2 in a subscription named Sub1 and a management group named MG1.~~
+- ~~Two resource groups named RG3 and RG4 in a subscription named Sub2 and a management group named MG1.~~
+- ~~Two resource groups named RG5 and RG6 in a subscription named Sub3 and a management group named MG1.~~
+- ~~Two resource group named RG10 and RG11 in a subscription named Sub4 and a management group named MG2.~~
+- ~~Two resource group named RG11 and RG12 in a subscription named Sub5 and a management group named MG2.~~
 
-Select all answers that apply.
+~~You need to assign a role to a user to ensure the user can view all the resources in the subscriptions. The solution must use the principle of least privilege.~~
+~~Which role should you assign?~~
+~~Select only one answer.~~
 
-Create and delete a snapshot.
+- ~~the Billing Reader role for all the subscriptions~~
+- ~~the Billing Reader role for MG1 and MG2~~
+- ~~the Contributor role for MG1 and MG2~~
+- ~~the Reader role for MG1 and MG2 **This answer is correct.**~~
 
-Create and read a snapshot.
+~~Assigning the Reader role for MG1 and MG2 is correct because the simplest way to give user access to all resources is to assign a role at the management group level.~~
+~~[Steps to assign an Azure role - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-steps)~~
+~~[Secure your Azure resources with Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)~~
 
-**This answer is correct.**
+~~You have an Azure subscription that contains multiple virtual machines.~~  
+~~You need to ensure that a user named User1 can view all the resources in a resource group named RG1. You must use the principle of least privilege.~~
+~~Which role should you assign to User1?~~
 
-Create virtual machines.
+~~Select only one answer.~~
+- ~~Billing Reader~~
+- ~~Contributor~~
+- ~~Reader **This answer is correct.**~~
+- ~~Tag Contributor~~
 
-Read all virtual machine settings.
+~~The Reader role allows you to view all the resources but does not allow you to make any changes. The Contributor role allows you to manage all the resources, the Billing Reader role provides read access only to billing data, and the Tag Contributor role allows you to manage entity tags without providing access to the entities themselves.~~
 
-**This answer is correct.**
+~~[Azure built-in roles - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles)~~
+~~[Secure your Azure resources with Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)~~
 
-The role can read all compute resources, call Microsoft support roles, and allow the creation and reading of a snapshot.
+~~You have an Azure subscription that contains a resource group named RG1. RG1 contains a virtual machine that runs daily reports.~~
+~~You need to ensure that the virtual machine shuts down when resource group costs exceed 75 percent of the allocated budget.~~
 
-[Azure custom roles - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/custom-roles)
+~~Which two actions should you perform? Each correct answer presents part of the solution.~~
 
-[Secure your Azure resources with Azure role-based access control (Azure RBAC](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)
+~~Select all answers that apply.~~
 
+~~Create an action group of type Runbook, and then select **Scale Up VM**.~~
+~~Create an action group of type Runbook, and then select **Stop VM** as an action. **This answer is correct.**~~
+~~From Cost Management + Billing, create a new cost analysis.~~
+~~From Cost Management + Billing, modify the Budgets settings. **This answer is correct.**~~
 
-You have the following resource groups, management groups, and Azure subscriptions:
 
-- Two resource groups named RG1 and RG2 in a subscription named Sub1 and a management group named MG1.
-- Two resource groups named RG3 and RG4 in a subscription named Sub2 and a management group named MG1.
-- Two resource groups named RG5 and RG6 in a subscription named Sub3 and a management group named MG1.
-- Two resource group named RG10 and RG11 in a subscription named Sub4 and a management group named MG2.
-- Two resource group named RG11 and RG12 in a subscription named Sub5 and a management group named MG2.
+~~You must go to Cost Management + Billing, and then Budgets to edit the budget associated with the resource group resources. You must also create a new action group of the Runbook type, and then choose Stop VM as an action. The cost analysis will not stop the virtual machine from running and the Scale Up VM action group is not required.~~
 
-You need to assign a role to a user to ensure the user can view all the resources in the subscriptions. The solution must use the principle of least privilege.
+~~[Tutorial - Create and manage Azure budgets - Microsoft Cost Management | Microsoft Learn](https://learn.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets)~~
 
-Which role should you assign?
 
-Select only one answer.
+~~You have an Azure subscription that contains 200 virtual machines.~~
+~~You plan to use Azure Advisor to provide cost recommendations.~~
+~~You need to ensure that all Azure admins are notified whenever an Advisor alert is generated. The solution must minimise administrative effort.~~
 
-the Billing Reader role for all the subscriptions
+~~What should you include in the solution?~~
 
-the Billing Reader role for MG1 and MG2
+~~Select only one answer.~~
 
-the Contributor role for MG1 and MG2
+~~an action group **This answer is correct.**~~
 
-the Reader role for MG1 and MG2
+~~an application security group~~
 
-**This answer is correct.**
+~~an Azure Automation account~~
 
-Assigning the Reader role for MG1 and MG2 is correct because the simplest way to give user access to all resources is to assign a role at the management group level.
+~~a capacity reservation group~~
 
-[Steps to assign an Azure role - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-steps)
+~~Whenever Azure Advisor detects a new recommendation for resources, an event is stored in the Azure Activity log. You can set up alerts for these events from Azure Advisor. You can select a subscription and optionally a resource group to specify the resources for which you want to receive alerts. You also need to create an action group that will contain all the users to be notified.~~
 
-[Secure your Azure resources with Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)
+~~[Create action groups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-alerts/4-create-action-groups?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources)~~
 
+~~[Create Azure Advisor alerts for new recommendations using Azure portal - Azure Advisor | Microsoft Learn](https://learn.microsoft.com/azure/advisor/advisor-alerts-portal)~~
 
-You have an Azure subscription that contains multiple virtual machines.  
 
-You need to ensure that a user named User1 can view all the resources in a resource group named RG1. You must use the principle of least privilege.
 
-Which role should you assign to User1?
+~~You have an Azure subscription that contains a resource group named RG1.~~
+~~RG1 contains 10 resources.~~
+~~You need to prevent the resources from being deleted accidentally. The solution must ensure that RG1 can be deleted if it no longer contains any resources.~~
+~~What should you do?~~
 
-Select only one answer.
+~~Select only one answer.~~
 
-Billing Reader
+~~From Azure Cloud Shell, run the New-AzureRmResourceGroup cmdlet.~~
 
-Contributor
+~~From Azure Cloud Shell, run the Set-AzResourceGroup cmdlet.~~
 
-Reader
+~~From the Azure portal, add a tag on RG1.~~
 
-**This answer is correct.**
+~~From the Azure portal, add a lock on RG1.~~
 
-Tag Contributor
+~~**This answer is correct.**~~
 
-The Reader role allows you to view all the resources but does not allow you to make any changes. The Contributor role allows you to manage all the resources, the Billing Reader role provides read access only to billing data, and the Tag Contributor role allows you to manage entity tags without providing access to the entities themselves.
+~~The correct solution is to configure a lock on RG1 from the Azure portal, because a Delete lock prevents accidental deletion of resources within the resource group while still allowing the resource group itself to be deleted once it is empty. Creating a new resource group with New-AzureRmResourceGroup is irrelevant, and using Set-AzResourceGroup changes properties but does not enforce deletion protection. The “handlers” option does not exist in Azure resource group settings. Locks are the supported mechanism for safeguarding resources against accidental deletion while maintaining flexibility to remove the resource group if needed.~~
 
-[Azure built-in roles - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles)
-
-[Secure your Azure resources with Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/)
-
-ou have an Azure subscription that contains a resource group named RG1. RG1 contains a virtual machine that runs daily reports.
-
-You need to ensure that the virtual machine shuts down when resource group costs exceed 75 percent of the allocated budget.
-
-Which two actions should you perform? Each correct answer presents part of the solution.
-
-Select all answers that apply.
-
-Create an action group of type Runbook, and then select **Scale Up VM**.
-
-Create an action group of type Runbook, and then select **Stop VM** as an action.
-
-**This answer is correct.**
-
-From Cost Management + Billing, create a new cost analysis.
-
-From Cost Management + Billing, modify the Budgets settings.
-
-**This answer is correct.**
-
-You must go to Cost Management + Billing, and then Budgets to edit the budget associated with the resource group resources. You must also create a new action group of the Runbook type, and then choose Stop VM as an action. The cost analysis will not stop the virtual machine from running and the Scale Up VM action group is not required.
-
-[Tutorial - Create and manage Azure budgets - Microsoft Cost Management | Microsoft Learn](https://learn.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
-
-
-You have an Azure subscription that contains 200 virtual machines.
-
-You plan to use Azure Advisor to provide cost recommendations.
-
-You need to ensure that all Azure admins are notified whenever an Advisor alert is generated. The solution must minimize administrative effort.
-
-What should you include in the solution?
-
-Select only one answer.
-
-an action group
-
-**This answer is correct.**
-
-an application security group
-
-an Azure Automation account
-
-a capacity reservation group
-
-Whenever Azure Advisor detects a new recommendation for resources, an event is stored in the Azure Activity log. You can set up alerts for these events from Azure Advisor. You can select a subscription and optionally a resource group to specify the resources for which you want to receive alerts. You also need to create an action group that will contain all the users to be notified.
-
-[Create action groups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-alerts/4-create-action-groups?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources)
-
-[Create Azure Advisor alerts for new recommendations using Azure portal - Azure Advisor | Microsoft Learn](https://learn.microsoft.com/azure/advisor/advisor-alerts-portal)
-
-
-
-You have an Azure subscription that contains a resource group named RG1.
-RG1 contains 10 resources.
-You need to prevent the resources from being deleted accidentally. The solution must ensure that RG1 can be deleted if it no longer contains any resources.
-What should you do?
-
-Select only one answer.
-
-From Azure Cloud Shell, run the New-AzureRmResourceGroup cmdlet.
-
-From Azure Cloud Shell, run the Set-AzResourceGroup cmdlet.
-
-From the Azure portal, add a tag on RG1.
-
-From the Azure portal, add a lock on RG1.
-
-**This answer is correct.**
-
-The correct solution is to configure a lock on RG1 from the Azure portal, because a Delete lock prevents accidental deletion of resources within the resource group while still allowing the resource group itself to be deleted once it is empty. Creating a new resource group with New-AzureRmResourceGroup is irrelevant, and using Set-AzResourceGroup changes properties but does not enforce deletion protection. The “handlers” option does not exist in Azure resource group settings. Locks are the supported mechanism for safeguarding resources against accidental deletion while maintaining flexibility to remove the resource group if needed.
-
-[Lock your Azure resources to protect your infrastructure](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources)
+~~[Lock your Azure resources to protect your infrastructure](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources)~~

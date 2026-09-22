@@ -1,3 +1,3 @@
 **==Active Directory Domain Services==**
 
-Runs on windows server
+- Runs on windows server
