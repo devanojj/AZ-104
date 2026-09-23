@@ -6,7 +6,6 @@
 
 **Your company is using Microsoft Entra ID to manage cloud-based resources and needs to identify irregular sign-in activities. Which feature of Microsoft Entra ID should be utilised for this purpose?**
 - Conditional access (selected)
-- Incorrect
 - Application Proxy
 - *Identity protection*
 

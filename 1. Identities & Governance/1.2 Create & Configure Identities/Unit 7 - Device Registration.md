@@ -1,5 +1,4 @@
-
-## Microsoft Entra Registered
+### Microsoft Entra Registered
 > **Best for:** Bring Your Own Device (BYOD) / Personal devices
 
 ### Key Features

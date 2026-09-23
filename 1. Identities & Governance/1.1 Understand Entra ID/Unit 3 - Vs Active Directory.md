@@ -1,4 +1,4 @@
-**[[AD]]**
+==**[[AD]]**==
 - Hierarchical X.500-based structure.
 - Uses Domain Name System (DNS) for locating resources such as domain controllers.
 - Query and manage using Lightweight Directory Access Protocol (LDAP) calls.
@@ -8,7 +8,7 @@
 - Uses trusts between domains for delegated management.
 
 
-**Entra**
+==**Entra**==
 - HTTP (port 80) and HTTPS (port 443) communications.
 - Multi-tenant directory service.
 - Users and groups are created in a flat structure, and there are no OUs or GPOs.

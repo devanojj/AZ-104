@@ -9,7 +9,6 @@
 - **Create**
 
 ---
-
 ## Create a Security Group
 **Identity** → **Groups** → **All groups**
 - **+ New group**
@@ -21,7 +20,6 @@
 - **Create**
 
 ---
-
 ## Assign a License to a Group
 **Microsoft 365 admin center**
 - **Billing** → **Licenses**
@@ -34,7 +32,6 @@
 > **Group-based licensing** automatically licenses all members of the group.
 
 ---
-
 ## Restore a Deleted User
 Deleted users are retained for **30 days**.
 
@@ -45,7 +42,6 @@ Deleted users are retained for **30 days**.
 > After **30 days**, the user is permanently deleted and **cannot be restored**.
 
 ---
-
 ## Required Roles
 - Global Administrator
 - User Administrator
@@ -53,7 +49,6 @@ Deleted users are retained for **30 days**.
 - Partner Tier-2 Support
 
 ---
-
 ## Exam Tips
 - **Group-based licensing** is managed in the **Microsoft 365 admin center**.
 - **Security groups** can be used to assign licenses.
