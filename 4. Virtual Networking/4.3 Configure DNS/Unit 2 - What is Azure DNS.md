@@ -83,3 +83,6 @@ www.example.com → 10.0.0.2
 - **NS + SOA = automatically created**
 - **Azure DNS ≠ domain registrar**
 - **Azure DNS ≠ DNSSEC**
+
+
+*To configure VN to a private DNS, create virtual network link*

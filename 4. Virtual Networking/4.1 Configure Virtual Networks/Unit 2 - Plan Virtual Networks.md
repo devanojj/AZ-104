@@ -17,3 +17,5 @@
 - **Subnets** segment a VNet.
 - **Site-to-Site VPN** → uses **IPsec**.
 - VNets can connect **Azure ↔ Azure** and **Azure ↔ on-premises**.
+
+

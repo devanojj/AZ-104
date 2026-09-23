@@ -75,7 +75,6 @@
 ~~[Improve incident response with alerting on Azure - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/)~~
 
 
-
 You have an Azure virtual network named VNet1.
 You create an Azure Private DNS zone named contoso.com.
 You need to ensure that the virtual machines on VNet1 register in the contoso.com private DNS zone.
