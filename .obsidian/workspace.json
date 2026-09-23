@@ -78,8 +78,23 @@
               "icon": "lucide-file",
               "title": "AZ-104"
             }
+          },
+          {
+            "id": "2f04ed2ac8ec6718",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0. General Concepts/Backup.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Backup"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -113,7 +128,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "health probe",
+                "query": "MABS",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -134,7 +149,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -255,10 +271,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "f6c71efa94d5d4c2",
+  "active": "2f04ed2ac8ec6718",
   "lastOpenFiles": [
-    "AZ-104.md",
+    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
     "6. Microsoft Practice Exam/2nd/Correct.md",
+    "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - Monitor & Backup.md",
+    "0. General Concepts/Backup.md",
+    "AZ-104.md",
     "0. General Concepts/Azure CLI.md",
     "0. General Concepts/Azure Health Probe.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
@@ -281,9 +300,6 @@
     "0. General Concepts/Private DNS Zone Structure.canvas",
     "4. Virtual Networking/4.3 Configure DNS/Unit 6 - Exercise Go Back Over!!!!.md",
     "4. Virtual Networking/4.3 Configure DNS/General N.md",
-    "4. Virtual Networking/4.3 Configure DNS/Unit 5 - Alias Records.md",
-    "4. Virtual Networking/4.3 Configure DNS/Unit 4 - Create A record.md",
-    "4. Virtual Networking/4.3 Configure DNS/Unit 3 - Configure DNS Zones.md",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "6. Microsoft Practice Exam/2nd",
     "6. Microsoft Practice Exam/1st",
