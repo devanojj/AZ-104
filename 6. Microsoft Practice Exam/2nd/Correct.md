@@ -74,131 +74,120 @@
 ~~[Introduction to Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/)~~
 
 
-You have web app that is running in four Windows Server Azure virtual machines behind a load balancer.
+~~You have web app that is running in four Windows Server Azure virtual machines behind a load balancer.~~
 
-Users experience issues when accessing the web app. You suspect an issue with the web server and must check whether the server is listening on port 80.
+~~Users experience issues when accessing the web app. You suspect an issue with the web server and must check whether the server is listening on port 80.~~
 
-Which command should you run?
+~~Which command should you run?~~
 
-Select only one answer.
+~~Select only one answer.~~
 
-`Get-AzVirtualNetworkUsageList`
+~~`Get-AzVirtualNetworkUsageList`~~
 
-`nbtstat -c`
+~~`nbtstat -c`~~
 
-`netstat -an`
+~~`netstat -an`~~
 
-**This answer is correct.**
+~~**This answer is correct.**~~
 
-`Test-NetConnection localhost`
+~~`Test-NetConnection localhost`~~
 
-Using `netstat -an` will list the ports that the server is listening on. `Test-NetConnection` will perform a ping/ICMP test. `Nbtstat -c` checks the NBT cache. `Get-AzVirtualNetwork` gets the virtual networks in a resource group.
+~~Using `netstat -an` will list the ports that the server is listening on. `Test-NetConnection` will perform a ping/ICMP test. `Nbtstat -c` checks the NBT cache. `Get-AzVirtualNetwork` gets the virtual networks in a resource group.~~
 
-[Troubleshoot Azure Load Balancer | Microsoft Learn](https://learn.microsoft.com/azure/load-balancer/load-balancer-troubleshoot-backend-traffic)
+~~[Troubleshoot Azure Load Balancer | Microsoft Learn](https://learn.microsoft.com/azure/load-balancer/load-balancer-troubleshoot-backend-traffic)~~
 
-[Introduction to Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/)
+~~[Introduction to Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/)~~
 
-You have deployed a web application in Microsoft Azure using a public Microsoft Load Balancer to distribute traffic across virtual machines. Users report intermittent connectivity issues.
 
-You need to troubleshoot the connectivity issues for consistent application access.
 
-Each correct answer presents part of the solution. Which two actions should you take?
+~~You have deployed a web application in Microsoft Azure using a public Microsoft Load Balancer to distribute traffic across virtual machines. Users report intermittent connectivity issues.~~
+~~You need to troubleshoot the connectivity issues for consistent application access.~~
+~~Each correct answer presents part of the solution. Which two actions should you take?~~
+~~Select all answers that apply.~~
 
-Select all answers that apply.
+~~Change the load balancer's distribution mode to Source IP affinity.~~
 
-Change the load balancer's distribution mode to Source IP affinity.
+~~Check the health probe configuration.~~
 
-Check the health probe configuration.
+~~**This answer is correct.**~~
 
-**This answer is correct.**
+~~Check the network security group rules for the virtual machines.~~
 
-Check the network security group rules for the virtual machines.
+~~Verify matching SKUs for the load balancer and public IP.~~
 
-Verify matching SKUs for the load balancer and public IP.
+~~**This answer is correct.**~~
 
-**This answer is correct.**
-
-Checking the health probe configuration is crucial because an inactive or incorrectly configured probe can lead to traffic being routed to unhealthy instances, causing connectivity issues. Verifying matching SKUs for the load balancer and public IP is also essential, as mismatched SKUs can disrupt proper operation and lead to connectivity problems. Checking the network security group rules might seem relevant but does not address the root cause of the connectivity issues. Changing the load balancer's distribution mode might seem like it could improve session persistence but does not resolve the underlying configuration problems causing the connectivity issues.
+~~Checking the health probe configuration is crucial because an inactive or incorrectly configured probe can lead to traffic being routed to unhealthy instances, causing connectivity issues. Verifying matching SKUs for the load balancer and public IP is also essential, as mismatched SKUs can disrupt proper operation and lead to connectivity problems. Checking the network security group rules might seem relevant but does not address the root cause of the connectivity issues. Changing the load balancer's distribution mode might seem like it could improve session persistence but does not resolve the underlying configuration problems causing the connectivity issues.~~
 
 [Improve application scalability and resiliency by using Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/improve-app-scalability-resiliency-with-load-balancer)
 
-You have an Azure subscription that contains a resource group named RG1.
 
-You have an Azure Resource Manager (ARM) template for an Azure virtual machine.
+~~You have an Azure subscription that contains a resource group named RG1.~~
+~~You have an Azure Resource Manager (ARM) template for an Azure virtual machine.~~
+~~You need to use PowerShell to provision a virtual machine in RG1 by using the template.~~
+~~Which PowerShell cmdlet should you run?~~
 
-You need to use PowerShell to provision a virtual machine in RG1 by using the template.
+~~Select only one answer.~~
 
-Which PowerShell cmdlet should you run?
+~~`New-AzManagementGroupDeployment`~~
 
-Select only one answer.
+~~`New-AzResourceGroupDeployment`~~
 
-`New-AzManagementGroupDeployment`
+~~**This answer is correct.**~~
 
-`New-AzResourceGroupDeployment`
+~~`New-AzSubscriptionDeployment`~~ 
 
-**This answer is correct.**
+~~`New-AzVM`~~
 
-`New-AzSubscriptionDeployment` 
+~~Virtual machines are deployed to resource groups, so you must run the `New-AzResourceGroupDeployment` cmdlet. You can deploy virtual machines to subscriptions or management groups directly, therefore, `New-AzManagementGroupDeployment` and `New-AzSubscriptionDeployment` cannot be used. `New-AzVM` can be used to provision a new virtual machine, but without using a template.~~
 
-`New-AzVM`
+~~[Deploy resources with PowerShell and template - Azure Resource Manager | Microsoft Learn](https://learn.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)~~
 
-Virtual machines are deployed to resource groups, so you must run the `New-AzResourceGroupDeployment` cmdlet. You can deploy virtual machines to subscriptions or management groups directly, therefore, `New-AzManagementGroupDeployment` and `New-AzSubscriptionDeployment` cannot be used. `New-AzVM` can be used to provision a new virtual machine, but without using a template.
-
-[Deploy resources with PowerShell and template - Azure Resource Manager | Microsoft Learn](https://learn.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)
-
-[Deploy Azure infrastructure by using JSON ARM templates - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/create-azure-resource-manager-template-vs-code/)
-
-You have an Azure Resource Manager (ARM) template named deploy.json that is stored in an Azure Blob storage container.
-
-You plan to deploy the template by running the `New-AzDeployment` cmdlet.
-
-Which parameter should you use to reference the template?
-
-Select only one answer.
-
-`-Tag`
-
-`-Templatefile`
-
-`-TemplateSpecId`
-
-`-TemplateUri`
-
-**This answer is correct.**
-
-The PowerShell deployment cmdlets can be used to deploy JSON templates that are stored locally in a resources group as a template spec, or from a web-based location. You can use the `-TemplateUri` parameter to specify a web-based location, such as GitHub or an Azure Blob Storage account. You can use `-Templatefile` to specify a local file. You can use `-TemplateSpecId` to specify a template that was save to Azure as a template spec.
-
-[Deploy resources with PowerShell and template - Azure Resource Manager | Microsoft Learn](https://learn.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)
-
-[Deploy Azure infrastructure by using JSON ARM templates - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/create-azure-resource-manager-template-vs-code/)
-
-our company has a set of resources deployed to an Azure subscription. The resources are deployed to a resource group named app-grp1 by using Azure Resource Manager (ARM) templates.
-
-You need to verify the date and the time that the resources in app-grp1 were created.
-
-Which blade should you review for app-grp1 in the Azure portal?
-
-Select only one answer.
-
-Deployments
-
-**This answer is correct.**
-
-Diagnostics setting
-
-Deployment stacks
-
-Policy
+~~[Deploy Azure infrastructure by using JSON ARM templates - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/create-azure-resource-manager-template-vs-code/)~~
 
 
 
 
-ou have an Azure virtual machine named Server1 that runs Windows Server.
+~~You have an Azure Resource Manager (ARM) template named deploy.json that is stored in an Azure Blob storage container.~~
 
+~~You plan to deploy the template by running the `New-AzDeployment` cmdlet.~~
+
+~~Which parameter should you use to reference the template?~~
+
+~~Select only one answer.~~
+
+~~`-Tag`~~
+
+~~`-Templatefile`~~
+
+~~`-TemplateSpecId`~~
+
+~~`-TemplateUri` **This answer is correct.**~~
+
+~~The PowerShell deployment cmdlets can be used to deploy JSON templates that are stored locally in a resources group as a template spec, or from a web-based location. You can use the `-TemplateUri` parameter to specify a web-based location, such as GitHub or an Azure Blob Storage account. You can use `-Templatefile` to specify a local file. You can use `-TemplateSpecId` to specify a template that was save to Azure as a template spec.~~
+
+~~[Deploy resources with PowerShell and template - Azure Resource Manager | Microsoft Learn](https://learn.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)~~
+
+~~[Deploy Azure infrastructure by using JSON ARM templates - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/create-azure-resource-manager-template-vs-code/)~~
+
+
+
+~~Our company has a set of resources deployed to an Azure subscription. The resources are deployed to a resource group named app-grp1 by using Azure Resource Manager (ARM) templates.~~
+~~You need to verify the date and the time that the resources in app-grp1 were created.~~
+~~Which blade should you review for app-grp1 in the Azure portal?~~
+~~Select only one answer.~~
+
+~~Deployments **This answer is correct.**~~
+~~Diagnostics setting~~
+~~Deployment stacks~~
+~~Policy~~
+
+
+
+
+You have an Azure virtual machine named Server1 that runs Windows Server.
 You need to configure Azure Backup to back up files and folders.
-
 What should you install on Server1?
-
 Select only one answer.
 
 Microsoft Azure Backup Server (MABS)

@@ -34,14 +34,21 @@ New NSG Group
 Create security rule for NSG
 
 `Get-AzVirtualNetworkUsageList`
+Shows network usage/limits (shows quotas)
 
 `nbtstat -c`
+Shows the local computers NetBIOS name cache (Older windows)
 
 `netstat -an`
 List the ports that the server is listening on
+- `-a` → Show **all connections and listening ports**
+- `-n` → Show addresses/ports **numerically** instead of resolving names
 
 `Test-NetConnection localhost`
 Perform a ping/ICMP test.
 
-Using `netstat -an` will . `Test-NetConnection` `Nbtstat -c` checks the NBT cache. `Get-AzVirtualNetwork` gets the virtual networks in a resource group.
 
+
+`-TemplateUri` parameter to specify a web-based location
+
+`TemplateSpecId`  to specify a template that was save to Azure as a template spec.
