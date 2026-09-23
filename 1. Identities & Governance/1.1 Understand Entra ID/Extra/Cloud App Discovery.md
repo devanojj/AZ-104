@@ -1,0 +1,2 @@
+- Finds and identifies the cloud/SaaS applications being used in an organisation.
+- Identity shadow IT apps not being without approval 

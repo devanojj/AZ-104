@@ -1,0 +1,2 @@
+- Monitors [[Microsoft Entra Connect Sync]], [[AD]]
+- Helps identify performance problems with hybrid infrastructure 

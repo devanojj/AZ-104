@@ -9,3 +9,4 @@ Entra ID authentication can be enabled directly on Web Apps using the Authentica
 
 **Deployment Slot Control**
 Authentication settings can be configured granularly per individual deployment slot.
+

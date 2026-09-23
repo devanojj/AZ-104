@@ -1,5 +1,5 @@
 ## Overview & Purpose
-When migrating legacy line-of-business (LOB) apps requiring traditional Active Directory capabilities (Kerberos, NTLM, LDAP, Group Policy, Domain Join) to Azure, you traditionally had two options:
+When migrating legacy line-of-business apps requiring traditional Active Directory capabilities (Kerberos, NTLM, LDAP, Group Policy, Domain Join) to Azure, you traditionally had two options ine-of-business apps requiring traditional Active Directory capabilities:
 
 1. **Site-to-Site VPN to On-Prem AD DS:** High latency/cost; authentication traffic crosses the VPN.
 2. **Deploy Replica DC VMs in Azure:** High admin effort; replication traffic crosses the VPN while authentication stays in the cloud.

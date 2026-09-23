@@ -1,0 +1,3 @@
+- Sync [[AD]] identities to Entra
+- Lightweight provisioning agent 
+- Cloud based
