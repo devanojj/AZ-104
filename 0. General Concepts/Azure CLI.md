@@ -20,10 +20,10 @@ You cane save the ARM template
 `New-AzResourceGroupDeployment`
 You can deploy the ARM template
 
-
 ``Add-AzLoadBalancerFrontendIpConfig``
 Adds frontend IP configuration to the azure load balancer
 
-
+`Add-AzNetworkInterfaceTapConfig`
+Configures a network interface TAP
 
 
