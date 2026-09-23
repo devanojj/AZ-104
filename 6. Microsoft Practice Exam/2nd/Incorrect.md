@@ -58,45 +58,34 @@
 ~~[What is Microsoft Entra authentication?](https://learn.microsoft.com/en-us/training/modules/manage-security-controls-identity-access/16-what-microsoft-entra-authentication)~~
 
 
-You have an Azure subscription.
-You plan to create an Azure Policy definition named Policy1.
-You need to include remediation information in Policy.
-To which definition section should you add remediation information for Policy1?
+~~You have an Azure subscription.~~
+~~You plan to create an Azure Policy definition named Policy1.~~
+~~You need to include remediation information in Policy.~~
+~~To which definition section should you add remediation information for Policy1?~~
 
-Select only one answer.
-metadata **This answer is correct.**
-mode
-parameters
-policyRule **This answer is incorrect.**
+~~Select only one answer.~~
+~~metadata **This answer is correct.**~~
+~~mode~~
+~~parameters~~
+~~policyRule **This answer is incorrect.**~~
 
-You must use the RemediationDescription field in the metadata section from properties to specify a custom recommendation. The remaining options are Azure policies, but do not allow specific custom remediation information.
+~~You must use the RemediationDescription field in the metadata section from properties to specify a custom recommendation. The remaining options are Azure policies, but do not allow specific custom remediation information.~~
 
-[Create custom Azure security policies in Microsoft Defender for Cloud | Microsoft Learn](https://learn.microsoft.com/azure/defender-for-cloud/custom-security-policies?pivots=azure-portal#enhance-your-custom-recommendations-with-detailed-information)
-[Improve incident response with alerting on Azure - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/)
+~~[Create custom Azure security policies in Microsoft Defender for Cloud | Microsoft Learn](https://learn.microsoft.com/azure/defender-for-cloud/custom-security-policies?pivots=azure-portal#enhance-your-custom-recommendations-with-detailed-information)~~
+~~[Improve incident response with alerting on Azure - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/)~~
 
 
 
-ou have an Azure virtual network named VNet1.
-
+You have an Azure virtual network named VNet1.
 You create an Azure Private DNS zone named contoso.com.
-
 You need to ensure that the virtual machines on VNet1 register in the contoso.com private DNS zone.
 
 What should you do?
-
 Select only one answer.
-
-Add a virtual network link to contoso.com.
-
-**This answer is correct.**
-
-Add Azure DNS Private Resolver to VNet1.
-
-**This answer is incorrect.**
-
-Configure each virtual machine to use a custom DNS server.
-
-Configure VNet1 to use a custom DNS server.
+- Add a virtual network link to contoso.com. **This answer is correct.**
+- Add Azure DNS Private Resolver to VNet1. **This answer is incorrect.**
+- Configure each virtual machine to use a custom DNS server.
+- Configure VNet1 to use a custom DNS server.
 
 To associate a virtual network to a private DNS zone, you add the virtual network to the zone by creating a virtual network link.
 
