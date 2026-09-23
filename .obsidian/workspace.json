@@ -49,12 +49,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/4.3 Configure DNS/Unit 2 - What is Azure DNS.md",
+                "file": "0. General Concepts/DNS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 2 - What is Azure DNS"
+              "title": "DNS"
             }
           }
         ]
@@ -236,8 +236,14 @@
   },
   "active": "ebd6450cc36ec4cd",
   "lastOpenFiles": [
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 2 - Plan Virtual Networks.md",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 6 - Exercise Go Back Over!!!!.md",
+    "4. Virtual Networking/4.3 Configure DNS/General N.md",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 5 - Alias Records.md",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 4 - Create A record.md",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 3 - Configure DNS Zones.md",
+    "4. Virtual Networking/4.3 Configure DNS/Unit 2 - What is Azure DNS.md",
     "6. Microsoft Practice Exam/2nd/Incorrect.md",
+    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 2 - Plan Virtual Networks.md",
     "6. Microsoft Practice Exam/Exam Notes.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 5 - Policy Definitions.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 6 - Policy Evaluation Resources.md",
@@ -259,12 +265,6 @@
     "6. Microsoft Practice Exam/2nd",
     "6. Microsoft Practice Exam/1st/Exam Correct (Done).md",
     "6. Microsoft Practice Exam/1st",
-    "0. General Concepts/VNet Peering.md",
-    "0. General Concepts/Service Tags.md",
-    "0. General Concepts/SAS.md",
-    "0. General Concepts/Runbook.md",
-    "0. General Concepts/Resource Lock vs RBAC.md",
-    "0. General Concepts/OU.md",
     "6. Microsoft Practice Exam",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",

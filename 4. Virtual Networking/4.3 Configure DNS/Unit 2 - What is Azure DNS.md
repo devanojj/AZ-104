@@ -86,3 +86,9 @@ www.example.com → 10.0.0.2
 
 
 *To configure VN to a private DNS, create virtual network link*
+
+*DNS Private Resolver*
+Used to proxy DNS between on premises and DNS. 
+
+*Custom DNS Server*
+Can be used to register VNet but can't be private 
