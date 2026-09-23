@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"1be237d12f54fb1b","type":"text","text":"Private DNS Zone","x":-125,"y":-220,"width":250,"height":60},
+		{"id":"8da44de8016ad69c","x":-125,"y":0,"width":250,"height":60,"type":"text","text":"VNet"},
+		{"id":"4982d6f5327c8713","type":"text","text":"VNet Link","x":-125,"y":-100,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"2064010eba6a594e","fromNode":"1be237d12f54fb1b","fromSide":"bottom","toNode":"4982d6f5327c8713","toSide":"top"},
+		{"id":"f996ee679ec6323b","fromNode":"4982d6f5327c8713","fromSide":"bottom","toNode":"8da44de8016ad69c","toSide":"top"}
+	]
+}

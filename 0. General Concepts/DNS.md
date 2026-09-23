@@ -29,14 +29,14 @@ To create a subdomain, create NS record in the "gatehouse.com" for example put "
 
 *Azure public DNS provides DNS for public access, such as name resolution for a publicly accessible website.* 
 
-
 ### Virtual Network Link
 Need to link the VNet to the private DNS Zone
+[[Private DNS Zone Structure.canvas]]
 
 
+### Private DNS Resolver
+For DNS between Azure and on-prem
 
-
-
-
+Configuring a custom DNS server **doesn't make it a Private DNS Zone**.
 
 

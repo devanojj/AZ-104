@@ -75,94 +75,79 @@
 ~~[Improve incident response with alerting on Azure - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/)~~
 
 
-You have an Azure virtual network named VNet1.
-You create an Azure Private DNS zone named contoso.com.
-You need to ensure that the virtual machines on VNet1 register in the contoso.com private DNS zone.
+~~You have an Azure virtual network named VNet1.~~
+~~You create an Azure Private DNS zone named contoso.com.~~
+~~You need to ensure that the virtual machines on VNet1 register in the contoso.com private DNS zone.~~
 
-What should you do?
-Select only one answer.
-- Add a virtual network link to contoso.com. **This answer is correct.**
-- Add Azure DNS Private Resolver to VNet1. **This answer is incorrect.**
-- Configure each virtual machine to use a custom DNS server.
-- Configure VNet1 to use a custom DNS server.
+~~What should you do?~~
+~~Select only one answer.~~
+- ~~Add a virtual network link to contoso.com. **This answer is correct.**~~
+- ~~Add Azure DNS Private Resolver to VNet1. **This answer is incorrect.**~~
+- ~~Configure each virtual machine to use a custom DNS server.~~
+- ~~Configure VNet1 to use a custom DNS server.~~
 
-To associate a virtual network to a private DNS zone, you add the virtual network to the zone by creating a virtual network link.
+~~To associate a virtual network to a private DNS zone, you add the virtual network to the zone by creating a virtual network link.~~
 
-Azure DNS Private Resolver is used to proxy DNS queries between on-premises environments and Azure DNS.
+~~Azure DNS Private Resolver is used to proxy DNS queries between on-premises environments and Azure DNS.~~
 
-A custom DNS server will work if you deploy a DNS server as a virtual machine or an appliance, however, this configuration does not work with a private DNS zone.
+~~A custom DNS server will work if you deploy a DNS server as a virtual machine or an appliance, however, this configuration does not work with a private DNS zone.~~
 
-[Quickstart - Create an Azure private DNS zone using the Azure portal | Microsoft Learn](https://learn.microsoft.com/azure/dns/private-dns-getstarted-portal)
+~~[Quickstart - Create an Azure private DNS zone using the Azure portal | Microsoft Learn](https://learn.microsoft.com/azure/dns/private-dns-getstarted-portal)~~
 
 [Configure Azure DNS - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-azure-dns/)
 
-5. Monitor and maintain Azure resources
+5. ~~Monitor and maintain Azure resources~~
 
 
-You are creating an Azure virtual machine that will run Windows Server.
 
-You need to ensure that VM1 will be part of a virtual machine scale set.
+~~You are creating an Azure virtual machine that will run Windows Server.~~
 
-Which setting should you configure during the creation of the virtual machine?
+~~You need to ensure that VM1 will be part of a virtual machine scale set.~~
 
-Select only one answer.
+~~Which setting should you configure during the creation of the virtual machine?~~
 
-Availability options
+~~Select only one answer.~~
 
-**This answer is correct.**
+~~Availability options~~
 
-Azure Spot instance
+~~**This answer is correct.**~~
 
-**This answer is incorrect.**
+~~Azure Spot instance~~
 
-Management
+~~**This answer is incorrect.**~~
 
-Region
+~~Management~~
 
-You must configure the virtual machine scale set from the availability options. Azure spot instance is used to add virtual machines with a discounted price. Region will not affect the configuration of the availability options. The management setting allows you to configure the monitoring and management options for the virtual machine.
+~~Region~~
 
-[Availability options for Azure Virtual Machines - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/availability)
+~~You must configure the virtual machine scale set from the availability options. Azure spot instance is used to add virtual machines with a discounted price. Region will not affect the configuration of the availability options. The management setting allows you to configure the monitoring and management options for the virtual machine.~~
 
-[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)
+~~[Availability options for Azure Virtual Machines - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/availability)~~
 
-ou need to create an Azure App Service web app that runs on Windows. The web app requires scaling to five instances, 45 GB of storage, and a custom domain name. The solution must minimize costs.
+~~[Configure virtual machine availability - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/)~~
 
-Which App Service plan should you use?
 
-Select only one answer.
 
-Basic
+~~You need to create an Azure App Service web app that runs on Windows. The web app requires scaling to five instances, 45 GB of storage, and a custom domain name. The solution must minimize costs.~~
+~~Which App Service plan should you use?~~
 
-**This answer is incorrect.**
+~~Select only one answer.~~
 
-Free
+~~Basic **This answer is incorrect.**~~
+~~Free~~
+~~Premium~~
+~~Standard **This answer is correct.**~~
 
-Premium
-
-Standard
-
-**This answer is correct.**
-
-The Standard service plan can host unlimited web apps, up to 50 GB of disk space, and up to 10 instances. The plan will cost approximately $0.10/hour. The Free plan only offers 1 GB of disk size and 0 instances to host the app. The Premium plan offers 250 GB of disk space and up to 30 instances and will cost approximately $0.20/hour. The Basic plan offers 10 GB of disk space and up to three virtual machines.
+~~The Standard service plan can host unlimited web apps, up to 50 GB of disk space, and up to 10 instances. The plan will cost approximately $0.10/hour. The Free plan only offers 1 GB of disk size and 0 instances to host the app. The Premium plan offers 250 GB of disk space and up to 30 instances and will cost approximately $0.20/hour. The Basic plan offers 10 GB of disk space and up to three virtual machines.~~
 
 You have an Azure subscription that contains virtual machines, virtual networks, application gateways, and load balancers.
-
 You need to monitor the network health of the resources.
-
 Which Azure service should you use?
-
 Select only one answer.
 
-Azure Monitor
-
-**This answer is incorrect.**
-
-Azure Network Watcher
-
-**This answer is correct.**
-
+Azure Monitor **This answer is incorrect.**
+Azure Network Watcher **This answer is correct.**
 Azure Resource Manager
-
 network security groups (NSGs)
 
 

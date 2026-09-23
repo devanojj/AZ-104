@@ -22,39 +22,25 @@
               "icon": "lucide-file",
               "title": "Incorrect"
             }
-          },
-          {
-            "id": "1891a9d267abcd76",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6. Microsoft Practice Exam/2nd/Incorrect.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Incorrect"
-            }
           }
         ]
       },
       {
-        "id": "9b9d12b70480ec8a",
+        "id": "74f598d189a78004",
         "type": "tabs",
         "children": [
           {
-            "id": "ebd6450cc36ec4cd",
+            "id": "a3e6f374c00b3898",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0. General Concepts/DNS.md",
+                "file": "0. General Concepts/Monitor vs Watcher.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DNS"
+              "title": "Monitor vs Watcher"
             }
           }
         ]
@@ -234,15 +220,22 @@
       "bases:Create new base": false
     }
   },
-  "active": "ebd6450cc36ec4cd",
+  "active": "a3e6f374c00b3898",
   "lastOpenFiles": [
+    "0. General Concepts/Azure Monitor.md",
+    "0. General Concepts/Monitor vs Watcher.md",
+    "0. General Concepts/Azure Network Watcher.md",
+    "6. Microsoft Practice Exam/2nd/Incorrect.md",
+    "0. General Concepts/App Service Plan.md",
+    "VM.md",
+    "0. General Concepts/DNS.md",
+    "0. General Concepts/Private DNS Zone Structure.canvas",
     "4. Virtual Networking/4.3 Configure DNS/Unit 6 - Exercise Go Back Over!!!!.md",
     "4. Virtual Networking/4.3 Configure DNS/General N.md",
     "4. Virtual Networking/4.3 Configure DNS/Unit 5 - Alias Records.md",
     "4. Virtual Networking/4.3 Configure DNS/Unit 4 - Create A record.md",
     "4. Virtual Networking/4.3 Configure DNS/Unit 3 - Configure DNS Zones.md",
     "4. Virtual Networking/4.3 Configure DNS/Unit 2 - What is Azure DNS.md",
-    "6. Microsoft Practice Exam/2nd/Incorrect.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 2 - Plan Virtual Networks.md",
     "6. Microsoft Practice Exam/Exam Notes.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 5 - Policy Definitions.md",
@@ -256,14 +249,8 @@
     "1. Identities & Governance/1.6 Password Reset/Unit 2 - Self Service Reset.md",
     "6. Microsoft Practice Exam/2nd/Correct.md",
     "AZ-104.md",
-    "0. General Concepts/Azure Network Watcher.md",
-    "0. General Concepts/Azure Spot Instance.md",
-    "0. General Concepts/Container.md",
-    "3. Compute Resources/3.5 Containers/All Units - Container.md",
-    "3. Compute Resources/3.3 App Service/All Units - App Service.md",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "6. Microsoft Practice Exam/2nd",
-    "6. Microsoft Practice Exam/1st/Exam Correct (Done).md",
     "6. Microsoft Practice Exam/1st",
     "6. Microsoft Practice Exam",
     "5. Monitor Resources/Untitled.canvas",
