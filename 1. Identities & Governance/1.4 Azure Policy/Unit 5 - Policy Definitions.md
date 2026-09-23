@@ -15,6 +15,7 @@ Defines **compliance conditions** and the **effect** applied when conditions are
 - **mode** → Determines which resource types/properties are evaluated.
 - **parameters** → Makes policies reusable with different values.
 - **policyRule** → Contains `if` + `then`.
+- **metadata** → Extra information, including remediation description  
 
 ---
 
@@ -84,3 +85,40 @@ Defines **compliance conditions** and the **effect** applied when conditions are
 - **manual** = Manual compliance attestation.
 - **Parameters** = Reuse one policy with different values.
 - Multiple policies → **most restrictive result wins**.
+
+
+*Example*
+{
+"properties": {
+    "displayName": "Require tags on resources",
+    "description": "Ensures resources have an Environment tag.",
+    "policyType": "Custom",
+    "mode": "Indexed",
+
+    "metadata": {
+      "category": "Tags",
+      "RemediationDescription": "Add an Environment tag to the resource."
+    },
+
+    "parameters": {
+      "tagName": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag name",
+          "description": "Name of the required tag."
+        },
+        "defaultValue": "Environment"
+      }
+    },
+
+    "policyRule": {
+      "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}

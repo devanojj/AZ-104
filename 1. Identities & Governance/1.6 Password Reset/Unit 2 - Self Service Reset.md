@@ -75,3 +75,6 @@ Administrators can enable:
     - Alternative for synchronising users/passwords.
     - Can provide **higher availability** by avoiding reliance on a single Microsoft Entra Connect instance.
 - Both options can be deployed **side-by-side** for different domains/users.
+
+
+*SSRP only available for users within the tenant*
