@@ -185,21 +185,21 @@
 
 
 
-You have an Azure virtual machine named Server1 that runs Windows Server.
-You need to configure Azure Backup to back up files and folders.
-What should you install on Server1?
-Select only one answer.
+~~You have an Azure virtual machine named Server1 that runs Windows Server.~~
+~~You need to configure Azure Backup to back up files and folders.~~
+~~What should you install on Server1?~~
+~~Select only one answer.~~
 
-Microsoft Azure Backup Server (MABS)
+~~Microsoft Azure Backup Server (MABS)~~
 
-Microsoft Azure Site Recovery Provider
+~~Microsoft Azure Site Recovery Provider~~
 
-the Azure Connected Machine agent
+~~the Azure Connected Machine agent~~
 
-the Microsoft Azure Recovery Services (MARS) agent
+~~the Microsoft Azure Recovery Services (MARS) agent~~
 
-**This answer is correct.**
+~~**This answer is correct.**~~
 
-The Microsoft Azure Recovery Service (MARS) agent must be installed on the servers. The MARS agent is mandatory to perform backup and recovery services for any servers.
+~~The Microsoft Azure Recovery Service (MARS) agent must be installed on the servers. The MARS agent is mandatory to perform backup and recovery services for any servers.~~
 
-[Manage the Azure recovery services agent - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-file-folder-backups/6-manage-azure-recovery-services-agent?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources)
+~~[Manage the Azure recovery services agent - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-file-folder-backups/6-manage-azure-recovery-services-agent?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources)~~

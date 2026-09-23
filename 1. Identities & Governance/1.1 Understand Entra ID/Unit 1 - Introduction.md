@@ -1,6 +1,5 @@
-Entra ID is a cloud-based identity and access management service
+==**Cloud based identity & access management service**==
 
-Configure Identity Access to use Entra ID
-
-*Guest Inviter*
-Ability to invite external users to Entra tenant
+- To use Entra ID or [[AD]] to authenticate you need to configure identity-based access
+- [[SAS]] or key access doesn't use Entra ID
+- *Guest Inviter* role has the ability to invite users to Entra tenat

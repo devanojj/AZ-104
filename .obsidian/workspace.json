@@ -4,97 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "16ed482fcd81f45c",
+        "id": "657c60edcf757603",
         "type": "tabs",
         "children": [
           {
-            "id": "f6c71efa94d5d4c2",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6. Microsoft Practice Exam/2nd/Correct.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "Correct"
-            }
-          },
-          {
-            "id": "a5e897ca7e7ac762",
+            "id": "d54b72b29dbbbfb0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0. General Concepts/Azure CLI.md",
+                "file": "1. Identities & Governance/1.1 Understand Entra ID/Unit 3 - Vs Active Directory.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Azure CLI"
-            }
-          },
-          {
-            "id": "c7e91b9f632a7ded",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Unit 5 - Public Addressing"
-            }
-          },
-          {
-            "id": "81497841ee4263ba",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "0. General Concepts/Azure Health Probe.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Azure Health Probe"
-            }
-          },
-          {
-            "id": "f5eb281b2e026434",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AZ-104.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "AZ-104"
-            }
-          },
-          {
-            "id": "2f04ed2ac8ec6718",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "0. General Concepts/Backup.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Backup"
+              "title": "Unit 3 - Vs Active Directory"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -149,8 +76,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -271,35 +197,36 @@
       "bases:Create new base": false
     }
   },
-  "active": "2f04ed2ac8ec6718",
+  "active": "d54b72b29dbbbfb0",
   "lastOpenFiles": [
-    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
-    "6. Microsoft Practice Exam/2nd/Correct.md",
-    "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - Monitor & Backup.md",
-    "0. General Concepts/Backup.md",
-    "AZ-104.md",
-    "0. General Concepts/Azure CLI.md",
-    "0. General Concepts/Azure Health Probe.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
-    "4. Virtual Networking/4.6 Load Balancer/Unit 2 - Load Balancer.md",
-    "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
-    "3. Compute Resources/3.3 App Service/All Units - App Service.md",
-    "0. General Concepts/Inbound NAT.md",
-    "6. Microsoft Practice Exam/1st/Exam Correct (Done).md",
-    "6. Microsoft Practice Exam/2nd/Incorrect (Done).md",
-    "0. General Concepts/VM.md",
-    "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
-    "0. General Concepts/Hierarchical Namespace - POSIX ACLs.md",
-    "0. General Concepts/Entra ID.md",
-    "0. General Concepts/Azure Site Recovery.md",
-    "0. General Concepts/Monitor vs Watcher.md",
-    "0. General Concepts/Azure Monitor.md",
-    "0. General Concepts/Azure Network Watcher.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Extra/OU.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 3 - Vs Active Directory.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Extra/AD.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 1 - Introduction.md",
     "0. General Concepts/App Service Plan.md",
-    "0. General Concepts/DNS.md",
+    "0. General Concepts/Availability Zone vs Set.md",
+    "0. General Concepts/Hierarchical Namespace - POSIX ACLs.md",
+    "0. General Concepts/Instant Restore.md",
+    "0. General Concepts/Kubernetes API.md",
+    "0. General Concepts/Logging.md",
+    "0. General Concepts/MARS.md",
+    "0. General Concepts/Modify.md",
+    "0. General Concepts/Monitor vs Watcher.md",
+    "0. General Concepts/Network Controller.md",
+    "0. General Concepts/NVA.md",
+    "0. General Concepts/Resource Lock vs RBAC.md",
+    "0. General Concepts/Runbook.md",
+    "0. General Concepts/Service Tags.md",
+    "0. General Concepts/VM.md",
+    "0. General Concepts/VNet Peering.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Extra/AU vs Security Group.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Extra/AU.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Extra/Conditional Access.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Extra/Identity protection.md",
+    "1. Identities & Governance/1.1 Understand Entra ID/Extra",
+    "1. Identities & Governance/1.1 Understand Entra ID/Unit 2 - Examine Entra ID.md",
+    "0. General Concepts/Entra ID.md",
     "0. General Concepts/Private DNS Zone Structure.canvas",
-    "4. Virtual Networking/4.3 Configure DNS/Unit 6 - Exercise Go Back Over!!!!.md",
-    "4. Virtual Networking/4.3 Configure DNS/General N.md",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "6. Microsoft Practice Exam/2nd",
     "6. Microsoft Practice Exam/1st",
@@ -311,7 +238,6 @@
     "3. Compute Resources/3.5 Containers",
     "3. Compute Resources/3.4 App Service 2",
     "3. Compute Resources/3.3 App Service",
-    "3. Compute Resources/3.2 VM Availability",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]

@@ -3,7 +3,7 @@
 - Uses Domain Name System (DNS) for locating resources such as domain controllers.
 - Query and manage using Lightweight Directory Access Protocol (LDAP) calls.
 - Uses the Kerberos protocol for authentication.
-- Uses OUs and [[GPO]]s for management.
+- Uses [[OU]]s and [[GPO]]s for management.
 - Includes computer objects, representing computers that join an Active Directory domain.
 - Uses trusts between domains for delegated management.
 
