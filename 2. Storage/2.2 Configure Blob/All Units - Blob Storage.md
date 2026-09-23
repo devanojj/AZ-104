@@ -39,6 +39,8 @@ Blobs reside within **Containers** (flat hierarchy).
 | **Cold** | Rarely accessed (accessed $\ge$ 90 days) | Very Low | Higher than Cool | 90 days |
 | **Archive** | Rarely accessed, offline backup/compliance | Lowest | Highest | 180 days |
 
+*Premium tier for high performance workloads*
+
 ### Tier Characteristics & Rehydration
 * **Default Tier:** Configured at the storage account level (Hot or Cool).
 * **Blob-level Tiering:** Can be overridden per individual blob.
@@ -142,3 +144,6 @@ Recovered after X amount of days
 
 *Blob Versioning*
 Keeps previous versions of the blob when they're modified 
+
+*Blob Inventory*
+Provides inventory of the blobs and their properties, has name, size, tier and encryption status. For auditing and management 

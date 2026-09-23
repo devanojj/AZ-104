@@ -245,50 +245,50 @@
 
 
 
-You create an Azure Storage account.
-You need to create a lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days.
-What should you do first?
-Select only one answer.
+~~You create an Azure Storage account.~~
+~~You need to create a lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days.~~
+~~What should you do first?~~
+~~Select only one answer.~~
 
-Enable access tracking. **This answer is correct.**
-Enable versioning for blobs. **This answer is incorrect.**
-Refresh the blob inventory.
-Rotate the storage account keys.
+~~Enable access tracking. **This answer is correct.**~~
+~~Enable versioning for blobs. **This answer is incorrect.**~~
+~~Refresh the blob inventory.~~
+~~Rotate the storage account keys.~~
 
-A lifecycle management rule can be used to move or delete blobs automatically. The rule can be based on the time the blob was last modified or the time the blob was last accessed (read or write). To perform an action based on the access time, access tracking must be enabled. This can incur additional storage costs.
+~~A lifecycle management rule can be used to move or delete blobs automatically. The rule can be based on the time the blob was last modified or the time the blob was last accessed (read or write). To perform an action based on the access time, access tracking must be enabled. This can incur additional storage costs.~~
 
-[Configure a lifecycle management policy - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal)
+~~[Configure a lifecycle management policy - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal)~~
 
-[Configure Azure Blob Storage - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-blob-storage/)
-
-
+~~[Configure Azure Blob Storage - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-blob-storage/)~~
 
 
-You have an Azure subscription that contains a storage account.
 
-You need to recommend a storage solution for storing infrequently accessed data. The solution must meet the following requirements:
 
-- The data must be stored for at least 90 days.
-- The data must be available within seconds.
-- Storage costs must be minimized.
+~~You have an Azure subscription that contains a storage account.~~
 
-Which tier should you recommend?
+~~You need to recommend a storage solution for storing infrequently accessed data. The solution must meet the following requirements:~~
 
-Select only one answer.
+- ~~The data must be stored for at least 90 days.~~
+- ~~The data must be available within seconds.~~
+- ~~Storage costs must be minimized.~~
 
-Cold
+~~Which tier should you recommend?~~
 
-**This answer is correct.**
+~~Select only one answer.~~
 
-Cool
+~~Cold~~
 
-**This answer is incorrect.**
+~~**This answer is correct.**~~
 
-Hot
+~~Cool~~
 
-Premium
+~~**This answer is incorrect.**~~
 
-The correct solution is the Cold tier, because it is an online storage tier in Azure designed for infrequently accessed data that must remain available within seconds. The Cold tier has a recommended minimum retention period of 90 days, aligning directly with the scenario, and offers lower storage costs than Hot or Cool tiers while still supporting immediate access. The Cool tier requires only 30 days of retention and has higher costs than Cold for long-term storage, the Hot tier is optimized for frequently accessed data at higher storage prices, and the Premium tier is intended for high-performance workloads, not for cost efficiency. Therefore, Cold best satisfies the requirements for cost savings, online availability, and the 90-day storage requirement.
+~~Hot~~
 
-[Explore Azure Blob storage](https://learn.microsoft.com/en-us/training/modules/explore-azure-blob-storage/2-blob-storage-overview)  
-[Assign blob access tiers](https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/4-create-blob-access-tiers)
+~~Premium~~
+
+~~The correct solution is the Cold tier, because it is an online storage tier in Azure designed for infrequently accessed data that must remain available within seconds. The Cold tier has a recommended minimum retention period of 90 days, aligning directly with the scenario, and offers lower storage costs than Hot or Cool tiers while still supporting immediate access. The Cool tier requires only 30 days of retention and has higher costs than Cold for long-term storage, the Hot tier is optimized for frequently accessed data at higher storage prices, and the Premium tier is intended for high-performance workloads, not for cost efficiency. Therefore, Cold best satisfies the requirements for cost savings, online availability, and the 90-day storage requirement.~~
+
+~~[Explore Azure Blob storage](https://learn.microsoft.com/en-us/training/modules/explore-azure-blob-storage/2-blob-storage-overview)~~  
+~~[Assign blob access tiers](https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/4-create-blob-access-tiers)~~
