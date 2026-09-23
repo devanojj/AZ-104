@@ -28,10 +28,6 @@
 - Exchange Online proxy address must be unique.
 - Fix the address, then **Reprocess** the user/group.
 
-### LicenseAssignmentAttributeConcurrencyException
-- Temporary error when multiple groups assign the same license.
-- Microsoft Entra retries automatically.
-- **No action required.**
 
 ---
 
@@ -44,7 +40,7 @@ After fixing an issue:
 
 # Multiple Licenses
 - A group can have multiple product licenses.
-- If one license fails, **none** of the group's licenses are assigned.
+- If one license fails, **none** of the group's licenses are assigned. This is per user
 
 ---
 

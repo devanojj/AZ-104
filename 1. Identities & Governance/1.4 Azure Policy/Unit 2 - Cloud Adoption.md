@@ -39,7 +39,6 @@ Managing Azure usage to ensure **security, compliance, cost control, and operati
 
 #### Azure Policy
 Azure governance service that **enforces rules** and **checks compliance** across resources
-
 - Built-in **policies** and **initiatives**.
 - Compliance dashboard.
 - Centralised compliance reporting.
@@ -49,7 +48,6 @@ Azure governance service that **enforces rules** and **checks compliance** acros
 - Integrates with **Azure DevOps**.
 
 *Common Uses*
-
 - Restrict **Azure regions**.
 - Restrict **VM sizes**.
 - Enforce **resource tags**.
@@ -59,7 +57,6 @@ Azure governance service that **enforces rules** and **checks compliance** acros
 - Enforce **geo-replication**.
 
 *Azure Policy Evaluation*
-
 - Evaluates:
   - Existing resources.
   - New resource deployments.
@@ -74,7 +71,6 @@ Azure governance service that **enforces rules** and **checks compliance** acros
 ---
 
 # AZ-104 Exam Facts
-
 - **CAF** = Framework for Azure adoption.
 - **Cloud Governance** = Ongoing management of cloud resources.
 - **Azure Policy** = Governance & compliance tool.

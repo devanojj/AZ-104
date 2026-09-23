@@ -16,60 +16,28 @@
 - *They allow for fine-grained access control based on specific business logic and requirements. (correct)*
 
 
-How do custom security attributes enhance the ability to audit access control within Microsoft Entra ID?
+**How do custom security attributes enhance the ability to audit access control within Microsoft Entra ID?**
+- They ensure all user activities are logged in real-time.
+- *They provide additional metadata that can be used to categorise and filter access logs for specific attributes. (correct)*
+- They automatically generate access reports for all users.
 
- 
 
-They ensure all user activities are logged in real-time.
+**What is a key benefit of using Microsoft Entra ID for managing user identities in cloud-based workloads?**
+- *It allows unlimited users without the need for licenses.*
+- *It eliminates the need for multi-factor authentication.*
+- *It provides centralised identity management, including single sign-on capabilities. (correct)*
 
-They provide additional metadata that can be used to categorize and filter access logs for specific attributes.
 
-Correct
+**Your organisation wants to ensure that only verified users can access their Azure resources. After creating a user account in Microsoft Entra ID, what is the next immediate step to ensure the user's identity is authenticated and authorised to access resources?**
+- Add the user to a Microsoft 365 group.
+- *Configure multi-factor authentication for the user. (correct)*
+- Assign the user a license for the required resources.
 
-They automatically generate access reports for all users.
 
-5.
-
-What is a key benefit of using Microsoft Entra ID for managing user identities in cloud-based workloads?
-
- 
-
-It allows unlimited users without the need for licenses.
-
-It eliminates the need for multifactor authentication.
-
-It provides centralized identity management, including single sign-on capabilities.
-
-Correct
-
-6.
-
-Your organization wants to ensure that only verified users can access their Azure resources. After creating a user account in Microsoft Entra ID, what is the next immediate step to ensure the user's identity is authenticated and authorized to access resources?
-
- 
-
-Add the user to a Microsoft 365 group.
-
-Configure multifactor authentication for the user.
-
-Correct
-
-Assign the user a license for the required resources.
-
-7.
-
-How should an administrator handle users in an error state due to 'MutuallyExclusiveViolation' during group-based license assignment?
-
- 
-
-Remove conflicting licenses or service plans from the user.
-
-Correct
-
-Assign the licenses directly to the users instead of using group-based licensing.
-
-Increase the number of licenses available for the group.
-
+**How should an administrator handle users in an error state due to 'MutuallyExclusiveViolation' during group-based license assignment?**
+- *Remove conflicting licenses or service plans from the user. (correct)*
+- Assign the licenses directly to the users instead of using group-based licensing.
+- Increase the number of licenses available for the group.
 
 
 **During a group-based license assignment in Microsoft Entra ID, you encounter a 'DependencyViolation' error. What should your first action be?**
@@ -78,19 +46,9 @@ Increase the number of licenses available for the group.
 - Reprocess the group license assignments in the admin centre. (selected)
 
 
-
-9.
-
-A user is unable to receive a license due to a 'CountViolation' error. What should be done to resolve this issue?
-
- 
-
-Reassign the user to a different group that has available licenses.
-
-Increase the number of available licenses for the product.
-
-Correct
-
-Disable unused service plans in the current license assignment.
+**A user is unable to receive a license due to a 'CountViolation' error. What should be done to resolve this issue?**
+- Reassign the user to a different group that has available licenses.
+- *Increase the number of available licenses for the product. (correct)*
+- Disable unused service plans in the current license assignment.
 
 

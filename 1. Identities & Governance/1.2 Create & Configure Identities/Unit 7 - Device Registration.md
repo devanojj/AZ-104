@@ -102,7 +102,6 @@
 ---
 
 ## Cloud Kerberos Trust
-
 - Replaces **Device Writeback** (deprecated)
 - Enables Microsoft Entra joined and Hybrid joined devices to authenticate to on-premises resources
 - Supports:

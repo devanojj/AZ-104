@@ -1,5 +1,5 @@
 
-## Purpose
+##Purpose
 Assign licenses to **groups** instead of individual users. No PowerShell automation required
 
 ---
