@@ -21,5 +21,9 @@ You cane save the ARM template
 You can deploy the ARM template
 
 
+``Add-AzLoadBalancerFrontendIpConfig``
+Adds frontend IP configuration to the azure load balancer
+
+
 
 
