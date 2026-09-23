@@ -8,23 +8,23 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e4793ac0426ef84a",
+            "id": "f6c71efa94d5d4c2",
             "type": "leaf",
             "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6. Microsoft Practice Exam/2nd/Incorrect (Done).md",
+                "file": "6. Microsoft Practice Exam/2nd/Correct.md",
                 "mode": "source",
                 "source": false
               },
               "pinned": true,
               "icon": "lucide-file",
-              "title": "Incorrect (Done)"
+              "title": "Correct"
             }
           },
           {
-            "id": "f6c71efa94d5d4c2",
+            "id": "a5e897ca7e7ac762",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -72,7 +72,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "CLI",
+                "query": "inbound ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -214,12 +214,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "f6c71efa94d5d4c2",
+  "active": "a5e897ca7e7ac762",
   "lastOpenFiles": [
     "6. Microsoft Practice Exam/2nd/Correct.md",
+    "0. General Concepts/Inbound NAT.md",
+    "6. Microsoft Practice Exam/1st/Exam Correct (Done).md",
+    "0. General Concepts/Azure CLI.md",
+    "6. Microsoft Practice Exam/2nd/Incorrect (Done).md",
     "AZ-104.md",
     "0. General Concepts/VM.md",
-    "6. Microsoft Practice Exam/2nd/Incorrect (Done).md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
     "0. General Concepts/Hierarchical Namespace - POSIX ACLs.md",
     "0. General Concepts/Entra ID.md",
@@ -240,9 +243,6 @@
     "6. Microsoft Practice Exam/Exam Notes.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 5 - Policy Definitions.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 6 - Policy Evaluation Resources.md",
-    "1. Identities & Governance/1.4 Azure Policy/Unit 4 - Policy Resources.md",
-    "1. Identities & Governance/1.4 Azure Policy/Unit 3 - Design Azure Policy.md",
-    "1. Identities & Governance/1.4 Azure Policy/Unit 2 - Cloud Adoption.md",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "6. Microsoft Practice Exam/2nd",
     "6. Microsoft Practice Exam/1st",

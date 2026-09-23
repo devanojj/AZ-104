@@ -25,70 +25,53 @@
 
 ~~[B2B collaboration overview - Azure AD - Microsoft Entra | Microsoft Learn](https://learn.microsoft.com/azure/active-directory/external-identities/what-is-b2b)~~
 
-You have an Azure subscription that contains a resource group named RG1.
+~~You have an Azure subscription that contains a resource group named RG1.~~
+~~You plan to create and configure a network security group (NSG) named NSG1 for the following types of traffic:~~
 
-You plan to create and configure a network security group (NSG) named NSG1 for the following types of traffic:
+- ~~Remote Desktop Management~~
+- ~~HTTP~~
 
-- Remote Desktop Management
-- HTTP
+~~NSG1 will be used on the subnets of multiple virtual networks.~~
+~~Which two cmdlets should you run? Each correct answer presents part of the solution.~~
+~~Select all answers that apply.~~
 
-NSG1 will be used on the subnets of multiple virtual networks.
+~~`Add-AzLoadBalancerFrontendIpConfig`~~
 
-Which two cmdlets should you run? Each correct answer presents part of the solution.
+~~`Add-AzNetworkInterfaceTapConfig`~~
 
-Select all answers that apply.
+~~`New-AzNetworkSecurityGroup`~~ 
 
-`Add-AzLoadBalancerFrontendIpConfig`
+~~**This answer is correct.**~~
 
-`Add-AzNetworkInterfaceTapConfig`
+~~`New-AzNetworkSecurityRuleConfig`~~ 
 
-`New-AzNetworkSecurityGroup` 
+~~**This answer is correct.**~~
 
-**This answer is correct.**
+~~`New-AzNetworkSecurityRuleConfig` allows you to create a rule and provide the type, protocol, direction, and port number. `New-AzNetworkSecurityGroup` creates a network security group (NSG). -`SecurityRules` specifies a list of network security rule objects to create in a NSG.~~
 
-`New-AzNetworkSecurityRuleConfig` 
+~~[New-AzNetworkSecurityRuleConfig (Az.Network) | Microsoft Learn](https://learn.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=azps-9.2.0&viewFallbackFrom=azps-7.5.0)~~
 
-**This answer is correct.**
+~~[New-AzNetworkSecurityGroup (Az.Network) | Microsoft Learn](https://learn.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=azps-9.2.0&viewFallbackFrom=azps-7.5.0)~~
 
-`New-AzNetworkSecurityRuleConfig` allows you to create a rule and provide the type, protocol, direction, and port number. `New-AzNetworkSecurityGroup` creates a network security group (NSG). -`SecurityRules` specifies a list of network security rule objects to create in a NSG.
+~~[Azure network security groups overview | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview)~~
 
-[New-AzNetworkSecurityRuleConfig (Az.Network) | Microsoft Learn](https://learn.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=azps-9.2.0&viewFallbackFrom=azps-7.5.0)
+~~[Configure network security groups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-network-security-groups/)~~
 
-[New-AzNetworkSecurityGroup (Az.Network) | Microsoft Learn](https://learn.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=azps-9.2.0&viewFallbackFrom=azps-7.5.0)
+~~You have an Azure subscription that contains an ASP.NET application. The application is hosted on four Azure virtual machines that run Windows Server.~~
+~~You have a load balancer named LB1 that load balances requests to the virtual machines.~~
+~~You need to ensure that site users connect to the same web server for all requests made to the application.~~
+~~Which two actions should you perform? Each correct answer presents part of the solution.~~
+~~Select all answers that apply.~~
 
-[Azure network security groups overview | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview)
+~~Configure an inbound NAT rule.~~
+~~Set Session persistence to **Client IP**. **This answer is correct.**~~
+~~Set Session persistence to **None**.~~
+~~Set Session persistence to **Protocol**. **This answer is correct.**~~
 
-[Configure network security groups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-network-security-groups/)
+~~By setting Session persistence to Client IP and Protocol, you ensure that site users connect to the same web server for all requests made to the application. Setting Session persistence to None disables sticky sessions and an inbound NAT rule is used to forward traffic from a load balancer frontend to a backend pool.~~
 
-
-
-ou have an Azure subscription that contains an ASP.NET application. The application is hosted on four Azure virtual machines that run Windows Server.
-
-You have a load balancer named LB1 that load balances requests to the virtual machines.
-
-You need to ensure that site users connect to the same web server for all requests made to the application.
-
-Which two actions should you perform? Each correct answer presents part of the solution.
-
-Select all answers that apply.
-
-Configure an inbound NAT rule.
-
-Set Session persistence to **Client IP**.
-
-**This answer is correct.**
-
-Set Session persistence to **None**.
-
-Set Session persistence to **Protocol**.
-
-**This answer is correct.**
-
-By setting Session persistence to Client IP and Protocol, you ensure that site users connect to the same web server for all requests made to the application. Setting Session persistence to None disables sticky sessions and an inbound NAT rule is used to forward traffic from a load balancer frontend to a backend pool.
-
-[Azure Load Balancer distribution modes | Microsoft Learn](https://learn.microsoft.com/azure/load-balancer/distribution-mode-concepts)
-
-[Introduction to Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/)
+~~[Azure Load Balancer distribution modes | Microsoft Learn](https://learn.microsoft.com/azure/load-balancer/distribution-mode-concepts)~~
+~~[Introduction to Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/)~~
 
 
 You have web app that is running in four Windows Server Azure virtual machines behind a load balancer.
