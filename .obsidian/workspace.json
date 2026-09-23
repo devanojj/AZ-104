@@ -35,12 +35,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0. General Concepts/Monitor vs Watcher.md",
+                "file": "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Monitor vs Watcher"
+              "title": "All Units - Blob Storage"
             }
           }
         ]
@@ -222,10 +222,13 @@
   },
   "active": "a3e6f374c00b3898",
   "lastOpenFiles": [
-    "0. General Concepts/Azure Monitor.md",
-    "0. General Concepts/Monitor vs Watcher.md",
-    "0. General Concepts/Azure Network Watcher.md",
     "6. Microsoft Practice Exam/2nd/Incorrect.md",
+    "0. General Concepts/Hierarchical Namespace - POSIX ACLs.md",
+    "0. General Concepts/Entra ID.md",
+    "0. General Concepts/Azure Site Recovery.md",
+    "0. General Concepts/Monitor vs Watcher.md",
+    "0. General Concepts/Azure Monitor.md",
+    "0. General Concepts/Azure Network Watcher.md",
     "0. General Concepts/App Service Plan.md",
     "VM.md",
     "0. General Concepts/DNS.md",
@@ -246,9 +249,6 @@
     "1. Identities & Governance/1.4 Azure Policy/Unit 1 - Introduction.md",
     "1. Identities & Governance/1.4 Azure Policy/Exam Questions.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
-    "1. Identities & Governance/1.6 Password Reset/Unit 2 - Self Service Reset.md",
-    "6. Microsoft Practice Exam/2nd/Correct.md",
-    "AZ-104.md",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "6. Microsoft Practice Exam/2nd",
     "6. Microsoft Practice Exam/1st",

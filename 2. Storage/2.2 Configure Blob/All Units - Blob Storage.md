@@ -132,10 +132,13 @@ To replicate blobs, versioning in blob 1 and blob 2 and change feed in blob 1
 
 
 *Access tracking*
-Lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days
+Lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days. When blobs are accessed
 
 *Object Replication*
 Versioning must be enabled for both the source and the destination accounts. 
 
 *Soft Delete*
 Recovered after X amount of days
+
+*Blob Versioning*
+Keeps previous versions of the blob when they're modified 

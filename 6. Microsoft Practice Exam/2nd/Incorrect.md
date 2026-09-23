@@ -140,126 +140,119 @@
 
 ~~The Standard service plan can host unlimited web apps, up to 50 GB of disk space, and up to 10 instances. The plan will cost approximately $0.10/hour. The Free plan only offers 1 GB of disk size and 0 instances to host the app. The Premium plan offers 250 GB of disk space and up to 30 instances and will cost approximately $0.20/hour. The Basic plan offers 10 GB of disk space and up to three virtual machines.~~
 
-You have an Azure subscription that contains virtual machines, virtual networks, application gateways, and load balancers.
-You need to monitor the network health of the resources.
-Which Azure service should you use?
-Select only one answer.
+~~You have an Azure subscription that contains virtual machines, virtual networks, application gateways, and load balancers.~~
+~~You need to monitor the network health of the resources.~~
+~~Which Azure service should you use?~~
+~~Select only one answer.~~
 
-Azure Monitor **This answer is incorrect.**
-Azure Network Watcher **This answer is correct.**
-Azure Resource Manager
-network security groups (NSGs)
+~~Azure Monitor **This answer is incorrect.**~~
+~~Azure Network Watcher **This answer is correct.**~~
+~~Azure Resource Manager~~
+~~network security groups (NSGs)~~
 
 
-You have an Azure virtual machine named VM1 that is protected by using Azure site recovery.
+~~You have an Azure virtual machine named VM1 that is protected by using Azure site recovery.~~
+~~You fail over VM1 from the primary region to the secondary region.~~
+~~You need to re-protect VM1 after the failover so that VM1 will replicate back to the primary region.~~
 
-You fail over VM1 from the primary region to the secondary region.
+~~What is the VM1 status before the reprotection?~~
 
-You need to reprotect VM1 after the failover so that VM1 will replicate back to the primary region.
+~~Select only one answer.~~
 
-What is the VM1 status before the reprotection?
+~~Committing failover~~
 
-Select only one answer.
+~~Failover committed~~
 
-Committing failover
+~~**This answer is correct.**~~
 
-Failover committed
+~~Failover confirmed~~
 
-**This answer is correct.**
+~~**This answer is incorrect.**~~
 
-Failover confirmed
+~~Starting failover~~
 
-**This answer is incorrect.**
+~~Before you begin, you must ensure that the virtual machine status is Failover committed. This will ensure replication back to the primary region.~~
 
-Starting failover
+~~[Tutorial to fail over Azure VMs to a secondary region for disaster recovery with Azure Site Recovery. - Azure Site Recovery | Microsoft Learn](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)~~
 
-Before you begin, you must ensure that the virtual machine status is Failover committed. This will ensure replication back to the primary region.
+~~[Configure file and folder backups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-file-folder-backups/)~~
 
-[Tutorial to fail over Azure VMs to a secondary region for disaster recovery with Azure Site Recovery. - Azure Site Recovery | Microsoft Learn](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)
 
-[Configure file and folder backups - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-file-folder-backups/)
 
-ou have an Azure subscription that contains a storage account named storage1. storage1 contains an Azure Files share named share1.
+~~You have an Azure subscription that contains a storage account named storage1. storage1 contains an Azure Files share named share1.~~
+~~You need to ensure that users can authenticate to share1 by using Microsoft Entra and access the file share by using SMB.~~
 
-You need to ensure that users can authenticate to share1 by using Microsoft Entra and access the file share by using SMB.
+~~What should you do?~~
 
-What should you do?
+~~Select only one answer.~~
 
-Select only one answer.
+~~Configure identity-based access.~~
 
-Configure identity-based access.
+~~**This answer is correct.**~~
 
-**This answer is correct.**
+~~Generate a shared access signature (SAS) and a connection string.~~
 
-Generate a shared access signature (SAS) and a connection string.
+~~**This answer is incorrect.**~~
 
-**This answer is incorrect.**
+~~Enable public network access.~~
 
-Enable public network access.
+~~Regenerate the access keys.~~
 
-Regenerate the access keys.
+~~**Objective:**~~
 
-**Objective:**
+~~2.1 Configure access to storage~~
 
-2.1 Configure access to storage
+~~**What This Item Tests:**~~
 
-**What This Item Tests:**
+~~Configure identity-based access for Azure Files~~
 
-Configure identity-based access for Azure Files
+~~**Additional Reading:**~~
 
-**Additional Reading:**
+~~[Review Azure Storage security strategies - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/configure-storage-security/2-review-strategies)~~
 
-[Review Azure Storage security strategies - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/configure-storage-security/2-review-strategies)
+~~Correct - Identity-based access for an Azure Storage account is a security model that uses Microsoft Entra ID or Active Directory to authorize requests to storage data, rather than relying on a static storage account key or SAS.~~  
+~~Incorrect – SAS tokens and access keys provide key-based access, rather than identity-based access, and enabling public network access does not configure authentication or authorization.~~
 
-Correct - Identity-based access for an Azure Storage account is a security model that uses Microsoft Entra ID or Active Directory to authorize requests to storage data, rather than relying on a static storage account key or SAS.  
-Incorrect – SAS tokens and access keys provide key-based access, rather than identity-based access, and enabling public network access does not configure authentication or authorization.
 
-You have an Azure subscription.
 
-You plan to create a storage account named storage1.
 
-You need to ensure that storage1 provides POSIX-compliant access control lists (ACLs).
+~~You have an Azure subscription.~~
+~~You plan to create a storage account named storage1.~~
+~~You need to ensure that storage1 provides POSIX-compliant access control lists (ACLs).~~
+~~Which option should you configure when creating storage1?~~
+~~Select only one answer.~~
 
-Which option should you configure when creating storage1?
+~~access tier~~
 
-Select only one answer.
+~~**This answer is incorrect.**~~
 
-access tier
+~~hierarchical namespace~~
 
-**This answer is incorrect.**
+~~**This answer is correct.**~~
 
-hierarchical namespace
+~~SFTP~~
 
-**This answer is correct.**
+~~version-level immutable support~~
 
-SFTP
+~~To enable POSIX-compliant access control lists (ACLs), the hierarchical namespace must be used. The remaining options are valid for a storage account, but do not provide the POSIX-compliant feature.~~
 
-version-level immutable support
+~~[Azure Data Lake Storage Gen2 Hierarchical Namespace | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)~~
 
-To enable POSIX-compliant access control lists (ACLs), the hierarchical namespace must be used. The remaining options are valid for a storage account, but do not provide the POSIX-compliant feature.
+~~[Configure storage accounts - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/)~~
 
-[Azure Data Lake Storage Gen2 Hierarchical Namespace | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)
 
-[Configure storage accounts - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-storage-accounts/)
+
+
+
 
 You create an Azure Storage account.
-
 You need to create a lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days.
-
 What should you do first?
-
 Select only one answer.
 
-Enable access tracking.
-
-**This answer is correct.**
-
-Enable versioning for blobs.
-
-**This answer is incorrect.**
-
+Enable access tracking. **This answer is correct.**
+Enable versioning for blobs. **This answer is incorrect.**
 Refresh the blob inventory.
-
 Rotate the storage account keys.
 
 A lifecycle management rule can be used to move or delete blobs automatically. The rule can be based on the time the blob was last modified or the time the blob was last accessed (read or write). To perform an action based on the access time, access tracking must be enabled. This can incur additional storage costs.
@@ -268,7 +261,10 @@ A lifecycle management rule can be used to move or delete blobs automatically. T
 
 [Configure Azure Blob Storage - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/configure-blob-storage/)
 
-ou have an Azure subscription that contains a storage account.
+
+
+
+You have an Azure subscription that contains a storage account.
 
 You need to recommend a storage solution for storing infrequently accessed data. The solution must meet the following requirements:
 
