@@ -1,5 +1,5 @@
 ### Azure Files Overview
-- PaaS, serverless file shares — no VMs/infra to manage
+- PaaS, serverless file shares, no VMs/infra to manage
 - Protocols: **SMB**, **NFS**, **HTTP/REST** (SMB and NFS **not** supported on same share, can coexist in same storage account on different shares)
 - Max share size: **100 TiB**, max file size: **4 TiB**
 - Encrypted at rest and in transit
@@ -7,14 +7,6 @@
 - Access control: Microsoft Entra ID / AD DS identities
 - Previous Versions (via snapshots) + Azure Backup support + no versioning
 - Redundancy set at the **storage account** level
-
-#### Use Cases
-- Replace/supplement on-prem file servers or NAS
-- Lift-and-shift apps needing a file share
-- Shared app config storage
-- Diagnostic data (logs, dumps)
-- Dev/admin tools shared across VMs
-- Pairs with **Azure File Sync** for hybrid caching
 
 ### Azure Files vs Blob Storage
 
@@ -47,7 +39,6 @@
 |**SAS token**|Dynamically generated, scoped (permissions, time window, IP, protocol). Used for REST API access from code.|
 
 ### File Share Snapshots
-
 - **Read-only**, point-in-time, **incremental** (only captures changes since last snapshot)
 - Same behavior across SMB/NFS, all public regions
 - Adds unique timestamp to share URI
@@ -70,12 +61,10 @@
 **Use cases:** accidental data loss recovery, rollback after failed upgrades, ransomware recovery, long-term retention/compliance, business continuity.
 
 ### Azure Storage Explorer
-
 - Standalone GUI app (Windows/macOS/Linux) for managing Storage data
 - Needs **both** management (ARM) + data layer permissions (Microsoft Entra ID)
 
 **Connection scenarios:**
-
 - Connect to your own subscription's storage accounts
 - Local dev storage via Azure Storage Emulator
 - Attach **external** storage account (needs account name + key, `key1` in portal)
@@ -87,18 +76,15 @@
 - Access keys grant access to the **whole account** — store securely, rotate regularly. Regenerating a key doesn't interrupt VM disk access.
 
 ### Azure File Sync
+Caches Azure file share(s) on an on-prem Windows Server or cloud VM — centralises data in Azure Files while keeping on-prem performance/compatibility.
 
-Caches Azure file share(s) on an on-prem Windows Server or cloud VM — centralizes data in Azure Files while keeping on-prem performance/compatibility.
-
-#### Components
-
-|Component|Details|
-|---|---|
-|**Storage Sync Service**|Top-level Azure resource; manages sync; up to **100 sync groups**; single region; up to **99 registered servers**|
-|**Sync group**|1 cloud endpoint + up to **50 server endpoints**|
-|**Cloud endpoint**|The Azure file share; only **1 per sync group**|
-|**Server endpoint**|Path on registered server; must be NTFS; **cannot** be system volume; no cloud tiering support here|
-|**Azure File Sync Agent**|Installed on each Windows Server; background service handling sync|
+| Component                 | Details                                                                                                           |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Storage Sync Service**  | Top-level Azure resource; manages sync; up to **100 sync groups**; single region; up to **99 registered servers** |
+| **Sync group**            | 1 cloud endpoint + up to **50 server endpoints**                                                                  |
+| **Cloud endpoint**        | The Azure file share; only **1 per sync group**                                                                   |
+| **Server endpoint**       | Path on registered server; must be NTFS; **cannot** be system volume; no cloud tiering support here               |
+| **Azure File Sync Agent** | Installed on each Windows Server; background service handling sync                                                |
 
 #### Key Facts
 
