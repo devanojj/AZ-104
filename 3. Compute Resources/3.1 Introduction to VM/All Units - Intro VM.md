@@ -65,35 +65,38 @@ Small applications that provide post-deployment configuration and automation tas
 ## 5. VM Backup & Disaster Recovery
 
 ### Azure Backup for Virtual Machines
-* Uses **Recovery Services Vault** or **Backup Vault**.
-* Native, application-consistent backups for Windows (VSS) and file-system consistent for Linux without shutting down the VM.
-* **Instant Restore Point:** Retains local disk snapshots for 1–5 days for fast operational recovery.
-* **Vault Retention Policy:** Daily, weekly, monthly, and yearly backup snapshots stored in vault storage (LRS, GRS, CRR - Cross-Region Restore).
+- Uses a **[[Recovery Services Vault]]** for Azure VM backup.
+- **[[Backup Vault]]** is used for newer Azure Backup-supported workloads
+- **Application-consistent backup** for Windows using **VSS**.
+- **File-system consistent backup** for Linux.
+- Backup occurs **without shutting down the VM**.
 
-### Azure Site Recovery (ASR)
-* Orchestrates replication, failover, and failback of VMs across Azure regions for complete business continuity and disaster recovery (BCDR).
+#### Instant Restore
+- Azure Backup creates a **snapshot** of the VM disks.
+- Snapshots are retained for **1–5 days** depending on the backup policy.
+- Used for **fast restores**.
+
 
 ---
 
 ## 6. Exam Quick Reference (Cheat Sheet)
 
-| Concept | Key Exam Rule / Trigger |
-| :--- | :--- |
-| **Stopped vs. Deallocated** | *Stopped* via OS still incurs compute charges; *Deallocated* via Azure stops compute charges (disks/IPs still billed). |
-| **Temporary Drive (D:)** | Non-persistent SSD storage; wiped upon VM deallocation, resizing, or host hardware migration. |
-| **Azure Hybrid Benefit (AHB)** | Use on-premises Windows Server / Red Hat / SUSE licenses with Software Assurance to save up to 85% on compute rates. |
-| **Availability Set Limit** | Max 3 Fault Domains, max 20 Update Domains. |
-| **Availability Zones SLA** | Requires $\ge 2$ VMs deployed across distinct Availability Zones for 99.99% SLA. |
-| **Custom Script Timeout** | Default execution limit is 90 minutes. |
-| **Azure Bastion** | Fully managed PaaS proxy; requires a dedicated subnet named `AzureBastionSubnet` (minimum `/26`). |
+| Concept                        | Key Exam Rule / Trigger                                                                                                |
+| :----------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
+| **Stopped vs. Deallocated**    | *Stopped* via OS still incurs compute charges; *Deallocated* via Azure stops compute charges (disks/IPs still billed). |
+| **Temporary Drive (D:)**       | Non-persistent SSD storage; wiped upon VM deallocation, resizing, or host hardware migration.                          |
+| **Azure Hybrid Benefit (AHB)** | Use on-premises Windows Server / Red Hat / SUSE licenses with Software Assurance to save up license costs              |
+| **Availability Set Limit**     | Max 3 Fault Domains, max 20 Update Domains.                                                                            |
+| **Availability Zones SLA**     | Requires $\ge 2$ VMs deployed across distinct Availability Zones for 99.99% SLA.                                       |
+| **Custom Script Timeout**      | Default execution limit is 90 minutes.                                                                                 |
+| **Azure Bastion**              | Fully managed PaaS proxy; requires a dedicated subnet named `AzureBastionSubnet` (minimum `/26`).                      |
 
 
 *Higher SKU*
 Higher tier and more advanced version 
 
 *Scale Sets*
-configure the virtual machine scale set from the availability options
-
+Configure the virtual machine scale set from the availability options
 You can detach a disk from a running virtual machine without restarting or turning it off
 
 *Redeploy*

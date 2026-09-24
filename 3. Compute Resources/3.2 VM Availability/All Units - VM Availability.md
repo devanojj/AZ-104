@@ -69,7 +69,7 @@ Centrally manage, configure, and automatically scale a group of load-balanced VM
 * **Rolling:** Progressively updates VMs in phases with pauses and health probe validation.
 * **Manual:** Existing VMs do not update automatically; administrator triggers update via portal/CLI (`az vmss update-instances`).
 
-### Overprovisioning
+### Over-provisioning
 * When enabled (`overprovision = true`), Azure spins up more VMs than requested, confirms healthy status, and deletes excess instances.
 * **Benefit:** Speeds up deployment and scaling times.
 * **Disable When:** Using custom per-core licensing, stateful setups, or strict billing thresholds.
