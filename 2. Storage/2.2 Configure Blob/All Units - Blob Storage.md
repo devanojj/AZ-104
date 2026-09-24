@@ -28,12 +28,12 @@ Blobs reside within **Containers** (flat hierarchy).
 
 ### 3. Blob Access Tiers
 
-| Access Tier | Use Case | Storage Cost | Access Cost | Minimum Retention |
-| :--- | :--- | :--- | :--- | :--- |
-| **Hot** | Active, frequently accessed data | Highest | Lowest | None |
-| **Cool** | Infrequently accessed (accessed $\ge$ 30 days) | Lower | Higher | 30 days |
-| **Cold** | Rarely accessed (accessed $\ge$ 90 days) | Very Low | Higher than Cool | 90 days |
-| **Archive** | Rarely accessed, offline backup/compliance | Lowest | Highest | 180 days |
+| Access Tier | Use Case                                       | Storage Cost | Access Cost      | Minimum Retention |
+| :---------- | :--------------------------------------------- | :----------- | :--------------- | :---------------- |
+| **Hot**     | Active, frequently accessed data               | Highest      | Lowest           | None              |
+| **Cool**    | Infrequently accessed (accessed $\ge$ 30 days) | Lower        | Higher           | 30 days           |
+| **Cold**    | Rarely accessed (accessed $\ge$ 90 days)       | Very Low     | Higher than Cool | 90 days           |
+| **Archive** | Rarely accessed, offline backup/compliance     | Lowest       | Highest          | 180 days          |
 
 *Premium tier for high performance workloads*
 
@@ -84,7 +84,6 @@ Asynchronously copies block blobs between a source and destination storage accou
 * **Blob Change Feed** must be enabled on the **source** account.
 * Destination account must have public network access enabled or specific trusted access.
 * One-way asynchronous replication only.
-
 ---
 
 ### 6. Data Protection & Immutability
@@ -93,9 +92,6 @@ Asynchronously copies block blobs between a source and destination storage accou
 * **Blob Soft Delete:** Retains deleted blob data for a configurable retention window (1–365 days).
 * **Container Soft Delete:** Protects entire deleted containers for 1–365 days.
 
-#### Blob Versioning & Snapshots
-* **Versioning:** Automatically creates a new version on blob create/overwrite. Preserves complete history.
-* **Snapshots:** Read-only point-in-time image of a blob.
 
 #### Immutable Blob Storage (WORM - Write Once, Read Many)
 * **Time-based Retention Policy:** Blobs cannot be modified or deleted for a specified duration.
@@ -103,43 +99,20 @@ Asynchronously copies block blobs between a source and destination storage accou
   * *Locked Policy:* Strictly compliant; cannot be deleted or shortened, only extended.
 * **Legal Hold:** Retains data indefinitely until explicitly cleared by an administrator.
 
+Even admins cannot change locked policy
+
 ---
 
-### 7. Blob Storage Pricing Components
-1. **Storage Capacity:** Volume of stored data per GB/month across tiers.
-2. **Data Access & Operations:** Read, write, list, and tier-change transaction costs.
-3. **Data Egress:** Outbound data transfer (inbound is free; cross-region and internet egress incur costs).
-4. **Rehydration & Early Deletion:** Charges for early tier movement or priority rehydration.
 
-#### Additional
-|Blob type|Think|Examples|
-|---|---|---|
-|**Block blob**|📦 **Files**|Images, videos, documents, backups|
-|**Page blob**|💽 **Disks**|VHDs / unmanaged VM disks|
-|**Append blob**|➕ **Appending**|Logs|
+### 7. Additional
 
+| Feature                   | Purpose                                                                                                                          |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Blob versioning**       | Keep previous versions of blobs, preserves history                                                                               |
+| **Change feed**           | Record changes made to blobs                                                                                                     |
+| **Object replication**    | Replicate blobs between storage accounts                                                                                         |
+| **Point-in-time restore** | Recover data to an earlier point in time                                                                                         |
+| **Snapshot**              | Read-only point-in-time image of a blob.                                                                                         |
+| **Access tracking**       | Lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days. When blobs are accessed |
+| **Blob Inventory**        | Provides inventory of the blobs and their properties, has name, size, tier and encryption status. For auditing and management    |
 
-|Feature|Purpose|
-|---|---|
-|**Blob versioning**|Keep previous versions of blobs|
-|**Change feed**|Record changes made to blobs|
-|**Object replication**|Replicate blobs between storage accounts|
-|**Point-in-time restore**|Recover data to an earlier point in time|
-
-To replicate blobs, versioning in blob 1 and blob 2 and change feed in blob 1
-
-
-*Access tracking*
-Lifecycle management rule to move blobs to Cool storage if the blobs have not been accessed for 30 days. When blobs are accessed
-
-*Object Replication*
-Versioning must be enabled for both the source and the destination accounts. 
-
-*Soft Delete*
-Recovered after X amount of days
-
-*Blob Versioning*
-Keeps previous versions of the blob when they're modified 
-
-*Blob Inventory*
-Provides inventory of the blobs and their properties, has name, size, tier and encryption status. For auditing and management 
