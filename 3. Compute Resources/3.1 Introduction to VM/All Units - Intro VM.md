@@ -14,14 +14,15 @@ Before creating an Azure VM, key configuration decisions must be evaluated:
 
 ## 2. VM Sizing Categories
 
-| Category | Series | Target Workloads |
-| :--- | :--- | :--- |
-| **General Purpose** | B, Dsv5, Dasv5 | Balanced CPU-to-memory; testing, small-to-medium DBs, low/medium web traffic |
-| **Compute Optimized** | Fsv2 | High CPU-to-memory ratio; medium web servers, network appliances, batch processes |
-| **Memory Optimized** | Esv5, Edsv5, M | High memory-to-CPU ratio; relational databases, in-memory caches, analytics |
-| **Storage Optimized** | Lsv3 | High disk throughput and I/O; Big Data, SQL/NoSQL databases, data warehousing |
-| **GPU Accelerated** | NC, NV, ND | Heavy graphics rendering, video editing, AI/ML model training and inferencing |
-| **High Performance (HPC)**| HB, HC | High-performance computing, molecular modeling, simulations with InfiniBand |
+| Category                   | Series         | Target Workloads                                                                  |
+| :------------------------- | :------------- | :-------------------------------------------------------------------------------- |
+| **General Purpose**        | B, Dsv5, Dasv5 | Balanced CPU-to-memory; testing, small-to-medium DBs, low/medium web traffic      |
+| **Compute Optimized**      | Fsv2           | High CPU-to-memory ratio; medium web servers, network appliances, batch processes |
+| **Memory Optimized**       | Esv5, Edsv5, M | High memory-to-CPU ratio; relational databases, in-memory caches, analytics       |
+| **Storage Optimized**      | Lsv3           | High disk throughput and I/O; Big Data, SQL/NoSQL databases, data warehousing     |
+| **GPU Accelerated**        | NC, NV, ND     | Heavy graphics rendering, video editing, AI/ML model training and inferencing     |
+| **High Performance (HPC)** | HB, HC         | High-performance computing, molecular modeling, simulations with InfiniBand       |
+|                            |                |                                                                                   |
 
 ---
 
