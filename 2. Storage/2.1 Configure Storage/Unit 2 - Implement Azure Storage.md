@@ -32,7 +32,7 @@
 
 ---
 #### Structured Data
-- Data organized using a **schema**
+- Data organised using a **schema**
 - Usually represented as: Rows, Columns, Keys
 - **Azure Table Storage:** Autoscaling **NoSQL** store
 - **Azure Cosmos DB:** Globally distributed database

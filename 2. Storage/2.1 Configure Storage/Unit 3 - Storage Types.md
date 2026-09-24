@@ -1,47 +1,25 @@
 #### Azure Blob Storage
-Object storage for **massive amounts of unstructured/nonrelational data**.
+Object storage for **massive amounts of unstructured/non-relational data**.
 
-**Common Uses**
-- Images and documents
-- Video/audio streaming
-- File storage
-- Backup, restore, disaster recovery
-- Archiving
-- Data analysis
+- Images and documents, Video/audio streaming, File storage, Backup, restore
+- Access via **HTTP/HTTPS**, Globally accessible, CLI & Powershell
 
-**Key Points**
-- Access via **HTTP/HTTPS**
-- Globally accessible
-- Stores text, binary data, media, etc.
-- Access through: URLs, REST API, Azure CLI / PowerShell, Storage client libraries
 ---
-
 #### Azure Files
 Managed **network file shares** in Azure.
 
-**Protocols**
-- **SMB** — Server Message Block
-- **NFS** — Network File System
+**Protocols:** **SMB** — Server Message Block, **NFS** — Network File System
 
 **Key Points**
 - Multiple VMs can access the same files
 - Supports **read/write** access
 - Can be accessed through REST API/client libraries
 - Useful for migrating applications that already use traditional file shares
-- Can store:
-    - Configuration files
-    - Shared tools/utilities
-    - Diagnostic logs
-    - Metrics
-    - Crash dumps
+- Stores: Configuration files, Metrics, Crash dumps
 
 **Authentication**
 - Uses **storage account credentials**
 - Mounted users have read/write access to the share
-
-**Exam Tip**
-- **Azure Files = shared network file system**
-- **SMB/NFS = protocols**
 
 ---
 #### Azure Queue Storage
@@ -66,7 +44,7 @@ Managed **network file shares** in Azure.
 - Fast and cost-effective
 - Often cheaper than traditional SQL for similar data volumes
 
-**Azure Cosmos DB Table API**
+#### Azure Cosmos DB 
 - Throughput-optimised tables
 - Global distribution
 - Automatic secondary indexes
@@ -92,7 +70,6 @@ Managed **network file shares** in Azure.
 ---
 
 #### Exam Facts
-
 - **Blob → Objects / unstructured data**
 - **Files → Network file shares / SMB / NFS**
 - **Queue → Messages / asynchronous processing**
