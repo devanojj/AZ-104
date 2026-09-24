@@ -1,4 +1,4 @@
-1.
+
 
 Your company requires a solution that ensures strong isolation between applications for security purposes. Which technology should be chosen?
 
