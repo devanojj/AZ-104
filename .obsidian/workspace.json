@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
+                "file": "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 8 - EQ Configure Storage"
+              "title": "All Units - Blob Storage"
             }
           }
         ]
@@ -199,6 +199,7 @@
   },
   "active": "2a1f3231bb82562e",
   "lastOpenFiles": [
+    "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 7 - Networking Storage Endpoints.md",
     "2. Storage/2.1 Configure Storage/Unit 6 - Storage Endpoints.md",
     "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
@@ -224,7 +225,6 @@
     "1. Identities & Governance/1.4 Azure Policy/Unit 1 - Introduction.md",
     "1. Identities & Governance/1.3 Core Azure/Exam Questions.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Extra/Privileged Identity Management.md",
-    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 13 - EQ Configure Identities.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Extra",
     "0. General Concepts/Private DNS Zone Structure.canvas",
     "6. Microsoft Practice Exam/Untitled.canvas",
