@@ -51,37 +51,38 @@ Default URL: `<app-name>.azurewebsites.net`
 * **Minimum TLS Version:** Recommended TLS 1.2+.
 
 ---
-
 ## 5. App Service Security & Authentication
-* **Built-in Authentication (Easy Auth):** Turnkey authentication with zero code changes.
+**Built-in Authentication (Easy Auth):** Turnkey authentication with zero code changes.
   * Identity Providers: **Microsoft Entra ID**, Google, Facebook, Apple, GitHub, Twitter/X, OpenID Connect.
   * Can restrict access to the whole app or pass claims to application code.
-* **Network Security & Access Restrictions:**
+  
+**Network Security & Access Restrictions:**
   * **Inbound Access Restrictions:** Priority-based allow/deny rules based on IPv4/IPv6 ranges or Azure Virtual Network Service Endpoints.
   * **Private Endpoints:** Exposes the Web App securely via a private IP inside an Azure VNet.
   * **VNet Integration:** Enables the App Service to make **outbound** calls to resources inside an Azure VNet or on-premises over VPN/ExpressRoute.
-* **App Service Authentication Scope:** Configurable independently per deployment slot.
+  
+  **App Service Authentication Scope:** Configurable independently per deployment slot.
 
 ---
-
 ## 6. Backup & Restore
-* **Requirements:**
-  * Minimum Tier: **Standard (S1)**, Premium, or Isolated.
+**Requirements:**
+  * **Standard (S1)**, Premium, or Isolated.
   * Requires an **Azure Storage Account** (Blob container) with a configured SAS URL or Managed Identity.
-* **What is Backed Up:**
+**What is Backed Up:**
   * App Configuration (App settings, connection strings).
   * File System Content (HTML, PHP, JS, binaries under `site/wwwroot`).
   * Connected SQL Database or Azure Database for MySQL (up to limits, if linked).
-* **Limits:**
+**Limits:**
   * Max backup size: **10 GB** of app and database content.
   * Automated scheduled backups can run up to multiple times per day.
-* **Restore:** Can restore to the original app, an existing staging slot, or create a brand-new app.
+**Restore:** Can restore to the original app, an existing staging slot, or create a brand-new app.
 
 ---
 
 ## 7. Azure Application Insights & Diagnostic Logging
-* **Application Insights (APM):** Application performance monitoring; tracks request rates, response times, failure rates, live metrics, exceptions, and distributed tracing.
-* **App Service Logs (Diagnostic Logging):**
+**Application Insights (APM):** Application performance monitoring; tracks request rates, response times, failure rates, live metrics, exceptions, and distributed tracing.
+
+**App Service Logs (Diagnostic Logging):**
   * **Application Logging:** Standard stdout/stderr or application code logs (stored to file system or Azure Blob storage).
     * *File system logs* turn off automatically after **12 hours** to preserve disk.
   * **Web Server Logging:** Detailed HTTP error messages, Failed Request Tracing (FREB), Web server logging (W3C format).
@@ -90,15 +91,15 @@ Default URL: `<app-name>.azurewebsites.net`
 
 ## 🎯 Exam Quick Reference (Cheat Sheet)
 
-| Scenario / Exam Question | Correct Answer / Action |
-| :--- | :--- |
-| **Zero downtime deployment** | Use **Deployment Slots** (Standard/Premium tier); test on staging $\rightarrow$ Swap. |
-| **Settings that stay on the slot during swap** | Custom domains, SSL certificates, Autoscale/scale settings, IP restrictions. |
-| **Verify root domain (`contoso.com`)** | Create **A record** (points to IP) + **TXT record** (domain verification ID). |
-| **Verify subdomain (`www.contoso.com`)** | Create **CNAME record** pointing to `<app-name>.azurewebsites.net`. |
-| **Redirect all HTTP traffic to HTTPS** | Enable **HTTPS Only** setting in App Service Configuration. |
-| **Authenticate users without changing code** | Enable **App Service Authentication (Easy Auth)** with Microsoft Entra ID. |
-| **Web App needs to access private VM in VNet** | Configure **VNet Integration** (outbound). |
-| **Restrict Web App to be accessible only from internal VNet** | Configure **Private Endpoint** or **Access Restrictions** (inbound). |
-| **Minimum Tier for Backup & Restore** | **Standard (S1)** tier + Azure Storage Account container. |
-| **App Service file system logs turned on** | Automatically disable after **12 hours** (Blob storage logs persist). |
+| Scenario / Exam Question                                      | Correct Answer / Action                                                       |
+| :------------------------------------------------------------ | :---------------------------------------------------------------------------- |
+| **Zero downtime deployment**                                  | Use **Deployment Slots** (Standard tier); test on staging $\rightarrow$ Swap. |
+| **Settings that stay on the slot during swap**                | Custom domains, SSL certificates, Autoscale/scale settings, IP restrictions.  |
+| **Verify root domain (`contoso.com`)**                        | Create **A record** (points to IP) + **TXT record** (domain verification ID). |
+| **Verify subdomain (`www.contoso.com`)**                      | Create **CNAME record** pointing to `<app-name>.azurewebsites.net`.           |
+| **Redirect all HTTP traffic to HTTPS**                        | Enable **HTTPS Only** setting in App Service Configuration.                   |
+| **Authenticate users without changing code**                  | Enable **App Service Authentication (Easy Auth)** with Microsoft Entra ID.    |
+| **Web App needs to access private VM in VNet**                | Configure **VNet Integration** (outbound).                                    |
+| **Restrict Web App to be accessible only from internal VNet** | Configure **Private Endpoint** or **Access Restrictions** (inbound).          |
+| **Minimum Tier for Backup & Restore**                         | **Standard (S1)** tier + Azure Storage Account container.                     |
+| **App Service file system logs turned on**                    | Automatically disable after **12 hours** (Blob storage logs persist).         |

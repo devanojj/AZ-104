@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3. Compute Resources/3.3 App Service/All Units - App Service.md",
+                "file": "3. Compute Resources/3.5 Containers/All Units - Container.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "All Units - App Service"
+              "title": "All Units - Container"
             }
           }
         ]
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -200,6 +199,9 @@
   },
   "active": "9b610a73b0d7d16f",
   "lastOpenFiles": [
+    "3. Compute Resources/3.5 Containers/Unit 7 - Container Instances.md",
+    "3. Compute Resources/3.4 App Service 2/All Units - Configure App Services 2.md",
+    "3. Compute Resources/3.3 App Service/All Units - App Service.md",
     "3. Compute Resources/3.2 VM Availability/All Units - VM Availability.md",
     "AZ-104.md",
     "3. Compute Resources/Extra/Backup Vault.md",
@@ -223,9 +225,6 @@
     "3. Compute Resources/Extra/App Service SSL.md",
     "3. Compute Resources/Extra/App Service Plan.md",
     "0. General Concepts/Azure Network Watcher.md",
-    "3. Compute Resources/Extra/Azure Spot Instance.md",
-    "0. General Concepts/MARS.md",
-    "0. General Concepts/Logging.md",
     "3. Compute Resources/Extra",
     "2. Storage/Extra",
     "1. Identities & Governance/Extra",
