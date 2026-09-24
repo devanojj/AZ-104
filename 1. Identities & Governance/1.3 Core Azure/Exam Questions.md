@@ -14,3 +14,6 @@
 - *Region pairs*
 - Availability Zones
 - Sovereign regions
+
+
+*Passed in AZ-104*

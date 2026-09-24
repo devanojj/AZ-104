@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "49390f74f2b35c06",
+        "id": "b12a3cb0f333de67",
         "type": "tabs",
         "children": [
           {
-            "id": "9b610a73b0d7d16f",
+            "id": "5441f298b9f0d67f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3. Compute Resources/3.5 Containers/Unit 7 - Container Instances.md",
+                "file": "1. Identities & Governance/Extra/Identity.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 7 - Container Instances"
+              "title": "Identity"
             }
           }
         ]
@@ -197,8 +197,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "9b610a73b0d7d16f",
+  "active": "12d87f6cf56ba3c9",
   "lastOpenFiles": [
+    "0. General Concepts/Modify.md",
+    "4. Virtual Networking/Extra/NVA.md",
+    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 2 - Plan Virtual Networks.md",
+    "4. Virtual Networking/Extra",
+    "4. Virtual Networking/Extra/Microsoft Learn - Peered VNs.md",
+    "AZ-104.md",
+    "1. Identities & Governance/1.5 RBAC/Unit 1 - Introduction.md",
+    "1. Identities & Governance/1.4 Azure Policy/Unit 6 - Policy Evaluation Resources.md",
+    "1. Identities & Governance/1.3 Core Azure/Exam Questions.md",
+    "3. Compute Resources/3.5 Containers/Unit 7 - Container Instances.md",
     "3. Compute Resources/3.5 Containers/All Units - Container.md",
     "0. General Concepts/Azure Workbooks.md",
     "3. Compute Resources/Extra/Kubernetes API.md",
@@ -209,22 +219,13 @@
     "0. General Concepts/Azure Advisor.md",
     "3. Compute Resources/Extra/App Service SSL.md",
     "3. Compute Resources/Extra/App Service Plan.md",
-    "3. Compute Resources/3.5 Containers/Unit 7 - Container Instances.md",
     "3. Compute Resources/3.4 App Service 2/All Units - Configure App Services 2.md",
     "3. Compute Resources/3.3 App Service/All Units - App Service.md",
     "3. Compute Resources/3.2 VM Availability/All Units - VM Availability.md",
-    "AZ-104.md",
     "3. Compute Resources/Extra/Backup Vault.md",
     "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
     "3. Compute Resources/Extra/Recovery Services Vault.md",
     "2. Storage/Extra/Instant Restore.md",
-    "2. Storage/Extra/Hierarchical Namespace - POSIX ACLs.md",
-    "1. Identities & Governance/Extra/Azure Tags.md",
-    "2. Storage/Extra/Azure Managed Disks.md",
-    "0. General Concepts/Azure Monitor.md",
-    "0. General Concepts/Azure Health Probe.md",
-    "2. Storage/Extra/Azure Message Bus.md",
-    "2. Storage/Extra/Azure Disks.md",
     "3. Compute Resources/Extra",
     "2. Storage/Extra",
     "1. Identities & Governance/Extra",
@@ -237,7 +238,6 @@
     "5. Monitor Resources/5.3 Azure Monitor VM",
     "5. Monitor Resources/5.2 Backup VM",
     "5. Monitor Resources/5.1 Monitor & Backup",
-    "3. Compute Resources/3.5 Containers",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]
