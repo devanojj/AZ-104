@@ -50,14 +50,14 @@ Before creating an Azure VM, key configuration decisions must be evaluated:
 ### Virtual Machine Extensions
 Small applications that provide post-deployment configuration and automation tasks on Azure VMs.
 * **Custom Script Extension:** Runs custom scripts (PowerShell, Bash) on VMs during/after deployment.
-* **Azure Desired State Configuration (DSC) Extension:** Enforces configuration state using PowerShell DSC.
+* **[[Azure Desired State Configuration]] (DSC) Extension:** Enforces configuration state using PowerShell DSC.
 * **Azure Network Watcher Agent Extension:** Captures packets and monitors network performance.
 * **Azure Monitor Agent (AMA):** Collects telemetry, event logs, and performance metrics.
 
 ### Additional VM Management Services
 * **Azure Bastion:** Secure RDP/SSH connectivity directly via browser using TLS (Port 443), eliminating public IP exposure on VMs.
 * **Azure Automation State Configuration / Runbooks:** Process automation and scheduled task management.
-* **Azure Auto-Shutdown:** Automatically stops and deallocates VMs at scheduled times to minimize compute costs.
+* **Azure Auto-Shutdown:** Automatically stops and deallocates VMs at scheduled times to minimise compute costs.
 * **Boot Diagnostics:** Captures serial console logs and screen snapshots to troubleshoot unbootable VMs.
 
 ---
