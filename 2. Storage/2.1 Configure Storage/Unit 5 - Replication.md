@@ -1,17 +1,15 @@
 Replication creates copies of storage data to provide **durability and availability** during failures.
 
 **Exam Fact**
-
 - **LRS → ZRS → GRS → GZRS** = increasing protection
 - **RA-** = read access to the secondary region
 
 ---
-
 #### LRS — Locally Redundant Storage
 
-- **3 copies** within a single data center
+- **3 copies** within a single data centre
 - **Lowest cost**
-- Least protection against data-center disasters
+- Least protection against data-centre disasters
 - Suitable when:
     - Data can be reconstructed
     - Data loss isn't critical
