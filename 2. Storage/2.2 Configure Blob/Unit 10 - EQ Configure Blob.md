@@ -14,80 +14,31 @@
 - Transition to Cool tier for the first month and delete data after a month.
 
 **How does implementing a lifecycle management policy in Azure Blob Storage contribute to optimising performance and scalability?**
-By enabling instant data replication across multiple geographic locations for improved availability.
+- By enabling instant data replication across multiple geographic locations for improved availability.
+- *By automatically transitioning data to appropriate access tiers based on usage patterns, reducing costs and improving access times. (correct)*
+- By providing granular access control to different types of blob data.
 
-By automatically transitioning data to appropriate access tiers based on usage patterns, reducing costs and improving access times.
+**In designing a data distribution strategy using Azure Blob Storage, how can object replication optimise storage policy costs post-replication?**
+- By compressing replicated data to reduce storage costs.
+- By automatically deleting replicated data after a certain period.
+- *By allowing lifecycle management policies to move data to the Archive tier after replication. (correct)*
 
-Correct
+**Which Azure Blob Storage tier would be most appropriate for storing data that is accessed frequently for analytics and reporting purposes?**
+- Cool tier
+- Archive tier
+- *Hot tier (correct)*
 
-By providing granular access control to different types of blob data.
+**When designing a lifecycle management policy in Azure Blob Storage, what is the primary purpose of configuring the 'If - Then' rules?**
+- *To set conditions and actions for transitioning or deleting blob data based on its age. (correct)*
+- To configure access levels for containers and blobs.
+- To define replication policies between different storage accounts.
 
-5.
+**A company observes that their data retrieval costs have increased significantly. They currently use the Hot tier for data that is read infrequently. What should they do to optimise costs while maintaining accessibility?**
+- Switch to the Cold tier (selected)
+- Switch to the Archive tier
+- *Switch to the Cool tier (correct)*
 
-In designing a data distribution strategy using Azure Blob Storage, how can object replication optimize storage policy costs post-replication?
-
- 
-
-By compressing replicated data to reduce storage costs.
-
-By automatically deleting replicated data after a certain period.
-
-By allowing lifecycle management policies to move data to the Archive tier after replication.
-
-Correct
-
-6.
-
-Which Azure Blob Storage tier would be most appropriate for storing data that is accessed frequently for analytics and reporting purposes?
-
- 
-
-Cool tier
-
-Archive tier
-
-Hot tier
-
-Correct
-
-7.
-
-When designing a lifecycle management policy in Azure Blob Storage, what is the primary purpose of configuring the 'If - Then' rules?
-
- 
-
-To set conditions and actions for transitioning or deleting blob data based on its age.
-
-Correct
-
-To configure access levels for containers and blobs.
-
-To define replication policies between different storage accounts.
-
-8.
-
-A company observes that their data retrieval costs have increased significantly. They currently use the Hot tier for data that is read infrequently. What should they do to optimize costs while maintaining accessibility?
-
- 
-
-Switch to the Cold tier
-
-Incorrect
-
-Switch to the Archive tier
-
-Switch to the Cool tier
-
-9.
-
-A company needs to ensure data availability in case of regional outages. Which Azure Blob Storage feature should they implement to achieve this?
-
- 
-
-Object replication to asynchronously copy blobs across regions.
-
-Correct
-
-Cold tier storage for long-term data retention.
-
-Blob snapshots to periodically save the state of blobs.
+**A company needs to ensure data availability in case of regional outages. Which Azure Blob Storage feature should they implement to achieve this?**
+- *Object replication to asynchronously copy blobs across regions. (correct)*
+- Cold tier storage for long-term data retention.
+- Blob snapshots to periodically save the state of blobs.

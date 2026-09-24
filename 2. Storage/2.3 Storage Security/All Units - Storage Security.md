@@ -5,7 +5,6 @@
 * **Network Isolation:** Storage Firewalls, Virtual Network Service Endpoints, and Private Endpoints.
 
 ---
-
 ## 2. Storage Account Access Keys & Key Rotation
 * **Account Keys:** Two 512-bit symmetric keys (`key1`, `key2`) providing root administrative access to data and control planes.
 * **Key Rotation Workflow:**
