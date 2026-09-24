@@ -1,5 +1,4 @@
 ## 1. Pre-Deployment Planning Checklist
-
 Before creating an Azure VM, key configuration decisions must be evaluated:
 * **Resource Group & Location:** Select a region close to users that supports required VM sizes/features.
 * **Network & Subnet:** VM must connect to a Virtual Network (VNet) and subnet. Dedicated IP configuration (Dynamic vs. Static).
