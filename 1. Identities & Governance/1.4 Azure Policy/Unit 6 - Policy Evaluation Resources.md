@@ -21,7 +21,6 @@ Policy evaluation occurs when:
 
 ---
 #### Compliance States
-
 - **Compliant** → Meets policy requirements.
 - **Non-compliant** → Doesn't meet requirements.
 - **Error** → Policy evaluation/template error.
@@ -60,7 +59,6 @@ Controls whether a policy **effect is enforced**.
 
 ---
 #### Azure Policy Events
-
 **Azure Policy → Event Grid → Event Handler**
 
 - **Event Grid** → Routes policy state change events.
