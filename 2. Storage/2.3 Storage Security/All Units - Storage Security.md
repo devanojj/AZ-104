@@ -3,7 +3,6 @@
 * **Encryption at Rest:** Storage Service Encryption (SSE) enabled by default (256-bit AES).
 * **Encryption in Transit:** Enforce HTTPS via *Secure transfer required*, TLS 1.2 minimum.
 * **Network Isolation:** Storage Firewalls, Virtual Network Service Endpoints, and Private Endpoints.
-
 ---
 ## 2. Storage Account Access Keys & Key Rotation
 * **Account Keys:** Two 512-bit symmetric keys (`key1`, `key2`) providing root administrative access to data and control planes.
@@ -18,7 +17,6 @@
 > Account keys bypass least privilege. Prefer Microsoft Entra ID or SAS tokens.
 
 ---
-
 ## 3. Shared Access Signatures (SAS)
 A signed URI granting delegated, fine-grained, time-limited access without exposing account keys.
 
@@ -32,7 +30,6 @@ A signed URI granting delegated, fine-grained, time-limited access without expos
 * **Key Advantage:** Allows altering permissions/expiry or **revoking access immediately** without rotating account keys.
 
 ---
-
 ## 4. URI Structure & SAS Parameters
 
 ```text
@@ -52,47 +49,26 @@ https://<storage-account>.blob.core.windows.net/<container>/<blob>?<sas-token>
 |`si`|Stored Policy ID|References a Stored Access Policy name|
 
 ## 5. Storage Encryption
-
 ### Encryption at Rest (SSE)
-
-- Automatically enabled for all storage services using **256-bit AES**.
-    
-- Cannot be disabled.
-    
+- Automatically enabled for all storage services using **256-bit AES**. Cannot be disabled.
 
 ### Key Management Options
-
 - **Microsoft-Managed Keys (MMK):** Default key management handled by Azure.
-    
 - **Customer-Managed Keys (CMK):**
-    
     - Stored in **Azure Key Vault** or **Key Vault Managed HSM**.
-        
     - Gives complete control over key creation, rotation, and access revocation.
-        
     - Key Vault requires **Soft Delete** and **Purge Protection** enabled.
-        
     - Storage account connects via **System-Assigned** or **User-Assigned Managed Identity**.
-        
 
 ### Encryption Scopes (Blob Storage)
-
 - Enforce distinct encryption settings at the **container** or **individual blob** level within the same storage account.
-    
 - Supports both MMK and CMK per scope.
-    
 
 ### Infrastructure Encryption
-
 - Applies a second independent layer of 256-bit AES encryption at the infrastructure/hardware level (Double Encryption).
-    
 
 ## 6. Exam Tips & Best Practices
-
 - **Identity Priority:** Use Microsoft Entra ID authorization where possible; block Shared Key access (`allowSharedKeyAccess = false`).
-    
 - **SAS Revocation:** Always bind Service SAS to a **Stored Access Policy** for instant revocation capability.
-    
 - **Network Hardening:** Restrict default network access to _Selected networks_ and use Private Endpoints.
-    
 - **Transport Security:** Reject unencrypted HTTP traffic and enforce minimum TLS 1.2.
