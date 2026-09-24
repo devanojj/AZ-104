@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3. Compute Resources/3.2 VM Availability/All Units - VM Availability.md",
+                "file": "3. Compute Resources/3.3 App Service/All Units - App Service.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "All Units - VM Availability"
+              "title": "All Units - App Service"
             }
           }
         ]
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -199,9 +200,9 @@
   },
   "active": "9b610a73b0d7d16f",
   "lastOpenFiles": [
+    "3. Compute Resources/3.2 VM Availability/All Units - VM Availability.md",
     "AZ-104.md",
     "3. Compute Resources/Extra/Backup Vault.md",
-    "3. Compute Resources/3.2 VM Availability/All Units - VM Availability.md",
     "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
     "3. Compute Resources/Extra/Recovery Services Vault.md",
     "2. Storage/Extra/Instant Restore.md",

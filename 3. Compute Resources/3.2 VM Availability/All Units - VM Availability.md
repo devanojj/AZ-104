@@ -52,7 +52,6 @@ Physically separate datacenter locations within the same Azure region, each with
 ---
 
 ## 5. Azure Virtual Machine Scale Sets (VMSS)
-
 Centrally manage, configure, and automatically scale a group of load-balanced VMs.
 
 ### Orchestration Modes
@@ -112,10 +111,8 @@ When demand drops, determines which VM instances are deleted first:
 
 Region will not affect the configuration of the availability options. The management setting allows you to configure the monitoring and management options for the virtual machine.
 
-
 *Update Domains (Logical):*
 Groups of VMs rebooted together during planned host maintenance.
-
 
 *Fault Domain*
 Physical 
