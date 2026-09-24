@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
+                "file": "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 5 - Replication"
+              "title": "Unit 8 - EQ Configure Storage"
             }
           }
         ]
@@ -199,8 +199,10 @@
   },
   "active": "2a1f3231bb82562e",
   "lastOpenFiles": [
-    "2. Storage/2.1 Configure Storage/Unit 4 - Storage Account Types.md",
+    "2. Storage/2.1 Configure Storage/Unit 7 - Networking Storage Endpoints.md",
+    "2. Storage/2.1 Configure Storage/Unit 6 - Storage Endpoints.md",
     "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
+    "2. Storage/2.1 Configure Storage/Unit 4 - Storage Account Types.md",
     "2. Storage/2.1 Configure Storage/Unit 3 - Storage Types.md",
     "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
     "AZ-104.md",
@@ -223,8 +225,6 @@
     "1. Identities & Governance/1.3 Core Azure/Exam Questions.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Extra/Privileged Identity Management.md",
     "1. Identities & Governance/1.2 Create & Configure Identities/Unit 13 - EQ Configure Identities.md",
-    "1. Identities & Governance/1.1 Understand Entra ID/Unit 7 - EQ Entra ID.md",
-    "1. Identities & Governance/1.2 Create & Configure Identities/Unit 12 - Automatic Use Creation.md",
     "1. Identities & Governance/1.1 Understand Entra ID/Extra",
     "0. General Concepts/Private DNS Zone Structure.canvas",
     "6. Microsoft Practice Exam/Untitled.canvas",

@@ -16,7 +16,7 @@ Replication creates copies of storage data to provide **durability and availabi
     - Governance requires data to stay in one location
 
 **Protects against:** Node/hardware failure  
-**Doesn't protect against:** Data-center or regional failure
+**Doesn't protect against:** Data-centre or regional failure
 
 ---
 
@@ -124,7 +124,7 @@ Secondary Region
 
 #### Exam Facts
 
-- **LRS** → 3 copies, single data center
+- **LRS** → 3 copies, single data centre
 - **ZRS** → 3 copies, 3 availability zones
 - **GRS** → secondary region, asynchronous replication
 - **RA-GRS** → GRS + read secondary

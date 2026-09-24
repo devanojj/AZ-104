@@ -1,40 +1,16 @@
-1.
+**Which of the following statements accurately describes the function of Azure Private Endpoints in the context of Azure Storage?**
+- Azure Private Endpoints are used to set up cross-region replication for storage accounts.
+- Azure Private Endpoints provide secure access by using public IP addresses to connect to Azure Storage. (selected)
+- *Azure Private Endpoints enable secure connections by assigning a private IP from your VNet to the Azure Storage account. (correct)*
 
-Which of the following statements accurately describes the function of Azure Private Endpoints in the context of Azure Storage?
+**Which security feature of Azure Storage assigns a private IP address from your VNet to the storage account, ensuring network isolation?**
+- Service Endpoints
+- *Private Endpoints (correct)*
+- NSG Rules
 
- 
-
-Azure Private Endpoints are used to set up cross-region replication for storage accounts.
-
-Azure Private Endpoints provide secure access by using public IP addresses to connect to Azure Storage.
-
-Incorrect
-
-Azure Private Endpoints enable secure connections by assigning a private IP from your VNet to the Azure Storage account.
-
-2.
-
-Which security feature of Azure Storage assigns a private IP address from your VNet to the storage account, ensuring network isolation?
-
- 
-
-Service Endpoints
-
-Private Endpoints
-
-Correct
-
-NSG Rules
-
-3.
-
-While reviewing a configuration script, you find a line that restricts access to an Azure storage account. Which command correctly restricts access to a specific subnet?
-
- 
-
-az storage account update --name mystorageaccount --default-action Allow
-
-az storage account create --name mystorageaccount --location eastus
+**While reviewing a configuration script, you find a line that restricts access to an Azure storage account. Which command correctly restricts access to a specific subnet?**
+- az storage account update --name mystorageaccount --default-action Allow
+- az storage account create --name mystorageaccount --location eastus
 
 Incorrect
 
