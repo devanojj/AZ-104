@@ -9,13 +9,7 @@
 - **Cloud-only network** → private communication between Azure resources.
 - **Extend datacenter** → **Site-to-Site VPN** using **IPsec**.
 - **Hybrid cloud** → connect Azure applications to on-premises systems.
-
----
-#### Exam Facts
-- **VNet** = Azure's private virtual network.
-- **CIDR ranges cannot overlap** when connecting VNets/networks.
 - **Subnets** segment a VNet.
-- **Site-to-Site VPN** → uses **IPsec**.
-- VNets can connect **Azure ↔ Azure** and **Azure ↔ on-premises**.
+
 
 
