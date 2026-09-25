@@ -18,7 +18,6 @@
 
 ---
 #### VNet Peering settings
-
 - **Traffic to remote virtual network** → allows traffic to remote VNet
 - **Traffic forwarded from remote virtual network** → allows forwarded traffic from remote VNet
 - **Virtual network gateway or Route Server** → allows peered VNets to use this VNet's gateway
@@ -33,6 +32,7 @@
     - **VNet-to-VNet** → another VNet
     - **Point-to-Site VPN** → client device
 - Avoids deploying a VPN Gateway in every VNet
+
 ---
 #### Gateway Transit Benefits
 - **Centralised connectivity**
@@ -42,7 +42,7 @@
 - No need for a separate VPN Gateway in each spoke
 
 ---
-#### NS
+#### NSG
 - **NSGs** can allow/block traffic between peered VNets and subnets.
 - Peering does **not bypass NSG rules**.
 

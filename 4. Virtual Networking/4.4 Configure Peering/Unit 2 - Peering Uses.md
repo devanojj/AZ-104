@@ -6,6 +6,7 @@
 - **Global peering** → VNets in **different regions**
 **Exam Fact**
 - Can peer across **subscriptions and tenants**.
+
 ---
 #### Key Benefits
 - Traffic stays on the **Azure backbone**
@@ -13,12 +14,14 @@
 - **Low latency + high bandwidth**
 - No downtime when creating peering
 - Supports communication across **regions/subscriptions**
+
 ---
 #### Requirements & Limitations
 - VNet address spaces **must not overlap**
 - Changing a VNet address space → **delete peering → change address space → recreate peering**
 - **Basic Load Balancer** doesn't support cross-region peered VNet access
-    - Use **Standard Load Balancer**
+	*Use Standard Load Balancer instead* 
 - Azure default DNS **doesn't resolve across peered VNets**
-    - Use **Azure Private DNS** or custom DNS
----
+    *Use Azure Private DNS or custom DNS instead*
+
+
