@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/4.2 Configure NSG/Unit 4 - Effective Rules.md",
+                "file": "6. Microsoft Practice Exam/2nd/Incorrect (Done).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 4 - Effective Rules"
+              "title": "Incorrect (Done)"
             }
           },
           {
@@ -213,13 +213,18 @@
   },
   "active": "5441f298b9f0d67f",
   "lastOpenFiles": [
-    "Network Watcher.md",
+    "4. Virtual Networking/4.2 Configure NSG/Unit 8 - EQ Configure NSG.md",
+    "4. Virtual Networking/4.7 Application Gateway/Unit 3 - How it works.md",
+    "4. Virtual Networking/4.7 Application Gateway/Unit 2 - Application Gateway.md",
+    "4. Virtual Networking/4.2 Configure NSG/Unit 7 - Go back over!!!!.md",
+    "4. Virtual Networking/4.2 Configure NSG/Unit 6 - Application Security Groups.md",
+    "4. Virtual Networking/4.2 Configure NSG/Unit 5 - Rules.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 4 - Effective Rules.md",
+    "Network Watcher.md",
     "**Network Watcher**.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 3 - NSG Rules.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 2 - Implement NSG.md",
     "4. Virtual Networking/4.2 Configure NSG/Unit 1 - NSG Introduction.md",
-    "4. Virtual Networking/4.2 Configure NSG/Unit 7 - Go back over!!!!.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 10 - EQ Configure Virtual Networks.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 9 - Redo Lab.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 7 - Associate Private IP.md",
@@ -235,11 +240,6 @@
     "4. Virtual Networking/Extra/NVA.md",
     "4. Virtual Networking/Extra",
     "4. Virtual Networking/Extra/Microsoft Learn - Peered VNs.md",
-    "AZ-104.md",
-    "1. Identities & Governance/1.5 RBAC/Unit 1 - Introduction.md",
-    "1. Identities & Governance/1.4 Azure Policy/Unit 6 - Policy Evaluation Resources.md",
-    "1. Identities & Governance/1.3 Core Azure/Exam Questions.md",
-    "3. Compute Resources/3.5 Containers/Unit 7 - Container Instances.md",
     "3. Compute Resources/Extra",
     "2. Storage/Extra",
     "1. Identities & Governance/Extra",

@@ -18,5 +18,5 @@
 #### Effective Security Rules
 - **Azure Portal → Effective security rules**
 - Shows the **actual rules applied** to a VM/NIC.
-- **[[Network Watcher]]** provides a consolidated view.
+- **Network Watcher** provides a consolidated view.
 

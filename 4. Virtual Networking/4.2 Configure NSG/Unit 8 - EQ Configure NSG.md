@@ -1,7 +1,4 @@
-Your company is setting up a new environment in Azure. You want to group virtual machines handling different services and define security rules accordingly. Which Azure feature would allow you to group the virtual machines based on their service type and manage security rules?
-
- 
-
+**Your company is setting up a new environment in Azure. You want to group virtual machines handling different services and define security rules accordingly. Which Azure feature would allow you to group the virtual machines based on their service type and manage security rules?**
 Application Security Groups
 
 Network Security Groups
