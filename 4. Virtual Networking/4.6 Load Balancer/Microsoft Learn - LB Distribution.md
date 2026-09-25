@@ -9,9 +9,9 @@
 | Destination IP   |
 | Protocol Type    |
 
-*Hash Based*
+*Hash Based / 5 Tuple* 
 Traffic to healthy backend, only persistent connection during sessions 
-New sessions creates new backend instance 
+New sessions creates new backend instance . Very granular distribution, lots of connections, source and destination identical   
 
 
 *Client IP 2 Tuple*

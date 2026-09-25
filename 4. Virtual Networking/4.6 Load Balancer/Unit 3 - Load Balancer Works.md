@@ -1,6 +1,6 @@
 **Layer 4** load balancer using TCP/UDP properties to distribute traffic.
-- Uses **IP addresses, ports and protocol**
-- Cannot inspect application content → use **Application Gateway** for Layer 7
+Cannot inspect application content → use Application Gateway for Layer 7
+
 ---
 #### Core Components
 - **Front-end IP** → client-facing **public or private IP**
@@ -8,7 +8,7 @@
 - **Back-end pool** → VMs / VM Scale Set instances receiving traffic
 - **Health probe** → removes unhealthy instances from new traffic
 - **Inbound NAT rule** → maps frontend port → specific VM
-- **HA ports** → load balance all TCP/UDP ports
+- **[[HA ports]]** → load balance all TCP/UDP ports
 - **Outbound rule** → provides **SNAT** for outbound connections
 ---
 #### Load-Balancing Rules

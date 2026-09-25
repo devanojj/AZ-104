@@ -1,8 +1,9 @@
 Virtual appliance/VM that **routes and inspects network traffic**.
-- Functions: **Firewall, router, IDS/IPS, proxy, load balancer, WAN optimizer**
+- Functions: **Firewall, router, IDS/IPS, proxy, load balancer, WAN optimiser**
 - Azure Marketplace: Cisco, Check Point, Barracuda, Sophos, WatchGuard, SonicWall
-- Used to **block unauthorized/malicious traffic** and control traffic between networks/subnets
+- Used to **block unauthorised/malicious traffic** and control traffic between networks/subnets
 - Can inspect **Layer 4** traffic; application-aware NVAs can inspect **Layer 7**
+
 ---
 #### NVA Traffic Flow
 - Acts as a **router** between subnets
@@ -11,12 +12,14 @@ Virtual appliance/VM that **routes and inspects network traffic**.
 - Some NVAs use multiple NICs:
     - Management NIC
     - Traffic-processing NICs
+
 ---
 #### Microsegmentation
 - Dedicated **firewall/NVA subnet**
 - Web/apps placed in separate subnets
 - Traffic forced through NVA for inspection
 - Provides more granular security and limits lateral movement
+
 ---
 #### User-Defined Routes (UDRs)
 **Definition:** Custom routes that control where Azure sends traffic.
@@ -32,6 +35,7 @@ Virtual appliance/VM that **routes and inspects network traffic**.
 - One route table → **multiple subnets**
 - One subnet → **only one route table**
 - UDRs can override default routing behaviour
+
 ---
 #### NVA High Availability
 - NVA can become a **single point of failure**
