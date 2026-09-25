@@ -15,7 +15,7 @@
 - Traffic can be routed through the hub.
 
 ---
-#### User-Defined Routes (UDR)
+#### User-Defined Routes ([[UDR]])
 - Custom routes controlling **where traffic goes**.
 - Next hop can be:
     - VM in a **peered VNet**

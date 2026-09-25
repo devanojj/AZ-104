@@ -1,4 +1,4 @@
-Azure routing determines how network traffic moves between subnets, VNets, on-premises networks, and the internet.
+ Azure routing determines how network traffic moves between subnets, VNets, on-premises networks, and the internet.
 - **System routes** = automatically created by Azure
 - **User-defined routes (UDRs)** = custom routes created by you
 - **BGP routes** = routes learned from on-premises/network gateways
@@ -23,13 +23,15 @@ Azure routing determines how network traffic moves between subnets, VNets, on-pr
 - **Virtual network** → traffic stays within VNet
 - **Internet** → traffic goes to internet
 - **None** → traffic is dropped
+
 ---
 #### Additional System Routes
 Azure can create additional routes when using:
 - **VNet peering**
-- **Service chaining**
+- **[[Service chaining]]**
 - **Virtual network gateway**
 - **Service endpoints**
+
 ---
 #### Virtual Network Gateway
 - Connects Azure ↔ on-premises
@@ -38,6 +40,7 @@ Azure can create additional routes when using:
     - **VPN**
     - **ExpressRoute**
 - Contains routing tables and gateway services
+
 ---
 #### Service Endpoints
 A **Service Endpoint** allows resources inside an Azure VNet/subnet to access certain **Azure PaaS services** over Azure's backbone network.
@@ -62,6 +65,7 @@ Custom routes used to override system routes and control traffic flow.
 | **Virtual network**         | Route within VNet                |
 | **Internet**                | Send traffic to internet         |
 | **None**                    | **Drop traffic**                 |
+
 
 **Exam fact:**
 
