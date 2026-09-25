@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/4.7 Application Gateway/Unit 3 - How it works.md",
+                "file": "5. Monitor Resources/5.1 Monitor & Backup/Monitor & Backup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 3 - How it works"
+              "title": "Monitor & Backup"
             }
           }
         ]
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -200,11 +199,26 @@
   },
   "active": "be78d420bb171398",
   "lastOpenFiles": [
-    "4. Virtual Networking/4.7 Application Gateway/Unit 2 - Application Gateway.md",
+    "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - EQ Monitor & Backup.md",
+    "5. Monitor Resources/5.1 Monitor & Backup/Monitor & Backup.md",
+    "3. Compute Resources/Extra/Availability Zone vs Set.md",
+    "0. General Concepts/ARM.md",
+    "5. Monitor Resources/Extra/Azure Workbooks.md",
+    "1. Identities & Governance/Extra/Modify.md",
+    "5. Monitor Resources/Extra",
+    "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
+    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
+    "AZ-104.md",
+    "4. Virtual Networking/4.8 Network Watcher/Unit 4 - When to use.md",
+    "4. Virtual Networking/4.8 Network Watcher/Unit 3 - How it works.md",
+    "4. Virtual Networking/4.8 Network Watcher/Unit 2 - Network Watcher.md",
+    "4. Virtual Networking/4.7 Application Gateway/Unit 5 - EQ Application Gateway.md",
+    "4. Virtual Networking/4.7 Application Gateway/Unit 4 - When to use.md",
     "4. Virtual Networking/4.7 Application Gateway/Unit 3 - How it works.md",
+    "4. Virtual Networking/4.7 Application Gateway/Unit 2 - Application Gateway.md",
     "4. Virtual Networking/4.6 Load Balancer/Unit 4 - When to use.md",
     "4. Virtual Networking/4.6 Load Balancer/Unit 5 - EQ Load Balancer.md",
-    "HA ports.md",
+    "4. Virtual Networking/Extra/HA ports.md",
     "4. Virtual Networking/Extra/General Notes for LB Distribution.md",
     "4. Virtual Networking/4.6 Load Balancer/Unit 3 - Load Balancer Works.md",
     "4. Virtual Networking/Extra/Service chaining.md",
@@ -212,20 +226,6 @@
     "4. Virtual Networking/4.6 Load Balancer/Unit 2 - Load Balancer.md",
     "4. Virtual Networking/4.5 Routes/Unit 4 - NVA.md",
     "4. Virtual Networking/4.5 Routes/Unit 3 - Go back over!!!!.md",
-    "4. Virtual Networking/4.4 Configure Peering/Unit 6 - Go back over!!.md",
-    "4. Virtual Networking/4.4 Configure Peering/Unit 5 - Extend Peering.md",
-    "0. General Concepts/Azure Front Door vs Express Route.md",
-    "4. Virtual Networking/Extra/UDR.md",
-    "4. Virtual Networking/4.4 Configure Peering/Unit 3 - Transit Gateway.md",
-    "4. Virtual Networking/4.4 Configure Peering/Unit 2 - Peering Uses.md",
-    "4. Virtual Networking/4.3 Configure DNS/Unit 6 - Exercise Go Back Over!!!!.md",
-    "4. Virtual Networking/4.3 Configure DNS/Unit 5 - Alias Records.md",
-    "4. Virtual Networking/4.3 Configure DNS/Unit 4 - Create A record.md",
-    "4. Virtual Networking/4.3 Configure DNS/Unit 3 - Configure DNS Zones.md",
-    "4. Virtual Networking/4.3 Configure DNS/Unit 2 - What is Azure DNS.md",
-    "4. Virtual Networking/Extra/Split-horizon DNS.md",
-    "4. Virtual Networking/4.2 Configure NSG/Unit 8 - EQ Configure NSG.md",
-    "4. Virtual Networking/4.2 Configure NSG/Unit 6 - Application Security Groups.md",
     "4. Virtual Networking/Extra",
     "3. Compute Resources/Extra",
     "2. Storage/Extra",
@@ -238,7 +238,6 @@
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
     "5. Monitor Resources/5.2 Backup VM",
-    "5. Monitor Resources/5.1 Monitor & Backup",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]

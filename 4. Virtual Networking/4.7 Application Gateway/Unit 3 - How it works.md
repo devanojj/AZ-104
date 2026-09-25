@@ -48,7 +48,7 @@ Can contain:
     - Request smuggling
     - Bots/scanners
 - Uses **OWASP Core Rule Set (CRS)**
-- Can customize rules and request inspection
+- Can customise rules and request inspection
 
 ---
 #### TLS/SSL
@@ -77,11 +77,11 @@ Can contain:
 
 ---
 #### Exam Tips
-- **L7 + web application → Application Gateway**
-- **WAF → Application Gateway**
-- **URL path routing → Application Gateway**
-- **Hostname/multi-site routing → Application Gateway**
-- **TLS termination → Application Gateway**
-- **L4 + TCP/UDP + ultra-low latency → Load Balancer**
-- **Global web application → Front Door**
-- **DNS-based global routing → Traffic Manager**
+- L7 + web application → Application Gateway
+- WAF → Application Gateway
+- URL path routing → Application Gateway
+- Hostname/multi-site routing → Application Gateway
+- TLS termination → Application Gateway
+- L4 + TCP/UDP + ultra-low latency → Load Balancer
+- Global web application → Front Door
+- DNS-based global routing → Traffic Manager

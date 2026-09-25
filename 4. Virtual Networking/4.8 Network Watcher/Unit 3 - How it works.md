@@ -1,7 +1,4 @@
-Azure service for monitoring and troubleshooting **IaaS network resources**.
-- Automatically available when a **VNet is created in an Azure region** in your subscription.
-- Access via Azure Portal → Search → **Network Watcher**.
----
+
 #### Topology
 **Purpose:** Visualise resources in a VNet and their relationships.
 **Resources shown:** Subnets, NICs, NSGs, Load Balancers + health probes, Public IPs, VNet peering, Virtual network gateways, VPN gateway connections, VMs, VM Scale Sets
@@ -28,9 +25,6 @@ Azure service for monitoring and troubleshooting **IaaS network resources**.
 - Requires monitoring agents on monitored hosts.
 - Azure VMs → install **Network Watcher Agent VM extension**.
 
-**Exam Tip:**
-- **Connection Monitor = continuous monitoring**
-- **Connection Troubleshoot = point-in-time test**
 ---
 #### IP Flow Verify
 **Purpose:** Determine whether VM traffic is **Allowed or Denied**.
