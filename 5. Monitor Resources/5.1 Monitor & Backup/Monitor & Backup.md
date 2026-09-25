@@ -26,7 +26,7 @@ Azure-managed service for backing up and restoring Azure and supported on-premis
 - Only changed data is backed up
 - Reduces storage and backup time
 
-**VM restore options**
+==**VM restore options**==
 - Restore entire VM
 - Create a new VM
 - Restore disks
@@ -34,22 +34,19 @@ Azure-managed service for backing up and restoring Azure and supported on-premis
 
 ---
 
-## Backup Agents & Extensions
+*Backup Agents & Extensions*
 
-| Component | Used For |
-|---|---|
-| **Backup Extension** | Azure VM backup integration |
-| **MARS Agent** | On-premises Windows files/folders/system state |
-| **MABS** | Enterprise backup server for supported on-premises workloads |
-| **DPM** | Microsoft Data Protection Manager |
-
+| Component            | Used For                                                     |
+| -------------------- | ------------------------------------------------------------ |
+| **Backup Extension** | Azure VM backup integration                                  |
+| **MARS Agent**       | On-premises Windows files/folders/system state               |
+| **MABS**             | Enterprise backup server for supported on-premises workloads |
+| **DPM**              | Microsoft Data Protection Manager                            |
+|                      |                                                              |
 
 > **MARS → Windows files/folders/system state**
 > **VM Backup Extension → Azure VM backup**
 
----
-
-## Backup Storage
 
 | Tier | Purpose |
 |---|---|
@@ -57,34 +54,10 @@ Azure-managed service for backing up and restoring Azure and supported on-premis
 | **Vault-Standard** | Normal backup storage |
 | **Archive** | Long-term, rarely accessed backups |
 
-**Think:**
-
-`Snapshot → Fast restore`
-
-`Vault → Normal backup`
-
-`Archive → Long-term retention`
-
----
-
-## Storage Redundancy
-
-| Option | Meaning |
-|---|---|
-| **LRS** | Copies within a single datacenter |
-| **ZRS** | Copies across availability zones |
-| **GRS** | Copies to a paired region |
-
-**Exam Tip**
-
-- LRS → **local**
-- ZRS → **zones**
-- GRS → **geographic**
 
 ---
 
 ## Backup Security
-
 ### Soft Delete
 - Protects backup data from accidental/malicious deletion
 - Deleted backup data is retained for a recovery period
@@ -99,16 +72,12 @@ Azure-managed service for backing up and restoring Azure and supported on-premis
 ---
 
 ## Backup Policy
-
 A **Backup Policy** defines:
-
 - **When** backups run
 - **How often** backups run
 - **How long** recovery points are retained
 
-Example:
-
-`Daily backup → retain for 30 days`
+Example: `Daily backup → retain for 30 days`
 
 ---
 
@@ -121,68 +90,35 @@ Example:
 | Recovery points | Replication + failover |
 | Recover deleted/corrupted data | Recover from regional/site failure |
 
-**Exam Tip**
 
 > **Backup = restore data**
-
 > **Site Recovery = failover workloads**
 
 ---
 
 ## SQL Server Backup
-
 Azure Backup supports SQL Server running in Azure VMs.
 
 Can perform:
-
 - **Full backups**
 - **Differential backups**
 - **Transaction log backups**
 - **Point-in-time restore**
 
-**Exam Fact**
-
 - Transaction log backups can provide an RPO as low as **15 minutes** for supported SQL Server scenarios.
 
 ---
 
-## Backup Center
-
-**Backup Center** = centralized backup management.
-
-Can be used to:
-
-- Monitor backups
-- Manage backup policies
-- Configure backups
-- View backup jobs
-- Manage multiple:
-  - Subscriptions
-  - Regions
-  - Vaults
-  - Workloads
-
----
-
-## Common Uses
-
-- Protect Azure VMs
-- Recover accidentally deleted data
-- Recover corrupted data
-- Protect against ransomware
-- Long-term data retention
-- Compliance requirements
-- Disaster recovery preparation
-
----
+## Backup Center / Resiliency
+**Backup Center** = centralised backup management dashboard
+Monitor backups, Manage backup policies, Configure backups, View backup jobs
 
 ## Exam Facts
-
 - **RPO** → amount of data you can lose
 - **RTO** → amount of downtime you can tolerate
 - **Backup Policy** → schedule + retention
 - **Recovery Services vault** → backup storage/management
-- **Backup Center** → centralized backup management
+- **Backup Center** → centralised backup management
 - **MARS** → on-prem Windows backup
 - **Backup Extension** → Azure VM backup
 - **Soft Delete** → protects deleted backup data
@@ -190,6 +126,3 @@ Can be used to:
 - **Archive** → long-term retention
 - **Incremental backup** → only changed data
 - **Azure Backup ≠ Site Recovery**
-- **LRS** → local redundancy
-- **ZRS** → zone redundancy
-- **GRS** → geo redundancy

@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5. Monitor Resources/5.1 Monitor & Backup/Monitor & Backup.md",
+                "file": "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Monitor & Backup"
+              "title": "Azure Monitor"
+            }
+          },
+          {
+            "id": "4f474d40ab805c8b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Azure Monitor"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -55,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "MABS",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -197,17 +212,22 @@
       "bases:Create new base": false
     }
   },
-  "active": "be78d420bb171398",
+  "active": "4f474d40ab805c8b",
   "lastOpenFiles": [
-    "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - EQ Monitor & Backup.md",
+    "5. Monitor Resources/Extra/DCR.md",
+    "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
+    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
     "5. Monitor Resources/5.1 Monitor & Backup/Monitor & Backup.md",
+    "2. Storage/Extra/Backup.md",
+    "5. Monitor Resources/Extra/MARS vs MABS.md",
+    "5. Monitor Resources/Extra/MARS.md",
+    "5. Monitor Resources/Extra/Untitled",
+    "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - EQ Monitor & Backup.md",
     "3. Compute Resources/Extra/Availability Zone vs Set.md",
     "0. General Concepts/ARM.md",
     "5. Monitor Resources/Extra/Azure Workbooks.md",
     "1. Identities & Governance/Extra/Modify.md",
     "5. Monitor Resources/Extra",
-    "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
-    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
     "AZ-104.md",
     "4. Virtual Networking/4.8 Network Watcher/Unit 4 - When to use.md",
     "4. Virtual Networking/4.8 Network Watcher/Unit 3 - How it works.md",
@@ -222,10 +242,6 @@
     "4. Virtual Networking/Extra/General Notes for LB Distribution.md",
     "4. Virtual Networking/4.6 Load Balancer/Unit 3 - Load Balancer Works.md",
     "4. Virtual Networking/Extra/Service chaining.md",
-    "4. Virtual Networking/4.5 Routes/Unit 2 - Azure Routes.md",
-    "4. Virtual Networking/4.6 Load Balancer/Unit 2 - Load Balancer.md",
-    "4. Virtual Networking/4.5 Routes/Unit 4 - NVA.md",
-    "4. Virtual Networking/4.5 Routes/Unit 3 - Go back over!!!!.md",
     "4. Virtual Networking/Extra",
     "3. Compute Resources/Extra",
     "2. Storage/Extra",
@@ -237,7 +253,6 @@
     "6. Microsoft Practice Exam",
     "5. Monitor Resources/Untitled.canvas",
     "5. Monitor Resources/5.3 Azure Monitor VM",
-    "5. Monitor Resources/5.2 Backup VM",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]

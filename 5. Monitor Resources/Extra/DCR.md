@@ -1,0 +1,1 @@
+Data Collection Rule, tells azure monitor what data to collect
