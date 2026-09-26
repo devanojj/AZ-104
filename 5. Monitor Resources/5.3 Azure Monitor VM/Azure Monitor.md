@@ -70,11 +70,11 @@ Monitoring Data Tiers
 
 ### Alert Types
 
-|Alert Category|Evaluation Mechanism|Best Used For|
-|---|---|---|
-|**Metric Alerts**|Evaluates numeric time-series values against static/dynamic thresholds in near real-time (every 1 min).|High CPU (> 80%), Low Memory (< 10%), High Network In.|
-|**Log Search Alerts (KQL)**|Runs scheduled KQL queries against Log Analytics tables (`Heartbeat`, `Event`, `Perf`, `Syslog`).|Specific error events (Event ID 4625), process crashes, heartbeat loss.|
-|**Activity Log Alerts**|Triggers on subscription-level control-plane events.|VM deallocated, VM deleted, NSG modified.|
+| Alert Category                  | Evaluation Mechanism                                                                                    | Best Used For                                                           |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **Metric Alerts**               | Evaluates numeric time-series values against static/dynamic thresholds in near real-time (every 1 min). | High CPU (> 80%), Low Memory (< 10%), High Network In.                  |
+| **Log Search Alerts ([[KQL]])** | Runs scheduled KQL queries against Log Analytics tables (`Heartbeat`, `Event`, `Perf`, `Syslog`).       | Specific error events (Event ID 4625), process crashes, heartbeat loss. |
+| **Activity Log Alerts**         | Triggers on subscription-level control-plane events.                                                    | VM deallocated, VM deleted, NSG modified.                               |
 
 ### Action Groups & Automation
 - Reusable notification and automated response containers linked to alert rules.
@@ -85,7 +85,7 @@ Monitoring Data Tiers
     - **Webhooks / ITSM:** Create tickets in ServiceNow or send messages to Teams/Slack.
 
 
-## 🎯 Exam Quick Reference (Cheat Sheet)
+## Exam Quick Reference (Cheat Sheet)
 
 |Scenario / Exam Question Trigger|Correct Answer / Action|
 |---|---|
