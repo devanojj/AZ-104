@@ -2,17 +2,9 @@ Determines whether resources are **compliant** with assigned policies.
 
 ---
 #### Evaluation Triggers
-Policy evaluation occurs when:
+Policy evaluation occurs when: Policy/initiative is assigned or updated, resource is created or updated, policy exemption is created, updated, or deleted.
 
-- Policy/initiative is **assigned or updated**.
-- Resource is **created or updated**.
-- Policy **exemption** is created, updated, or deleted.
-- Subscription is created/moved within a management group.
-- **Standard compliance scan** runs.
-- **On-demand scan** is triggered.
----
 #### Evaluation Timing
-
 - **Automatic full scan** → Every **24 hours**.
 - **Manual scan** → Can be triggered with `az policy state trigger-scan`.
 - New policy assignment can take up to **30 minutes** to propagate.

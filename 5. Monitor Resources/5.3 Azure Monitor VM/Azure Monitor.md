@@ -53,7 +53,7 @@ Monitoring Data Tiers
 
 ### Core Capabilities
 - **Performance Tab:** Pre-configured charts for CPU, available memory, disk space, IOPS, and network throughput across individual VMs or entire fleets.
-- **Map Tab (Dependency Agent):**
+- **Map Tab (Dependency Agent) (DEP):**
     - Discovers running processes and active inbound/outbound TCP connections.
     - Maps communication dependencies between VMs, servers, and external endpoints.
 
@@ -87,13 +87,13 @@ Monitoring Data Tiers
 
 ## Exam Quick Reference (Cheat Sheet)
 
-|Scenario / Exam Question Trigger|Correct Answer / Action|
-|---|---|
-|**Monitor VM CPU & Network without installing software**|Use **Host Platform Metrics** in Azure Monitor (Agentless).|
-|**Monitor VM Available Memory / Free Disk Space**|Deploy **Azure Monitor Agent (AMA)** + create a **Data Collection Rule (DCR)**.|
-|**Troubleshoot a VM stuck in "Starting" or black screen**|Check **Boot Diagnostics** (Screenshot and Serial Log).|
-|**Map TCP dependencies and connected processes between VMs**|Enable **Azure Monitor VM Insights** (Performance + Map).|
-|**Trigger alert when a specific Windows Event ID occurs**|Create a **Log Search Alert** with a KQL query on the `Event` table.|
-|**Trigger alert when a VM is stopped/deallocated by a user**|Create an **Activity Log Alert** for `Microsoft.Compute/virtualMachines/deallocate/action`.|
-|**Automate service restart upon alert firing**|Attach an **Action Group** configured with an **Azure Automation Runbook** or **Azure Function**.|
-|**Legacy Agent Migration Path**|Replace Log Analytics Agent (MMA) with **Azure Monitor Agent (AMA)**.|
+| Scenario / Exam Question Trigger                             | Correct Answer / Action                                                                 |
+| ------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| **Monitor VM CPU & Network without installing software**     | Use Host Platform Metrics in Azure Monitor (Agentless).                                 |
+| **Monitor VM Available Memory / Free Disk Space**            | Deploy Azure Monitor Agent (AMA) + create a Data Collection Rule (DCR).                 |
+| **Troubleshoot a VM stuck in "Starting" or black screen**    | Check Boot Diagnostics (Screenshot and Serial Log).                                     |
+| **Map TCP dependencies and connected processes between VMs** | Enable Azure Monitor VM Insights (Performance + Map).                                   |
+| **Trigger alert when a specific Windows Event ID occurs**    | Create a Log Search Alert with a KQL query on the `Event` table.                        |
+| **Trigger alert when a VM is stopped/deallocated by a user** | Create an Activity Log Alert for `Microsoft.Compute/virtualMachines/deallocate/action`. |
+| **Automate service restart upon alert firing**               | Attach an Action Group configured with an Azure Automation Runbook or Azure Function.   |
+| **Legacy Agent Migration Path**                              | Replace Log Analytics Agent (MMA) with Azure Monitor Agent (AMA).                       |
