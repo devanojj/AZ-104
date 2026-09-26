@@ -52,13 +52,8 @@ Controls whether a policy effect is enforced.
 ---
 #### Azure Policy Events
 **Azure Policy → Event Grid → Event Handler**
-
-- **Event Grid** → Routes policy state change events.
-- Event handlers:
-  - Azure Functions
-  - Logic Apps
-  - Webhooks
-  - Custom HTTP endpoints
+- Event Grid → Routes policy state change events.
+- Event handlers: Azure Functions & Logic Apps
 
 ---
 #### AZ-104 Exam Facts
