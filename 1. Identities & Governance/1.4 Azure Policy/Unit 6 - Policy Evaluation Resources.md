@@ -22,7 +22,7 @@ Policy evaluation occurs when: Policy/initiative is assigned or updated, resourc
 - **Unknown** → Default for `manual` policies before attestation.
 ---
 #### Enforcement Mode
-Controls whether a policy **effect is enforced**.
+Controls whether a policy effect is enforced.
 
 **Enabled (Default)**
 - Policy effect is enforced.
