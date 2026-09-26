@@ -25,7 +25,6 @@ _Steps_
 - They don't automatically receive permissions outside the scope.
 
 ---
-
 #### Permissions Required to Assign Roles
 You need a role that allows you to create role assignments, such as:
 - **User Access Administrator**
@@ -37,10 +36,8 @@ You need a role that allows you to create role assignments, such as:
 - If **Add role assignment** is disabled → you likely lack permission to assign roles.
 
 ---
-
 #### Remove Access
 **Purpose**
-
 - Remove a user's RBAC role assignment.
 
 _Steps_

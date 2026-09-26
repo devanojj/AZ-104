@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. Identities & Governance/1.5 RBAC/Unit 3 - Exam Questions.md",
+                "file": "1. Identities & Governance/1.5 RBAC/Unit 5 - Grant Access.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 3 - Exam Questions"
+              "title": "Unit 5 - Grant Access"
             }
           }
         ]
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -199,8 +200,9 @@
   },
   "active": "f20458178808ecaa",
   "lastOpenFiles": [
-    "1. Identities & Governance/1.5 RBAC/Unit 2 - What is RBAC.md",
+    "1. Identities & Governance/1.5 RBAC/Unit 4 - List Access.md",
     "1. Identities & Governance/1.5 RBAC/Unit 3 - Exam Questions.md",
+    "1. Identities & Governance/1.5 RBAC/Unit 2 - What is RBAC.md",
     "1. Identities & Governance/1.5 RBAC/Unit 1 - Introduction.md",
     "1. Identities & Governance/1.5 RBAC/Exam Questions.md",
     "AZ-104.md",
@@ -226,7 +228,6 @@
     "4. Virtual Networking/4.7 Application Gateway/Unit 5 - EQ Application Gateway.md",
     "4. Virtual Networking/4.7 Application Gateway/Unit 4 - When to use.md",
     "4. Virtual Networking/4.7 Application Gateway/Unit 3 - How it works.md",
-    "4. Virtual Networking/4.7 Application Gateway/Unit 2 - Application Gateway.md",
     "4. Virtual Networking/Extra",
     "3. Compute Resources/Extra",
     "2. Storage/Extra",

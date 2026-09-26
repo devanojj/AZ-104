@@ -6,7 +6,7 @@
 
 **Suppose an administrator wants to assign a role to allow a user to create and manage Azure resources but not be able to grant access to others. Which of the following built-in roles would support this?**
 - Owner
-- *Contributor*
+- *Contributor (correct)*
 - Reader
 - User Access Administrator
 
