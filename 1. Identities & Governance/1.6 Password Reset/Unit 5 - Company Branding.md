@@ -1,5 +1,4 @@
 _Steps_
-
 **Microsoft Entra ID → Company branding → Customise**
 
 1. Upload **Favicon/logo**.
@@ -8,7 +7,6 @@ _Steps_
 4. **Review + Create → Create**.
 
 ---
-
 #### Test
 - Go to **login.microsoft.com**.
 - Sign in with a test account.

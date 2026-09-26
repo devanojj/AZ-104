@@ -8,24 +8,12 @@
 - At the resource group scope, assign the role with the appropriate access.
 - *At the resource scope, assign the role with the appropriate access. (correct)*
 
-Suppose a developer needs full access to a resource group. If you are following least-privilege best practices, what scope should you specify?
+**Suppose a developer needs full access to a resource group. If you are following least-privilege best practices, what scope should you specify?**
+- Resource
+- *Resource group (correct)*
+- Subscription
 
-Resource
-
-Resource group
-
-Correct
-
-Subscription
-
-4. 
-
-Suppose an administrator needs to generate a report of the role assignments for the last week. Where in the Azure portal would they generate that report?
-
-Search for **Activity log** and filter on the **Create role assignment (roleAssignments)**operation.
-
-Correct
-
-At the appropriate scope, go to **Access control (IAM)** > **Download role assignments**.
-
-At the appropriate scope, go to **Access control (IAM)** > **Role assignments**.
+**Suppose an administrator needs to generate a report of the role assignments for the last week. Where in the Azure portal would they generate that report?**
+- *Search for Activity log and filter on the Create role assignment (roleAssignments) operation. (correct) *
+- At the appropriate scope, go to Access control (IAM) > Download role assignments.
+- At the appropriate scope, go to Access control (IAM) > Role assignments.

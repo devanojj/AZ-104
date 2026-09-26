@@ -1,4 +1,4 @@
-**SSPR** can be rolled out to a **selected security group** first, then expanded to all users.
+SSPR can be rolled out to a selected security group first, then expanded to all users.
 
 ---
 #### Prerequisites

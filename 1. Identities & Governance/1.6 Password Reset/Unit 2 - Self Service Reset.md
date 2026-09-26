@@ -1,7 +1,4 @@
-**SSPR** = allows users who can't sign in to reset their Microsoft Entra ID password themselves.
-
-- Can be used from a **web browser** or **Windows sign-in screen**.
-- Reduces **help-desk workload** and user downtime.
+Can be used from a **web browser** or **Windows sign-in screen**.
 
 ---
 #### How SSPR Works
@@ -77,4 +74,4 @@ Administrators can enable:
 - Both options can be deployed **side-by-side** for different domains/users.
 
 
-*SSRP only available for users within the tenant*
+*SSPR only available for users within the tenant*
