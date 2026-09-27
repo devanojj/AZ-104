@@ -52,3 +52,10 @@ Perform a ping/ICMP test.
 `-TemplateUri` parameter to specify a web-based location
 
 `TemplateSpecId`  to specify a template that was save to Azure as a template spec.
+
+
+`az login` 
+To login 
+
+`az resource list --output table`
+Get all resources 
