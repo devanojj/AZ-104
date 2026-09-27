@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0. Prerequisenst/ARM.md",
+                "file": "0. Prerequisite/ARM.md",
                 "mode": "source",
                 "source": false
               },
@@ -197,11 +197,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "12d87f6cf56ba3c9",
+  "active": "f20458178808ecaa",
   "lastOpenFiles": [
-    "0. Prerequisenst/Azure CLI.md",
+    "0. Prerequisite/Azure Cloud Shell.md",
+    "_Bicep",
+    "0. Prerequisite/ARM.md",
+    "0. Prerequisite/Azure CLI.md",
     "AZ-104.md",
-    "0. Prerequisenst/ARM.md",
     "1. Identities & Governance/1.6 Password Reset/Unit 5 - Company Branding.md",
     "1. Identities & Governance/1.6 Password Reset/Unit 3 - Implement Self-Service Reset.md",
     "1. Identities & Governance/1.6 Password Reset/Unit 2 - Self Service Reset.md",
@@ -224,8 +226,6 @@
     "5. Monitor Resources/Extra/MARS.md",
     "5. Monitor Resources/Extra/Untitled",
     "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - EQ Monitor & Backup.md",
-    "3. Compute Resources/Extra/Availability Zone vs Set.md",
-    "5. Monitor Resources/Extra/Azure Workbooks.md",
     "5. Monitor Resources/Extra",
     "4. Virtual Networking/Extra",
     "3. Compute Resources/Extra",
@@ -237,7 +237,6 @@
     "6. Microsoft Practice Exam/1st",
     "6. Microsoft Practice Exam",
     "5. Monitor Resources/Untitled.canvas",
-    "5. Monitor Resources/5.3 Azure Monitor VM",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
   ]
