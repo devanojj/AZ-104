@@ -10,6 +10,7 @@
   "autoCommitOnlyStaged": false,
   "disablePush": false,
   "pullBeforePush": true,
+  "squashCommitsBeforePush": false,
   "disablePopups": true,
   "showErrorNotices": true,
   "disablePopupsForNoChanges": false,
