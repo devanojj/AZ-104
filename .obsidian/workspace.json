@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0. Prerequisite/Azure CLI.md",
+                "file": "3. Compute Resources/Extra/Azure Automation State Configuration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Azure CLI"
+              "title": "Azure Automation State Configuration"
             }
           }
         ]
@@ -200,9 +200,10 @@
   "active": "f20458178808ecaa",
   "lastOpenFiles": [
     "0. Prerequisite/ARM.md",
+    "3. Compute Resources/Extra/Azure Automation State Configuration.md",
+    "0. Prerequisite/Azure CLI.md",
     "0. Prerequisite/Azure Cloud Shell.md",
     "_Bicep",
-    "0. Prerequisite/Azure CLI.md",
     "AZ-104.md",
     "1. Identities & Governance/1.6 Password Reset/Unit 5 - Company Branding.md",
     "1. Identities & Governance/1.6 Password Reset/Unit 3 - Implement Self-Service Reset.md",
