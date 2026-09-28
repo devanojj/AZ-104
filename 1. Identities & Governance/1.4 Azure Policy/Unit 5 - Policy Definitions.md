@@ -5,6 +5,9 @@ Defines **compliance conditions** and the **effect** applied when conditions are
   - **if** → Conditions to evaluate.
   - **then** → Effect to apply.
 
+Require = "This must exist."  
+Inherit = "Get this from the parent."
+
 ---
 
 #### Policy Definition Properties

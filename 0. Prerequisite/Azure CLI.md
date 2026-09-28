@@ -57,7 +57,5 @@ Perform a ping/ICMP test.
 `az login` 
 To login 
 
-`az resource list --output table`
-Get all resources 
 
 `` az group delete --name MyResourceGroup``

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3. Compute Resources/Extra/Azure Automation State Configuration.md",
+                "file": "0. Prerequisite/Azure CLI.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Azure Automation State Configuration"
+              "title": "Azure CLI"
             }
           }
         ]
@@ -199,8 +199,9 @@
   },
   "active": "f20458178808ecaa",
   "lastOpenFiles": [
-    "0. Prerequisite/ARM.md",
+    "1. Identities & Governance/1.4 Azure Policy/Unit 5 - Policy Definitions.md",
     "3. Compute Resources/Extra/Azure Automation State Configuration.md",
+    "0. Prerequisite/ARM.md",
     "0. Prerequisite/Azure CLI.md",
     "0. Prerequisite/Azure Cloud Shell.md",
     "_Bicep",
@@ -226,7 +227,6 @@
     "5. Monitor Resources/Extra/MARS vs MABS.md",
     "5. Monitor Resources/Extra/MARS.md",
     "5. Monitor Resources/Extra/Untitled",
-    "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - EQ Monitor & Backup.md",
     "5. Monitor Resources/Extra",
     "4. Virtual Networking/Extra",
     "3. Compute Resources/Extra",
