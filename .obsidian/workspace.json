@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/Extra/Private Endpoint.md",
+                "file": "AZ-104.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Private Endpoint"
+              "title": "AZ-104"
             }
           }
         ],
@@ -214,8 +214,8 @@
   },
   "active": "a5c838955343b504",
   "lastOpenFiles": [
-    "4. Virtual Networking/Extra/Service Endpoint.md",
     "4. Virtual Networking/Extra/Private Endpoint.md",
+    "4. Virtual Networking/Extra/Service Endpoint.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 10 - EQ Configure Virtual Networks.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 9 - Redo Lab.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 7 - Associate Private IP.md",
