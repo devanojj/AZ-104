@@ -59,3 +59,14 @@ To login
 
 
 `` az group delete --name MyResourceGroup``
+
+
+
+
+
+az vm list-usage \
+  --location swedencentral \
+  --query "[?contains(name.value, 'DSv')]" \
+  --output table
+
+Used to see all the DS VM sizes available in Sweden

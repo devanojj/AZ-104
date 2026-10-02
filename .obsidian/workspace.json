@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AZ-104.md",
+                "file": "0. Prerequisite/Azure CLI.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AZ-104"
+              "title": "Azure CLI"
             }
           }
         ]
@@ -199,10 +199,11 @@
   },
   "active": "882c658e7bbc88ff",
   "lastOpenFiles": [
+    "AZ-104.md",
+    "3. Compute Resources/Extra/Untitled.md",
     "Gemini Exams.md",
     "2. Storage/Extra/Storage Account Keys.md",
     "6. Microsoft Practice Exam/Exam Notes.md",
-    "AZ-104.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
     "6. Pra",
     "6. Microsoft Practice Exam/3rd/Correct.md",
@@ -227,7 +228,6 @@
     "_Bicep",
     "1. Identities & Governance/1.6 Password Reset/Unit 5 - Company Branding.md",
     "1. Identities & Governance/1.6 Password Reset/Unit 3 - Implement Self-Service Reset.md",
-    "1. Identities & Governance/1.6 Password Reset/Unit 2 - Self Service Reset.md",
     "5. Monitor Resources/Extra/Untitled",
     "5. Monitor Resources/Extra",
     "4. Virtual Networking/Extra",
