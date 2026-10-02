@@ -69,4 +69,17 @@ az vm list-usage \
   --query "[?contains(name.value, 'DSv')]" \
   --output table
 
+devano@mac ~ % az vm list-sizes \
+  --location swedencentral \
+  --output table
+
 Used to see all the DS VM sizes available in Sweden
+
+
+
+
+Heartbeat
+| where TimeGenerated > ago(30m)
+| where Computer =~ "az104-vm0"
+| summarize HeartbeatCount = count(), LastHeartbeat = max(TimeGenerated)
+    by Computer, Category
