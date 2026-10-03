@@ -1,0 +1,1 @@
+Required to enable application container instances to deploy resources to a specific virtual network subnet via a private IP address

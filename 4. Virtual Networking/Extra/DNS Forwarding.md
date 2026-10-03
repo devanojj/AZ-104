@@ -1,0 +1,1 @@
+DNS queries to be forwarded to another DNS server
