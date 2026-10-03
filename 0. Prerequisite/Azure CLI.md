@@ -77,7 +77,7 @@ Used to see all the DS VM sizes available in Sweden
 
 
 
-
+*Count Heart Beats*
 Heartbeat
 | where TimeGenerated > ago(30m)
 | where Computer =~ "az104-vm0"

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6. Exams/Gemini Practice Exam/Gemini Exams.md",
+                "file": "0. Prerequisite/Azure CLI.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Gemini Exams"
+              "title": "Azure CLI"
             }
           }
         ]
@@ -199,6 +199,9 @@
   },
   "active": "45469228812ab0d4",
   "lastOpenFiles": [
+    "AZ-104.md",
+    "6. Exams/Microsoft Practice Exam/Exam Notes.md",
+    "6. Exams/Gemini Practice Exam/Gemini Exams.md",
     "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
     "6. Exams/Gemini Practice Exam",
     "6. Exams",
@@ -217,11 +220,8 @@
     "3. Compute Resources/Extra/Virtual Network Profile.md",
     "2. Storage/Extra/Cloud Tiering.md",
     "2. Storage/2.4 Configure Azure Files/Unit 8 - EQ Configure Azure Files.md",
-    "AZ-104.md",
-    "6. Exams/Gemini Practice Exam/Gemini Exams.md",
     "0. Prerequisite/Azure CLI.md",
     "2. Storage/Extra/Storage Account Keys.md",
-    "6. Exams/Microsoft Practice Exam/Exam Notes.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
     "6. Pra",
     "6. Exams/Microsoft Practice Exam/3rd/Correct.md",
