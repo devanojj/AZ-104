@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6. Exams & Labs/Labs/Lab 10.md",
+                "file": "0. Prerequisite/Azure CLI.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lab 10"
+              "title": "Azure CLI"
             }
           }
         ]
@@ -199,8 +199,8 @@
   },
   "active": "98dd1702dae9d285",
   "lastOpenFiles": [
-    "AZ-104 Plan.md",
     "6. Exams & Labs/Labs/Lab 10.md",
+    "AZ-104 Plan.md",
     "6. Exams & Labs/Labs/Lab 11.md",
     "0. Prerequisite/KQL.md",
     "0. Prerequisite/Azure CLI.md",
