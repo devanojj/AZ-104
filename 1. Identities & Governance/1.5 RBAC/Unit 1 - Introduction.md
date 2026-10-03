@@ -36,3 +36,4 @@
 - **Azure Policy** → Enforce **rules/compliance**, not user permissions
 - **Custom role** → Only needed when built-in roles don't provide sufficient permissions
 - `az role assignment create` → CLI alternative, but question specifically asks to use **Azure portal**
+- Custom role in management group, must have Management group ID. `AssignableScopes` must have the group ID. 

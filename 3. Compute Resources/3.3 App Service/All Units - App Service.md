@@ -82,3 +82,7 @@ Autoscale automatically adjusts instance counts to meet workload demand and mini
 
 
 For scaling based on metric + rules, its possible to autoscale with premium app service plan 
+
+- More **CPU/RAM per instance** → **Scale Up**
+- More **users/traffic** → **Scale Out**
+- **Variable demand** → **Autoscale**
