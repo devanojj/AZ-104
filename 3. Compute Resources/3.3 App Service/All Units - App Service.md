@@ -86,3 +86,4 @@ For scaling based on metric + rules, its possible to autoscale with premium app 
 - More **CPU/RAM per instance** → **Scale Up**
 - More **users/traffic** → **Scale Out**
 - **Variable demand** → **Autoscale**
+- URL for staging : staging-<app>.azurewebsites.net

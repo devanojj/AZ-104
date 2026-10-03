@@ -82,3 +82,4 @@ A **Container Group** is a collection of containers scheduled on the same host m
 Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice. 
 
 You can define multiple containers in a single container app to implement the sidecar pattern
+

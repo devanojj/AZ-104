@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0. Prerequisite/Azure CLI.md",
+                "file": "2. Storage/Extra/Sync Group.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Azure CLI"
+              "title": "Sync Group"
             }
           }
         ]
@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "GFS",
+                "query": "Storage Sync",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -199,11 +199,19 @@
   },
   "active": "98dd1702dae9d285",
   "lastOpenFiles": [
+    "3. Compute Resources/Extra/Azure Site Recovery.md",
+    "3. Compute Resources/Extra/ACR.md",
+    "3. Compute Resources/3.5 Containers/All Units - Container.md",
+    "3. Compute Resources/3.5 Containers/Unit 7 - EQ Container Instances.md",
+    "3. Compute Resources/Extra/VM.md",
+    "0. Prerequisite/Azure CLI.md",
+    "3. Compute Resources/3.3 App Service/All Units - App Service.md",
+    "6. Exams & Labs/ChatGPT Practice Exam/Mock Exam 1 - Incorrect.md",
+    "6. Exams & Labs/ChatGPT Practice Exam",
     "3. Compute Resources/Extra/ACI vs ACA.md",
     "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
     "AZ-104 Plan.md",
     "6. Exams & Labs/GitHub Labs/Lab 9.md",
-    "0. Prerequisite/Azure CLI.md",
     "6. Exams & Labs/GitHub Labs/Lab 10.md",
     "6. Exams & Labs/GitHub Labs/Lab 11.md",
     "0. Prerequisite/KQL.md",
@@ -217,24 +225,16 @@
     "5. Monitor Resources/Extra/Alert Types.md",
     "5. Monitor Resources/Extra/Cost.md",
     "4. Virtual Networking/Extra/Virtual Network Link.md",
-    "3. Compute Resources/3.3 App Service/All Units - App Service.md",
     "3. Compute Resources/Extra/PVC.md",
     "3. Compute Resources/Extra/VM Sizes.md",
-    "3. Compute Resources/Extra/VM.md",
     "2. Storage/Extra/Sync Group.md",
     "1. Identities & Governance/1.5 RBAC/Unit 1 - Introduction.md",
-    "1. Identities & Governance/Extra/MFA.md",
-    "5. Monitor Resources/Extra/Alert Suppression.md",
-    "4. Virtual Networking/Extra/DNS Forwarding.md",
-    "3. Compute Resources/Extra/Virtual Network Profile.md",
-    "2. Storage/Extra/Cloud Tiering.md",
     "6. Pra",
     "6. Exams & Labs/Microsoft Practice Exam/3rd",
     "_Bicep",
     "5. Monitor Resources/Extra/Untitled",
     "5. Monitor Resources/Extra",
     "4. Virtual Networking/Extra",
-    "3. Compute Resources/Extra",
     "4. Virtual Networking/Extra/Private DNS Zone Structure.canvas",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "5. Monitor Resources/Untitled.canvas",

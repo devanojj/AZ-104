@@ -9,3 +9,5 @@ Status of the failover (Re-protected)
 
 *Failover confirmed*
 Permanently completes failover 
+
+Replicates VMs continuously to a secondary region 
