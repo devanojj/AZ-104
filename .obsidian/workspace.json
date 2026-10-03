@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0. Prerequisite/Azure CLI.md",
+                "file": "2. Storage/Extra/Cloud Tiering.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Azure CLI"
+              "title": "Cloud Tiering"
             }
           }
         ]
@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Lock",
+                "query": "Tiering",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -199,9 +199,12 @@
   },
   "active": "882c658e7bbc88ff",
   "lastOpenFiles": [
+    "2. Storage/2.4 Configure Azure Files/Unit 8 - EQ Configure Azure Files.md",
+    "2. Storage/Extra/Untitled.md",
     "AZ-104.md",
-    "3. Compute Resources/Extra/Untitled.md",
     "Gemini Exams.md",
+    "0. Prerequisite/Azure CLI.md",
+    "3. Compute Resources/Extra/Untitled.md",
     "2. Storage/Extra/Storage Account Keys.md",
     "6. Microsoft Practice Exam/Exam Notes.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
@@ -220,14 +223,11 @@
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 5 - Public Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 4 - Plan IP Addressing.md",
     "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 2 - Plan Virtual Networks.md",
-    "0. Prerequisite/Azure CLI.md",
     "1. Identities & Governance/1.4 Azure Policy/Unit 5 - Policy Definitions.md",
     "3. Compute Resources/Extra/Azure Automation State Configuration.md",
     "0. Prerequisite/ARM.md",
     "0. Prerequisite/Azure Cloud Shell.md",
     "_Bicep",
-    "1. Identities & Governance/1.6 Password Reset/Unit 5 - Company Branding.md",
-    "1. Identities & Governance/1.6 Password Reset/Unit 3 - Implement Self-Service Reset.md",
     "5. Monitor Resources/Extra/Untitled",
     "5. Monitor Resources/Extra",
     "4. Virtual Networking/Extra",
