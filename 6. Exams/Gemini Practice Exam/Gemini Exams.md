@@ -1,7 +1,7 @@
 *Question 1*
 ~~You need to delegate administrative permissions to allow a helpdesk user to reset passwords only for employees in the Marketing department. You want to ensure the administrator cannot reset passwords for users outside this department. Which feature should you implement?~~
 - ~~A.~~
-    
+
     ~~Administrative Units~~
     
     ~~Correct answer~~
@@ -47,4 +47,5 @@
     ~~Incorrect~~
     
     ~~Resource locks only restrict control-plane management operations and do not alter the replication SKU configuration.~~
+
 

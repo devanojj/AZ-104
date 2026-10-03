@@ -40,6 +40,7 @@ A **Backup Policy** specifies *frequency*, *instant recovery retention*, and *va
 ### Retention Scheme (GFS)
 * **Operational Snapshot Tier:** Instant Restore (1–5 days Standard, 1–30 days Enhanced) for rapid rollbacks
 * **Vault Tier:** Long-term GFS (Grandfather-Father-Son) retention configured for **Daily**, **Weekly**, **Monthly**, and **Yearly** points
+* This allows for multiple retention levels and configuration for it
 
 ---
 

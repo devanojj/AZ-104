@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/Extra/Virtual Network Link.md",
+                "file": "6. Exams/Gemini Practice Exam/Gemini Exams.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Virtual Network Link"
+              "title": "Gemini Exams"
             }
           }
         ]
@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Tiering",
+                "query": "GFS",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -199,6 +199,12 @@
   },
   "active": "45469228812ab0d4",
   "lastOpenFiles": [
+    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
+    "6. Exams/Gemini Practice Exam",
+    "6. Exams",
+    "5. Monitor Resources/Extra/Alert Types.md",
+    "5. Monitor Resources/Extra/Cost.md",
+    "4. Virtual Networking/Extra/Virtual Network Link.md",
     "3. Compute Resources/3.3 App Service/All Units - App Service.md",
     "3. Compute Resources/Extra/PVC.md",
     "3. Compute Resources/Extra/VM Sizes.md",
@@ -207,36 +213,30 @@
     "1. Identities & Governance/1.5 RBAC/Unit 1 - Introduction.md",
     "1. Identities & Governance/Extra/MFA.md",
     "5. Monitor Resources/Extra/Alert Suppression.md",
-    "4. Virtual Networking/Extra/Virtual Network Link.md",
     "4. Virtual Networking/Extra/DNS Forwarding.md",
     "3. Compute Resources/Extra/Virtual Network Profile.md",
     "2. Storage/Extra/Cloud Tiering.md",
     "2. Storage/2.4 Configure Azure Files/Unit 8 - EQ Configure Azure Files.md",
     "AZ-104.md",
-    "Gemini Exams.md",
+    "6. Exams/Gemini Practice Exam/Gemini Exams.md",
     "0. Prerequisite/Azure CLI.md",
     "2. Storage/Extra/Storage Account Keys.md",
-    "6. Microsoft Practice Exam/Exam Notes.md",
+    "6. Exams/Microsoft Practice Exam/Exam Notes.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
     "6. Pra",
-    "6. Microsoft Practice Exam/3rd/Correct.md",
-    "6. Microsoft Practice Exam/3rd/Incorrect.md",
-    "6. Microsoft Practice Exam/3rd",
+    "6. Exams/Microsoft Practice Exam/3rd/Correct.md",
+    "6. Exams/Microsoft Practice Exam/3rd/Incorrect.md",
+    "6. Exams/Microsoft Practice Exam/3rd",
     "6. Microsoft Practice Exam/Untitled.md",
     "0. Prerequisite/WAF.md",
-    "4. Virtual Networking/Extra/Private Endpoint.md",
-    "4. Virtual Networking/Extra/Service Endpoint.md",
-    "4. Virtual Networking/4.1 Configure Virtual Networks/Unit 10 - EQ Configure Virtual Networks.md",
     "_Bicep",
     "5. Monitor Resources/Extra/Untitled",
     "5. Monitor Resources/Extra",
     "4. Virtual Networking/Extra",
     "3. Compute Resources/Extra",
     "2. Storage/Extra",
-    "1. Identities & Governance/Extra",
     "4. Virtual Networking/Extra/Private DNS Zone Structure.canvas",
     "6. Microsoft Practice Exam/Untitled.canvas",
-    "6. Microsoft Practice Exam/2nd",
     "5. Monitor Resources/Untitled.canvas",
     "4. Virtual Networking/Untitled.canvas",
     "Images/Pasted image 20260803225946.png"
