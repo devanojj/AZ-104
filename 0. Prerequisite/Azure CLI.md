@@ -62,7 +62,12 @@ Perform a ping/ICMP test.
 Shows current quota and limit for resource in a region
 
 `az vm list-sizes --location swedencentral --output table` 
-See all the DS VM sizes available in Sweden
+See all the DS VM sizes available in Sweden 
+Old 
+
+`az vm list-skus --location swedencentral --resource-type virtualMachines --output table`
+New 
+
 
 
 
