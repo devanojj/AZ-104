@@ -10,7 +10,6 @@
 ~~Go back over prerequisites~~ 
 
 ###### Labs
-
 *General Labs* 
 ==**Virtual Networking**==
 ~~Create and configure virtual networks~~
@@ -31,13 +30,15 @@ Create a VM using the Azure portal
 ~~Restore Azure virtual machine data~~
 
 *Following GitHub Lab*
-https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator/tree/master/Instructions/Labs
+==**[[Lab 10]]**==
+==**[[Lab 11]]**==
+
 
 ###### Later
 John Savill - Study Cram v2 : 21
 ~~Go back over practice assessment~~ 
 Find more exams - Gemini Exam
-Go back over the YouTube video 
+Go back over the YouTube video MS Learn
 Go back over notes written down 
 
 

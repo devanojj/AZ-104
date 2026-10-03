@@ -1,8 +1,11 @@
 `az group create --name testazure-2 --location eastus`
 Creates resource group
 
-`az group list --output table`
+`az group list --output table` or `az group list`
 Lists resource groups
+
+`az group show`
+Shows one group
 
 `az group delete -n testazure-2`
 Deletes test resource group
@@ -47,39 +50,19 @@ List the ports that the server is listening on
 `Test-NetConnection localhost`
 Perform a ping/ICMP test.
 
-
-
 `-TemplateUri` parameter to specify a web-based location
 
 `TemplateSpecId`  to specify a template that was save to Azure as a template spec.
 
-
-`az login` 
-To login 
-
+`az login` To login 
 
 `` az group delete --name MyResourceGroup``
 
+`az vm list-usage --location swedencentral --query "[?contains(name.value, 'DSv')]" --output table`
+Shows current quota and limit for resource in a region
+
+`az vm list-sizes --location swedencentral --output table` 
+See all the DS VM sizes available in Sweden
 
 
 
-
-az vm list-usage \
-  --location swedencentral \
-  --query "[?contains(name.value, 'DSv')]" \
-  --output table
-
-devano@mac ~ % az vm list-sizes \
-  --location swedencentral \
-  --output table
-
-Used to see all the DS VM sizes available in Sweden
-
-
-
-*Count Heart Beats*
-Heartbeat
-| where TimeGenerated > ago(30m)
-| where Computer =~ "az104-vm0"
-| summarize HeartbeatCount = count(), LastHeartbeat = max(TimeGenerated)
-    by Computer, Category

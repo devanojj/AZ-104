@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "139a94bd1f718cec",
+        "id": "1d2c0555f8204b5f",
         "type": "tabs",
         "children": [
           {
-            "id": "45469228812ab0d4",
+            "id": "98dd1702dae9d285",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0. Prerequisite/Azure CLI.md",
+                "file": "6. Exams & Labs/Labs/Lab 10.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Azure CLI"
+              "title": "Lab 10"
             }
           }
         ]
@@ -197,14 +197,21 @@
       "bases:Create new base": false
     }
   },
-  "active": "45469228812ab0d4",
+  "active": "98dd1702dae9d285",
   "lastOpenFiles": [
-    "AZ-104.md",
-    "6. Exams/Microsoft Practice Exam/Exam Notes.md",
-    "6. Exams/Gemini Practice Exam/Gemini Exams.md",
+    "AZ-104 Plan.md",
+    "6. Exams & Labs/Labs/Lab 10.md",
+    "6. Exams & Labs/Labs/Lab 11.md",
+    "0. Prerequisite/KQL.md",
+    "0. Prerequisite/Azure CLI.md",
+    "0. Prerequisite/Azure Cloud Shell.md",
+    "0. Prerequisite/WAF.md",
+    "6. Exams & Labs/Labs",
+    "6. Exams & Labs/Microsoft Practice Exam/Exam Notes.md",
+    "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
     "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
-    "6. Exams/Gemini Practice Exam",
-    "6. Exams",
+    "6. Exams & Labs/Gemini Practice Exam",
+    "6. Exams & Labs",
     "5. Monitor Resources/Extra/Alert Types.md",
     "5. Monitor Resources/Extra/Cost.md",
     "4. Virtual Networking/Extra/Virtual Network Link.md",
@@ -220,21 +227,14 @@
     "3. Compute Resources/Extra/Virtual Network Profile.md",
     "2. Storage/Extra/Cloud Tiering.md",
     "2. Storage/2.4 Configure Azure Files/Unit 8 - EQ Configure Azure Files.md",
-    "0. Prerequisite/Azure CLI.md",
     "2. Storage/Extra/Storage Account Keys.md",
-    "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
     "6. Pra",
-    "6. Exams/Microsoft Practice Exam/3rd/Correct.md",
-    "6. Exams/Microsoft Practice Exam/3rd/Incorrect.md",
-    "6. Exams/Microsoft Practice Exam/3rd",
-    "6. Microsoft Practice Exam/Untitled.md",
-    "0. Prerequisite/WAF.md",
+    "6. Exams & Labs/Microsoft Practice Exam/3rd",
     "_Bicep",
     "5. Monitor Resources/Extra/Untitled",
     "5. Monitor Resources/Extra",
     "4. Virtual Networking/Extra",
     "3. Compute Resources/Extra",
-    "2. Storage/Extra",
     "4. Virtual Networking/Extra/Private DNS Zone Structure.canvas",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "5. Monitor Resources/Untitled.canvas",
