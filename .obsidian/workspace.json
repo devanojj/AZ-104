@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0. Prerequisite/Azure CLI.md",
+                "file": "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Azure CLI"
+              "title": "Gemini Exams"
             }
           }
         ]
@@ -199,14 +199,15 @@
   },
   "active": "98dd1702dae9d285",
   "lastOpenFiles": [
-    "6. Exams & Labs/Labs/Lab 10.md",
     "AZ-104 Plan.md",
-    "6. Exams & Labs/Labs/Lab 11.md",
-    "0. Prerequisite/KQL.md",
+    "6. Exams & Labs/GitHub Labs/Lab 9.md",
     "0. Prerequisite/Azure CLI.md",
+    "6. Exams & Labs/GitHub Labs/Lab 10.md",
+    "6. Exams & Labs/GitHub Labs/Lab 11.md",
+    "0. Prerequisite/KQL.md",
     "0. Prerequisite/Azure Cloud Shell.md",
     "0. Prerequisite/WAF.md",
-    "6. Exams & Labs/Labs",
+    "6. Exams & Labs/GitHub Labs",
     "6. Exams & Labs/Microsoft Practice Exam/Exam Notes.md",
     "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
     "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
@@ -227,7 +228,6 @@
     "3. Compute Resources/Extra/Virtual Network Profile.md",
     "2. Storage/Extra/Cloud Tiering.md",
     "2. Storage/2.4 Configure Azure Files/Unit 8 - EQ Configure Azure Files.md",
-    "2. Storage/Extra/Storage Account Keys.md",
     "6. Pra",
     "6. Exams & Labs/Microsoft Practice Exam/3rd",
     "_Bicep",

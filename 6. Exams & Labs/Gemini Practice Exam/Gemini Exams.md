@@ -49,3 +49,30 @@
     ~~Resource locks only restrict control-plane management operations and do not alter the replication SKU configuration.~~
 
 
+
+
+Question 8
+
+You are evaluating VM pricing models. Your workload is a non-critical, interruptible batch processing job that can tolerate short downtimes. Which pricing model offers the deepest discounts?
+
+- A.
+    
+    Pay-as-you-go rates
+    
+- B.
+    
+    Spot instances
+    
+    (Your answer)
+    
+    Correct answer
+    
+    Spot instances provide significant cost savings for interruptible workloads that can handle potential preemption.
+    
+- C.
+    
+    Reserved instances
+    
+- D.
+    
+    Hybrid benefit pricing

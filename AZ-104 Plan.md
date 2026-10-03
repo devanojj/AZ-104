@@ -30,6 +30,7 @@ Create a VM using the Azure portal
 ~~Restore Azure virtual machine data~~
 
 *Following GitHub Lab*
+**==[[Lab 9]]==**
 ==**[[Lab 10]]**==
 ==**[[Lab 11]]**==
 
