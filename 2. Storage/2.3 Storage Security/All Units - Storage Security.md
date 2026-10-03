@@ -26,8 +26,9 @@ A signed URI granting delegated, fine-grained, time-limited access without expos
 * **Account SAS:** Secured with **Storage Account Key**; grants access across multiple services or account-level operations.
 
 ### Stored Access Policy
-* Groups SAS parameters server-side for Service SAS on Blob containers, File shares, Queues, and Tables.
+* Groups SAS parameters server-side on Blob containers, File shares, Queues, and Tables.
 * **Key Advantage:** Allows altering permissions/expiry or **revoking access immediately** without rotating account keys.
+* These access tokens all point to the same access policy. 
 
 ---
 ## 4. URI Structure & SAS Parameters
