@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3. Compute Resources/Extra/ACI vs ACA.md",
+                "file": "0. Prerequisite/Azure CLI.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ACI vs ACA"
+              "title": "Azure CLI"
             }
           }
         ]
@@ -199,8 +199,8 @@
   },
   "active": "98dd1702dae9d285",
   "lastOpenFiles": [
-    "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
     "3. Compute Resources/Extra/ACI vs ACA.md",
+    "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
     "AZ-104 Plan.md",
     "6. Exams & Labs/GitHub Labs/Lab 9.md",
     "0. Prerequisite/Azure CLI.md",
