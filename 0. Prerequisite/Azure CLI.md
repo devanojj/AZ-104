@@ -48,6 +48,9 @@ List the ports that the server is listening on
 
 `az resource move` or `Move-Az-Resource`
 
+`az monitor activity-log list` : Retrieve activity log events
+
+
 
 
 

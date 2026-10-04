@@ -97,3 +97,5 @@ Monitoring Data Tiers
 | **Trigger alert when a VM is stopped/deallocated by a user** | Create an Activity Log Alert for `Microsoft.Compute/virtualMachines/deallocate/action`. |
 | **Automate service restart upon alert firing**               | Attach an Action Group configured with an Azure Automation Runbook or Azure Function.   |
 | **Legacy Agent Migration Path**                              | Replace Log Analytics Agent (MMA) with Azure Monitor Agent (AMA).                       |
+
+

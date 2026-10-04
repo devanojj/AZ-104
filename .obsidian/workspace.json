@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AZ-104 Plan.md",
+                "file": "5. Monitor Resources/Extra/Types of Monitor.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AZ-104 Plan"
+              "title": "Types of Monitor"
             }
           }
         ]
@@ -199,6 +199,11 @@
   },
   "active": "98dd1702dae9d285",
   "lastOpenFiles": [
+    "0. Prerequisite/Azure CLI.md",
+    "0. Prerequisite/ARM.md",
+    "5. Monitor Resources/Extra/Types of Monitor.md",
+    "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
+    "AZ-104 Plan.md",
     "2. Storage/Extra/Azure Storage Mover.md",
     "2. Storage/2.3 Storage Security/All Units - Storage Security.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
@@ -209,7 +214,6 @@
     "2. Storage/2.1 Configure Storage/Unit 3 - Storage Types.md",
     "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
-    "AZ-104 Plan.md",
     "Untitled.base",
     "1. Identities & Governance/1.5 RBAC/Unit 3 - Exam Questions.md",
     "4. Virtual Networking/Extra/Virtual Network Link.md",
@@ -221,12 +225,8 @@
     "3. Compute Resources/3.5 Containers/All Units - Container.md",
     "3. Compute Resources/3.5 Containers/Unit 7 - EQ Container Instances.md",
     "3. Compute Resources/Extra/VM.md",
-    "0. Prerequisite/Azure CLI.md",
     "3. Compute Resources/3.3 App Service/All Units - App Service.md",
-    "6. Exams & Labs/ChatGPT Practice Exam/Mock Exam 1 - Incorrect.md",
     "6. Exams & Labs/ChatGPT Practice Exam",
-    "3. Compute Resources/Extra/ACI vs ACA.md",
-    "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
     "6. Exams & Labs/GitHub Labs",
     "6. Exams & Labs/Gemini Practice Exam",
     "6. Exams & Labs",
