@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5. Monitor Resources/Extra/Types of Monitor.md",
+                "file": "2. Storage/Extra/Azure Network Security Perimeter.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Types of Monitor"
+              "title": "Azure Network Security Perimeter"
             }
           }
         ]
@@ -199,9 +199,10 @@
   },
   "active": "98dd1702dae9d285",
   "lastOpenFiles": [
+    "5. Monitor Resources/Extra/Types of Monitor.md",
+    "2. Storage/Extra/Azure Network Security Perimeter.md",
     "0. Prerequisite/Azure CLI.md",
     "0. Prerequisite/ARM.md",
-    "5. Monitor Resources/Extra/Types of Monitor.md",
     "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
     "AZ-104 Plan.md",
     "2. Storage/Extra/Azure Storage Mover.md",
@@ -225,7 +226,6 @@
     "3. Compute Resources/3.5 Containers/All Units - Container.md",
     "3. Compute Resources/3.5 Containers/Unit 7 - EQ Container Instances.md",
     "3. Compute Resources/Extra/VM.md",
-    "3. Compute Resources/3.3 App Service/All Units - App Service.md",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
     "6. Exams & Labs/Gemini Practice Exam",
