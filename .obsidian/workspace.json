@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/Extra/Azure Storage Mover.md",
+                "file": "AZ-104 Plan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Azure Storage Mover"
+              "title": "AZ-104 Plan"
             }
           }
         ]
@@ -199,8 +199,8 @@
   },
   "active": "98dd1702dae9d285",
   "lastOpenFiles": [
-    "2. Storage/2.3 Storage Security/All Units - Storage Security.md",
     "2. Storage/Extra/Azure Storage Mover.md",
+    "2. Storage/2.3 Storage Security/All Units - Storage Security.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 7 - Networking Storage Endpoints.md",
     "2. Storage/2.1 Configure Storage/Unit 6 - Storage Endpoints.md",
