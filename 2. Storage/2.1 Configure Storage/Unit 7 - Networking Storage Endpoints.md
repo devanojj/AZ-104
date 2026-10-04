@@ -31,3 +31,6 @@
 - **Production/isolation → Private Endpoint**
 
 *The Networking node of a storage account provides settings to configure public network access and network routing.* 
+
+Encryption scope can be used to encrypt data at the container or blob level with its own key. It doesn't have to use the key for the whole account. This is done during the creation of the resource. 
+
