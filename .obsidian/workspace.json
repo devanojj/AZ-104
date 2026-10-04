@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/2.3 Storage Security/All Units - Storage Security.md",
+                "file": "2. Storage/Extra/Azure Storage Mover.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "All Units - Storage Security"
+              "title": "Azure Storage Mover"
             }
           }
         ]
@@ -199,6 +199,15 @@
   },
   "active": "98dd1702dae9d285",
   "lastOpenFiles": [
+    "2. Storage/2.3 Storage Security/All Units - Storage Security.md",
+    "2. Storage/Extra/Azure Storage Mover.md",
+    "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
+    "2. Storage/2.1 Configure Storage/Unit 7 - Networking Storage Endpoints.md",
+    "2. Storage/2.1 Configure Storage/Unit 6 - Storage Endpoints.md",
+    "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
+    "2. Storage/2.1 Configure Storage/Unit 4 - Storage Account Types.md",
+    "2. Storage/2.1 Configure Storage/Unit 3 - Storage Types.md",
+    "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
     "AZ-104 Plan.md",
     "Untitled.base",
@@ -218,18 +227,9 @@
     "6. Exams & Labs/ChatGPT Practice Exam",
     "3. Compute Resources/Extra/ACI vs ACA.md",
     "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
-    "6. Exams & Labs/GitHub Labs/Lab 9.md",
-    "6. Exams & Labs/GitHub Labs/Lab 10.md",
-    "6. Exams & Labs/GitHub Labs/Lab 11.md",
-    "0. Prerequisite/KQL.md",
-    "0. Prerequisite/Azure Cloud Shell.md",
-    "0. Prerequisite/WAF.md",
     "6. Exams & Labs/GitHub Labs",
-    "6. Exams & Labs/Microsoft Practice Exam/Exam Notes.md",
-    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
     "6. Exams & Labs/Gemini Practice Exam",
     "6. Exams & Labs",
-    "5. Monitor Resources/Extra/Alert Types.md",
     "6. Pra",
     "6. Exams & Labs/Microsoft Practice Exam/3rd",
     "_Bicep",

@@ -1,0 +1,1 @@
+Service for moving files from on-premises (or other sources) into Azure Storage, without hand-scripting AzCopy or robocopy.

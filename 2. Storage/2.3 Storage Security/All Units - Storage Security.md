@@ -30,6 +30,8 @@ A signed URI granting delegated, fine-grained, time-limited access without expos
 * **Key Advantage:** Allows altering permissions/expiry or **revoking access immediately** without rotating account keys.
 * These access tokens all point to the same access policy. 
 
+`https://learnsorageaz104.blob.core.windows.net/<container-name>`
+
 ---
 ## 4. URI Structure & SAS Parameters
 
