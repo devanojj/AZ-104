@@ -1,9 +1,5 @@
-- Microsoft's cloud storage platform for **modern data storage**
-- Provides: **Object storage**, **Cloud file shares**, **Messaging store**, **NoSQL store**
-- Used by:
-    - Web/mobile/desktop applications
-    - IaaS VMs
-    - PaaS applications
+**Blob - Object storage** | **File - Cloud file shares** | **Queue - Messaging store** | **Table - NoSQL store**
+
 ---
 #### Data Categories
 
@@ -18,7 +14,7 @@
 - **Managed Disks**
     - Persistent **block storage** for Azure VMs
     - Data disks can store: Database files, Website content, Application code
-- Number of data disks depends on **VM size**
+- Number of data disks depends on **VM size**, can be added after VM created
 - **Azure Files**
     - Fully managed cloud **file shares**
 ---
@@ -27,8 +23,9 @@
 - **Blob Storage:** Highly scalable **object storage** & REST-based
 - **Azure Data Lake Storage**
     - Designed for big-data/analytics workloads
-    - Provides **HDFS-compatible** storage
+    - Provides **HDFS-compatible** storage (==**Hadoop Distributed File System**==)
     - Built on Blob Storage with hierarchical namespace
+    - File-level operations & POSIX-style ACLs
 
 ---
 #### Structured Data

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/Extra/Microsoft Defender for Storage.md",
+                "file": "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Microsoft Defender for Storage"
+              "title": "Unit 2 - Implement Azure Storage"
             }
           }
         ]
@@ -236,8 +236,10 @@
       }
     ]
   },
-  "active": "3706dc9372bb588b",
+  "active": "98dd1702dae9d285",
   "lastOpenFiles": [
+    "AZ-104 Plan.md",
+    "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
     "2. Storage/Extra/Microsoft Defender for Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 7 - Networking Storage Endpoints.md",
     "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
@@ -247,7 +249,6 @@
     "0. Prerequisite/Azure CLI.md",
     "0. Prerequisite/ARM.md",
     "5. Monitor Resources/5.3 Azure Monitor VM/Azure Monitor.md",
-    "AZ-104 Plan.md",
     "2. Storage/Extra/Azure Storage Mover.md",
     "2. Storage/2.3 Storage Security/All Units - Storage Security.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
@@ -255,7 +256,6 @@
     "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
     "2. Storage/2.1 Configure Storage/Unit 4 - Storage Account Types.md",
     "2. Storage/2.1 Configure Storage/Unit 3 - Storage Types.md",
-    "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
     "Untitled.base",
     "1. Identities & Governance/1.5 RBAC/Unit 3 - Exam Questions.md",
     "4. Virtual Networking/Extra/Virtual Network Link.md",
