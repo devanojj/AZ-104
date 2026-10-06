@@ -416,3 +416,178 @@ You are hosting a web app in an App Service Plan. You notice the CPU usage is co
 - D.
     
     Upgrade instance size.
+
+
+Question 1
+
+Which storage redundancy strategy is most appropriate for a solution that requires data to be protected against a datacenter-level power outage while maintaining low latency within a single region?
+
+- A.
+    
+    Geo-redundant storage.
+    
+    (Your answer)
+    
+    Incorrect
+    
+    Geo-redundant storage (GRS) is designed for regional disaster recovery, which introduces higher latency due to the geographic distance between copies.
+    
+- B.
+    
+    Zone-redundant storage.
+    
+    Correct answer
+    
+    Zone-redundant storage (ZRS) synchronously replicates data across three availability zones within a single region, protecting data against datacenter failure.
+    
+- C.
+    
+    Read-access geo-redundant storage.
+    
+- D.
+    
+    Locally-redundant storage.
+
+Question 3
+
+What is the primary operational difference between an Account SAS and a Service SAS when granting access to storage resources?
+
+- A.
+    
+    Account SAS provides resource-level access.
+    
+- B.
+    
+    Service SAS bypasses access key reliance.
+    
+- C.
+    
+    Service SAS supports Entra ID identities.
+    
+- D.
+    
+    Account SAS allows cross-service access.
+    
+    (Your answer)
+    
+    Correct answer
+    
+    An Account SAS can delegate access to multiple services (Blob, File, Queue, Table), whereas a Service SAS is restricted to one service.
+
+
+  
+You are required to implement encryption-at-rest for your storage account using keys that you rotate and manage within Azure Key Vault. Which feature must you enable?
+
+- A.
+    
+    Shared Access Signatures.
+    
+- B.
+    
+    Customer-managed keys.
+    
+    Correct answer
+    
+    Customer-managed keys (CMK) allow the use of keys stored in Azure Key Vault for encryption, providing full control over rotation and lifecycle.
+    
+- C.
+    
+    Microsoft-managed keys.
+    
+    (Your answer)
+    
+    Incorrect
+    
+    Microsoft-managed keys are automatically handled by Azure and do not allow the customer to manage or rotate the specific keys.
+    
+- D.
+    
+    Storage Service Encryption.
+
+
+
+ou are planning to migrate a large amount of file data to Azure. Which Azure File share tier supports the largest capacity and highest throughput?
+
+- A.
+    
+    Hot transaction-optimized.
+    
+- B.
+    
+    Premium file share.
+    
+    Correct answer
+    
+    Premium file shares provide higher throughput, lower latency, and larger capacity limits compared to standard tier shares.
+    
+- C.
+    
+    Standard file share.
+    
+- D.
+    
+    Cool transaction-optimized.
+    
+    (Your answer)
+    
+    Incorrect
+    
+    The Cool tier is intended for storage efficiency, not for high-throughput or high-performance file sharing workloads.
+
+
+When using AzCopy to synchronize data between a local directory and an Azure Blob container, which command behavior ensures the destination matches the source exactly?
+
+- A.
+    
+    The transfer command.
+    
+- B.
+    
+    The copy command.
+    
+    (Your answer)
+    
+    Incorrect
+    
+    The `azcopy copy` command only uploads files and does not remove obsolete files from the destination directory.
+    
+- C.
+    
+    The sync command.
+    
+    Correct answer
+    
+    The `azcopy sync` command performs a one-way synchronization, ensuring that files in the destination are deleted if they are not in the source.
+    
+- D.
+    
+    The mirror command.
+
+
+When restoring an Azure Virtual Machine, which backup feature allows you to rapidly bring a VM back to a previous state using a snapshot without full data copy?
+
+- A.
+    
+    Backup policy restoration.
+    
+- B.
+    
+    Instant Restore.
+    
+    Correct answer
+    
+    Instant Restore uses the locally stored snapshot from the Recovery Services Vault to create a disk and mount it quickly.
+    
+- C.
+    
+    Cross-region restore.
+    
+- D.
+    
+    Incremental disk restore.
+    
+    (Your answer)
+    
+    Incorrect
+    
+    While incremental backups are used, the specific feature for rapid VM mounting via snapshots is named Instant Restore.

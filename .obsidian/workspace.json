@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/Extra/Storage Actions vs Tasks vs Lifecycle.md",
+                "file": "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Storage Actions vs Tasks vs Lifecycle"
+              "title": "Gemini Exams"
             }
           }
         ]
@@ -182,7 +182,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -237,8 +238,9 @@
   },
   "active": "98dd1702dae9d285",
   "lastOpenFiles": [
-    "2. Storage/Extra/Storage Actions vs Tasks.md",
+    "2. Storage/Extra/Azure Data Lake Storage.md",
     "2. Storage/Extra/Storage Actions vs Tasks vs Lifecycle.md",
+    "2. Storage/Extra/Storage Actions vs Tasks.md",
     "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
     "AZ-104 Plan.md",
     "2. Storage/Extra/Microsoft Defender for Storage.md",
@@ -263,7 +265,6 @@
     "Untitled.md",
     "2026-10-03.md",
     "2. Storage/Extra/Sync Group.md",
-    "3. Compute Resources/Extra/Azure Site Recovery.md",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
     "6. Exams & Labs/Gemini Practice Exam",
