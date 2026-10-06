@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
+                "file": "2. Storage/Extra/Storage vs Tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit 2 - Implement Azure Storage"
+              "title": "Storage vs Tasks"
             }
           }
         ]
@@ -227,8 +227,8 @@
           }
         ],
         "direction": "vertical",
-        "x": -1494,
-        "y": 35,
+        "x": 223,
+        "y": 33,
         "width": 1024,
         "height": 800,
         "maximize": false,
@@ -238,8 +238,9 @@
   },
   "active": "98dd1702dae9d285",
   "lastOpenFiles": [
-    "AZ-104 Plan.md",
     "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
+    "2. Storage/Extra/Storage vs Tasks.md",
+    "AZ-104 Plan.md",
     "2. Storage/Extra/Microsoft Defender for Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 7 - Networking Storage Endpoints.md",
     "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
@@ -264,7 +265,6 @@
     "2. Storage/Extra/Sync Group.md",
     "3. Compute Resources/Extra/Azure Site Recovery.md",
     "3. Compute Resources/Extra/ACR.md",
-    "3. Compute Resources/3.5 Containers/All Units - Container.md",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
     "6. Exams & Labs/Gemini Practice Exam",
