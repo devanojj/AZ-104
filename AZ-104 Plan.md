@@ -43,8 +43,8 @@ Go back over the YouTube video MS Learn
 Go back over notes written down 
 
 
-**What to cover:**
 
+*Storage*
 1. **Storage account basics**
     - Account types: Standard GPv2 vs Premium (block blob, file shares, page blob)
     - Redundancy: LRS, ZRS, GRS, GZRS, RA-GRS, RA-GZRS. Know which survives a zone failure vs a region failure, and which gives read access to the secondary.

@@ -49,180 +49,103 @@
     ~~Resource locks only restrict control-plane management operations and do not alter the replication SKU configuration.~~
 
 
+==You are evaluating VM pricing models. Your workload is a non-critical, interruptible batch processing job that can tolerate short downtimes. Which pricing model offers the deepest discounts?==
+
+- ==A.==
+    
+    ==Pay-as-you-go rates==
+- ==B.==
+    
+    ==Spot instances==
+    
+    ==(Your answer)==
+    
+    ==Correct answer==
+    
+    ==Spot instances provide significant cost savings for interruptible workloads that can handle potential preemption.==
+- ==C.==
+    
+    ==Reserved instances==
+- ==D.==
+    
+    ==Hybrid benefit pricing==
 
 
-Question 8
+==You need to host an application across two different availability zones within the same region to ensure high availability. Which feature allows you to group virtual machines specifically to ensure they are physically separated?==
 
-You are evaluating VM pricing models. Your workload is a non-critical, interruptible batch processing job that can tolerate short downtimes. Which pricing model offers the deepest discounts?
-
-- A.
+- ==A.==
+    ==Availability sets==
+    ==(Your answer)==
+    ==Incorrect==
+    ==Availability sets protect VMs within a single datacenter using fault and update domains, not across multiple zones.==   
+- ==B.==
     
-    Pay-as-you-go rates
+    ==Availability zones==
     
-- B.
+    ==Correct answer==
     
-    Spot instances
+    ==Availability zones are physically separate locations within an Azure region designed to protect against datacenter failures.==
+- ==C.==
     
-    (Your answer)
+    ==Proximity placement==  
+- ==D.==
     
-    Correct answer
-    
-    Spot instances provide significant cost savings for interruptible workloads that can handle potential preemption.
-    
-- C.
-    
-    Reserved instances
-    
-- D.
-    
-    Hybrid benefit pricing
+    ==Update domains==
 
 
-Question 9
-
-You need to host an application across two different availability zones within the same region to ensure high availability. Which feature allows you to group virtual machines specifically to ensure they are physically separated?
-
-- A.
+==You want to ensure that your Azure Storage Account is accessible only from a specific subnet within your virtual network. What configuration should you perform?==
+- ==A.==
+    ==Service Endpoints==
     
-    Availability sets
+    ==Correct answer==
     
-    (Your answer)
+    ==Service Endpoints secure the path between the VNet and the storage service, allowing access only from the specified subnet.==    
+- ==B.==
     
-    Incorrect
+    ==IP Firewall== 
+- ==C.==
     
-    Availability sets protect VMs within a single datacenter using fault and update domains, not across multiple zones.
+    ==Network Security Group==
     
-- B.
+    ==(Your answer)==
     
-    Availability zones
+    ==Incorrect==
     
-    Correct answer
+    ==NSGs filter traffic at the VM interface level and cannot restrict storage account network access rules directly.==
+- ==D.==
     
-    Availability zones are physically separate locations within an Azure region designed to protect against datacenter failures.
-    
-- C.
-    
-    Proximity placement
-    
-- D.
-    
-    Update domains
+    ==Private Endpoints==
 
 
-You have a Management Group that contains several subscriptions. You need to ensure a user can view all resources across these subscriptions but cannot modify them. Which scope should you assign the `Reader` role to?
-
-- A.
+==You are deploying a set of virtual machines that require maximum uptime. You want to ensure they are physically separated across independent hardware. Which configuration should you choose?==
+- ==A.==
     
-    Subscription
+    ==Scale Sets==    
+- ==B.==
     
-    (Your answer)
+    ==Availability Zones==
     
-    Incorrect
+    ==Correct answer==
     
-    Assigning at the subscription level would require individual assignments for every subscription in the group.
+    ==Availability Zones provide physically separate power, cooling, and networking within a single Azure region.==
+- ==C.==
     
-- B.
+    ==Resource Groups==
+- ==D.==
     
-    Subscription Root
+    ==Availability Sets==
     
-- C.
+    ==(Your answer)==
     
-    Management Group
+    ==Incorrect==
     
-    Correct answer
-    
-    Assigning a role at the Management Group scope grants the permission to all subscriptions contained within that hierarchy.
-    
-- D.
-    
-    Resource Group
-
-  
-5 / 20
-
-2 
-
-3 
-
-Question 5
-
-You want to ensure that your Azure Storage Account is accessible only from a specific subnet within your virtual network. What configuration should you perform?
-
-- A.
-    
-    Service Endpoints
-    
-    Correct answer
-    
-    Service Endpoints secure the path between the VNet and the storage service, allowing access only from the specified subnet.
-    
-- B.
-    
-    IP Firewall
-    
-- C.
-    
-    Network Security Group
-    
-    (Your answer)
-    
-    Incorrect
-    
-    NSGs filter traffic at the VM interface level and cannot restrict storage account network access rules directly.
-    
-- D.
-    
-    Private Endpoints
+    ==Availability Sets protect within a single datacenter, providing less isolation than Availability Zones.==
 
 
-  
-9 / 20
-
-3 
-
-6 
-
-Question 9
-
-You are deploying a set of virtual machines that require maximum uptime. You want to ensure they are physically separated across independent hardware. Which configuration should you choose?
-
-- A.
-    
-    Scale Sets
-    
-- B.
-    
-    Availability Zones
-    
-    Correct answer
-    
-    Availability Zones provide physically separate power, cooling, and networking within a single Azure region.
-    
-- C.
-    
-    Resource Groups
-    
-- D.
-    
-    Availability Sets
-    
-    (Your answer)
-    
-    Incorrect
-    
-    Availability Sets protect within a single datacenter, providing less isolation than Availability Zones.
-
-
-
-
-Question 12
 
 You are hosting a web app in an App Service Plan. You need to scale the application to handle a sudden, high-traffic surge that exceeds the capacity of the current plan. What strategy is this?
-
 - A.
-    
     Scale up
-    
     (Your answer)
     
     Incorrect
