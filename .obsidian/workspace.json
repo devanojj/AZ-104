@@ -29,12 +29,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3. Compute Resources/Extra/Scale Up vs Scale Out.md",
+                "file": "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Scale Up vs Scale Out"
+              "title": "Gemini Exams"
             }
           }
         ],
@@ -255,8 +255,8 @@
   },
   "active": "9273eba02ebcb6c1",
   "lastOpenFiles": [
-    "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
     "3. Compute Resources/Extra/Scale Up vs Scale Out.md",
+    "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
     "3. Compute Resources/Extra/Availability Zone vs Set.md",
     "4. Virtual Networking/Extra/Availability Zone vs Sets.md",
     "AZ-104 Plan.md",

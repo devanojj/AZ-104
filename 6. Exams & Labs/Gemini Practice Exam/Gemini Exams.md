@@ -142,47 +142,36 @@
     ==Availability Sets protect within a single datacenter, providing less isolation than Availability Zones.==
 
 
-
-You are hosting a web app in an App Service Plan. You need to scale the application to handle a sudden, high-traffic surge that exceeds the capacity of the current plan. What strategy is this?
-- A.
-    Scale up
-    (Your answer)
+==You are hosting a web app in an App Service Plan. You need to scale the application to handle a sudden, high-traffic surge that exceeds the capacity of the current plan. What strategy is this?==
+- ==A.==
+    ==Scale up==
+    ==(Your answer)==
     
-    Incorrect
+    ==Incorrect==
     
-    Scaling up involves increasing the power of the instances (CPU/RAM), which is better for compute-intensive tasks.
+    ==Scaling up involves increasing the power of the instances (CPU/RAM), which is better for compute-intensive tasks.==
+- ==B.==
     
-- B.
+    ==Provisioning==
+- ==C.==
     
-    Provisioning
+    ==Scale out==
     
-- C.
+    ==Correct answer==
     
-    Scale out
+    ==Scaling out involves adding more instances to handle increased load, which is appropriate for high traffic surges.==
+- ==D.==
     
-    Correct answer
-    
-    Scaling out involves adding more instances to handle increased load, which is appropriate for high traffic surges.
-    
-- D.
-    
-    Vertical scaling
-
+    ==Vertical scaling==
 
 A Network Security Group (NSG) has a default rule. What happens to inbound traffic that does not match any custom security rules?
-
 - A.
     
-    Implicitly denied
-    
-    Correct answer
-    
+    Implicitly denied Correct answer
     NSGs have default rules that implicitly deny all inbound traffic unless specifically allowed by a higher-priority rule.
-    
 - B.
     
     Implicitly allowed
-    
 - C.
     
     Dropped silently
@@ -192,7 +181,6 @@ A Network Security Group (NSG) has a default rule. What happens to inbound traff
     Incorrect
     
     While the traffic is blocked, 'Implicitly denied' is the standard terminology for default NSG behavior.
-    
 - D.
     
     Forwarded onwards
