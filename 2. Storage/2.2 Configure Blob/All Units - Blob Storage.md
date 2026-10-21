@@ -8,7 +8,9 @@ Azure Blob Storage provides massively scalable, unstructured object storage in t
 
 #### Storage Account Kinds
 * **General-purpose v2 (GPv2):** Supports all blob types, all access tiers (Hot, Cool, Cold, Archive), and all storage features.
-* **Premium Block Blobs:** High transaction rates, low and consistent latency (SSD-backed).
+
+* **Premium Block Blobs:** High transaction rates, low and consistent latency (SSD-backed Higher storage cost but a lower transaction cost as compared to GPv2. 
+
 * **Premium Page Blobs:** For random read/write storage (unmanaged disks).
 
 ---

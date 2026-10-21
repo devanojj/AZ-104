@@ -1,27 +1,21 @@
-Consolidated revision note for the exam area **Implement and manage storage (15–20%)**, skills measured as of **17 April 2026**.
-
-The official sub-skills are only three groups:
-1. **Configure access to storage** — firewalls & VNets, SAS tokens, stored access policies, access keys, identity-based access for Azure Files
-2. **Configure and manage storage accounts** — create/configure accounts, redundancy, object replication, encryption, Storage Explorer & AzCopy
+*Three groups:*
+1. **Configure access to storage** — Firewalls & VNets, SAS tokens, stored access policies, access keys, identity-based access for Azure Files
+2. **Configure and manage storage accounts** — Create/configure accounts, redundancy, object replication, encryption, Storage Explorer & AzCopy
 3. **Configure Azure Files and Azure Blob Storage** — file shares, blob containers, storage tiers, soft delete (blobs + containers), snapshots & soft delete for Files, blob lifecycle management, blob versioning
-
-> [!tip] How to use this note
-> Everything below is ordered by the deep-dive plan, not by Microsoft's grouping. If you can justify **why** you'd pick one option over another in section 8, storage is covered.
-> Practice questions for every section are in [[Storage Deep Dive - EQ]].
 
 ---
 ## 1. Storage Account Basics
 
 ### Account Types
-|Type|Performance|Supports|Use When|
-|---|---|---|---|
-|**Standard general-purpose v2 (GPv2)**|Standard (HDD)|Blob, Files, Queue, Table, Data Lake Gen2|Default answer for almost every scenario|
-|**Premium block blobs**|Premium (SSD)|Block + append blobs only|High transaction rates, small objects, low latency|
-|**Premium file shares**|Premium (SSD)|Azure Files only (SMB + NFS)|Enterprise/high-performance file shares, **NFS needs Premium**|
-|**Premium page blobs**|Premium (SSD)|Page blobs only|Unmanaged disks / VHDs|
+| Type                                   | Performance    | Supports                                  | Use When                                                       |
+| -------------------------------------- | -------------- | ----------------------------------------- | -------------------------------------------------------------- |
+| **Standard general-purpose v2 (GPv2)** | Standard (HDD) | Blob, Files, Queue, Table, Data Lake Gen2 | Default answer for almost every scenario                       |
+| **Premium block blobs**                | Premium (SSD)  | Block + append blobs only                 | High transaction rates, small objects, low latency             |
+| **Premium file shares**                | Premium (SSD)  | Azure Files only (SMB + NFS)              | Enterprise/high-performance file shares, **NFS needs Premium** |
+| **Premium page blobs**                 | Premium (SSD)  | Page blobs only                           | Unmanaged disks / VHDs                                         |
 
-* **Legacy:** GPv1 and BlobStorage accounts still exist — the exam answer is to **upgrade to GPv2**.
-* **Premium accounts cannot be geo-redundant** → only **LRS** or **ZRS**.
+* **Legacy:** GPv1 and BlobStorage accounts still exist — the exam answer is to upgrade to GPv2.
+* Premium accounts cannot be geo-redundant → only LRS or ZRS.
 * Performance tier (Standard vs Premium) is **chosen at creation and cannot be changed** — you must create a new account and copy data.
 * Account name: **3–24 characters, lowercase letters and numbers only, globally unique** (forms the DNS name).
 
@@ -52,13 +46,13 @@ Full detail in [[Unit 5 - Replication]]. Decision table:
 * **RA-** prefix is the *only* way to read the secondary without a failover.
 
 ### Changing Redundancy After Creation
-|Change|Method|
-|---|---|
-|LRS ⇄ GRS / RA-GRS (same region pair)|Portal switch, no downtime|
-|ZRS ⇄ GZRS / RA-GZRS|Portal switch|
-|**LRS → ZRS** (adding zone redundancy)|**Conversion** — customer-initiated or Microsoft-initiated|
-|GRS → GZRS|Must first remove geo-redundancy, convert, then re-add|
-|Standard ⇄ Premium|**Not supported** — new account + AzCopy|
+| Change                                 | Method                                                     |
+| -------------------------------------- | ---------------------------------------------------------- |
+| LRS ⇄ GRS / RA-GRS (same region pair)  | Portal switch, no downtime                                 |
+| ZRS ⇄ GZRS / RA-GZRS                   | Portal switch                                              |
+| **LRS → ZRS** (adding zone redundancy) | **Conversion** — customer-initiated or Microsoft-initiated |
+| GRS → GZRS                             | Must first remove geo-redundancy, convert, then re-add     |
+| Standard ⇄ Premium                     | **Not supported** — new account + AzCopy                   |
 
 > [!warning] Conversion limits
 > Conversion requires the region to support availability zones, and you cannot convert while a geo-failover is in progress. To go from GRS straight to GZRS the practical path is: **GRS → LRS → ZRS → GZRS**, or a manual migration.
