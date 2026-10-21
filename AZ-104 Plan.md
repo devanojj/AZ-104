@@ -9,42 +9,8 @@
 ~~Go back over 1.4.6 / All of 1.5 / All of 1.6~~
 ~~Go back over prerequisites~~ 
 
-###### Labs
-*General Labs* 
-==**Virtual Networking**==
-~~Create and configure virtual networks~~
-~~Implement virtual networking~~
-Host your domain on Azure DNS: Exercise - Create alias records for Azure DNS
-~~Implement Intersite Connectivity~~
-~~Route traffic through the NVA~~
 
-**==Storage Account==**
-~~Provide storage for the public website~~
-~~Manage Azure Storage~~
-
-==**Computer Resources**==
-Create a VM using the Azure portal
-~~Implement Web Apps~~
-
-==**Monitor & Backup**==
-~~Restore Azure virtual machine data~~
-
-*Following GitHub Lab*
-**==[[Lab 9]]==**
-==**[[Lab 10]]**==
-==**[[Lab 11]]**==
-
-
-###### Later
-John Savill - Study Cram v2 : 21
-~~Go back over practice assessment~~ 
-Find more exams : Gemini Exam, ChatGPT Exam 
-Go back over the YouTube video MS Learn
-Go back over notes written down 
-
-
-
-*Storage*
+###### Storage Deep Dive
 1. **Storage account basics**
     - Account types: Standard GPv2 vs Premium (block blob, file shares, page blob)
     - Redundancy: LRS, ZRS, GRS, GZRS, RA-GRS, RA-GZRS. Know which survives a zone failure vs a region failure, and which gives read access to the secondary.
@@ -87,4 +53,40 @@ Go back over notes written down
 - Create a file share, mount it from a VM, and take a snapshot
 
 If you can explain _why_ you'd pick one option over another for each of these, storage is covered.
+
+
+
+###### Labs
+*General Labs* 
+==**Virtual Networking**==
+~~Create and configure virtual networks~~
+~~Implement virtual networking~~
+Host your domain on Azure DNS: Exercise - Create alias records for Azure DNS
+~~Implement Intersite Connectivity~~
+~~Route traffic through the NVA~~
+
+**==Storage Account==**
+~~Provide storage for the public website~~
+~~Manage Azure Storage~~
+
+==**Computer Resources**==
+Create a VM using the Azure portal
+~~Implement Web Apps~~
+
+==**Monitor & Backup**==
+~~Restore Azure virtual machine data~~
+
+*Following GitHub Lab*
+**==[[Lab 9]]==**
+==**[[Lab 10]]**==
+==**[[Lab 11]]**==
+
+
+###### Later
+John Savill - Study Cram v2 : 21
+~~Go back over practice assessment~~ 
+Find more exams : Gemini Exam, ChatGPT Exam 
+Go back over the YouTube video MS Learn
+Go back over notes written down 
+
 
