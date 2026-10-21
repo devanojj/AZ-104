@@ -286,16 +286,16 @@ Two ways:
 See also [[Storage Actions vs Tasks vs Lifecycle]].
 
 ### Data Protection Features
-|Feature|Protects Against|Granularity|Notes|
-|---|---|---|---|
-|**Blob soft delete**|Deleted/overwritten blobs|Per blob|Retention **1–365 days**|
-|**Container soft delete**|Deleted containers|Per container|Retention **1–365 days**; restores the container **with the same name** — does not recover individual blobs|
-|**Blob versioning**|Overwrites|Automatic version per write|Each version billed; combine with lifecycle to delete old versions|
-|**Snapshots**|Point-in-time copy|Manual, read-only|You manage them; billed only for differing blocks|
-|**Point-in-time restore**|Bulk accidental delete/overwrite|Container or prefix|**Requires** versioning + change feed + blob soft delete|
-|**Immutability (WORM)**|Any delete/modify|Container or version|Legal hold or time-based retention|
-|**Change feed**|—|Ordered, durable log of all changes|Prerequisite for PITR and object replication|
-|**Object replication**|—|Async copy to another account|Needs versioning + change feed on source|
+| Feature                   | Protects Against                 | Granularity                         | Notes                                                                                                       |
+| ------------------------- | -------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Blob soft delete**      | Deleted/overwritten blobs        | Per blob                            | Retention **1–365 days**                                                                                    |
+| **Container soft delete** | Deleted containers               | Per container                       | Retention **1–365 days**; restores the container **with the same name** — does not recover individual blobs |
+| **Blob versioning**       | Overwrites                       | Automatic version per write         | Each version billed; combine with lifecycle to delete old versions                                          |
+| **Snapshots**             | Point-in-time copy               | Manual, read-only                   | You manage them; billed only for differing blocks                                                           |
+| **Point-in-time restore** | Bulk accidental delete/overwrite | Container or prefix                 | **Requires** versioning + change feed + blob soft delete                                                    |
+| **Immutability (WORM)**   | Any delete/modify                | Container or version                | Legal hold or time-based retention                                                                          |
+| **Change feed**           | —                                | Ordered, durable log of all changes | Prerequisite for PITR and object replication                                                                |
+| **Object replication**    | —                                | Async copy to another account       | Needs versioning + change feed on source                                                                    |
 
 > [!warning] Ordering trap
 > Soft delete, versioning and snapshots **do not protect against deleting the storage account or the whole container's contents at scale** — that's what **point-in-time restore** and **resource locks** are for. And nothing in this table survives account deletion: pair with a **`CanNotDelete` lock**.
@@ -420,17 +420,17 @@ Turns a Windows Server into a cache of an Azure file share. See [[Sync Group]] a
 ---
 ## 6. Tools
 
-|Tool|What It Is|Use When|
-|---|---|---|
-|**Azure Storage Explorer**|Free cross-platform GUI desktop app|Browse/manage blobs, files, queues, tables, ADLS; attach via Entra ID, SAS, key, or connection string; manage ACLs|
-|**AzCopy**|Command-line copy utility|Bulk upload/download, account-to-account copy (**server-to-server**, no local hop), sync, resumable jobs. Auth with `azcopy login` (Entra) or a SAS|
-|**Azure Portal / Cloud Shell**|Browser|Ad-hoc, small files|
-|**Azure PowerShell / CLI**|Scripted|Automation|
-|**Azure Import/Export**|Ship your own disks to a datacentre; now surfaced as part of the **Azure Data Box** resource|Very large offline transfer where network is impractical; export needs a **WAImportExport** journal file|
-|**Azure Data Box / Data Box Disk**|Microsoft-supplied appliance (Disk = import only)|Terabyte-to-petabyte offline migration|
-|**Azure Storage Mover**|Managed migration service, agent-based|Server-side migration of SMB/NFS/S3 into Azure. See [[Azure Storage Mover]]|
-|**Robocopy**|Windows copy tool|Copying into a **mounted** Azure file share preserving ACLs|
-|**Azure Data Factory**|Pipeline/ETL|Scheduled, transformed data movement|
+| Tool                               | What It Is                                                                                   | Use When                                                                                                                                            |
+| ---------------------------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Azure Storage Explorer**         | Free cross-platform GUI desktop app                                                          | Browse/manage blobs, files, queues, tables, ADLS; attach via Entra ID, SAS, key, or connection string; manage ACLs                                  |
+| **AzCopy**                         | Command-line copy utility                                                                    | Bulk upload/download, account-to-account copy (**server-to-server**, no local hop), sync, resumable jobs. Auth with `azcopy login` (Entra) or a SAS |
+| **Azure Portal / Cloud Shell**     | Browser                                                                                      | Ad-hoc, small files                                                                                                                                 |
+| **Azure PowerShell / CLI**         | Scripted                                                                                     | Automation                                                                                                                                          |
+| **Azure Import/Export**            | Ship your own disks to a datacentre; now surfaced as part of the **Azure Data Box** resource | Very large offline transfer where network is impractical; export needs a **WAImportExport** journal file                                            |
+| **Azure Data Box / Data Box Disk** | Microsoft-supplied appliance (Disk = import only)                                            | Terabyte-to-petabyte offline migration                                                                                                              |
+| **Azure Storage Mover**            | Managed migration service, agent-based                                                       | Server-side migration of SMB/NFS/S3 into Azure. See [[Azure Storage Mover]]                                                                         |
+| **Robocopy**                       | Windows copy tool                                                                            | Copying into a **mounted** Azure file share preserving ACLs                                                                                         |
+| **Azure Data Factory**             | Pipeline/ETL                                                                                 | Scheduled, transformed data movement                                                                                                                |
 
 **AzCopy essentials:**
 ```bash
