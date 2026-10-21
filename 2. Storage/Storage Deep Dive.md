@@ -138,11 +138,11 @@ Three settings on the account:
 ## 3. Access Control (heavily tested)
 
 ### The Three Authorisation Models
-|Model|Credential|Scope|Revocation|Audit|
-|---|---|---|---|---|
-|**Access keys (Shared Key)**|Two 512-bit keys, full root access|Entire account, both planes|Regenerate the key|Poor — no user identity|
-|**SAS token**|Signed URI|Narrow: service / container / blob, time-bound|Rotate key, or delete the **stored access policy**|Poor|
-|**Microsoft Entra ID (RBAC)**|Entra identity / managed identity|Role assignment at MG, sub, RG, account, container, queue|Remove role assignment|**Best** — full identity in logs|
+| Model                         | Credential                         | Scope                                                     | Revocation                                         | Audit                            |
+| ----------------------------- | ---------------------------------- | --------------------------------------------------------- | -------------------------------------------------- | -------------------------------- |
+| **Access keys (Shared Key)**  | Two 512-bit keys, full root access | Entire account, both planes                               | Regenerate the key                                 | Poor — no user identity          |
+| **SAS token**                 | Signed URI                         | Narrow: service / container / blob, time-bound            | Rotate key, or delete the **stored access policy** | Poor                             |
+| **Microsoft Entra ID (RBAC)** | Entra identity / managed identity  | Role assignment at MG, sub, RG, account, container, queue | Remove role assignment                             | **Best** — full identity in logs |
 
 **Order of preference for the exam: Entra ID > SAS > access keys.**
 
@@ -158,11 +158,11 @@ See [[Storage Account Keys]].
 * **Connection string** = account name + key, so it carries full access.
 
 ### SAS Types
-|SAS Type|Signed With|Scope|Revoke By|Max Life|
-|---|---|---|---|---|
-|**User delegation SAS**|**Entra ID credential** (user delegation key)|**Blob and Data Lake only**|Revoke the delegation key or the RBAC role|7 days|
-|**Service SAS**|Account key|One service: blob / file / queue / table|Delete stored access policy, or rotate the key|No hard limit|
-|**Account SAS**|Account key|Multiple services + account-level ops (e.g. `Get Blob Service Properties`, list containers)|Rotate the key only|No hard limit|
+| SAS Type                | Signed With                                   | Scope                                                                                       | Revoke By                                      | Max Life      |
+| ----------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------- | ------------- |
+| **User delegation SAS** | **Entra ID credential** (user delegation key) | **Blob and Data Lake only**                                                                 | Revoke the delegation key or the RBAC role     | 7 days        |
+| **Service SAS**         | Account key                                   | One service: blob / file / queue / table                                                    | Delete stored access policy, or rotate the key | No hard limit |
+| **Account SAS**         | Account key                                   | Multiple services + account-level ops (e.g. `Get Blob Service Properties`, list containers) | Rotate the key only                            | No hard limit |
 
 > [!tip] Best practice
 > **User delegation SAS** is the recommended type — it's the only one not backed by an account key, so it can be audited to an Entra identity and revoked without rotating keys. It requires the caller to hold **Storage Blob Delegator** plus a data role.
@@ -194,19 +194,19 @@ https://<account>.blob.core.windows.net/<container>/<blob>?<sas-token>
 > [!warning] Control plane vs data plane
 > **Owner / Contributor / Reader** are **control-plane** roles — they manage the account but grant **no data access via Entra ID**. Contributor *can* read access keys, so it reaches data indirectly; **Reader cannot**. To read a blob with your own Entra identity you need a **Data** role.
 
-|Role|Grants|
-|---|---|
-|**Storage Blob Data Owner**|Full blob access + POSIX ACL management (ADLS Gen2)|
-|**Storage Blob Data Contributor**|Read, write, **delete** blobs and containers|
-|**Storage Blob Data Reader**|Read and list blobs only|
-|**Storage Blob Delegator**|Get the user delegation key (required to **create** a user delegation SAS)|
-|**Storage File Data SMB Share Reader / Contributor / Elevated Contributor**|SMB share-level access; *Elevated* adds NTFS permission modification|
-|**Storage File Data Privileged Reader / Contributor**|Bypass NTFS ACLs (superuser access to the share)|
-|**Storage Queue Data Contributor / Reader / Message Processor / Message Sender**|Queue data access|
-|**Storage Table Data Contributor / Reader**|Table data access|
-|**Storage Account Contributor**|Manage the account, **read keys**, no direct data access|
-|**Storage Account Key Operator Service Role**|List and regenerate keys only|
-|**Reader and Data Access**|Read keys + read the account|
+| Role                                                                             | Grants                                                                     |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **Storage Blob Data Owner**                                                      | Full blob access + POSIX ACL management (ADLS Gen2)                        |
+| **Storage Blob Data Contributor**                                                | Read, write, **delete** blobs and containers                               |
+| **Storage Blob Data Reader**                                                     | Read and list blobs only                                                   |
+| **Storage Blob Delegator**                                                       | Get the user delegation key (required to **create** a user delegation SAS) |
+| **Storage File Data SMB Share Reader / Contributor / Elevated Contributor**      | SMB share-level access; *Elevated* adds NTFS permission modification       |
+| **Storage File Data Privileged Reader / Contributor**                            | Bypass NTFS ACLs (superuser access to the share)                           |
+| **Storage Queue Data Contributor / Reader / Message Processor / Message Sender** | Queue data access                                                          |
+| **Storage Table Data Contributor / Reader**                                      | Table data access                                                          |
+| **Storage Account Contributor**                                                  | Manage the account, **read keys**, no direct data access                   |
+| **Storage Account Key Operator Service Role**                                    | List and regenerate keys only                                              |
+| **Reader and Data Access**                                                       | Read keys + read the account                                               |
 
 * Data roles can be scoped down to a **single container or queue**, which is the least-privilege answer.
 * **File shares (SMB) do not support container-level RBAC for NTFS** — share-level RBAC sets the share permission, then **NTFS ACLs** apply inside.

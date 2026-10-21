@@ -36,20 +36,6 @@
               "icon": "lucide-file",
               "title": "All Units - Blob Storage"
             }
-          },
-          {
-            "id": "7c905c5c47e9bb91",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Unit 5 - Replication"
-            }
           }
         ]
       }
@@ -230,9 +216,10 @@
   },
   "active": "ab726fe49ea42f00",
   "lastOpenFiles": [
+    "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
+    "2. Storage/Extra/Microsoft Defender for Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
     "2. Storage/Storage Deep Dive.md",
-    "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 3 - Storage Types.md",
     "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
     "2. Storage/Storage Deep Dive - EQ.md",
@@ -244,7 +231,6 @@
     "2. Storage/Extra/Azure Data Lake Storage.md",
     "2. Storage/Extra/Storage Actions vs Tasks vs Lifecycle.md",
     "2. Storage/Extra/Storage Actions vs Tasks.md",
-    "2. Storage/Extra/Microsoft Defender for Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 7 - Networking Storage Endpoints.md",
     "2. Storage/2.1 Configure Storage/Unit 8 - EQ Configure Storage.md",
     "2. Storage/Extra/Azure Front Door & CDN.md",
