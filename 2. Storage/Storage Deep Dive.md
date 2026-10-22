@@ -482,7 +482,7 @@ azcopy jobs resume <job-id>
 ## 9. Portal Practice That Pays Off
 
 - [x] Create a GPv2 account, then change **replication**, **access tier** and **networking** settings
-- [ ] Generate each **SAS type** (account, service, user delegation), then **revoke one via a stored access policy**
+- [x] Generate each **SAS type** (account, service, user delegation), then **revoke one via a stored access policy**
 - [ ] Set a **lifecycle rule** (hot → cool → archive → delete) and read the generated JSON
 - [ ] Apply an **unlocked time-based retention policy**, then lock it and try to delete a blob
 - [ ] Lock the account to one VNet with a **service endpoint**, then swap to a **private endpoint** and watch DNS resolution change
