@@ -1,1 +1,0 @@
-*Write Once Read *
