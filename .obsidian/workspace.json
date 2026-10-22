@@ -8,22 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ab726fe49ea42f00",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2. Storage/Storage Deep Dive.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "Storage Deep Dive"
-            }
-          },
-          {
             "id": "4978a49114e5272e",
             "type": "leaf",
             "state": {
@@ -37,8 +21,7 @@
               "title": "Storage Deep Dive - EQ"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -72,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Storage Sync",
+                "query": "azure file sync",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -93,7 +76,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -217,12 +201,13 @@
   },
   "active": "4978a49114e5272e",
   "lastOpenFiles": [
+    "2. Storage/2.4 Configure Azure Files/All Units - Configure Azure Files.md",
+    "2. Storage/Storage Deep Dive - EQ.md",
     "2. Storage/Storage Deep Dive.md",
     "2. Storage/Extra/Azure Message Bus.md",
     "2. Storage/Extra/WORM vs Policy How it works.md",
     "2. Storage/Extra/Queue Storage vs Service Bus.md",
     "2. Storage/SMB.md",
-    "2. Storage/Storage Deep Dive - EQ.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
     "2. Storage/Extra/Microsoft Defender for Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
@@ -242,7 +227,6 @@
     "2. Storage/Extra/Azure Network Security Perimeter.md",
     "5. Monitor Resources/Extra/Types of Monitor.md",
     "0. Prerequisite/Azure CLI.md",
-    "0. Prerequisite/ARM.md",
     "Untitled.base",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
