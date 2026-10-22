@@ -1,1 +1,0 @@
-One identity source per storage account, and you must disable one before enabling another?

@@ -29,12 +29,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/WORK vs Policy How it works.md",
+                "file": "2. Storage/WORM vs Policy How it works.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "WORK vs Policy How it works"
+              "title": "WORM vs Policy How it works"
             }
           },
           {
@@ -57,30 +57,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. Storage/Queue Storage vs Service Bus.md",
+                "file": "2. Storage/WORM vs Policy How it works.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Queue Storage vs Service Bus"
-            }
-          },
-          {
-            "id": "2cdbe223c29a9c03",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2. Storage/Storage Deep Dive.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Storage Deep Dive"
+              "title": "WORM vs Policy How it works"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -256,14 +242,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "2cdbe223c29a9c03",
+  "active": "6722b74841ec4d95",
   "lastOpenFiles": [
-    "2. Storage/Storage Deep Dive - EQ.md",
     "2. Storage/Storage Deep Dive.md",
-    "2. Storage/SMB.md",
-    "2. Storage/Queue Storage vs Service Bus.md",
+    "2. Storage/Extra/Queue Storage vs Service Bus.md",
     "2. Storage/Extra/Azure Message Bus.md",
-    "2. Storage/WORK vs Policy How it works.md",
+    "2. Storage/WORM vs Policy How it works.md",
+    "2. Storage/SMB.md",
+    "2. Storage/Storage Deep Dive - EQ.md",
     "2. Storage/2.2 Configure Blob/All Units - Blob Storage.md",
     "2. Storage/Extra/Microsoft Defender for Storage.md",
     "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
