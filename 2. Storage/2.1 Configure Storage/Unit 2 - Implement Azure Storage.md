@@ -3,11 +3,11 @@
 ---
 #### Data Categories
 
-|Category|Description|Azure Storage|
-|---|---|---|
-|**Virtual machine data**|Persistent disks and cloud file shares|Managed Disks, Azure Files|
-|**Unstructured data**|Non-relational data with little/no fixed structure|Blob Storage, Data Lake Storage|
-|**Structured data**|Relational/schema-based data|Table Storage, Cosmos DB, Azure SQL|
+| Category                 | Description                                        | Azure Storage                       |
+| ------------------------ | -------------------------------------------------- | ----------------------------------- |
+| **Virtual machine data** | Persistent disks and cloud file shares             | Managed Disks, Azure Files          |
+| **Unstructured data**    | Non-relational data with little/no fixed structure | Blob Storage, Data Lake Storage     |
+| **Structured data**      | Relational/schema-based data                       | Table Storage, Cosmos DB, Azure SQL |
 
 ---
 #### Virtual Machine Data

@@ -283,7 +283,7 @@ Two ways:
 }
 ```
 
-See also [[Storage Actions vs Tasks vs Lifecycle]].
+See also [[Storage Actions vs Tasks]].
 
 ### Data Protection Features
 | Feature                   | Protects Against                 | Granularity                         | Notes                                                                                                       |
