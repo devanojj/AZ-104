@@ -76,8 +76,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -201,8 +200,9 @@
   },
   "active": "4978a49114e5272e",
   "lastOpenFiles": [
-    "2. Storage/2.4 Configure Azure Files/All Units - Configure Azure Files.md",
+    "AZ-104 Plan.md",
     "2. Storage/Storage Deep Dive - EQ.md",
+    "2. Storage/2.4 Configure Azure Files/All Units - Configure Azure Files.md",
     "2. Storage/Storage Deep Dive.md",
     "2. Storage/Extra/Azure Message Bus.md",
     "2. Storage/Extra/WORM vs Policy How it works.md",
@@ -213,7 +213,6 @@
     "2. Storage/2.1 Configure Storage/Unit 5 - Replication.md",
     "2. Storage/2.1 Configure Storage/Unit 3 - Storage Types.md",
     "2. Storage/2.1 Configure Storage/Unit 2 - Implement Azure Storage.md",
-    "AZ-104 Plan.md",
     "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
     "3. Compute Resources/Extra/Scale Up vs Scale Out.md",
     "3. Compute Resources/Extra/Availability Zone vs Set.md",

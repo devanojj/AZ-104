@@ -88,5 +88,6 @@ John Savill - Study Cram v2 : 21
 Find more exams : Gemini Exam, ChatGPT Exam 
 Go back over the YouTube video MS Learn
 Go back over notes written down 
+Azure CLI 
 
 
