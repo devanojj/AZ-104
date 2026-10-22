@@ -85,16 +85,16 @@ Plus: **service endpoints**, **delegation**, **private endpoint network policies
 ### Public IP Addresses — Standard SKU
 **Basic SKU is retired** (no new Basic after 31 March 2025, retired 30 September 2025). Standard is the answer for every public IP question.
 
-|Property|Standard SKU|
-|---|---|
-|**Allocation**|**Static only**|
-|**Security**|**Secure by default — closed to inbound** until an **NSG** allows it|
-|**Availability zones**|No-zone, **zonal**, or **zone-redundant** (zone-redundant needs a region with 3 AZs)|
-|**Routing preference**|**Microsoft network** (default, traffic stays on Microsoft's WAN) or **Internet** (hands off to ISPs sooner, cheaper)|
-|**Tier**|**Regional** (default) or **Global** (required for a **cross-region load balancer** frontend; no AZ support)|
-|**Idle timeout**|4–30 min inbound (default 4)|
-|**Billing**|Charged **whether or not it's attached** — delete unused IPs|
-|**Works with**|Standard LB, NAT gateway, Azure Firewall, Bastion, VPN gateway, App Gateway v2, VM NICs|
+| Property               | Standard SKU                                                                                                          |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **Allocation**         | **Static only**                                                                                                       |
+| **Security**           | **Secure by default — closed to inbound** until an **NSG** allows it                                                  |
+| **Availability zones** | No-zone, **zonal**, or **zone-redundant** (zone-redundant needs a region with 3 AZs)                                  |
+| **Routing preference** | **Microsoft network** (default, traffic stays on Microsoft's WAN) or **Internet** (hands off to ISPs sooner, cheaper) |
+| **Tier**               | **Regional** (default) or **Global** (required for a **cross-region load balancer** frontend; no AZ support)          |
+| **Idle timeout**       | 4–30 min inbound (default 4)                                                                                          |
+| **Billing**            | Charged **whether or not it's attached** — delete unused IPs                                                          |
+| **Works with**         | Standard LB, NAT gateway, Azure Firewall, Bastion, VPN gateway, App Gateway v2, VM NICs                               |
 
 * **Public IP prefix** — a reserved, **contiguous** block of static public IPs. Use it when a partner needs to allow-list a predictable range.
 * **DNS name label** — gives `<label>.<region>.cloudapp.azure.com`.
@@ -118,9 +118,6 @@ Plus: **service endpoints**, **delegation**, **private endpoint network policies
 
 ---
 ## 3. VNet Peering
-
-See also [[VNet Peering]], [[Unit 3 - Transit Gateway]], [[Unit 5 - Extend Peering]].
-
 ### What Peering Is
 * Connects two VNets over the **Microsoft backbone using private IPs** — no gateway, no public internet, low latency.
 * **Regional peering** (same region) or **global peering** (different regions).
@@ -180,9 +177,6 @@ A ↔ B and B ↔ C does **not** give A ↔ C. Options:
 
 ---
 ## 4. Routing & User-Defined Routes
-
-See also [[Unit 2 - Azure Routes]], [[UDR]], [[NVA]], [[Effective Routes]].
-
 ### Default System Routes
 Created automatically for every subnet — you **can't create or delete** them, only override.
 
@@ -202,13 +196,13 @@ Created automatically for every subnet — you **can't create or delete** them, 
 |Service endpoint|**VirtualNetworkServiceEndpoint**|**Only the subnet with the endpoint**|
 
 ### UDR Next Hop Types
-|Next hop|Use for|
-|---|---|
-|**Virtual appliance**|Send to an **NVA / Azure Firewall** — you must give its **private IP** (can be an **internal LB frontend** for HA NVAs)|
-|**Virtual network gateway**|Force traffic to the VPN gateway (**forced tunnelling** of `0.0.0.0/0` to on-prem)|
-|**Virtual network**|Override a route to keep traffic in the VNet|
-|**Internet**|Send directly to the internet (e.g. carve out an exception to forced tunnelling)|
-|**None**|**Drop** the traffic|
+| Next hop                    | Use for                                                                                                                 |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Virtual appliance**       | Send to an **NVA / Azure Firewall** — you must give its **private IP** (can be an **internal LB frontend** for HA NVAs) |
+| **Virtual network gateway** | Force traffic to the VPN gateway (**forced tunnelling** of `0.0.0.0/0` to on-prem)                                      |
+| **Virtual network**         | Override a route to keep traffic in the VNet                                                                            |
+| **Internet**                | Send directly to the internet (e.g. carve out an exception to forced tunnelling)                                        |
+| **None**                    | **Drop** the traffic                                                                                                    |
 
 * You **cannot** create a UDR with next hop `VirtualNetworkServiceEndpoint` or `VNet peering`.
 * **Service tags** can be used as the UDR address prefix (e.g. route `Storage` directly to Internet).
@@ -239,9 +233,6 @@ For a VM to forward traffic it didn't originate:
 
 ---
 ## 5. NSGs & ASGs
-
-See also [[Unit 3 - NSG Rules]], [[Unit 4 - Effective Rules]], [[Unit 6 - Application Security Groups]].
-
 ### NSG Basics
 * **Stateful** L3/L4 filter (5-tuple: source IP, source port, destination IP, destination port, protocol). Return traffic for an allowed flow is automatically allowed.
 * Associate to a **subnet** and/or a **NIC**. **One NSG per subnet** and **one per NIC**, but one NSG can be reused on many subnets/NICs.
@@ -342,8 +333,6 @@ Browser-based **RDP/SSH over TLS (port 443)** from the Azure portal to VMs using
 ---
 ## 7. Service Endpoints vs Private Endpoints (PaaS)
 
-Storage-specific detail is in [[Storage Deep Dive]]; this section is the networking view. See also [[Service Endpoint]] and [[Private Endpoint]].
-
 |  |**Service endpoint**|**Private endpoint**|
 |---|---|---|
 |What it is|Subnet setting that routes traffic to a PaaS **service** over the backbone|A **NIC with a private IP** in your subnet mapped to **one resource instance**|
@@ -417,9 +406,6 @@ See also [[DNS]], [[CNAME]], [[Virtual Network Link]], [[Split-horizon DNS]], [[
 
 ---
 ## 9. Azure Load Balancer
-
-See also [[Azure Health Probe]], [[HA ports]], [[Inbound NAT]], [[General Notes for LB Distribution]].
-
 ### Basics
 * **Layer 4** (TCP/UDP) — no URL, host header, cookie or TLS awareness.
 * **Public LB** (frontend public IP, internet → VMs) or **Internal LB** (frontend private IP, inside VNet / from on-prem).
@@ -461,18 +447,18 @@ Switching modes causes **no downtime**.
 |**Any TCP/UDP** (L4)|**Azure Load Balancer**|**Traffic Manager** (DNS-based) or **cross-region LB**|
 
 ### Troubleshooting Load Balancing
-|Symptom|Likely cause|Fix|
-|---|---|---|
-|Backends show **Down** / Health Probe Status 0%|App **not listening** on the probe port (or bound to `127.0.0.1`)|Start the service / fix the binding|
-||**NSG deny** rule above 65001 blocking `AzureLoadBalancer` / `168.63.129.16`|Add an allow rule for the `AzureLoadBalancer` tag on the probe port|
-||**Guest OS firewall** blocking the probe|Allow the probe port in the OS firewall|
-||**Probe port or HTTP path mismatch**, or path returns 404/500|Point the probe at the right port/path that returns 200|
-||Backend pool empty / references a deleted VM's NIC|Fix the pool membership|
-|Probes healthy but **no data traffic**|VM not listening on the **data** port|Fix the app/port|
-||**NSG blocks the data port** — Standard LB is secure by default|Allow the client source (e.g. `Internet`) on the data port|
-||Backend VM calling the **ILB frontend it's a member of** (hairpin)|Not supported — call the other backend directly or use a separate LB / proxy|
-|Traffic sticks to one VM|**Session persistence** set to Client IP and clients share a NAT IP|Set persistence to None if not needed|
-|Backends can't reach the internet|Private subnet, no outbound rule, or **SNAT port exhaustion**|Add a **NAT gateway** (or outbound rule)|
+| Symptom                                         | Likely cause                                                                 | Fix                                                                          |
+| ----------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Backends show **Down** / Health Probe Status 0% | App **not listening** on the probe port (or bound to `127.0.0.1`)            | Start the service / fix the binding                                          |
+|                                                 | **NSG deny** rule above 65001 blocking `AzureLoadBalancer` / `168.63.129.16` | Add an allow rule for the `AzureLoadBalancer` tag on the probe port          |
+|                                                 | **Guest OS firewall** blocking the probe                                     | Allow the probe port in the OS firewall                                      |
+|                                                 | **Probe port or HTTP path mismatch**, or path returns 404/500                | Point the probe at the right port/path that returns 200                      |
+|                                                 | Backend pool empty / references a deleted VM's NIC                           | Fix the pool membership                                                      |
+| Probes healthy but **no data traffic**          | VM not listening on the **data** port                                        | Fix the app/port                                                             |
+|                                                 | **NSG blocks the data port** — Standard LB is secure by default              | Allow the client source (e.g. `Internet`) on the data port                   |
+|                                                 | Backend VM calling the **ILB frontend it's a member of** (hairpin)           | Not supported — call the other backend directly or use a separate LB / proxy |
+| Traffic sticks to one VM                        | **Session persistence** set to Client IP and clients share a NAT IP          | Set persistence to None if not needed                                        |
+| Backends can't reach the internet               | Private subnet, no outbound rule, or **SNAT port exhaustion**                | Add a **NAT gateway** (or outbound rule)                                     |
 
 **Diagnostics:**
 * **Data Path Availability** metric — is the **frontend** reachable end to end?
@@ -486,19 +472,19 @@ Switching modes causes **no downtime**.
 Network Watcher is **enabled automatically per region** when you create/update a VNet (in the **`NetworkWatcherRG`** resource group). Full tool detail in [[Azure Network Watcher]] and the 4.8 Network Watcher units.
 
 ### Which Tool Answers Which Question
-|Question|Tool|
-|---|---|
-|"Is traffic from VM1 to 10.0.2.4:1433 allowed — and **which rule** blocks it?"|**IP flow verify**|
-|"Which NSGs are in the path and what did each decide?"|**NSG diagnostics**|
-|"What rules are actually applied to this NIC?"|**Effective security rules** (NIC blade)|
-|"Where is traffic to X being **routed**?"|**Next hop**|
-|"What's the full route table on this NIC?"|**Effective routes** (NIC blade)|
-|"Can VM1 reach `sql.contoso.com:1433` **right now**? Where does it fail?"|**Connection troubleshoot** (point-in-time; reports NSG, UDR, DNS, guest firewall, CPU/memory faults)|
-|"Alert me if latency or reachability **changes over time**" (Azure + on-prem)|**Connection monitor** (continuous; needs Log Analytics; Arc agent for on-prem sources)|
-|"I need the **actual packets**"|**Packet capture** (VM extension, saves to storage or local disk)|
-|"Why is the **VPN** down?"|**VPN troubleshoot**|
-|"Show me the resources and how they connect"|**Topology**|
-|"Who talked to whom, allowed or denied, over time?"|**VNet flow logs** + **Traffic analytics**|
+| Question                                                                       | Tool                                                                                                  |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| "Is traffic from VM1 to 10.0.2.4:1433 allowed — and **which rule** blocks it?" | **IP flow verify**                                                                                    |
+| "Which NSGs are in the path and what did each decide?"                         | **NSG diagnostics**                                                                                   |
+| "What rules are actually applied to this NIC?"                                 | **Effective security rules** (NIC blade)                                                              |
+| "Where is traffic to X being **routed**?"                                      | **Next hop**                                                                                          |
+| "What's the full route table on this NIC?"                                     | **Effective routes** (NIC blade)                                                                      |
+| "Can VM1 reach `sql.contoso.com:1433` **right now**? Where does it fail?"      | **Connection troubleshoot** (point-in-time; reports NSG, UDR, DNS, guest firewall, CPU/memory faults) |
+| "Alert me if latency or reachability **changes over time**" (Azure + on-prem)  | **Connection monitor** (continuous; needs Log Analytics; Arc agent for on-prem sources)               |
+| "I need the **actual packets**"                                                | **Packet capture** (VM extension, saves to storage or local disk)                                     |
+| "Why is the **VPN** down?"                                                     | **VPN troubleshoot**                                                                                  |
+| "Show me the resources and how they connect"                                   | **Topology**                                                                                          |
+| "Who talked to whom, allowed or denied, over time?"                            | **VNet flow logs** + **Traffic analytics**                                                            |
 
 * **NSG flow logs:** no new ones since **30 June 2025**, retired **30 September 2027** → **VNet flow logs** (whole VNet, no duplicates, includes AVNM admin rules).
 * Packet capture and Connection monitor need the **Network Watcher Agent** extension on Azure VMs.
@@ -514,8 +500,6 @@ Network Watcher is **enabled automatically per region** when you create/update a
 
 ---
 ## 11. Related Topics — Lower Priority
-
-Not listed in the skills outline, but they appear as answer options and in scenario questions.
 
 ### VPN Gateway
 * Encrypted **IPsec/IKE** tunnels over the internet. Deployed into **`GatewaySubnet`** (/27+). **One VPN gateway per VNet.**

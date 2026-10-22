@@ -95,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -214,6 +215,8 @@
   },
   "active": "fe9a9e71dfce0af7",
   "lastOpenFiles": [
+    "4. Virtual Networking/Extra/Azure Front Door vs Express Route.md",
+    "4. Virtual Networking/Virtual Networking Deep Dive.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive - EQ.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive.md",
     "1. Identities & Governance/Identity & Governance Deep Dive - EQ.md",
@@ -222,7 +225,6 @@
     "3. Compute Resources/Compute Deep Dive.md",
     "2. Storage/Extra/Azure Storage Mover.md",
     "4. Virtual Networking/Virtual Networking Deep Dive - EQ.md",
-    "4. Virtual Networking/Virtual Networking Deep Dive.md",
     "2. Storage/Extra/Backup.md",
     "5. Monitor Resources/Extra/MARS.md",
     "2. Storage/Extra/BCDR.md",
@@ -239,7 +241,6 @@
     "2. Storage/Extra/Azure Message Bus.md",
     "2. Storage/Extra/Azure Disks.md",
     "2. Storage/Extra/Azure Managed Disks.md",
-    "2. Storage/Extra/Azure Front Door & CDN.md",
     "Untitled.base",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
