@@ -580,19 +580,19 @@ Network Watcher is **enabled automatically per region** when you create/update a
 ---
 ## 13. Portal Practice That Pays Off
 
-- [ ] Create a VNet with two subnets, then add an address range and resize a subnet
-- [ ] Peer two VNets, delete one side to see **Disconnected**, then fix it; change an address space and **Sync**
-- [ ] Build hub-spoke: NVA (IP forwarding on) in hub, UDRs in spokes, **Allow forwarded traffic** — test spoke-to-spoke
-- [ ] Create a route table with a `0.0.0.0/0 → None` route and check **Next hop** and **Effective routes**
-- [ ] Put NSGs on both subnet and NIC, block RDP at the NIC, and diagnose with **IP flow verify** and **effective security rules**
-- [ ] Create ASGs for web/app tiers and write NSG rules with them
-- [ ] Deploy **Bastion Developer**, upgrade to **Basic**, connect to a VM in a peered VNet
-- [ ] Add a **service endpoint** for Storage on a subnet and a VNet rule on a storage account
-- [ ] Create a **private endpoint** for blob with Private DNS integration; `nslookup` the account from a VM before and after
-- [ ] Create a public DNS zone, add A, CNAME and an **alias** record to a public IP
-- [ ] Create a **Private DNS zone**, link a VNet with autoregistration, deploy a VM and watch the record appear
-- [ ] Deploy a **public Standard LB** with two VMs, a health probe and an NSG; break the probe and watch **Health Probe Status**
-- [ ] Create a NAT gateway on a private subnet and confirm outbound works
+- [x] Create a VNet with two subnets, then add an address range and resize a subnet
+- [x] Peer two VNets, delete one side to see **Disconnected**, then fix it; change an address space and **Sync**
+- [x] Build hub-spoke: NVA (IP forwarding on) in hub, UDRs in spokes, **Allow forwarded traffic** — test spoke-to-spoke
+- [x] Create a route table with a `0.0.0.0/0 → None` route and check **Next hop** and **Effective routes**
+- [x] Put NSGs on both subnet and NIC, block RDP at the NIC, and diagnose with **IP flow verify** and **effective security rules**
+- [x] Create ASGs for web/app tiers and write NSG rules with them
+- [x] Deploy **Bastion Developer**, upgrade to **Basic**, connect to a VM in a peered VNet
+- [x] Add a **service endpoint** for Storage on a subnet and a VNet rule on a storage account
+- [x] Create a **private endpoint** for blob with Private DNS integration; `nslookup` the account from a VM before and after
+- [x] Create a public DNS zone, add A, CNAME and an **alias** record to a public IP
+- [x] Create a **Private DNS zone**, link a VNet with autoregistration, deploy a VM and watch the record appear
+- [x] Deploy a **public Standard LB** with two VMs, a health probe and an NSG; break the probe and watch **Health Probe Status**
+- [x] Create a NAT gateway on a private subnet and confirm outbound works
 
 ---
 ## 14. One-Line Exam Facts

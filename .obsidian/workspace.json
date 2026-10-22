@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4. Virtual Networking/Virtual Networking Deep Dive.md",
+                "file": "4. Virtual Networking/Virtual Networking Deep Dive - EQ.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Virtual Networking Deep Dive"
+              "title": "Virtual Networking Deep Dive - EQ"
             }
           }
         ],
@@ -215,8 +215,8 @@
   },
   "active": "fe9a9e71dfce0af7",
   "lastOpenFiles": [
-    "4. Virtual Networking/Extra/Azure Front Door vs Express Route.md",
     "4. Virtual Networking/Virtual Networking Deep Dive.md",
+    "4. Virtual Networking/Extra/Azure Front Door vs Express Route.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive - EQ.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive.md",
     "1. Identities & Governance/Identity & Governance Deep Dive - EQ.md",

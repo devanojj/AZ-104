@@ -1,6 +1,3 @@
-Practice questions for [[Virtual Networking Deep Dive]]. Sections mirror that note so you can jump back to whatever you miss.
-
----
 ## 1. Virtual Networks & Subnets
 
 **How many IP addresses can be assigned to resources in a subnet with a /28 prefix?**
