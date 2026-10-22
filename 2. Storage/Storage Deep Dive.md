@@ -483,8 +483,8 @@ azcopy jobs resume <job-id>
 
 - [x] Create a GPv2 account, then change **replication**, **access tier** and **networking** settings
 - [x] Generate each **SAS type** (account, service, user delegation), then **revoke one via a stored access policy**
-- [ ] Set a **lifecycle rule** (hot → cool → archive → delete) and read the generated JSON
-- [ ] Apply an **unlocked time-based retention policy**, then lock it and try to delete a blob
+- [x] Set a **lifecycle rule** (hot → cool → archive → delete) and read the generated JSON
+- [x] Apply an **unlocked time-based retention policy**, then lock it and try to delete a blob
 - [ ] Lock the account to one VNet with a **service endpoint**, then swap to a **private endpoint** and watch DNS resolution change
 - [ ] Create a file share, **mount it from a VM**, take a **snapshot**, restore a file from Previous Versions
 - [ ] Assign **Storage Blob Data Reader** to yourself, remove Contributor, and prove you can read but not write
