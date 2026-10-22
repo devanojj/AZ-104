@@ -14,7 +14,7 @@
 ## 1. Virtual Networks & Subnets
 
 ### VNet Fundamentals
-* A VNet is **regional** and belongs to **one subscription**. It cannot span regions — connect regions with peering or gateways.
+* A VNet is **regional** and belongs to **one subscription**. It cannot span regions, can connect regions with peering or gateways.
 * **Layer 3 only** — no broadcast, multicast, or VLANs.
 * Address space should use **RFC 1918** ranges: `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`.
 * You **cannot** use: `224.0.0.0/4` (multicast), `255.255.255.255/32` (broadcast), `127.0.0.0/8` (loopback), `169.254.0.0/16` (link-local), `168.63.129.16/32` (Azure platform/DNS IP).
@@ -25,12 +25,12 @@
 * Each subnet must sit inside the VNet's address space and **cannot overlap** other subnets.
 * **Azure reserves 5 IPs per subnet:**
 
-|Address (for `10.0.1.0/24`)|Purpose|
-|---|---|
-|`10.0.1.0`|Network address|
-|`10.0.1.1`|Default gateway|
-|`10.0.1.2`, `10.0.1.3`|Azure DNS mapping|
-|`10.0.1.255`|Broadcast|
+| Address (for `10.0.1.0/24`) | Purpose           |
+| --------------------------- | ----------------- |
+| `10.0.1.0`                  | Network address   |
+| `10.0.1.1`                  | Default gateway   |
+| `10.0.1.2`, `10.0.1.3`      | Azure DNS mapping |
+| `10.0.1.255`                | Broadcast         |
 
 * **Smallest IPv4 subnet: /29** (8 − 5 = **3 usable**). Largest: /2. **IPv6 subnets must be exactly /64.**
 
