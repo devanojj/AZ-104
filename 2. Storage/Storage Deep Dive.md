@@ -485,12 +485,12 @@ azcopy jobs resume <job-id>
 - [x] Generate each **SAS type** (account, service, user delegation), then **revoke one via a stored access policy**
 - [x] Set a **lifecycle rule** (hot → cool → archive → delete) and read the generated JSON
 - [x] Apply an **unlocked time-based retention policy**, then lock it and try to delete a blob
-- [ ] Lock the account to one VNet with a **service endpoint**, then swap to a **private endpoint** and watch DNS resolution change
-- [ ] Create a file share, **mount it from a VM**, take a **snapshot**, restore a file from Previous Versions
-- [ ] Assign **Storage Blob Data Reader** to yourself, remove Contributor, and prove you can read but not write
-- [ ] Enable **versioning + change feed + soft delete**, delete blobs, then run a **point-in-time restore**
-- [ ] Run an **AzCopy** server-to-server copy between two accounts with SAS
-- [ ] Trigger a **customer-managed planned failover** on a test GRS account and check the redundancy afterwards
+- [x] Lock the account to one VNet with a **service endpoint**, then swap to a **private endpoint** and watch DNS resolution change
+- [x] Create a file share, **mount it from a VM**, take a **snapshot**, restore a file from Previous Versions
+- [x] Assign **Storage Blob Data Reader** to yourself, remove Contributor, and prove you can read but not write
+- [x] Enable **versioning + change feed + soft delete**, delete blobs, then run a **point-in-time restore**
+- [x] Run an **AzCopy** server-to-server copy between two accounts with SAS
+- [x] Trigger a **customer-managed planned failover** on a test GRS account and check the redundancy afterwards
 
 ---
 ## 10. One-Line Exam Facts

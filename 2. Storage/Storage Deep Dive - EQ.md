@@ -1,4 +1,3 @@
-Practice questions for [[Storage Deep Dive]]. Sections mirror that note so you can jump back to whatever you miss.
 
 ---
 ## 1. Storage Account Basics
