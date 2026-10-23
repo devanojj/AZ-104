@@ -514,7 +514,7 @@
 - One, provided the hierarchical namespace is enabled
 
 **After creating a private endpoint, VMs still connect to the service's public IP. What should you fix?**
-- *Link the matching privatelink private DNS zone to the virtual network (correct)*
+- *Link the matching private link private DNS zone to the virtual network (correct)*
 - Add a service endpoint on the subnet
 - Enable "Allow trusted Microsoft services"
 
