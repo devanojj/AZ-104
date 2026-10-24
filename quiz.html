@@ -1,0 +1,2222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AZ-104 Compute Deep Dive — Quiz</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card: #ffffff;
+    --text: #1f2430;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #4f6bed;
+    --accent-soft: #eef1fd;
+    --good: #0f8a5f;
+    --good-bg: #e7f6ef;
+    --good-line: #9fd9c1;
+    --bad: #c23b4b;
+    --bad-bg: #fdeced;
+    --bad-line: #f0b4bb;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(16,24,40,.05), 0 8px 24px rgba(16,24,40,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171c;
+      --card: #1d2026;
+      --text: #e8eaef;
+      --muted: #9aa1ad;
+      --line: #2c313a;
+      --accent: #8098ff;
+      --accent-soft: #232a3d;
+      --good: #4fcf9b;
+      --good-bg: #16302a;
+      --good-line: #2f6b57;
+      --bad: #ef8e9a;
+      --bad-bg: #331d21;
+      --bad-line: #74424a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 32px 16px 56px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrap { width: 100%; max-width: 680px; }
+
+  header { margin-bottom: 16px; }
+
+  .bar-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .score { font-variant-numeric: tabular-nums; }
+  .score b { color: var(--text); font-weight: 600; }
+
+  .track {
+    height: 6px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .fill {
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: width .25s ease;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 26px 26px 22px;
+  }
+
+  .topic {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  h1.q {
+    font-size: 19px;
+    line-height: 1.45;
+    font-weight: 600;
+    margin: 0 0 18px;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .opt {
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 13px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .opt:hover:not(:disabled) { background: var(--accent-soft); border-color: var(--accent); }
+  .opt:disabled { cursor: default; }
+  .opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .key {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .opt.correct { background: var(--good-bg); border-color: var(--good-line); }
+  .opt.correct .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.wrong { background: var(--bad-bg); border-color: var(--bad-line); }
+  .opt.wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .5; }
+
+  .verdict {
+    margin-top: 18px;
+    padding: 13px 15px;
+    border-radius: 11px;
+    border: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .verdict.good { background: var(--good-bg); border-color: var(--good-line); }
+  .verdict.bad { background: var(--bad-bg); border-color: var(--bad-line); }
+  .verdict .label { font-weight: 600; }
+  .verdict.good .label { color: var(--good); }
+  .verdict.bad .label { color: var(--bad); }
+  .verdict p { margin: 8px 0 0; color: var(--text); }
+
+  .foot {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    min-height: 42px;
+  }
+  .hint { font-size: 13px; color: var(--muted); margin-right: auto; }
+
+  .btn {
+    font: inherit;
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: filter .15s ease;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .btn.ghost { background: transparent; color: var(--accent); border-color: var(--line); }
+  .btn.ghost:hover { background: var(--accent-soft); }
+
+  .hidden { display: none !important; }
+
+  /* results */
+  .result { text-align: center; padding: 10px 0 4px; }
+  .result .big {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+    margin: 6px 0 2px;
+  }
+  .result .sub { color: var(--muted); margin-bottom: 22px; }
+  .result h2 { font-size: 20px; margin: 0; font-weight: 600; }
+
+  .breakdown {
+    text-align: left;
+    border-top: 1px solid var(--line);
+    margin-top: 22px;
+    padding-top: 16px;
+  }
+  .breakdown h3 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); font-weight: 600; margin: 0 0 10px;
+  }
+  .row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 6px 0; font-size: 14px;
+  }
+  .row span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .9em;
+    background: var(--accent-soft);
+    padding: 1px 5px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 520px) {
+    body { padding: 18px 12px 40px; }
+    .card { padding: 20px 17px 18px; border-radius: 12px; }
+    h1.q { font-size: 17.5px; }
+    .opt { padding: 12px 13px; }
+    .hint { display: none; }
+    .btn { flex: 1; }
+    .result .big { font-size: 44px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="bar-top">
+      <span id="progress">Question 1 of 1</span>
+      <span class="score" id="score">Score <b>0</b> / 0</span>
+    </div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+  </header>
+
+  <main class="card">
+    <section id="quiz">
+      <span class="topic" id="topic"></span>
+      <h1 class="q" id="question"></h1>
+      <div class="options" id="options"></div>
+      <div class="verdict hidden" id="verdict"></div>
+      <div class="foot">
+        <span class="hint" id="hint">Pick an answer — or press 1-9</span>
+        <button class="btn hidden" id="next">Next</button>
+      </div>
+    </section>
+
+    <section id="results" class="hidden">
+      <div class="result">
+        <h2 id="verdictTitle">All done</h2>
+        <div class="big" id="finalPct">0%</div>
+        <div class="sub" id="finalScore"></div>
+        <button class="btn" id="restart">Restart</button>
+        <div class="breakdown">
+          <h3>By section</h3>
+          <div id="rows"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const QUESTIONS =
+[
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "Which three elements are required in every ARM template?",
+  "options": [
+   "parameters, variables and resources",
+   "$schema, parameters and outputs",
+   "$schema, contentVersion and resources"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "The person deploying a template must supply the environment name at deployment time. In which template section should you define it?",
+  "options": [
+   "parameters",
+   "variables",
+   "outputs"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "After deployment, a pipeline needs the fully qualified domain name of the web app that the template created. Which template section returns it?",
+  "options": [
+   "outputs",
+   "variables",
+   "functions"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "A template parameter for a storage SKU must only accept Standard_LRS, Standard_GRS or Standard_ZRS. Which property should you add in the ARM template?",
+  "options": [
+   "allowedValues",
+   "defaultValue",
+   "metadata"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "A template parameter holds an administrator password that must not be logged or displayed. Which parameter type should you use?",
+  "options": [
+   "string with a defaultValue",
+   "object",
+   "securestring"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "A template sets a storage account name to `[concat('store', uniqueString(resourceGroup().id))]`. What happens when the template is redeployed to the same resource group?",
+  "options": [
+   "The same name is generated, because uniqueString returns a deterministic hash of its input",
+   "A new random name is generated, creating a second storage account",
+   "The deployment fails because the name already exists"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "Which expression deploys a resource to the same region as the resource group it's deployed into?",
+  "options": [
+   "`[parameters('location')]`",
+   "`[resourceGroup().location]`",
+   "`[subscription().location]`"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "You need an ARM template to create three identical network interfaces from a single resource definition. What should you use?",
+  "options": [
+   "dependsOn",
+   "A condition",
+   "The copy element"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "In an ARM JSON template, a virtual machine must not be created until its network interface exists. What should you add to the VM resource?",
+  "options": [
+   "A condition element",
+   "A dependsOn entry referencing the network interface",
+   "An output referencing the NIC"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "In Bicep, a virtual machine references `nic.id`, where `nic` is the symbolic name of a network interface in the same file. Do you need to add a dependsOn?",
+  "options": [
+   "No, Bicep creates the dependency implicitly when a resource references another's symbolic name",
+   "Yes, Bicep always requires explicit dependencies",
+   "Yes, but only for resources in different resource groups"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "Which Bicep decorator prevents a parameter value from being logged or displayed?",
+  "options": [
+   "@allowed()",
+   "@description()",
+   "@secure()"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "Which Bicep syntax deploys three instances of a resource?",
+  "options": [
+   "A copy element inside the resource",
+   "`[for i in range(0, 3): {...}]`",
+   "`resource x '...' = if (count == 3) {...}`"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "A Bicep file must create a resource group. What must the file declare, and which command deploys it?",
+  "options": [
+   "`targetScope = 'resourceGroup'` and `az deployment group create`",
+   "`targetScope = 'tenant'` and `az deployment tenant create`",
+   "`targetScope = 'subscription'` and `az deployment sub create`"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "What is the default deployment mode for an ARM or Bicep deployment to a resource group?",
+  "options": [
+   "Complete",
+   "Incremental",
+   "Validation"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "You deploy a template in Complete mode to a resource group that contains a storage account not defined in the template. What happens to the storage account?",
+  "options": [
+   "It's left unchanged",
+   "It's deleted",
+   "It's added to the template's outputs"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "You need to see which resources a template will create, modify or delete before running it, without making any changes. What should you use?",
+  "options": [
+   "Complete mode with --no-wait",
+   "az bicep build",
+   "The what-if operation"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "Which command converts an existing ARM JSON template to a Bicep file?",
+  "options": [
+   "az bicep decompile --file main.json",
+   "az bicep build --file main.json",
+   "az group export --name myRG"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "Which command converts a Bicep file into an ARM JSON template?",
+  "options": [
+   "az bicep decompile --file main.bicep",
+   "az bicep build --file main.bicep",
+   "az deployment group validate"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "You need the exact template and parameter values that were used in a deployment last week, ready to redeploy unchanged. Which export option should you use?",
+  "options": [
+   "Export template from the resource group",
+   "Export template from each individual resource",
+   "Export the template from the deployment history"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "Resources were created manually in the portal and later modified by hand. You need a template that reflects their current state. What should you do?",
+  "options": [
+   "Export the template from the deployment history",
+   "Run what-if against the resource group",
+   "Export the template from the resource group"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "Where can you export existing resources directly as a Bicep file?",
+  "options": [
+   "The az group export command",
+   "The Export-AzResourceGroup cmdlet",
+   "The Azure portal's Export template blade"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "A parameter file must supply a VM administrator password without storing it in plain text. What should the parameter file use?",
+  "options": [
+   "A securestring default value in the template",
+   "A variable that reads an environment variable",
+   "A Key Vault reference to a secret"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "Which Azure PowerShell cmdlet deploys a template to a resource group?",
+  "options": [
+   "New-AzResourceGroupDeployment",
+   "New-AzDeployment",
+   "New-AzTemplateSpec"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "What does it mean that ARM template deployments are idempotent?",
+  "options": [
+   "Deploying the same template repeatedly results in the same resources in the same state",
+   "Each deployment creates new copies of all resources",
+   "Templates can only be deployed once to a resource group"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "ARM Templates & Bicep",
+  "q": "Your organisation wants to store approved templates in Azure and let teams deploy them using RBAC permissions. What should you use?",
+  "options": [
+   "A storage account container with a SAS token",
+   "Template specs",
+   "Azure Policy definitions"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "A VM was shut down from inside the guest operating system and shows as Stopped. Is compute still billed?",
+  "options": [
+   "No, compute billing stops whenever the VM isn't running",
+   "Yes, the VM must be Stopped (deallocated) to stop compute charges",
+   "No, but the OS disk is billed at a higher rate"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "Which data is lost when a VM is deallocated?",
+  "options": [
+   "Data on attached data disks",
+   "Data on the temporary disk",
+   "Data on the OS disk"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "A VM is unresponsive because of a suspected problem with the physical host. What should you do to move it to a new host?",
+  "options": [
+   "Reapply the VM",
+   "Redeploy the VM",
+   "Reset the VM password"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "You need to install software automatically on a VM immediately after deployment. Which extension should you use?",
+  "options": [
+   "Custom Script Extension",
+   "Network Watcher Agent",
+   "Azure Monitor Agent"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "You need to run a PowerShell script on a VM that has no RDP access and no public IP. What should you use?",
+  "options": [
+   "Boot diagnostics",
+   "Serial console logs",
+   "Run Command"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "What happens when you resize a running VM to a size that's available on its current hardware cluster?",
+  "options": [
+   "The resize happens with no interruption",
+   "The VM restarts",
+   "The VM is deallocated and must be started manually"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "The VM size you want doesn't appear in the list of available sizes for a running VM. What should you do?",
+  "options": [
+   "Delete the VM and recreate it with the new size",
+   "Deallocate the VM, then resize it",
+   "Request a quota increase for the current size"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "A VM in an availability set must be resized, but the new size isn't available on the cluster hosting the set. What might you need to do?",
+  "options": [
+   "Deallocate all VMs in the availability set, then resize",
+   "Move the VM out of the availability set first",
+   "Change the availability set's fault domain count"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "What does the letter s indicate in the VM size Standard_D4s_v5?",
+  "options": [
+   "The size supports Premium SSD storage",
+   "The size has a local temporary SSD",
+   "The size uses AMD processors"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "Which VM series is designed for workloads that run at low CPU most of the time with occasional spikes?",
+  "options": [
+   "B-series",
+   "F-series",
+   "E-series"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "An in-memory database such as SAP HANA needs a very high memory-to-CPU ratio. Which VM series should you choose?",
+  "options": [
+   "E-series or M-series",
+   "F-series",
+   "L-series"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "A batch-processing workload needs a high CPU-to-memory ratio. Which VM series fits best?",
+  "options": [
+   "E-series",
+   "F-series",
+   "L-series"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "Your organisation has Windows Server licences with Software Assurance and wants to reduce VM costs. What should you use?",
+  "options": [
+   "Azure Spot VMs",
+   "Reserved instances",
+   "Azure Hybrid Benefit"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "An interruptible batch job must run at the lowest possible cost and can tolerate being stopped at any time. What should you use?",
+  "options": [
+   "B-series VMs",
+   "Azure Hybrid Benefit",
+   "Azure Spot VMs"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "A deployment of several D-series VMs fails with a quota error. What should you do?",
+  "options": [
+   "Deploy the VMs into a different resource group",
+   "Change the VMs to a different image",
+   "Request a vCPU quota increase for that VM family in the region"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Creating & Managing Virtual Machines",
+  "q": "A VM won't boot and you need to see a screenshot of its console. What should be enabled?",
+  "options": [
+   "Azure Monitor Agent",
+   "Run Command",
+   "Boot diagnostics"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "Which managed disk type can't be used as an OS disk?",
+  "options": [
+   "Premium SSD",
+   "Ultra Disk",
+   "Standard SSD"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "A database data disk requires 150,000 IOPS. Which disk type should you use?",
+  "options": [
+   "Premium SSD",
+   "Premium SSD v2",
+   "Ultra Disk"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "A production data disk needs sub-millisecond latency, and you want to set its capacity, IOPS and throughput independently. Which disk type should you choose?",
+  "options": [
+   "Premium SSD",
+   "Standard SSD",
+   "Premium SSD v2"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "Which disk type is most cost-effective for web servers and dev/test VMs that need consistent but moderate performance?",
+  "options": [
+   "Standard SSD",
+   "Ultra Disk",
+   "Premium SSD v2"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "You need to increase the size of a VM's OS disk. What must you do first?",
+  "options": [
+   "Detach the OS disk from the VM",
+   "Take a full snapshot of the disk",
+   "Deallocate the VM"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "You need to expand a 1 TiB Premium SSD data disk to 2 TiB on a running VM. What's required?",
+  "options": [
+   "Deallocate the VM before expanding",
+   "Nothing; data disks can be expanded without downtime in this case",
+   "Detach the disk before expanding"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "You need to reduce the size of a managed data disk from 512 GiB to 256 GiB. What should you do?",
+  "options": [
+   "Create a new smaller disk and copy the data, because shrinking a managed disk isn't supported",
+   "Deallocate the VM and change the disk size",
+   "Change the performance tier to a smaller size"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "After you expand a data disk in Azure, Windows still shows the old volume size. What should you do?",
+  "options": [
+   "Detach and reattach the disk",
+   "Extend the volume inside the operating system",
+   "Change the disk's caching setting"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "You need to convert a VM's OS disk from Standard HDD to Premium SSD. What must you do?",
+  "options": [
+   "Take a snapshot and create a new Ultra Disk",
+   "Change the disk type while the VM is running",
+   "Deallocate the VM, change the disk type, and make sure the VM size supports Premium storage"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "How many times per day can you change the type of a managed disk?",
+  "options": [
+   "Once",
+   "Unlimited",
+   "Twice"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "A Premium SSD needs more IOPS temporarily, and the VM can't be restarted. What should you do?",
+  "options": [
+   "Convert the disk to Ultra Disk",
+   "Change the disk's performance tier",
+   "Change the disk caching to ReadWrite"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "You want disk snapshots that are billed only for the data that changed since the previous snapshot. What should you use?",
+  "options": [
+   "Incremental snapshots",
+   "Full snapshots",
+   "Azure Backup instant restore"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "A Windows Server Failover Cluster needs one managed disk attached to two VMs at the same time. What should you configure?",
+  "options": [
+   "Ultra Disk with ReadWrite caching",
+   "A shared disk with maxShares set to 2",
+   "Two disks with zone-redundant storage"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "Which statement describes server-side encryption (SSE) for managed disks?",
+  "options": [
+   "It must be enabled manually and encrypts the temporary disk",
+   "It runs inside the guest OS using BitLocker or DM-Crypt",
+   "It's always on, encrypts disks at rest in the storage cluster, but doesn't encrypt the temp disk or disk caches"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "A compliance requirement says the temporary disk and the OS and data disk caches must be encrypted, without using the VM's CPU. What should you enable?",
+  "options": [
+   "Encryption at host",
+   "Azure Disk Encryption",
+   "Server-side encryption with customer-managed keys"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "You try to enable encryption at host on a new VM, but the option is unavailable. What should you do first?",
+  "options": [
+   "Register the EncryptionAtHost feature for the Microsoft.Compute resource provider on the subscription",
+   "Enable Azure Disk Encryption on the subscription",
+   "Create a disk encryption set"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "You need to enable encryption at host on an existing running VM. What must you do?",
+  "options": [
+   "Deallocate the VM, enable encryption at host, then start it",
+   "Restart the VM from inside the guest OS",
+   "Recreate the VM from a snapshot"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "A VM previously had Azure Disk Encryption enabled. You need to use encryption at host instead. What's required?",
+  "options": [
+   "Create new disks and a new VM, because encryption at host can't be enabled on a VM that has ever used ADE",
+   "Disable ADE, then enable encryption at host on the same disks",
+   "Enable both features together during a maintenance window"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "Your security team must control the keys used to encrypt managed disks. What should you configure?",
+  "options": [
+   "Platform-managed keys with key rotation",
+   "Azure Disk Encryption with a BitLocker recovery key",
+   "A disk encryption set that references a key in Azure Key Vault (customer-managed keys)"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "Which Key Vault setting is mandatory when you use it for customer-managed disk encryption keys?",
+  "options": [
+   "Purge protection",
+   "RBAC authorisation",
+   "A private endpoint"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "What is the status of Azure Disk Encryption (ADE)?",
+  "options": [
+   "It's the recommended encryption for new VMs",
+   "It retires on 15 September 2028; Microsoft recommends encryption at host for new VMs",
+   "It was retired in 2025"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "How does Azure Disk Encryption encrypt a VM's disks?",
+  "options": [
+   "Inside the guest OS using BitLocker (Windows) or DM-Crypt (Linux)",
+   "At the storage cluster, with no impact on the VM",
+   "At the VM host, without using the VM's CPU"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VM Disks & Encryption",
+  "q": "What is the status of unmanaged disks (VHD page blobs in storage accounts attached to VMs)?",
+  "options": [
+   "Supported but not recommended",
+   "Fully retired on 31 March 2026; VMs must use managed disks",
+   "Retiring in 2028"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Moving VMs",
+  "q": "What happens when you move a running VM to a different resource group in the same subscription?",
+  "options": [
+   "The VM keeps running, but its resource ID changes",
+   "The VM is deallocated during the move",
+   "The VM is redeployed to a new host"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Moving VMs",
+  "q": "A move of a VM to another subscription fails with MissingMoveDependentResources. What should you do?",
+  "options": [
+   "Include the dependent resources, such as disks, NIC, VNet, public IP and NSG, in the same move",
+   "Deallocate the VM and retry",
+   "Move the VM first, then its disks"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Moving VMs",
+  "q": "You need to move a VM to a subscription in a different Microsoft Entra tenant. What should you tell the team?",
+  "options": [
+   "Move it from the portal with the cross-tenant option",
+   "Move it with Azure Resource Mover",
+   "Resource moves require both subscriptions to be in the same tenant; you must redeploy instead"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Moving VMs",
+  "q": "You try to move one VM out of an availability set to another resource group by itself. What happens?",
+  "options": [
+   "It succeeds and the VM leaves the availability set",
+   "It isn't supported; VMs in an availability set can't be moved individually",
+   "It succeeds only if the VM is deallocated"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Moving VMs",
+  "q": "You need to move a VM from East US to West Europe. What should you use?",
+  "options": [
+   "A resource move to a resource group in West Europe",
+   "An ARM template export with a new location parameter only",
+   "Azure Resource Mover or Azure Site Recovery"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Moving VMs",
+  "q": "After moving a VM to a new subscription, users who had Contributor on the VM lose access. Why?",
+  "options": [
+   "Role assignments don't move with the resource and must be recreated",
+   "Moves always reset the VM's local accounts",
+   "RBAC is disabled during the 4-hour move lock"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Moving VMs",
+  "q": "A resource move fails immediately even though all dependencies are included. Which lock is the most likely cause?",
+  "options": [
+   "A CanNotDelete lock on the VM",
+   "A ReadOnly lock on the source or destination resource group or subscription",
+   "A tag policy on the destination"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Moving VMs",
+  "q": "A VM with a Standard SKU public IP must move to another subscription. What should you do first?",
+  "options": [
+   "Disassociate the Standard public IP from the VM",
+   "Upgrade the public IP to the Global tier",
+   "Convert the public IP to a public IP prefix"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Moving VMs",
+  "q": "You need to move a resource group and everything in it to another subscription. What should you do?",
+  "options": [
+   "Move the resources into a resource group in the target subscription, because a resource group itself can't be moved",
+   "Move the resource group object to the new subscription",
+   "Use Azure Resource Mover to move the resource group"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Moving VMs",
+  "q": "While a VM is being moved between resource groups, an administrator tries to resize it. What happens?",
+  "options": [
+   "The operation fails, because the source and target resource groups are locked during the move",
+   "The resize is queued and applied after the move",
+   "The move is cancelled"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "What is the maximum number of fault domains in an availability set?",
+  "options": [
+   "3",
+   "2",
+   "5"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "What is the maximum number of update domains in an availability set?",
+  "options": [
+   "20",
+   "5",
+   "3"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "What is the default number of update domains in an availability set?",
+  "options": [
+   "3",
+   "20",
+   "5"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "What does a fault domain represent?",
+  "options": [
+   "A group of VMs rebooted together during planned maintenance",
+   "A separate datacentre within a region",
+   "A group of hardware that shares a common power source and network switch"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "What does an update domain represent?",
+  "options": [
+   "A group of VMs that can be rebooted together during planned maintenance",
+   "Hardware that shares a power source and network switch",
+   "A separate region"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "You need to add an existing VM to an availability set. What must you do?",
+  "options": [
+   "Stop the VM and change its availability setting",
+   "Delete the VM and recreate it in the availability set from its existing disks",
+   "Use Azure Resource Mover"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "What SLA applies to two or more VMs in the same availability set?",
+  "options": [
+   "99.95%",
+   "99.9%",
+   "99.99%"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "What SLA applies to two or more VMs deployed across availability zones?",
+  "options": [
+   "99.9%",
+   "99.99%",
+   "99.95%"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "A single VM uses Standard SSD managed disks. What is its SLA?",
+  "options": [
+   "99.9%",
+   "99.5%",
+   "95%"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "An application must survive the loss of an entire datacentre within a region. What should you use?",
+  "options": [
+   "VMs deployed across availability zones",
+   "An availability set with three fault domains",
+   "A proximity placement group"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "A region doesn't support availability zones. You need protection against a rack or power failure for two VMs. What should you use?",
+  "options": [
+   "A zone-redundant scale set",
+   "A proximity placement group",
+   "An availability set"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "A scale set must run a mix of VM sizes and combine Spot with on-demand instances. Which orchestration mode should you use?",
+  "options": [
+   "Uniform",
+   "Either mode; both support mixed sizes",
+   "Flexible"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "A scale set was created with Uniform orchestration. You now need Flexible orchestration. What should you do?",
+  "options": [
+   "Create a new scale set with Flexible orchestration, because the mode can't be changed after creation",
+   "Change the orchestration mode in the scale set's configuration",
+   "Update the upgrade policy to Rolling"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "What is the maximum number of instances in a single Virtual Machine Scale Set?",
+  "options": [
+   "1,000",
+   "100",
+   "500"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "What is the default upgrade policy for a Virtual Machine Scale Set?",
+  "options": [
+   "Automatic",
+   "Rolling",
+   "Manual"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "You want scale set instances updated in batches while the application stays available. What must be in place for a Rolling upgrade policy?",
+  "options": [
+   "The Application Health extension or a load balancer health probe",
+   "At least two availability sets",
+   "Automatic OS upgrades"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "What is the risk of the Automatic upgrade policy?",
+  "options": [
+   "Instances are never updated until you trigger it",
+   "It only updates instances in one availability zone",
+   "The scale set might take down all instances at the same time to upgrade them"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "When the scale set scales in, the oldest instances must be removed first. Which scale-in policy should you configure?",
+  "options": [
+   "Default",
+   "OldestVM",
+   "NewestVM"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "One scale set instance is running a long job and must not be removed by autoscale. What should you configure?",
+  "options": [
+   "Instance protection: protect from scale-in",
+   "A CanNotDelete resource lock on the scale set",
+   "The NewestVM scale-in policy"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "One scale set instance must also be excluded from upgrades and reimage operations started on the scale set. Which protection should you apply?",
+  "options": [
+   "Protect from scale set actions",
+   "Protect from scale-in",
+   "A ReadOnly lock on the instance's disk"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "Autoscale keeps adding an instance and then removing it minutes later. What should you do?",
+  "options": [
+   "Remove the scale-in rule",
+   "Widen the gap between the scale-out and scale-in thresholds and lengthen the cool down",
+   "Change the scale-in policy to OldestVM"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "When does autoscale use the default instance count?",
+  "options": [
+   "When the scale set is first created",
+   "Every night at midnight UTC",
+   "When metrics aren't available to evaluate the rules"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "A web tier must run 10 instances during business hours on weekdays and 2 at other times. What should you configure?",
+  "options": [
+   "A schedule-based autoscale profile",
+   "A metric rule based on CPU percentage",
+   "Instance protection on 8 instances"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Availability Sets, Zones & Scale Sets",
+  "q": "VMs in a new Flexible scale set can't reach the internet. What is the most likely cause, and fix?",
+  "options": [
+   "The scale set needs automatic OS upgrades enabled",
+   "The upgrade policy must be Rolling",
+   "Flexible scale sets don't get default outbound access; add an explicit method such as a NAT gateway"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "Which Azure Container Registry tier supports geo-replication?",
+  "options": [
+   "Basic",
+   "Premium",
+   "Standard"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "Which Azure Container Registry tier is required to use private endpoints?",
+  "options": [
+   "Basic",
+   "Premium",
+   "Standard"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "What is the lowest Azure Container Registry tier that supports anonymous pull access?",
+  "options": [
+   "Basic",
+   "Premium",
+   "Standard"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "An App Service app must pull images from ACR without storing any credentials. What should you configure?",
+  "options": [
+   "The ACR admin user with its password in an app setting",
+   "A repository-scoped token",
+   "A managed identity for the app with the AcrPull role on the registry"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "A build pipeline must push images to ACR and nothing else. Which role should you assign?",
+  "options": [
+   "AcrPull",
+   "AcrPush",
+   "Contributor"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "What is the default state of the ACR admin user?",
+  "options": [
+   "Enabled with one password",
+   "Enabled only on Premium registries",
+   "Disabled"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "You need to build a container image in Azure from a Dockerfile without Docker installed locally. What should you use?",
+  "options": [
+   "az acr import",
+   "az acr build (ACR Tasks)",
+   "az acr login"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "Images must be rebuilt automatically whenever their base image is updated. What should you configure?",
+  "options": [
+   "An ACR task with a base image update trigger",
+   "An ACR webhook",
+   "Geo-replication"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Containers",
+  "q": "What is the login server for a registry named contosoregistry?",
+  "options": [
+   "contosoregistry.azurecontainer.io",
+   "contosoregistry.azurewebsites.net",
+   "contosoregistry.azurecr.io"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "You need to copy a public image from another registry into your ACR without pulling it to a local machine. What should you use?",
+  "options": [
+   "az acr build",
+   "az acr import",
+   "docker save and docker load"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "What is an Azure Container Instances container group?",
+  "options": [
+   "A set of identical container instances spread across availability zones",
+   "A registry repository that groups related images",
+   "Containers scheduled on the same host that share a lifecycle, network and storage volumes"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "Two containers in the same ACI container group need to communicate. How should they connect?",
+  "options": [
+   "Through each container's own public IP address",
+   "Through localhost on their exposed ports",
+   "Through an Azure Load Balancer"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "You need to deploy a multi-container group of Windows containers in ACI. What should you tell the team?",
+  "options": [
+   "Use a YAML file instead of the portal",
+   "Deploy it into a virtual network",
+   "Multi-container groups support only Linux containers; Windows supports a single container per group"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "How should you deploy an ACI container group that contains a web container and a logging sidecar?",
+  "options": [
+   "The Azure portal Create container instance wizard",
+   "A YAML file or an ARM/Bicep template",
+   "docker compose up against the ACI endpoint"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "What is the default restart policy for an ACI container group?",
+  "options": [
+   "Never",
+   "OnFailure",
+   "Always"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "An ACI container runs a nightly batch job and should only restart if it exits with an error. Which restart policy should you use?",
+  "options": [
+   "OnFailure",
+   "Always",
+   "Never"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Containers",
+  "q": "A container in ACI must keep its data after the container restarts. What should you mount?",
+  "options": [
+   "An emptyDir volume",
+   "An Azure Files share",
+   "A secret volume"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "A database password must be passed to an ACI container without being visible in the portal or API. What should you use?",
+  "options": [
+   "A standard environment variable",
+   "A secure environment variable",
+   "A command-line argument"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "You need to increase an existing ACI container group from 1 CPU to 2 CPUs. What should you do?",
+  "options": [
+   "Update the CPU value in the portal",
+   "Restart the container group with a new CPU value",
+   "Delete the container group and recreate it with the new CPU value"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "How do you autoscale Azure Container Instances based on CPU load?",
+  "options": [
+   "Configure a CPU-based scale rule on the container group",
+   "ACI has no built-in autoscale; deploy more container groups or use Container Apps or AKS",
+   "Set the restart policy to Always"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "An ACI container group has two containers, each requesting 1 CPU and 1.5 GB of memory. What does the group get?",
+  "options": [
+   "1 CPU and 1.5 GB, shared",
+   "2 CPUs and 3 GB",
+   "1 CPU and 3 GB"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "An ACI container group deployed into a virtual network needs outbound internet access. What must you configure?",
+  "options": [
+   "A NAT gateway on the subnet",
+   "A public IP on the container group",
+   "A service endpoint on the subnet"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Containers",
+  "q": "What is the default minimum number of replicas for an Azure Container Apps revision?",
+  "options": [
+   "1",
+   "3",
+   "0"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "What is the default maximum number of replicas for an Azure Container Apps revision?",
+  "options": [
+   "1",
+   "1,000",
+   "10"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "A container app must scale based on the number of messages in an Azure Service Bus queue. Which type of scale rule should you use?",
+  "options": [
+   "Custom (KEDA)",
+   "HTTP",
+   "TCP"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Containers",
+  "q": "A container app is slow on the first request after idle periods. You need at least one replica always running. What should you configure?",
+  "options": [
+   "A minimum replica count of 1",
+   "A maximum replica count of 1",
+   "An HTTP scale rule with a concurrency of 1"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Containers",
+  "q": "You need to send 80% of a container app's traffic to the current version and 20% to a new version. What should you configure?",
+  "options": [
+   "Multiple revision mode with traffic splitting",
+   "Single revision mode with two containers",
+   "Two separate container apps behind Traffic Manager"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Containers",
+  "q": "What is the default revision mode for Azure Container Apps?",
+  "options": [
+   "Multiple",
+   "Labels",
+   "Single"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "Which change to a container app creates a new revision?",
+  "options": [
+   "Adding a secret",
+   "Changing the container image",
+   "Changing ingress settings"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Containers",
+  "q": "A container app must be reachable only from other apps in its environment and the virtual network. How should you configure ingress?",
+  "options": [
+   "External ingress with IP restrictions",
+   "No ingress",
+   "Internal ingress"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "A steady, always-busy container workload needs reserved compute and predictable cost in Container Apps. Which workload profile should you use?",
+  "options": [
+   "Dedicated",
+   "Consumption",
+   "Flexible"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Containers",
+  "q": "You need to run a container task on a schedule until it completes, within an existing Container Apps environment. What should you use?",
+  "options": [
+   "A container app with min replicas 0",
+   "An ACI container group with restart policy Always",
+   "A Container Apps job"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "Does Azure Container Apps support vertical autoscaling of CPU and memory?",
+  "options": [
+   "Yes, through custom KEDA rules",
+   "Yes, in the Dedicated workload profile",
+   "No, only horizontal scaling of replicas is supported"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Containers",
+  "q": "A team needs full access to the Kubernetes API and control over node pools. Which service should you choose?",
+  "options": [
+   "Azure Kubernetes Service",
+   "Azure Container Apps",
+   "Azure Container Instances"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "Three web apps run in the same App Service plan. One app has a CPU spike. What's the effect on the others?",
+  "options": [
+   "None; each app has dedicated instances",
+   "They're moved to a different plan automatically",
+   "They're affected, because all apps in a plan share the same instances"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "What is the lowest App Service plan tier that supports autoscale rules?",
+  "options": [
+   "Basic",
+   "Standard",
+   "Premium v3"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "What is the lowest App Service plan tier that supports deployment slots?",
+  "options": [
+   "Basic",
+   "Free",
+   "Standard"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "What is the maximum number of instances in a Standard App Service plan?",
+  "options": [
+   "10",
+   "3",
+   "30"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "A web app must scale out to 25 instances. Which tier should you choose?",
+  "options": [
+   "Premium v3 or v4",
+   "Basic",
+   "Standard"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "What is the maximum number of instances in a Basic App Service plan?",
+  "options": [
+   "1",
+   "10",
+   "3"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "How many deployment slots does the Premium tier support per app?",
+  "options": [
+   "20",
+   "5",
+   "10"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "An app in a Premium plan has 8 deployment slots. You try to scale the plan down to Standard and it fails. Why?",
+  "options": [
+   "Standard supports only 5 slots, fewer than the app is using",
+   "Standard doesn't support deployment slots",
+   "Slots must be deleted before any scale operation"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "You want App Service to scale out based on HTTP traffic without writing any rules, with prewarmed instances. What should you use, and which tiers support it?",
+  "options": [
+   "Autoscale, Standard and above",
+   "Automatic scaling, Premium v2 to v4",
+   "Manual scale, Basic and above"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "A web app needs more memory per instance. What should you do?",
+  "options": [
+   "Scale out the App Service plan",
+   "Scale up the App Service plan",
+   "Enable per-app scaling"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "You want to move a web app to a different App Service plan. What is a requirement?",
+  "options": [
+   "Both plans must use the same pricing tier",
+   "The target plan must be empty",
+   "The target plan must be in the same resource group and region"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "What is the lowest App Service tier that supports a custom domain with a TLS/SSL binding?",
+  "options": [
+   "Free",
+   "Basic",
+   "Shared"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "You need to map the root domain contoso.com to a web app. Which DNS records should you create?",
+  "options": [
+   "An A record for @ pointing to the app's IP, and a TXT record named asuid",
+   "A CNAME record for @ and a TXT record named asuid",
+   "A CNAME record for www only"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "You need to map www.contoso.com to a web app. Which DNS records should you create?",
+  "options": [
+   "An A record for @ and a TXT record named asuid",
+   "A CNAME record for www pointing to the app's default hostname, and a TXT record named asuid.www",
+   "An MX record for www"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "What is the purpose of the asuid TXT record when you add a custom domain to App Service?",
+  "options": [
+   "It enables HTTPS for the domain",
+   "It verifies that you own the domain",
+   "It routes traffic to the correct deployment slot"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "You need a free certificate for *.contoso.com on App Service. What should you tell the team?",
+  "options": [
+   "Create an App Service managed certificate for the wildcard",
+   "App Service managed certificates don't support wildcards; use an App Service certificate or import one",
+   "Create a managed certificate on a Basic plan"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "Creating a free managed certificate for the root domain contoso.com fails. The app has IP-based access restrictions. What is the cause?",
+  "options": [
+   "Managed certificates only support subdomains",
+   "The app must be reachable from the internet, so access restrictions block issuance",
+   "The plan must be Premium"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "You need a certificate that you can export and use on servers outside App Service. Which option should you choose?",
+  "options": [
+   "An App Service certificate (paid)",
+   "An App Service managed certificate",
+   "A public certificate (.cer)"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "You import a certificate from Key Vault into App Service, and it fails with an access error. What should you do?",
+  "options": [
+   "Enable the Key Vault firewall",
+   "Assign the app's managed identity the Key Vault Administrator role",
+   "Grant the App Service resource provider read access to the vault's certificates and secrets"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "Older clients that don't support SNI must connect to an app over HTTPS. Which binding is required, and from which tier?",
+  "options": [
+   "SNI SSL, Basic",
+   "SNI SSL, Free",
+   "IP-based SSL, Standard"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "All HTTP requests to a web app must be redirected to HTTPS. What should you enable?",
+  "options": [
+   "HTTPS Only",
+   "Minimum TLS version 1.2",
+   "Client certificates"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "Which statement describes App Service automatic backups?",
+  "options": [
+   "They require a storage account and run daily",
+   "They're available only in Premium and Isolated tiers",
+   "They run hourly, need no storage account, and are kept for 30 days"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "An app runs in a Basic plan. Which slots can you back up and restore?",
+  "options": [
+   "All deployment slots",
+   "Only the production slot",
+   "None; backup requires Standard"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "What is the maximum size of an App Service custom backup?",
+  "options": [
+   "30 GB",
+   "4 GB",
+   "10 GB"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "How does App Service authenticate to the storage account for custom backups?",
+  "options": [
+   "With the app's managed identity",
+   "With a SAS-based URL, because managed identity isn't supported for backup",
+   "With the storage account access key in an app setting"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "You need to restore a production web app from backup with the least downtime. What should you do?",
+  "options": [
+   "Restore directly over the production slot",
+   "Restore to a staging slot, then swap it into production",
+   "Restore to a different region"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "A web app must call a SQL Server VM that has only a private IP in a virtual network. What should you configure?",
+  "options": [
+   "A private endpoint for the web app",
+   "VNet integration for the web app",
+   "Access restrictions on the web app"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "A web app must be reachable only from resources inside a virtual network. What should you configure?",
+  "options": [
+   "VNet integration",
+   "A private endpoint for the web app",
+   "Hybrid Connections"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "What is a requirement for the subnet used by App Service VNet integration?",
+  "options": [
+   "It must contain the target VMs",
+   "It must have a service endpoint for Microsoft.Web",
+   "It must be dedicated and delegated to Microsoft.Web/serverFarms"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "Which subnet size does Microsoft recommend for App Service VNet integration?",
+  "options": [
+   "/29",
+   "/26",
+   "/16"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "A web app must reach one SQL Server on-premises on TCP 1433. There's no VPN or ExpressRoute. What should you use?",
+  "options": [
+   "Hybrid Connections",
+   "VNet integration",
+   "A private endpoint"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "A web app must accept traffic only from your corporate public IP range. What should you configure?",
+  "options": [
+   "Access restrictions",
+   "VNet integration with an NSG",
+   "A NAT gateway"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "A web app has a private endpoint and access restrictions that allow only your corporate IPs. Do the access restrictions apply to traffic arriving through the private endpoint?",
+  "options": [
+   "Yes, all traffic is evaluated against access restrictions",
+   "No, access restrictions don't apply to private endpoint traffic",
+   "Only for the scm site"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "A partner must allow-list a single, static outbound IP address for a web app's calls. What should you configure?",
+  "options": [
+   "VNet integration with a NAT gateway on the integration subnet",
+   "An app-assigned address",
+   "A private endpoint"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "What is the default hostname of a deployment slot named staging for an app named contoso?",
+  "options": [
+   "staging.contoso.azurewebsites.net",
+   "contoso-staging.azurewebsites.net",
+   "contoso.staging.azurewebsites.net"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "When you swap a staging slot into production, which setting moves with the code by default?",
+  "options": [
+   "App settings that aren't marked as deployment slot settings",
+   "Custom domain names",
+   "Scale settings"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "When you swap slots, which setting stays with the slot?",
+  "options": [
+   "Connection strings without the slot setting flag",
+   "Custom domain names",
+   "Framework version"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "The staging slot must keep its own database connection string after a swap. What should you do?",
+  "options": [
+   "Store the connection string in Key Vault",
+   "Disable auto swap",
+   "Mark the connection string as a Deployment slot setting"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "A swap into production introduced a bug. What is the fastest way to roll back?",
+  "options": [
+   "Swap the slots again",
+   "Restore the latest automatic backup",
+   "Redeploy the previous build to production"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "App Service",
+  "q": "You want 10% of production traffic to go to the staging slot for testing. What should you configure?",
+  "options": [
+   "Auto swap",
+   "A traffic percentage for the slot (testing in production)",
+   "Swap with preview"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "What does swap with preview do?",
+  "options": [
+   "Swaps only the code without any settings",
+   "Swaps the slots for one hour and then reverts",
+   "Applies the target slot's settings to the source slot and pauses so you can validate before completing the swap"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "App Service",
+  "q": "A production app uses a system-assigned managed identity. What happens to the identity when you swap a staging slot into production?",
+  "options": [
+   "The identity moves to the staging slot",
+   "Managed identities aren't swapped; each slot keeps its own",
+   "Both slots share the identity after the swap"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "App Service",
+  "q": "A web app must require users to sign in with Microsoft Entra ID without any code changes. What should you configure?",
+  "options": [
+   "App Service Authentication (Easy Auth)",
+   "Access restrictions with the AzureActiveDirectory service tag",
+   "A private endpoint"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Related Topics",
+  "q": "Which vault should you use to back up Azure VMs with Azure Backup?",
+  "options": [
+   "A Key Vault",
+   "A Recovery Services vault",
+   "A storage account container"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Related Topics",
+  "q": "VMs must be replicated to another region so you can fail over during a regional outage. What should you use?",
+  "options": [
+   "Azure Backup with cross-region restore",
+   "Azure Site Recovery",
+   "Availability zones"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Related Topics",
+  "q": "You need to share and version custom VM images across several subscriptions and regions. What should you use?",
+  "options": [
+   "A storage account container of VHDs",
+   "Template specs",
+   "Azure Compute Gallery"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Related Topics",
+  "q": "Several VMs in an application tier need the lowest possible network latency between them. What should you use?",
+  "options": [
+   "An availability zone per VM",
+   "A load balancer with session persistence",
+   "A proximity placement group"
+  ],
+  "answer": 2
+ }
+];
+
+const $ = id => document.getElementById(id);
+
+function esc(s) {
+  return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+// escape first, then turn `...` into <code>
+function fmt(s) {
+  return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+let order = [], idx = 0, score = 0, answered = false, perSection = {};
+
+function start() {
+  order = shuffle(QUESTIONS.map((_, i) => i));
+  idx = 0;
+  score = 0;
+  perSection = {};
+  $('results').classList.add('hidden');
+  $('quiz').classList.remove('hidden');
+  render();
+}
+
+function render() {
+  answered = false;
+  const q = QUESTIONS[order[idx]];
+
+  $('progress').textContent = `Question ${idx + 1} of ${order.length}`;
+  $('score').innerHTML = `Score <b>${score}</b> / ${idx}`;
+  $('fill').style.width = (idx / order.length * 100) + '%';
+
+  $('topic').textContent = q.section || '';
+  $('topic').classList.toggle('hidden', !q.section);
+  $('question').innerHTML = fmt(q.q);
+
+  const box = $('options');
+  box.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="key">${i + 1}</span><span>${fmt(opt)}</span>`;
+    b.addEventListener('click', () => choose(i));
+    box.appendChild(b);
+  });
+
+  const v = $('verdict');
+  v.className = 'verdict hidden';
+  v.innerHTML = '';
+  $('next').classList.add('hidden');
+  $('hint').textContent = 'Pick an answer — or press 1-9';
+}
+
+function choose(picked) {
+  if (answered) return;
+  answered = true;
+
+  const q = QUESTIONS[order[idx]];
+  const right = picked === q.answer;
+  if (right) score++;
+
+  const sec = q.section || 'Other';
+  if (!perSection[sec]) perSection[sec] = { right: 0, total: 0 };
+  perSection[sec].total++;
+  if (right) perSection[sec].right++;
+
+  [...$('options').children].forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.answer) b.classList.add('correct');
+    else if (i === picked) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+
+  const v = $('verdict');
+  v.className = 'verdict ' + (right ? 'good' : 'bad');
+  let html = `<span class="label">${right ? 'Correct' : 'Not quite'}</span>`;
+  if (!right) html += ` — the answer is <strong>${fmt(q.options[q.answer])}</strong>`;
+  if (q.explanation) html += `<p>${fmt(q.explanation)}</p>`;
+  v.innerHTML = html;
+
+  $('score').innerHTML = `Score <b>${score}</b> / ${idx + 1}`;
+  $('fill').style.width = ((idx + 1) / order.length * 100) + '%';
+
+  const next = $('next');
+  next.textContent = idx + 1 < order.length ? 'Next' : 'See results';
+  next.classList.remove('hidden');
+  next.focus();
+  $('hint').textContent = 'Press Enter to continue';
+}
+
+function advance() {
+  idx++;
+  if (idx < order.length) render();
+  else finish();
+}
+
+function finish() {
+  $('quiz').classList.add('hidden');
+  $('results').classList.remove('hidden');
+
+  const pct = Math.round(score / order.length * 100);
+  $('finalPct').textContent = pct + '%';
+  $('finalScore').textContent = `${score} of ${order.length} correct`;
+  $('verdictTitle').textContent =
+    pct >= 90 ? 'Exam ready' : pct >= 75 ? 'Nearly there' : pct >= 50 ? 'Worth another pass' : 'Back to the notes';
+  $('progress').textContent = `Finished — ${order.length} questions`;
+  $('fill').style.width = '100%';
+
+  const rows = $('rows');
+  rows.innerHTML = '';
+  Object.keys(perSection).sort().forEach(name => {
+    const s = perSection[name];
+    const div = document.createElement('div');
+    div.className = 'row';
+    div.innerHTML = `<span>${esc(name)}</span><span>${s.right} / ${s.total}</span>`;
+    rows.appendChild(div);
+  });
+  $('restart').focus();
+}
+
+$('next').addEventListener('click', advance);
+$('restart').addEventListener('click', start);
+
+document.addEventListener('keydown', e => {
+  if ($('results').classList.contains('hidden') === false) return;
+  if (!answered && /^[1-9]$/.test(e.key)) {
+    const i = Number(e.key) - 1;
+    if (i < QUESTIONS[order[idx]].options.length) { e.preventDefault(); choose(i); }
+  } else if (answered && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    advance();
+  }
+});
+
+start();
+</script>
+</body>
+</html>

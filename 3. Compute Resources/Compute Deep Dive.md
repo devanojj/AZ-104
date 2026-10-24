@@ -1,14 +1,9 @@
-Consolidated revision note for the exam area **Deploy and manage Azure compute resources (20–25%)**, skills measured as of **17 April 2026**. This is one of the two biggest areas on the exam.
 
-The official sub-skills are four groups:
 1. **Automate deployment by using ARM templates or Bicep files** — interpret, modify (ARM and Bicep), deploy, export a deployment / convert ARM to Bicep
 2. **Create and configure virtual machines** — create a VM, **encryption at host**, move a VM (RG / subscription / region), VM sizes, VM disks, availability zones and availability sets, VM Scale Sets
 3. **Provision and manage containers in the Azure portal** — Azure Container Registry, Azure Container Instances, Azure Container Apps, sizing and scaling for ACI and ACA
 4. **Create and configure Azure App Service** — App Service plan, scaling, create an app, certificates and TLS, custom DNS names, backup, networking settings, deployment slots
 
-> [!tip] How to use this note
-> Sections are ordered by the outline. If you can justify **why** you'd pick one option over another in section 9, compute is covered.
-> Practice questions for every section are in [[Compute Deep Dive - EQ]].
 
 > [!warning] Things that changed recently — older study material is wrong on these
 > * **Azure Disk Encryption (ADE)** retires **15 September 2028**. The outline now tests **encryption at host** instead — it's the recommended option for new VMs.
@@ -21,18 +16,16 @@ The official sub-skills are four groups:
 ---
 ## 1. ARM Templates & Bicep
 
-See also [[ARM]].
-
 ### ARM Template (JSON) Structure
-|Element|Required?|Purpose|
-|---|---|---|
-|`$schema`|✅|Schema location — also identifies the deployment scope|
-|`contentVersion`|✅|Your version number for the template (e.g. `1.0.0.0`)|
-|`parameters`|Optional|Values supplied **at deployment time** (parameter file, CLI, portal)|
-|`variables`|Optional|Values computed **inside** the template to simplify expressions|
-|`functions`|Optional|User-defined functions|
-|`resources`|✅|What gets deployed|
-|`outputs`|Optional|Values returned after deployment (e.g. a resource ID or FQDN)|
+| Element          | Required? | Purpose                                                              |
+| ---------------- | --------- | -------------------------------------------------------------------- |
+| `$schema`        | ✅         | Schema location — also identifies the deployment scope               |
+| `contentVersion` | ✅         | Your version number for the template (e.g. `1.0.0.0`)                |
+| `parameters`     | Optional  | Values supplied **at deployment time** (parameter file, CLI, portal) |
+| `variables`      | Optional  | Values computed **inside** the template to simplify expressions      |
+| `functions`      | Optional  | User-defined functions                                               |
+| `resources`      | ✅         | What gets deployed                                                   |
+| `outputs`        | Optional  | Values returned after deployment (e.g. a resource ID or FQDN)        |
 
 **Parameter properties:** `type` (`string`, `int`, `bool`, `object`, `array`, `securestring`, `secureObject`), `defaultValue`, `allowedValues`, `minValue`/`maxValue`, `minLength`/`maxLength`, `metadata.description`.
 
