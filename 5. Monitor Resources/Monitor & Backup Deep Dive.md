@@ -161,7 +161,6 @@ See also [[Alert Types]], [[Alert Suppression]].
 
 ---
 ## 6. Azure Monitor Insights
-
 Curated monitoring experiences (built on workbooks) for specific resource types.
 
 |Insight|Shows|Needs|
@@ -203,13 +202,13 @@ Full tool-by-tool detail is in the networking deep dive (section 10) and [[Azure
 See also [[MARS vs MABS]], [[MARS]], [[Recovery Services Vault]], [[Backup Vault]], [[Backup]], [[Instant Restore]].
 
 ### Which Vault?
-|**Recovery Services vault**|**Backup vault**|
-|---|---|
-|**Azure VMs**|**Azure Disks** (managed disk snapshots)|
-|**SQL Server in Azure VMs**, **SAP HANA in Azure VMs**|**Azure Blobs** (operational and vaulted)|
-|**Azure Files**|**Azure Database for PostgreSQL**|
-|On-premises via **MARS agent**, **MABS**, **DPM**|AKS (Kubernetes)|
-|**Azure Site Recovery**||
+| **Recovery Services vault**                            | **Backup vault**                          |
+| ------------------------------------------------------ | ----------------------------------------- |
+| **Azure VMs**                                          | **Azure Disks** (managed disk snapshots)  |
+| **SQL Server in Azure VMs**, **SAP HANA in Azure VMs** | **Azure Blobs** (operational and vaulted) |
+| **Azure Files**                                        | **Azure Database for PostgreSQL**         |
+| On-premises via **MARS agent**, **MABS**, **DPM**      | AKS (Kubernetes)                          |
+| **Azure Site Recovery**                                |                                           |
 
 * The vault must be in the **same region** as the VMs it protects (VMs can be in other subscriptions in the same tenant).
 * Limits: up to **1,000 Azure VMs** per vault, **100 VMs per backup policy**, 500 vaults per subscription.

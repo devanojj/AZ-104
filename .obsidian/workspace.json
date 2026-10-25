@@ -200,8 +200,9 @@
   },
   "active": "780477dfb8256baf",
   "lastOpenFiles": [
-    "5. Monitor Resources/Extra/DCR.md",
+    "4. Virtual Networking/Extra/Azure Network Watcher.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive.md",
+    "5. Monitor Resources/Extra/DCR.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive - EQ.md",
     "1. Identities & Governance/Identity & Governance Deep Dive - EQ.md",
     "monitor.html",
@@ -228,7 +229,6 @@
     "2. Storage/Extra/Storage Actions vs Tasks.md",
     "2. Storage/Extra/WORM vs Policy How it works.md",
     "2. Storage/Extra/Azure Network Security Perimeter.md",
-    "2. Storage/Extra/Azure Message Bus.md",
     "Untitled.base",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
