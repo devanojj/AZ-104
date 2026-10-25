@@ -1,0 +1,1667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AZ-104 Monitor &amp; Backup — Quiz</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card: #ffffff;
+    --text: #1f2430;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #4f6bed;
+    --accent-soft: #eef1fd;
+    --good: #0f8a5f;
+    --good-bg: #e7f6ef;
+    --good-line: #9fd9c1;
+    --bad: #c23b4b;
+    --bad-bg: #fdeced;
+    --bad-line: #f0b4bb;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(16,24,40,.05), 0 8px 24px rgba(16,24,40,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171c;
+      --card: #1d2026;
+      --text: #e8eaef;
+      --muted: #9aa1ad;
+      --line: #2c313a;
+      --accent: #8098ff;
+      --accent-soft: #232a3d;
+      --good: #4fcf9b;
+      --good-bg: #16302a;
+      --good-line: #2f6b57;
+      --bad: #ef8e9a;
+      --bad-bg: #331d21;
+      --bad-line: #74424a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 32px 16px 56px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrap { width: 100%; max-width: 680px; }
+
+  header { margin-bottom: 16px; }
+
+  .bar-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .score { font-variant-numeric: tabular-nums; }
+  .score b { color: var(--text); font-weight: 600; }
+
+  .track {
+    height: 6px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .fill {
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: width .25s ease;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 26px 26px 22px;
+  }
+
+  /* ---------- menu ---------- */
+  .menu-head { margin-bottom: 20px; }
+  .menu-head h1 {
+    font-size: 22px;
+    font-weight: 650;
+    letter-spacing: -.01em;
+    margin: 0 0 4px;
+  }
+  .menu-head p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .topics { display: flex; flex-direction: column; gap: 9px; }
+
+  .topic-btn {
+    width: 100%;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 14px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .topic-btn:hover { background: var(--accent-soft); border-color: var(--accent); }
+  .topic-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .topic-btn .name { flex: 1; font-weight: 550; }
+  .topic-btn .count {
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .topic-btn .arrow { color: var(--muted); font-size: 17px; line-height: 1; }
+  .topic-btn:hover .arrow, .topic-btn:hover .count { color: var(--accent); }
+
+  .topic-btn.all {
+    margin-top: 7px;
+    border-style: dashed;
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .topic-btn.all .name { color: var(--accent); }
+  .topic-btn.all .count, .topic-btn.all .arrow { color: var(--accent); }
+
+  /* ---------- quiz ---------- */
+  .topic {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  h1.q {
+    font-size: 19px;
+    line-height: 1.45;
+    font-weight: 600;
+    margin: 0 0 18px;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .opt {
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 13px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .opt:hover:not(:disabled) { background: var(--accent-soft); border-color: var(--accent); }
+  .opt:disabled { cursor: default; }
+  .opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .key {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .opt.correct { background: var(--good-bg); border-color: var(--good-line); }
+  .opt.correct .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.wrong { background: var(--bad-bg); border-color: var(--bad-line); }
+  .opt.wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .5; }
+
+  .verdict {
+    margin-top: 18px;
+    padding: 13px 15px;
+    border-radius: 11px;
+    border: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .verdict.good { background: var(--good-bg); border-color: var(--good-line); }
+  .verdict.bad { background: var(--bad-bg); border-color: var(--bad-line); }
+  .verdict .label { font-weight: 600; }
+  .verdict.good .label { color: var(--good); }
+  .verdict.bad .label { color: var(--bad); }
+  .verdict p { margin: 8px 0 0; color: var(--text); }
+
+  .foot {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    min-height: 42px;
+  }
+  .hint { font-size: 13px; color: var(--muted); margin-right: auto; }
+
+  .btn {
+    font: inherit;
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: filter .15s ease, background .15s ease;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .btn.ghost { background: transparent; color: var(--accent); border-color: var(--line); filter: none; }
+  .btn.ghost:hover { background: var(--accent-soft); }
+
+  .link {
+    font: inherit;
+    font-size: 14px;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .link:hover { color: var(--accent); }
+  .link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .hidden { display: none !important; }
+
+  /* ---------- results ---------- */
+  .result { text-align: center; padding: 10px 0 4px; }
+  .result .big {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+    margin: 6px 0 2px;
+  }
+  .result .sub { color: var(--muted); margin-bottom: 22px; }
+  .result h2 { font-size: 20px; margin: 0; font-weight: 600; }
+  .result .which { font-size: 13px; color: var(--muted); margin-bottom: 2px; }
+  .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  .breakdown {
+    text-align: left;
+    border-top: 1px solid var(--line);
+    margin-top: 22px;
+    padding-top: 16px;
+  }
+  .breakdown h3 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); font-weight: 600; margin: 0 0 10px;
+  }
+  .row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 6px 0; font-size: 14px;
+  }
+  .row span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .9em;
+    background: var(--accent-soft);
+    padding: 1px 5px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 520px) {
+    body { padding: 18px 12px 40px; }
+    .card { padding: 20px 17px 18px; border-radius: 12px; }
+    .menu-head h1 { font-size: 20px; }
+    h1.q { font-size: 17.5px; }
+    .opt, .topic-btn { padding: 12px 13px; }
+    .topic-btn .count { font-size: 12px; }
+    .hint { display: none; }
+    .foot .btn { flex: 1; }
+    .result .big { font-size: 44px; }
+    .actions .btn { flex: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header id="header" class="hidden">
+    <div class="bar-top">
+      <span id="progress">Question 1 of 1</span>
+      <span class="score" id="score">Score <b>0</b> / 0</span>
+    </div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+  </header>
+
+  <main class="card">
+
+    <section id="menu">
+      <div class="menu-head">
+        <h1>AZ-104 — Monitor &amp; Backup</h1>
+        <p>Pick a topic to start.</p>
+      </div>
+      <div class="topics" id="topics"></div>
+    </section>
+
+    <section id="quiz" class="hidden">
+      <span class="topic" id="topic"></span>
+      <h1 class="q" id="question"></h1>
+      <div class="options" id="options"></div>
+      <div class="verdict hidden" id="verdict"></div>
+      <div class="foot">
+        <span class="hint" id="hint">Pick an answer — or press 1-9</span>
+        <button class="link" id="quit">Back to topics</button>
+        <button class="btn hidden" id="next">Next</button>
+      </div>
+    </section>
+
+    <section id="results" class="hidden">
+      <div class="result">
+        <div class="which" id="whichTopic"></div>
+        <h2 id="verdictTitle">All done</h2>
+        <div class="big" id="finalPct">0%</div>
+        <div class="sub" id="finalScore"></div>
+        <div class="actions">
+          <button class="btn" id="again">Try again</button>
+          <button class="btn ghost" id="back">Back to topics</button>
+        </div>
+        <div class="breakdown hidden" id="breakdown">
+          <h3>By section</h3>
+          <div id="rows"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+const QUESTIONS =
+[
+ {
+  "section": "Azure Monitor Data Types",
+  "q": "Which Azure Monitor data records control-plane operations such as who deleted a VM?",
+  "options": [
+   "Resource logs",
+   "The activity log",
+   "Platform metrics"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Monitor Data Types",
+  "q": "Which data must you enable with a diagnostic setting before it's collected?",
+  "options": [
+   "Resource logs",
+   "Platform metrics",
+   "The activity log"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Monitor Data Types",
+  "q": "You need to see each read operation against blobs in a storage account. Which data type contains this?",
+  "options": [
+   "Platform metrics",
+   "The activity log",
+   "Resource logs"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Monitor Data Types",
+  "q": "How long are platform metrics retained in Azure Monitor Metrics?",
+  "options": [
+   "30 days",
+   "93 days",
+   "90 days"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Monitor Data Types",
+  "q": "How long is the activity log retained by default?",
+  "options": [
+   "30 days",
+   "93 days",
+   "90 days"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Monitor Data Types",
+  "q": "You need to monitor available memory inside a Windows VM. The metric doesn't appear among the VM's platform metrics. What should you do?",
+  "options": [
+   "Install the Azure Monitor Agent and associate a data collection rule",
+   "Enable boot diagnostics",
+   "Increase the VM size"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Monitor Data Types",
+  "q": "Which agent should be used to collect guest OS data from Azure VMs?",
+  "options": [
+   "The Azure Monitor Agent",
+   "The Log Analytics agent (MMA)",
+   "The Dependency agent"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Metrics",
+  "q": "In Metrics explorer, you want to view one line for each response type of a storage account's Transactions metric. What should you use?",
+  "options": [
+   "Filtering",
+   "A different aggregation",
+   "Splitting"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Metrics",
+  "q": "You want a chart to show only throttled storage requests. What should you use?",
+  "options": [
+   "Splitting by ResponseType",
+   "A Sum aggregation",
+   "A filter on ResponseType"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Metrics",
+  "q": "Which aggregation is most appropriate for total bytes sent over a VM's network interface in each interval?",
+  "options": [
+   "Sum",
+   "Average",
+   "Minimum"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Metrics",
+  "q": "You select a time range of 60 days in Metrics explorer and the chart is blank. Why?",
+  "options": [
+   "A single chart can show at most 30 days; pan to view older data",
+   "Metrics are only kept for 30 days",
+   "The VM must be running"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Metrics",
+  "q": "You need to analyse VM metrics from 6 months ago. What should you have configured?",
+  "options": [
+   "A diagnostic setting sending platform metrics to a Log Analytics workspace",
+   "A longer metric retention in Metrics explorer",
+   "A workbook"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Log Settings",
+  "q": "Which destination should you choose to query resource logs with KQL and create log alerts?",
+  "options": [
+   "A storage account",
+   "An event hub",
+   "A Log Analytics workspace"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Log Settings",
+  "q": "Resource logs must be streamed in near real time to a third-party SIEM. Which destination should you use?",
+  "options": [
+   "A Log Analytics workspace",
+   "A storage account",
+   "An event hub"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Log Settings",
+  "q": "Logs must be archived cheaply for seven years for compliance, without frequent querying. Which destination is most cost-effective?",
+  "options": [
+   "An event hub",
+   "A storage account",
+   "Azure Monitor Metrics"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Log Settings",
+  "q": "What is the maximum number of diagnostic settings per resource?",
+  "options": [
+   "5",
+   "1",
+   "10"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Log Settings",
+  "q": "You need to keep the activity log for two years and query it with KQL. What should you do?",
+  "options": [
+   "Increase the activity log retention to two years",
+   "Export the activity log to CSV monthly",
+   "Create a diagnostic setting for the activity log that sends it to a Log Analytics workspace with sufficient retention"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Log Settings",
+  "q": "What is the default data retention of a Log Analytics workspace?",
+  "options": [
+   "30 days",
+   "7 days",
+   "90 days"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Log Settings",
+  "q": "What is the longest total retention you can configure for a table in a Log Analytics workspace?",
+  "options": [
+   "12 years",
+   "2 years",
+   "7 years"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Log Settings",
+  "q": "You need to collect Windows Application and System event logs from 50 VMs consistently. What should you create?",
+  "options": [
+   "A diagnostic setting on each VM",
+   "A workbook",
+   "A data collection rule associated with the VMs"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Log Settings",
+  "q": "How does the Azure Monitor Agent authenticate to Azure Monitor?",
+  "options": [
+   "With a workspace ID and key",
+   "With a managed identity",
+   "With a storage account SAS token"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Log Settings",
+  "q": "Which statement about data collection rules is correct?",
+  "options": [
+   "Each VM can be associated with only one DCR",
+   "A VM can have multiple DCRs and a DCR can apply to multiple VMs",
+   "Each DCR can be associated with only one VM"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Log Settings",
+  "q": "Where in a Log Analytics workspace can you see a breakdown of data ingestion costs?",
+  "options": [
+   "Agents",
+   "Tables",
+   "Usage and estimated costs"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Querying Logs (KQL)",
+  "q": "Which KQL operator filters rows?",
+  "options": [
+   "where",
+   "project",
+   "summarize"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Querying Logs (KQL)",
+  "q": "Which KQL operator selects or renames the columns to return?",
+  "options": [
+   "project",
+   "extend",
+   "where"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Querying Logs (KQL)",
+  "q": "You need the count of events per computer. Which operator should you use?",
+  "options": [
+   "summarize",
+   "extend",
+   "project"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Querying Logs (KQL)",
+  "q": "What does `bin(TimeGenerated, 15m)` do in a query?",
+  "options": [
+   "Filters data to the last 15 minutes",
+   "Groups records into 15-minute time buckets",
+   "Deletes records older than 15 minutes"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Querying Logs (KQL)",
+  "q": "Which table should you query to find VMs that have stopped reporting to the workspace?",
+  "options": [
+   "Perf",
+   "Heartbeat",
+   "Event"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Querying Logs (KQL)",
+  "q": "Which table contains activity log records sent to a Log Analytics workspace?",
+  "options": [
+   "AzureDiagnostics",
+   "AzureActivity",
+   "Syslog"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Querying Logs (KQL)",
+  "q": "Which table contains Windows event log records collected by the Azure Monitor Agent?",
+  "options": [
+   "Syslog",
+   "Event",
+   "Heartbeat"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Querying Logs (KQL)",
+  "q": "Which operator displays query results as a line chart over time?",
+  "options": [
+   "summarize",
+   "render timechart",
+   "top"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Alerts",
+  "q": "You need an alert when a VM's average CPU exceeds 80% for 5 minutes. Which alert type should you use?",
+  "options": [
+   "Activity log alert",
+   "Metric alert",
+   "Log search alert"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Alerts",
+  "q": "You need an alert whenever someone deletes a virtual machine. Which alert type should you use?",
+  "options": [
+   "Metric alert",
+   "Activity log alert",
+   "Resource Health alert"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Alerts",
+  "q": "You need an alert when Windows event ID 4625 is logged more than 10 times in 5 minutes. Which alert type should you use?",
+  "options": [
+   "Metric alert",
+   "Activity log alert",
+   "Log search alert"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Alerts",
+  "q": "You need to be notified when an Azure service outage affects the regions you use. What should you configure?",
+  "options": [
+   "A Resource Health alert",
+   "A Service Health alert",
+   "A metric alert on each resource"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Alerts",
+  "q": "You need to be notified when a specific VM becomes unavailable because of a platform problem. What should you configure?",
+  "options": [
+   "A Resource Health alert",
+   "A Service Health alert",
+   "A log search alert on Heartbeat"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Alerts",
+  "q": "Web traffic varies by time of day, and a fixed CPU threshold causes false alerts. What should you use?",
+  "options": [
+   "A log search alert",
+   "An alert processing rule",
+   "A metric alert with dynamic thresholds"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Alerts",
+  "q": "Which alert severity is the most critical?",
+  "options": [
+   "Sev 4",
+   "Sev 1",
+   "Sev 0"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Alerts",
+  "q": "What does an action group define?",
+  "options": [
+   "Who is notified and which automated actions run when an alert fires",
+   "The condition that fires an alert",
+   "When notifications are suppressed"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Alerts",
+  "q": "When an alert fires, a Windows service must be restarted automatically. What should the action group include?",
+  "options": [
+   "An email to the operations team",
+   "An Automation runbook (or Azure Function/Logic App) action",
+   "An SMS notification"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Alerts",
+  "q": "Alert notifications must go to everyone with the Owner role on the subscription, even as membership changes. Which notification type should you use?",
+  "options": [
+   "Email to a distribution list",
+   "Email Azure Resource Manager role",
+   "SMS to each Owner"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Alerts",
+  "q": "An on-call engineer misses several SMS alerts sent in quick succession. What is the most likely reason?",
+  "options": [
+   "SMS notifications are rate limited to one every five minutes per phone number",
+   "SMS isn't supported in action groups",
+   "The alert rule was disabled"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Alerts",
+  "q": "Notifications must be suppressed every Saturday from 22:00 to 06:00 for a resource group under maintenance. What should you create?",
+  "options": [
+   "An alert processing rule with a recurring schedule that suppresses notifications",
+   "A new alert rule with a schedule",
+   "A disabled action group"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Alerts",
+  "q": "During a suppression window from an alert processing rule, what happens to alerts?",
+  "options": [
+   "They aren't created",
+   "They're deleted after the window",
+   "They still fire and are recorded, but notifications and actions are suppressed"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Alerts",
+  "q": "You need to add a new on-call action group to every alert in a subscription without editing each alert rule. What should you use?",
+  "options": [
+   "Azure Policy",
+   "A workbook",
+   "An alert processing rule that applies the action group"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Alerts",
+  "q": "Which alert state is set by users rather than by the system?",
+  "options": [
+   "Fired",
+   "Resolved",
+   "Acknowledged"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Alerts",
+  "q": "How long are fired alerts retained?",
+  "options": [
+   "7 days",
+   "90 days",
+   "30 days"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Alerts",
+  "q": "You need 150 activity log alert rules in one subscription. What should you do?",
+  "options": [
+   "Request a quota increase",
+   "Send the activity log to Log Analytics and use log search alerts, because the 100-rule limit can't be raised",
+   "Create them across multiple resource groups"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Monitor Insights",
+  "q": "You need a single view of capacity, availability and transactions across all storage accounts in a subscription. What should you use?",
+  "options": [
+   "Storage insights",
+   "VM insights",
+   "Metrics explorer for each account"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Monitor Insights",
+  "q": "What is required for Storage insights?",
+  "options": [
+   "The Azure Monitor Agent",
+   "A diagnostic setting on each account",
+   "Nothing extra; it's based on platform metrics"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Monitor Insights",
+  "q": "You need to compare guest CPU, memory and disk performance across many VMs in one view. What should you enable?",
+  "options": [
+   "Storage insights",
+   "VM insights",
+   "Boot diagnostics"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Monitor Insights",
+  "q": "What does VM insights require on each VM?",
+  "options": [
+   "The Azure Monitor Agent with a VM insights data collection rule",
+   "The Log Analytics agent",
+   "Boot diagnostics"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Monitor Insights",
+  "q": "You need to visualise the topology and health of network resources and connectivity tests. What should you use?",
+  "options": [
+   "Storage insights",
+   "Network insights",
+   "Application Insights"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Monitor Insights",
+  "q": "A VM shows a black screen and won't boot. Which tool should you use first?",
+  "options": [
+   "VM insights",
+   "Boot diagnostics (screenshot and serial log)",
+   "Connection monitor"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Monitor Insights",
+  "q": "You need an interactive report combining KQL queries, metrics charts and parameters for your team. What should you create?",
+  "options": [
+   "A workbook",
+   "An alert processing rule",
+   "An action group"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Network Watcher & Connection Monitor",
+  "q": "You need continuous monitoring of latency and reachability between on-premises servers and an Azure VM, with alerts. What should you use?",
+  "options": [
+   "IP flow verify",
+   "Connection monitor",
+   "Connection troubleshoot"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Network Watcher & Connection Monitor",
+  "q": "Which protocols can a Connection monitor test configuration use?",
+  "options": [
+   "TCP, HTTP and ICMP",
+   "RDP and SSH",
+   "UDP and GRE"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Network Watcher & Connection Monitor",
+  "q": "What must be installed on an Azure VM used as a Connection monitor source?",
+  "options": [
+   "The Network Watcher Agent extension",
+   "The Dependency agent",
+   "The VM backup extension"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Network Watcher & Connection Monitor",
+  "q": "Where are Connection monitor results stored for analysis and alerting?",
+  "options": [
+   "A storage account",
+   "A Log Analytics workspace",
+   "An event hub"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Network Watcher & Connection Monitor",
+  "q": "You need a one-time test to see whether a VM can reach a database on port 1433, including the hops and any NSG fault. What should you use?",
+  "options": [
+   "Connection troubleshoot",
+   "Connection monitor",
+   "Topology"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Network Watcher & Connection Monitor",
+  "q": "You need to know which NSG rule is blocking inbound RDP to a VM. What should you use?",
+  "options": [
+   "Next hop",
+   "IP flow verify",
+   "Packet capture"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "Which vault type should you create to back up Azure VMs?",
+  "options": [
+   "Backup vault",
+   "Recovery Services vault",
+   "Key Vault"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "Which vault type should you create to back up Azure Blobs and managed disks?",
+  "options": [
+   "Recovery Services vault",
+   "Backup vault",
+   "Storage account"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You need to back up Azure Files shares and SQL Server databases running in Azure VMs. Which vault should you use?",
+  "options": [
+   "Backup vault",
+   "Recovery Services vault",
+   "Two Backup vaults, one per workload"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You need to back up an Azure Database for PostgreSQL server. Which vault should you use?",
+  "options": [
+   "Recovery Services vault",
+   "Site Recovery vault",
+   "Backup vault"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "A Recovery Services vault is in East US. Which VMs can you configure for backup to it?",
+  "options": [
+   "VMs in East US",
+   "VMs in any region",
+   "VMs in East US and its paired region"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You want to change a Recovery Services vault's storage redundancy from GRS to LRS, but the setting is greyed out. Why?",
+  "options": [
+   "LRS isn't supported for Recovery Services vaults",
+   "Only Owners can change redundancy",
+   "Items are already protected; redundancy can only be changed before backups exist"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You need to restore Azure VMs in the paired secondary region at any time, for example during an audit. What must be configured?",
+  "options": [
+   "A GRS vault with Cross Region Restore enabled",
+   "An LRS vault with Site Recovery",
+   "A second vault in the paired region"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Backup",
+  "q": "What is the default storage redundancy for a new Recovery Services vault?",
+  "options": [
+   "LRS",
+   "GRS",
+   "ZRS"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "VMs must be backed up every 4 hours. Which policy type should you use?",
+  "options": [
+   "Enhanced",
+   "Standard",
+   "An on-demand backup every 4 hours"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You need to back up a Trusted Launch VM from the Azure portal. Which policy type should you use?",
+  "options": [
+   "Standard",
+   "Archive",
+   "Enhanced"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "What is the instant restore snapshot retention range for a Standard VM backup policy?",
+  "options": [
+   "1–30 days",
+   "7–90 days",
+   "1–5 days"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "A VM is protected with an Enhanced policy. Can you switch it back to a Standard policy?",
+  "options": [
+   "No, a VM using an Enhanced policy can't move to a Standard policy",
+   "Yes, by editing the policy type",
+   "Yes, after the next backup completes"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Backup",
+  "q": "Which backup tier provides the fastest restore?",
+  "options": [
+   "Vault-Standard",
+   "Snapshot (instant restore)",
+   "Vault-Archive"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "Monthly and yearly recovery points must be kept for 10 years at the lowest cost. Where should they be stored?",
+  "options": [
+   "The snapshot tier",
+   "Vault-Standard",
+   "Vault-Archive"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You need to restore a VM from backup but first change its size and virtual network. Which restore option should you choose?",
+  "options": [
+   "Restore disks (with the generated ARM template)",
+   "Create new VM",
+   "Replace existing"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Backup",
+  "q": "A VM's OS is corrupted. You want to restore it in place, keeping the same VM, NIC and IP. Which option should you choose?",
+  "options": [
+   "Create new VM",
+   "Restore disks",
+   "Replace existing"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "A user deleted a few files from a VM yesterday. What is the quickest way to recover them from backup?",
+  "options": [
+   "Restore the whole VM",
+   "Restore disks and attach them",
+   "File recovery, which mounts the recovery point as drives"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "How long does the mounted recovery point from file recovery remain available?",
+  "options": [
+   "1 hour",
+   "12 hours",
+   "24 hours"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "Linux VM backups must be application-consistent. What should you configure?",
+  "options": [
+   "An Enhanced policy",
+   "VSS on the Linux VM",
+   "Pre-scripts and post-scripts"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "A VM is stopped (deallocated) when its scheduled backup runs. What happens?",
+  "options": [
+   "The VM is backed up with a crash-consistent recovery point",
+   "The backup is skipped",
+   "The VM is started for the backup"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Backup",
+  "q": "Backup data for a VM was deleted by mistake two days ago. What should you do?",
+  "options": [
+   "Restore from the paired region",
+   "Undelete it from the soft-deleted items",
+   "Open a support ticket"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "What is the default soft delete retention for Azure Backup?",
+  "options": [
+   "7 days",
+   "30 days",
+   "14 days"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You must stop a compromised admin account from disabling soft delete or reducing backup retention. What should you configure?",
+  "options": [
+   "Multi-user authorisation with a Resource Guard owned by a different admin",
+   "A CanNotDelete lock on the vault",
+   "Azure Policy with a Deny effect"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You need recovery points that can't be deleted before they expire, and this protection must be irreversible. What should you configure?",
+  "options": [
+   "Soft delete",
+   "Cross Region Restore",
+   "A locked immutable vault"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You need to back up files and folders from an on-premises Windows server directly to Azure, without a backup server. What should you use?",
+  "options": [
+   "MABS",
+   "The VM backup extension",
+   "The MARS agent"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "What gets installed on an Azure VM when you enable Azure Backup?",
+  "options": [
+   "The MARS agent",
+   "The VM backup extension",
+   "The Azure Monitor Agent"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "SQL Server databases in Azure VMs must support point-in-time restore with very low data loss. What does Azure Backup provide?",
+  "options": [
+   "Daily full backups only",
+   "Log backups as often as every 15 minutes",
+   "VM snapshots every 4 hours"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "What is the maximum number of VMs that can be assigned to one backup policy?",
+  "options": [
+   "50",
+   "100",
+   "1,000"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Backup",
+  "q": "Management wants reports of backup storage consumption and failed jobs over the last six months. What must you configure first?",
+  "options": [
+   "An alert processing rule",
+   "A Cross Region Restore vault",
+   "Diagnostic settings on the vaults that send data to a Log Analytics workspace"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You configured backup reports an hour ago and they show no data. What is the most likely reason?",
+  "options": [
+   "Reports only work for Backup vaults",
+   "The vault must use GRS",
+   "The initial data push can take up to 24 hours"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "You need email notifications when backup jobs fail. Built-in backup alerts are already firing. What should you configure?",
+  "options": [
+   "A new metric alert rule for each VM",
+   "A log search alert on the vault",
+   "An alert processing rule that routes the alerts to an action group"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Backup",
+  "q": "Where can you manage backups and protection status across subscriptions and regions in one place?",
+  "options": [
+   "Resiliency (formerly Backup center)",
+   "Azure Advisor",
+   "Azure Policy"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "VMs must keep running in another region during a regional outage, with an RPO measured in minutes. What should you use?",
+  "options": [
+   "Azure Site Recovery",
+   "Azure Backup with an Enhanced policy",
+   "Cross Region Restore"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "Where should you create the Recovery Services vault for replicating Azure VMs with Site Recovery?",
+  "options": [
+   "In the target (secondary) region",
+   "In the source region",
+   "In any third region"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "What does Site Recovery install on Azure VMs when you enable replication?",
+  "options": [
+   "The MARS agent",
+   "The Mobility service extension",
+   "The Azure Monitor Agent"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "Where does Site Recovery first write replicated disk changes for an Azure VM?",
+  "options": [
+   "A cache storage account in the source region",
+   "Directly to the replica managed disks",
+   "The Recovery Services vault"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "How often does Site Recovery create crash-consistent recovery points for Azure VMs?",
+  "options": [
+   "Every hour",
+   "Every 15 minutes",
+   "Every 5 minutes"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "What is the minimum frequency for app-consistent snapshots in Site Recovery?",
+  "options": [
+   "5 minutes",
+   "1 hour",
+   "15 minutes"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "What are the default replication policy settings for Azure-to-Azure Site Recovery?",
+  "options": [
+   "15 days retention, app-consistent every 4 hours",
+   "1 day retention, app-consistent snapshots off",
+   "7 days retention, app-consistent every hour"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "You need to validate disaster recovery without affecting production or replication. What should you do?",
+  "options": [
+   "Run a test failover into an isolated, non-production virtual network",
+   "Run a planned failover to the target region",
+   "Pause replication and start the replica disks"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "After a test failover is validated, what should you do?",
+  "options": [
+   "Clean up the test failover",
+   "Commit the failover",
+   "Re-protect the VM"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "You must fail over with the lowest possible data loss. Which recovery point should you choose?",
+  "options": [
+   "Latest processed",
+   "Latest app-consistent",
+   "Latest"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "You must fail over as quickly as possible. Which recovery point should you choose?",
+  "options": [
+   "Latest",
+   "Custom",
+   "Latest processed"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "After a failover to the secondary region, which step starts replicating the VMs back to the primary region?",
+  "options": [
+   "Test failover",
+   "Cleanup",
+   "Re-protect"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "What is the correct order of operations for failing over to the secondary region and later returning?",
+  "options": [
+   "Failover, commit, re-protect, then failback",
+   "Re-protect, failover, commit, failback",
+   "Failover, failback, commit, re-protect"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "A three-tier app must fail over with the database first, then the app tier, then the web tier. What should you configure?",
+  "options": [
+   "A replication policy per tier",
+   "A recovery plan with ordered boot groups",
+   "Multi-VM consistency"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Site Recovery",
+  "q": "Which statement best distinguishes Azure Backup from Azure Site Recovery?",
+  "options": [
+   "Backup replicates VMs continuously; Site Recovery keeps long-term recovery points",
+   "Both provide the same RPO",
+   "Backup restores data from recovery points; Site Recovery fails over workloads to another region"
+  ],
+  "answer": 2
+ }
+];
+
+const $ = id => document.getElementById(id);
+
+function esc(s) {
+  return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+// escape first, then turn `...` into <code>
+function fmt(s) {
+  return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// topics in the order they appear in the notes
+const TOPICS = [];
+QUESTIONS.forEach(q => { if (!TOPICS.includes(q.section)) TOPICS.push(q.section); });
+
+const ALL = '__all__';
+let topic = null, order = [], idx = 0, score = 0, answered = false, perSection = {};
+
+/* ---------------- menu ---------------- */
+
+function buildMenu() {
+  const box = $('topics');
+  box.innerHTML = '';
+
+  TOPICS.forEach(name => {
+    const n = QUESTIONS.filter(q => q.section === name).length;
+    box.appendChild(topicButton(name, name, `${n} question${n === 1 ? '' : 's'}`, false));
+  });
+
+  box.appendChild(topicButton(ALL, 'All topics', `${QUESTIONS.length} questions`, true));
+}
+
+function topicButton(value, label, count, isAll) {
+  const b = document.createElement('button');
+  b.className = 'topic-btn' + (isAll ? ' all' : '');
+  b.innerHTML =
+    `<span class="name">${esc(label)}</span>` +
+    `<span class="count">${count}</span>` +
+    `<span class="arrow">&rsaquo;</span>`;
+  b.addEventListener('click', () => startTopic(value));
+  return b;
+}
+
+function showMenu() {
+  topic = null;
+  $('menu').classList.remove('hidden');
+  $('quiz').classList.add('hidden');
+  $('results').classList.add('hidden');
+  $('header').classList.add('hidden');
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- quiz ---------------- */
+
+function startTopic(which) {
+  topic = which;
+  const pool = QUESTIONS
+    .map((q, i) => i)
+    .filter(i => which === ALL || QUESTIONS[i].section === which);
+
+  order = shuffle(pool);
+  idx = 0;
+  score = 0;
+  perSection = {};
+
+  $('menu').classList.add('hidden');
+  $('results').classList.add('hidden');
+  $('quiz').classList.remove('hidden');
+  $('header').classList.remove('hidden');
+  render();
+  window.scrollTo(0, 0);
+}
+
+function topicLabel() {
+  return topic === ALL ? 'All topics' : topic;
+}
+
+function render() {
+  answered = false;
+  const q = QUESTIONS[order[idx]];
+
+  $('progress').textContent = `Question ${idx + 1} of ${order.length}`;
+  $('score').innerHTML = `Score <b>${score}</b> / ${idx}`;
+  $('fill').style.width = (idx / order.length * 100) + '%';
+
+  $('topic').textContent = q.section || '';
+  $('topic').classList.toggle('hidden', !q.section);
+  $('question').innerHTML = fmt(q.q);
+
+  const box = $('options');
+  box.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="key">${i + 1}</span><span>${fmt(opt)}</span>`;
+    b.addEventListener('click', () => choose(i));
+    box.appendChild(b);
+  });
+
+  const v = $('verdict');
+  v.className = 'verdict hidden';
+  v.innerHTML = '';
+  $('next').classList.add('hidden');
+  $('hint').textContent = 'Pick an answer — or press 1-9';
+}
+
+function choose(picked) {
+  if (answered) return;
+  answered = true;
+
+  const q = QUESTIONS[order[idx]];
+  const right = picked === q.answer;
+  if (right) score++;
+
+  const sec = q.section || 'Other';
+  if (!perSection[sec]) perSection[sec] = { right: 0, total: 0 };
+  perSection[sec].total++;
+  if (right) perSection[sec].right++;
+
+  [...$('options').children].forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.answer) b.classList.add('correct');
+    else if (i === picked) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+
+  const v = $('verdict');
+  v.className = 'verdict ' + (right ? 'good' : 'bad');
+  let html = `<span class="label">${right ? 'Correct' : 'Not quite'}</span>`;
+  if (!right) html += ` — the answer is <strong>${fmt(q.options[q.answer])}</strong>`;
+  if (q.explanation) html += `<p>${fmt(q.explanation)}</p>`;
+  v.innerHTML = html;
+
+  $('score').innerHTML = `Score <b>${score}</b> / ${idx + 1}`;
+  $('fill').style.width = ((idx + 1) / order.length * 100) + '%';
+
+  const next = $('next');
+  next.textContent = idx + 1 < order.length ? 'Next' : 'See results';
+  next.classList.remove('hidden');
+  next.focus();
+  $('hint').textContent = 'Press Enter to continue';
+}
+
+function advance() {
+  idx++;
+  if (idx < order.length) render();
+  else finish();
+}
+
+/* ---------------- results ---------------- */
+
+function finish() {
+  $('quiz').classList.add('hidden');
+  $('results').classList.remove('hidden');
+
+  const pct = Math.round(score / order.length * 100);
+  $('whichTopic').textContent = topicLabel();
+  $('finalPct').textContent = pct + '%';
+  $('finalScore').textContent = `${score} of ${order.length} correct`;
+  $('verdictTitle').textContent =
+    pct >= 90 ? 'Exam ready' : pct >= 75 ? 'Nearly there' : pct >= 50 ? 'Worth another pass' : 'Back to the notes';
+  $('progress').textContent = `Finished — ${order.length} questions`;
+  $('fill').style.width = '100%';
+
+  // the per-section table only tells you anything when more than one section ran
+  const sections = Object.keys(perSection);
+  const bd = $('breakdown');
+  if (sections.length > 1) {
+    const rows = $('rows');
+    rows.innerHTML = '';
+    TOPICS.filter(t => perSection[t]).forEach(name => {
+      const s = perSection[name];
+      const div = document.createElement('div');
+      div.className = 'row';
+      div.innerHTML = `<span>${esc(name)}</span><span>${s.right} / ${s.total}</span>`;
+      rows.appendChild(div);
+    });
+    bd.classList.remove('hidden');
+  } else {
+    bd.classList.add('hidden');
+  }
+
+  $('again').focus();
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- wiring ---------------- */
+
+$('next').addEventListener('click', advance);
+$('again').addEventListener('click', () => startTopic(topic));
+$('back').addEventListener('click', showMenu);
+$('quit').addEventListener('click', showMenu);
+
+document.addEventListener('keydown', e => {
+  if ($('quiz').classList.contains('hidden')) return;   // only while a question is up
+  if (!answered && /^[1-9]$/.test(e.key)) {
+    const i = Number(e.key) - 1;
+    if (i < QUESTIONS[order[idx]].options.length) { e.preventDefault(); choose(i); }
+  } else if (answered && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    advance();
+  } else if (e.key === 'Escape') {
+    showMenu();
+  }
+});
+
+buildMenu();
+showMenu();
+</script>
+</body>
+</html>

@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -200,6 +199,7 @@
   },
   "active": "780477dfb8256baf",
   "lastOpenFiles": [
+    "monitor.html",
     "5. Monitor Resources/Extra/Types of Monitor.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive - EQ.md",
@@ -227,7 +227,6 @@
     "2. Storage/Extra/WORM vs Policy How it works.md",
     "2. Storage/Extra/Azure Network Security Perimeter.md",
     "2. Storage/Extra/Azure Message Bus.md",
-    "2. Storage/Extra/Azure Disks.md",
     "Untitled.base",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
