@@ -1,4 +1,4 @@
-Practice questions for [[Monitor & Backup Deep Dive]]. Sections mirror that note so you can jump back to whatever you miss.
+
 
 ---
 ## 1. Azure Monitor Data Types

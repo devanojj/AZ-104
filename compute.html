@@ -94,6 +94,55 @@
     padding: 26px 26px 22px;
   }
 
+  /* ---------- menu ---------- */
+  .menu-head { margin-bottom: 20px; }
+  .menu-head h1 {
+    font-size: 22px;
+    font-weight: 650;
+    letter-spacing: -.01em;
+    margin: 0 0 4px;
+  }
+  .menu-head p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .topics { display: flex; flex-direction: column; gap: 9px; }
+
+  .topic-btn {
+    width: 100%;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 14px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .topic-btn:hover { background: var(--accent-soft); border-color: var(--accent); }
+  .topic-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .topic-btn .name { flex: 1; font-weight: 550; }
+  .topic-btn .count {
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .topic-btn .arrow { color: var(--muted); font-size: 17px; line-height: 1; }
+  .topic-btn:hover .arrow, .topic-btn:hover .count { color: var(--accent); }
+
+  .topic-btn.all {
+    margin-top: 7px;
+    border-style: dashed;
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .topic-btn.all .name { color: var(--accent); }
+  .topic-btn.all .count, .topic-btn.all .arrow { color: var(--accent); }
+
+  /* ---------- quiz ---------- */
   .topic {
     display: inline-block;
     font-size: 12px;
@@ -188,16 +237,28 @@
     border-radius: 10px;
     padding: 10px 22px;
     cursor: pointer;
-    transition: filter .15s ease;
+    transition: filter .15s ease, background .15s ease;
   }
   .btn:hover { filter: brightness(1.08); }
   .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .btn.ghost { background: transparent; color: var(--accent); border-color: var(--line); }
+  .btn.ghost { background: transparent; color: var(--accent); border-color: var(--line); filter: none; }
   .btn.ghost:hover { background: var(--accent-soft); }
+
+  .link {
+    font: inherit;
+    font-size: 14px;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .link:hover { color: var(--accent); }
+  .link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
   .hidden { display: none !important; }
 
-  /* results */
+  /* ---------- results ---------- */
   .result { text-align: center; padding: 10px 0 4px; }
   .result .big {
     font-size: 52px;
@@ -208,6 +269,8 @@
   }
   .result .sub { color: var(--muted); margin-bottom: 22px; }
   .result h2 { font-size: 20px; margin: 0; font-weight: 600; }
+  .result .which { font-size: 13px; color: var(--muted); margin-bottom: 2px; }
+  .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
   .breakdown {
     text-align: left;
@@ -236,17 +299,20 @@
   @media (max-width: 520px) {
     body { padding: 18px 12px 40px; }
     .card { padding: 20px 17px 18px; border-radius: 12px; }
+    .menu-head h1 { font-size: 20px; }
     h1.q { font-size: 17.5px; }
-    .opt { padding: 12px 13px; }
+    .opt, .topic-btn { padding: 12px 13px; }
+    .topic-btn .count { font-size: 12px; }
     .hint { display: none; }
-    .btn { flex: 1; }
+    .foot .btn { flex: 1; }
     .result .big { font-size: 44px; }
+    .actions .btn { flex: 1; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <header id="header" class="hidden">
     <div class="bar-top">
       <span id="progress">Question 1 of 1</span>
       <span class="score" id="score">Score <b>0</b> / 0</span>
@@ -255,29 +321,44 @@
   </header>
 
   <main class="card">
-    <section id="quiz">
+
+    <section id="menu">
+      <div class="menu-head">
+        <h1>AZ-104 — Compute Deep Dive</h1>
+        <p>Pick a topic to start.</p>
+      </div>
+      <div class="topics" id="topics"></div>
+    </section>
+
+    <section id="quiz" class="hidden">
       <span class="topic" id="topic"></span>
       <h1 class="q" id="question"></h1>
       <div class="options" id="options"></div>
       <div class="verdict hidden" id="verdict"></div>
       <div class="foot">
         <span class="hint" id="hint">Pick an answer — or press 1-9</span>
+        <button class="link" id="quit">Back to topics</button>
         <button class="btn hidden" id="next">Next</button>
       </div>
     </section>
 
     <section id="results" class="hidden">
       <div class="result">
+        <div class="which" id="whichTopic"></div>
         <h2 id="verdictTitle">All done</h2>
         <div class="big" id="finalPct">0%</div>
         <div class="sub" id="finalScore"></div>
-        <button class="btn" id="restart">Restart</button>
-        <div class="breakdown">
+        <div class="actions">
+          <button class="btn" id="again">Try again</button>
+          <button class="btn ghost" id="back">Back to topics</button>
+        </div>
+        <div class="breakdown hidden" id="breakdown">
           <h3>By section</h3>
           <div id="rows"></div>
         </div>
       </div>
     </section>
+
   </main>
 </div>
 
@@ -2094,16 +2175,70 @@ function shuffle(a) {
   return a;
 }
 
-let order = [], idx = 0, score = 0, answered = false, perSection = {};
+// topics in the order they appear in the notes
+const TOPICS = [];
+QUESTIONS.forEach(q => { if (!TOPICS.includes(q.section)) TOPICS.push(q.section); });
 
-function start() {
-  order = shuffle(QUESTIONS.map((_, i) => i));
+const ALL = '__all__';
+let topic = null, order = [], idx = 0, score = 0, answered = false, perSection = {};
+
+/* ---------------- menu ---------------- */
+
+function buildMenu() {
+  const box = $('topics');
+  box.innerHTML = '';
+
+  TOPICS.forEach(name => {
+    const n = QUESTIONS.filter(q => q.section === name).length;
+    box.appendChild(topicButton(name, name, `${n} question${n === 1 ? '' : 's'}`, false));
+  });
+
+  box.appendChild(topicButton(ALL, 'All topics', `${QUESTIONS.length} questions`, true));
+}
+
+function topicButton(value, label, count, isAll) {
+  const b = document.createElement('button');
+  b.className = 'topic-btn' + (isAll ? ' all' : '');
+  b.innerHTML =
+    `<span class="name">${esc(label)}</span>` +
+    `<span class="count">${count}</span>` +
+    `<span class="arrow">&rsaquo;</span>`;
+  b.addEventListener('click', () => startTopic(value));
+  return b;
+}
+
+function showMenu() {
+  topic = null;
+  $('menu').classList.remove('hidden');
+  $('quiz').classList.add('hidden');
+  $('results').classList.add('hidden');
+  $('header').classList.add('hidden');
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- quiz ---------------- */
+
+function startTopic(which) {
+  topic = which;
+  const pool = QUESTIONS
+    .map((q, i) => i)
+    .filter(i => which === ALL || QUESTIONS[i].section === which);
+
+  order = shuffle(pool);
   idx = 0;
   score = 0;
   perSection = {};
+
+  $('menu').classList.add('hidden');
   $('results').classList.add('hidden');
   $('quiz').classList.remove('hidden');
+  $('header').classList.remove('hidden');
   render();
+  window.scrollTo(0, 0);
+}
+
+function topicLabel() {
+  return topic === ALL ? 'All topics' : topic;
 }
 
 function render() {
@@ -2178,11 +2313,14 @@ function advance() {
   else finish();
 }
 
+/* ---------------- results ---------------- */
+
 function finish() {
   $('quiz').classList.add('hidden');
   $('results').classList.remove('hidden');
 
   const pct = Math.round(score / order.length * 100);
+  $('whichTopic').textContent = topicLabel();
   $('finalPct').textContent = pct + '%';
   $('finalScore').textContent = `${score} of ${order.length} correct`;
   $('verdictTitle').textContent =
@@ -2190,33 +2328,50 @@ function finish() {
   $('progress').textContent = `Finished — ${order.length} questions`;
   $('fill').style.width = '100%';
 
-  const rows = $('rows');
-  rows.innerHTML = '';
-  Object.keys(perSection).sort().forEach(name => {
-    const s = perSection[name];
-    const div = document.createElement('div');
-    div.className = 'row';
-    div.innerHTML = `<span>${esc(name)}</span><span>${s.right} / ${s.total}</span>`;
-    rows.appendChild(div);
-  });
-  $('restart').focus();
+  // the per-section table only tells you anything when more than one section ran
+  const sections = Object.keys(perSection);
+  const bd = $('breakdown');
+  if (sections.length > 1) {
+    const rows = $('rows');
+    rows.innerHTML = '';
+    TOPICS.filter(t => perSection[t]).forEach(name => {
+      const s = perSection[name];
+      const div = document.createElement('div');
+      div.className = 'row';
+      div.innerHTML = `<span>${esc(name)}</span><span>${s.right} / ${s.total}</span>`;
+      rows.appendChild(div);
+    });
+    bd.classList.remove('hidden');
+  } else {
+    bd.classList.add('hidden');
+  }
+
+  $('again').focus();
+  window.scrollTo(0, 0);
 }
 
+/* ---------------- wiring ---------------- */
+
 $('next').addEventListener('click', advance);
-$('restart').addEventListener('click', start);
+$('again').addEventListener('click', () => startTopic(topic));
+$('back').addEventListener('click', showMenu);
+$('quit').addEventListener('click', showMenu);
 
 document.addEventListener('keydown', e => {
-  if ($('results').classList.contains('hidden') === false) return;
+  if ($('quiz').classList.contains('hidden')) return;   // only while a question is up
   if (!answered && /^[1-9]$/.test(e.key)) {
     const i = Number(e.key) - 1;
     if (i < QUESTIONS[order[idx]].options.length) { e.preventDefault(); choose(i); }
   } else if (answered && (e.key === 'Enter' || e.key === ' ')) {
     e.preventDefault();
     advance();
+  } else if (e.key === 'Escape') {
+    showMenu();
   }
 });
 
-start();
+buildMenu();
+showMenu();
 </script>
 </body>
 </html>

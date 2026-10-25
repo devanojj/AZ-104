@@ -1,12 +1,7 @@
-Consolidated revision note for the exam area **Monitor and maintain Azure resources (10–15%)**, skills measured as of **17 April 2026**. The smallest area, but its questions are very scenario-driven ("which alert type / which tool / which vault").
 
-The official sub-skills are two groups:
 1. **Monitor resources in Azure** — interpret metrics, configure log settings, query and analyse logs, set up alert rules / action groups / alert processing rules, monitor VMs / storage / networks with **Azure Monitor Insights**, use **Network Watcher and Connection monitor**
 2. **Implement backup and recovery** — create a **Recovery Services vault** and a **Backup vault**, create and configure a **backup policy**, back up and restore with **Azure Backup**, configure **Azure Site Recovery** for Azure resources, **fail over to a secondary region**, configure and interpret backup **reports and alerts**
 
-> [!tip] How to use this note
-> Most questions are "which one?" — which data type, which alert type, which vault, which restore option. The comparison tables are the core of this note. If you can justify **why** you'd pick one option over another in section 11, this area is covered.
-> Practice questions for every section are in [[Monitor & Backup Deep Dive - EQ]].
 
 > [!warning] Things that changed recently — older study material is wrong on these
 > * The **Log Analytics agent (MMA/OMS) was retired 31 August 2024**. Guest data is collected with the **Azure Monitor Agent (AMA) + data collection rules (DCRs)**.
@@ -20,14 +15,14 @@ The official sub-skills are two groups:
 
 See also [[Types of Monitor]], [[Monitor vs Watcher]].
 
-|Data|What it is|Collected by default?|Retention|
-|---|---|---|---|
-|**Platform metrics**|Numeric time series from Azure resources (CPU %, network in/out, disk ops) every ~1 min|✅ no config, no agent|**93 days**|
-|**Activity log**|**Control-plane** events: who created/deleted/changed what, service/resource health|✅ subscription level|**90 days**|
-|**Resource logs**|**Data-plane** operations inside a resource (e.g. blob reads, Key Vault secret gets, NSG events)|❌ needs a **diagnostic setting**|Wherever you send them|
-|**Guest OS data**|Memory, logical disk free space, Windows events, Syslog, per-process|❌ needs **AMA + DCR**|Log Analytics or Metrics|
-|**Microsoft Entra logs**|Sign-ins, audit|Entra ID → diagnostic setting|Wherever you send them|
-|**Application data**|Requests, dependencies, exceptions|Application Insights (SDK / auto-instrumentation)|Workspace retention|
+| Data                     | What it is                                                                                       | Collected by default?                             | Retention                |
+| ------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------ |
+| **Platform metrics**     | Numeric time series from Azure resources (CPU %, network in/out, disk ops) every ~1 min          | ✅ no config, no agent                             | **93 days**              |
+| **Activity log**         | **Control-plane** events: who created/deleted/changed what, service/resource health              | ✅ subscription level                              | **90 days**              |
+| **Resource logs**        | **Data-plane** operations inside a resource (e.g. blob reads, Key Vault secret gets, NSG events) | ❌ needs a **diagnostic setting**                  | Wherever you send them   |
+| **Guest OS data**        | Memory, logical disk free space, Windows events, Syslog, per-process                             | ❌ needs **AMA + DCR**                             | Log Analytics or Metrics |
+| **Microsoft Entra logs** | Sign-ins, audit                                                                                  | Entra ID → diagnostic setting                     | Wherever you send them   |
+| **Application data**     | Requests, dependencies, exceptions                                                               | Application Insights (SDK / auto-instrumentation) | Workspace retention      |
 
 > [!important] Host vs guest
 > Host metrics (agentless) **don't include memory used or free disk space inside the OS**. For those you need the **Azure Monitor Agent** and a **DCR**.

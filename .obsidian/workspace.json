@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3. Compute Resources/Compute Deep Dive.md",
+                "file": "5. Monitor Resources/Monitor & Backup Deep Dive.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Compute Deep Dive"
+              "title": "Monitor & Backup Deep Dive"
             }
           }
         ]
@@ -200,16 +200,18 @@
   },
   "active": "780477dfb8256baf",
   "lastOpenFiles": [
+    "5. Monitor Resources/Extra/Types of Monitor.md",
+    "5. Monitor Resources/Monitor & Backup Deep Dive.md",
+    "5. Monitor Resources/Monitor & Backup Deep Dive - EQ.md",
+    "3. Compute Resources/Compute Deep Dive.md",
+    "compute.html",
     "quiz.html",
     "4. Virtual Networking/Virtual Networking Deep Dive - EQ.md",
     "4. Virtual Networking/Virtual Networking Deep Dive.md",
     "4. Virtual Networking/Extra/Azure Front Door vs Express Route.md",
-    "5. Monitor Resources/Monitor & Backup Deep Dive - EQ.md",
-    "5. Monitor Resources/Monitor & Backup Deep Dive.md",
     "1. Identities & Governance/Identity & Governance Deep Dive - EQ.md",
     "1. Identities & Governance/Identity & Governance Deep Dive.md",
     "3. Compute Resources/Compute Deep Dive - EQ.md",
-    "3. Compute Resources/Compute Deep Dive.md",
     "2. Storage/Extra/Azure Storage Mover.md",
     "2. Storage/Extra/Backup.md",
     "5. Monitor Resources/Extra/MARS.md",
@@ -234,8 +236,6 @@
     "6. Pra",
     "6. Exams & Labs/Microsoft Practice Exam/3rd",
     "_Bicep",
-    "5. Monitor Resources/Extra/Untitled",
-    "5. Monitor Resources/Extra",
     "4. Virtual Networking/Extra/Private DNS Zone Structure.canvas",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "5. Monitor Resources/Untitled.canvas",
