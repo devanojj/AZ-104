@@ -292,14 +292,14 @@ See also [[Availability Zone vs Set]].
 * Use availability sets only in regions **without zones**, or when you need the **lowest VM-to-VM latency**.
 
 ### VM Scale Sets (VMSS)
-|  |**Flexible** (recommended)|**Uniform**|
-|---|---|---|
-|VM types|**Mixed sizes**, **Spot + on-demand**|Identical instances|
-|Instance management|Standard VM APIs; Azure Backup & ASR supported|VMSS VM APIs only|
-|Max instances|1,000|1,000|
-|Spread|Zones or fault domains|Zones or fault domains|
-|Default outbound access|❌ — needs explicit outbound (NAT gateway etc.)|✅|
-|Automatic OS upgrades|❌|✅|
+|                         | **Flexible** (recommended)                     | **Uniform**            |
+| ----------------------- | ---------------------------------------------- | ---------------------- |
+| VM types                | **Mixed sizes**, **Spot + on-demand**          | Identical instances    |
+| Instance management     | Standard VM APIs; Azure Backup & ASR supported | VMSS VM APIs only      |
+| Max instances           | 1,000                                          | 1,000                  |
+| Spread                  | Zones or fault domains                         | Zones or fault domains |
+| Default outbound access | ❌ — needs explicit outbound (NAT gateway etc.) | ✅                      |
+| Automatic OS upgrades   | ❌                                              | ✅                      |
 
 * **Orchestration mode is set at creation and can't be changed.** CLI/PowerShell default to **Flexible**.
 * **Upgrade policy** (how instances get model changes): **Manual** (default), **Automatic** (no ordering guarantees — could take all down), **Rolling** (batches; needs the **Application Health extension** or an LB **health probe**).
@@ -425,11 +425,11 @@ The **plan** is the compute (region, OS, tier, instance size, instance count). *
 |Changes|**Tier/size** (more CPU/RAM, unlocks features)|**Instance count**|
 |Use when|An instance is maxed out or you need a feature (slots, VNet integration)|More users/traffic|
 
-|Scale-out method|Tiers|How|
-|---|---|---|
-|**Manual**|Basic+|Set instance count|
-|**Autoscale**|**Standard+**|Metric rules (CPU, memory, HTTP queue) and **schedules**; applies to the **whole plan**|
-|**Automatic scaling**|**Premium v2–v4**|Platform scales on **HTTP traffic**, per-app max, prewarmed instances; no rules|
+| Scale-out method      | Tiers             | How                                                                                     |
+| --------------------- | ----------------- | --------------------------------------------------------------------------------------- |
+| **Manual**            | Basic+            | Set instance count                                                                      |
+| **Autoscale**         | **Standard+**     | Metric rules (CPU, memory, HTTP queue) and **schedules**; applies to the **whole plan** |
+| **Automatic scaling** | **Premium v2–v4** | Platform scales on **HTTP traffic**, per-app max, prewarmed instances; no rules         |
 
 * Use only **one** scaling method per plan.
 * **Per-app scaling** (Standard+) caps how many plan instances a single app uses.
@@ -453,43 +453,43 @@ The **plan** is the compute (region, OS, tier, instance size, instance count). *
 * The same custom domain can't be added to two apps in the same scale unit ("stamp").
 
 ### Certificates & TLS
-|Option|Cost|Wildcard|Exportable|Notes|
-|---|---|---|---|---|
-|**App Service managed certificate**|Free|❌|❌|Auto-renewed. Basic+. Apex needs an **A record** and the app reachable (**no IP restrictions**); not with Traffic Manager apex; not in ASE|
-|**App Service certificate**|Paid|✅|✅|Stored in **your Key Vault**|
-|**Import from Key Vault**|—|✅|—|Grant the App Service resource provider (`Microsoft.Azure.WebSites`) **Key Vault Certificate User** (RBAC) or Get on secrets/certs|
-|**Upload a private certificate** (.pfx)|—|✅|—|Bring your own|
-|**Public certificate** (.cer)|—|—|—|For app code calling remote services, **not** for securing a domain|
+| Option                                  | Cost | Wildcard | Exportable | Notes                                                                                                                                      |
+| --------------------------------------- | ---- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **App Service managed certificate**     | Free | ❌        | ❌          | Auto-renewed. Basic+. Apex needs an **A record** and the app reachable (**no IP restrictions**); not with Traffic Manager apex; not in ASE |
+| **App Service certificate**             | Paid | ✅        | ✅          | Stored in **your Key Vault**                                                                                                               |
+| **Import from Key Vault**               | —    | ✅        | —          | Grant the App Service resource provider (`Microsoft.Azure.WebSites`) **Key Vault Certificate User** (RBAC) or Get on secrets/certs         |
+| **Upload a private certificate** (.pfx) | —    | ✅        | —          | Bring your own                                                                                                                             |
+| **Public certificate** (.cer)           | —    | —        | —          | For app code calling remote services, **not** for securing a domain                                                                        |
 
 * **Bindings:** **SNI SSL** (many certificates share one IP; Basic+, the normal choice) or **IP-based SSL** (dedicated IP for old clients; **Standard+**).
 * **HTTPS Only** redirects HTTP → HTTPS. **Minimum TLS version** (1.2 default).
 * **Client certificates (mTLS)** can be required.
 
 ### Backup & Restore
-|  |**Automatic backups**|**Custom backups**|
-|---|---|---|
-|Tiers|Basic, Standard, Premium, Isolated|Basic, Standard, Premium, Isolated|
-|Setup|**None**|Storage account + container|
-|Frequency|**Hourly**, not configurable|Scheduled (every 2 h min on Basic/Standard, 1 h on Premium) or on demand|
-|Retention|**30 days**, fixed|0–30 days or indefinite|
-|Max size|**30 GB**|**10 GB** (incl. up to 4 GB linked DB)|
-|Downloadable|❌|✅ (blobs)|
-|Linked database|❌|Being removed — can't be added to new configs; ends **31 March 2028**|
-|Partial backups / over VNet|❌|✅ (`_backup.filter`; firewalled storage via VNet integration)|
+|                             | **Automatic backups**              | **Custom backups**                                                       |
+| --------------------------- | ---------------------------------- | ------------------------------------------------------------------------ |
+| Tiers                       | Basic, Standard, Premium, Isolated | Basic, Standard, Premium, Isolated                                       |
+| Setup                       | **None**                           | Storage account + container                                              |
+| Frequency                   | **Hourly**, not configurable       | Scheduled (every 2 h min on Basic/Standard, 1 h on Premium) or on demand |
+| Retention                   | **30 days**, fixed                 | 0–30 days or indefinite                                                  |
+| Max size                    | **30 GB**                          | **10 GB** (incl. up to 4 GB linked DB)                                   |
+| Downloadable                | ❌                                  | ✅ (blobs)                                                                |
+| Linked database             | ❌                                  | Being removed — can't be added to new configs; ends **31 March 2028**    |
+| Partial backups / over VNet | ❌                                  | ✅ (`_backup.filter`; firewalled storage via VNet integration)            |
 
 * Custom backups need a storage account that allows **SAS**. Managed identity auth to storage **isn't supported** for backup.
 * **Basic tier:** only the **production slot** can be backed up/restored.
 * **Restore** to the same app, **a new app**, or **a slot**. Restoring **stops the target**, so restore into a **staging slot and swap** to minimise downtime.
 
 ### Networking
-|Direction|Feature|What it does|
-|---|---|---|
-|**Inbound**|**Access restrictions**|Priority-ordered allow/deny rules (IP, service tag, service endpoint subnet, headers); separate rules for the **scm/Kudu** site. Don't apply to private endpoint traffic|
-|**Inbound**|**Private endpoint**|App gets a **private IP in your VNet**; inbound only; Basic+|
-|**Inbound**|**App-assigned address**|Dedicated inbound IP (IP-based SSL)|
-|**Outbound**|**VNet integration**|App calls **into** a VNet (same region; peered/global-peered VNets, ExpressRoute, private endpoints). Basic+. **Dedicated subnet delegated to `Microsoft.Web/serverFarms`**, **/26 recommended** (portal minimum /27). NSG, UDR and **NAT gateway** on that subnet control egress|
-|**Outbound**|**Hybrid Connections**|Reach a single **TCP host:port** on-prem via **Hybrid Connection Manager** over 443 — no VPN|
-|**Both**|**App Service Environment** (Isolated v2)|Single-tenant, deployed into your VNet|
+| Direction    | Feature                                   | What it does                                                                                                                                                                                                                                                                      |
+| ------------ | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Inbound**  | **Access restrictions**                   | Priority-ordered allow/deny rules (IP, service tag, service endpoint subnet, headers); separate rules for the **scm/Kudu** site. Don't apply to private endpoint traffic                                                                                                          |
+| **Inbound**  | **Private endpoint**                      | App gets a **private IP in your VNet**; inbound only; Basic+                                                                                                                                                                                                                      |
+| **Inbound**  | **App-assigned address**                  | Dedicated inbound IP (IP-based SSL)                                                                                                                                                                                                                                               |
+| **Outbound** | **VNet integration**                      | App calls **into** a VNet (same region; peered/global-peered VNets, ExpressRoute, private endpoints). Basic+. **Dedicated subnet delegated to `Microsoft.Web/serverFarms`**, **/26 recommended** (portal minimum /27). NSG, UDR and **NAT gateway** on that subnet control egress |
+| **Outbound** | **Hybrid Connections**                    | Reach a single **TCP host:port** on-prem via **Hybrid Connection Manager** over 443 — no VPN                                                                                                                                                                                      |
+| **Both**     | **App Service Environment** (Isolated v2) | Single-tenant, deployed into your VNet                                                                                                                                                                                                                                            |
 
 > [!warning] Direction trap
 > **VNet integration is outbound only** — it doesn't let anything in the VNet reach the app. For private **inbound** access, use a **private endpoint** (or access restrictions for IP filtering).
@@ -527,70 +527,70 @@ The **plan** is the compute (region, OS, tier, instance size, instance count). *
 ---
 ## 9. Exam Scenario → Answer (and *why*)
 
-|Scenario|Answer|Why that one|
-|---|---|---|
-|"Preview what a template will change before deploying"|**What-if** (`az deployment group what-if` / `-WhatIf`)|Shows creates/modifies/deletes without touching anything|
-|"Deployment must remove resources not defined in the template"|**Complete mode**|Incremental (default) never deletes resources it doesn't know about|
-|"Get a reusable template for resources someone built by hand in the portal"|**Export template** from the resource group|History export only exists for template deployments|
-|"Get the exact template and parameters used in last week's deployment"|Export from **deployment history**|Resource export is a snapshot with hard-coded values|
-|"Convert an existing ARM JSON template to Bicep"|`az bicep decompile --file main.json`|`build` goes the other direction|
-|"Restrict a template parameter to three SKUs"|`allowedValues` (JSON) / `@allowed([...])` (Bicep)|Deployment fails validation on any other value|
-|"Generate a globally unique storage name that's the same on every redeploy"|`uniqueString(resourceGroup().id)`|Deterministic hash, so redeploys are idempotent|
-|"Create 3 identical NICs from one resource definition"|`copy` loop (JSON) / `for` loop (Bicep)|Avoids duplicating the resource block|
-|"Encrypt the temp disk and disk caches without using VM CPU"|**Encryption at host**|SSE doesn't cover temp disk/cache; ADE uses guest CPU and is retiring|
-|"Enable encryption at host fails on an existing VM"|**Register the `EncryptionAtHost` feature**, **deallocate** the VM, check the size supports it (and that it never had ADE)|All three are prerequisites|
-|"Control the keys used to encrypt managed disks"|**Customer-managed keys** via a **Disk Encryption Set** + Key Vault|SSE uses platform keys by default|
-|"Move a VM to a different subscription — it fails"|Move the **VM + disks + NIC + VNet + public IP + NSG together** from one RG (and same tenant)|Dependent resources must move in the same operation|
-|"Move a VM to another region"|**Azure Resource Mover** (or Site Recovery)|RG/subscription moves never change region|
-|"Add an existing VM to an availability set"|**Recreate** the VM from its disks in the set|Availability set membership is creation-time only|
-|"Survive a datacentre failure, 99.99% SLA"|≥ 2 VMs across **availability zones**|Availability sets stay inside one datacentre (99.95%)|
-|"Highest SLA for a single VM"|**Premium SSD / Premium SSD v2 / Ultra** on all disks → 99.9%|Standard SSD 99.5%, Standard HDD 95%|
-|"Resize fails because the size isn't available"|**Deallocate** the VM, then resize (in an availability set, maybe all VMs)|Deallocation lets Azure pick any cluster in the region|
-|"Need more IOPS on a Premium SSD without downtime"|Raise the **performance tier** (or expand the data disk)|Disk type changes need deallocation|
-|"Database needs 150,000 IOPS on a data disk"|**Ultra Disk**|Premium SSD v2 caps at 80,000; neither can be the OS disk|
-|"Scale set with a mix of VM sizes and Spot instances"|VMSS **Flexible**|Uniform requires identical instances; mode can't be changed later|
-|"Update scale set instances in batches without downtime"|**Rolling** upgrade policy + health extension/probe|Automatic may take all instances down|
-|"Stop autoscale removing a VM running a long job"|**Instance protection — protect from scale-in**|Scale-in policy only chooses *which* VM goes|
-|"Autoscale keeps adding and removing instances"|Widen the gap between thresholds / lengthen **cool down**|Classic flapping|
-|"Pull images from ACR without storing credentials"|**Managed identity** with **AcrPull**|Admin user is a shared credential|
-|"Registry replicated to multiple regions / private endpoint"|ACR **Premium**|Geo-replication and Private Link are Premium-only|
-|"Build images in Azure when the base image updates"|**ACR Tasks**|No local Docker needed|
-|"Run a nightly batch container, billed only while running"|**ACI** with restart policy **OnFailure** (or Never)|Always (default) would restart it forever|
-|"Web container + logging sidecar on the same host"|ACI **multi-container group** via **YAML/ARM** (Linux)|Portal only creates single containers; Windows doesn't support groups|
-|"Change an ACI container group's CPU from 1 to 2"|**Delete and recreate** the group|CPU/memory aren't updatable in place|
-|"Microservice that scales to zero on idle and splits traffic 80/20 between versions"|**Container Apps**, **multiple revision mode**|ACI has no autoscale or revisions|
-|"Scale a container app based on Service Bus queue length"|**Custom (KEDA) scale rule**|HTTP/TCP rules only count requests/connections|
-|"Container app must always have one replica warm"|**Min replicas = 1**|Default min is 0 (scale to zero)|
-|"Web app needs autoscale and staging slots at lowest cost"|**Standard (S1)**|Basic has neither|
-|"Web app needs 25 instances"|**Premium v3/v4**|Standard caps at 10|
-|"Free TLS certificate for www.contoso.com"|**App Service managed certificate** (Basic+)|No wildcard, not exportable|
-|"Wildcard certificate for *.contoso.com"|**App Service certificate** or **import from Key Vault/upload PFX**|Managed certificates don't support wildcards|
-|"Map contoso.com (root) to a web app"|**A record** + **TXT `asuid`**|CNAME isn't allowed at the root|
-|"Web app must call a SQL VM in a VNet"|**VNet integration** (outbound)|Private endpoint is inbound only|
-|"Only users in the VNet may reach the web app"|**Private endpoint** (and disable public access)|VNet integration doesn't control inbound|
-|"Web app must reach one on-prem SQL server without a VPN"|**Hybrid Connections**|Reaches a single host:port over outbound 443|
-|"Back up the app without configuring storage"|**Automatic backups** (Basic+)|Custom backups need a storage account|
-|"Staging must use a different database connection string after the swap"|Mark the connection string **Deployment slot setting**|Otherwise it moves with the code|
-|"Custom domain disappeared from production after a swap"|It didn't — **custom domains don't swap**; check DNS/bindings|Domains and TLS bindings stay with the slot|
+| Scenario                                                                             | Answer                                                                                                                     | Why that one                                                          |
+| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| "Preview what a template will change before deploying"                               | **What-if** (`az deployment group what-if` / `-WhatIf`)                                                                    | Shows creates/modifies/deletes without touching anything              |
+| "Deployment must remove resources not defined in the template"                       | **Complete mode**                                                                                                          | Incremental (default) never deletes resources it doesn't know about   |
+| "Get a reusable template for resources someone built by hand in the portal"          | **Export template** from the resource group                                                                                | History export only exists for template deployments                   |
+| "Get the exact template and parameters used in last week's deployment"               | Export from **deployment history**                                                                                         | Resource export is a snapshot with hard-coded values                  |
+| "Convert an existing ARM JSON template to Bicep"                                     | `az bicep decompile --file main.json`                                                                                      | `build` goes the other direction                                      |
+| "Restrict a template parameter to three SKUs"                                        | `allowedValues` (JSON) / `@allowed([...])` (Bicep)                                                                         | Deployment fails validation on any other value                        |
+| "Generate a globally unique storage name that's the same on every redeploy"          | `uniqueString(resourceGroup().id)`                                                                                         | Deterministic hash, so redeploys are idempotent                       |
+| "Create 3 identical NICs from one resource definition"                               | `copy` loop (JSON) / `for` loop (Bicep)                                                                                    | Avoids duplicating the resource block                                 |
+| "Encrypt the temp disk and disk caches without using VM CPU"                         | **Encryption at host**                                                                                                     | SSE doesn't cover temp disk/cache; ADE uses guest CPU and is retiring |
+| "Enable encryption at host fails on an existing VM"                                  | **Register the `EncryptionAtHost` feature**, **deallocate** the VM, check the size supports it (and that it never had ADE) | All three are prerequisites                                           |
+| "Control the keys used to encrypt managed disks"                                     | **Customer-managed keys** via a **Disk Encryption Set** + Key Vault                                                        | SSE uses platform keys by default                                     |
+| "Move a VM to a different subscription — it fails"                                   | Move the **VM + disks + NIC + VNet + public IP + NSG together** from one RG (and same tenant)                              | Dependent resources must move in the same operation                   |
+| "Move a VM to another region"                                                        | **Azure Resource Mover** (or Site Recovery)                                                                                | RG/subscription moves never change region                             |
+| "Add an existing VM to an availability set"                                          | **Recreate** the VM from its disks in the set                                                                              | Availability set membership is creation-time only                     |
+| "Survive a datacentre failure, 99.99% SLA"                                           | ≥ 2 VMs across **availability zones**                                                                                      | Availability sets stay inside one datacentre (99.95%)                 |
+| "Highest SLA for a single VM"                                                        | **Premium SSD / Premium SSD v2 / Ultra** on all disks → 99.9%                                                              | Standard SSD 99.5%, Standard HDD 95%                                  |
+| "Resize fails because the size isn't available"                                      | **Deallocate** the VM, then resize (in an availability set, maybe all VMs)                                                 | Deallocation lets Azure pick any cluster in the region                |
+| "Need more IOPS on a Premium SSD without downtime"                                   | Raise the **performance tier** (or expand the data disk)                                                                   | Disk type changes need deallocation                                   |
+| "Database needs 150,000 IOPS on a data disk"                                         | **Ultra Disk**                                                                                                             | Premium SSD v2 caps at 80,000; neither can be the OS disk             |
+| "Scale set with a mix of VM sizes and Spot instances"                                | VMSS **Flexible**                                                                                                          | Uniform requires identical instances; mode can't be changed later     |
+| "Update scale set instances in batches without downtime"                             | **Rolling** upgrade policy + health extension/probe                                                                        | Automatic may take all instances down                                 |
+| "Stop autoscale removing a VM running a long job"                                    | **Instance protection — protect from scale-in**                                                                            | Scale-in policy only chooses *which* VM goes                          |
+| "Autoscale keeps adding and removing instances"                                      | Widen the gap between thresholds / lengthen **cool down**                                                                  | Classic flapping                                                      |
+| "Pull images from ACR without storing credentials"                                   | **Managed identity** with **AcrPull**                                                                                      | Admin user is a shared credential                                     |
+| "Registry replicated to multiple regions / private endpoint"                         | ACR **Premium**                                                                                                            | Geo-replication and Private Link are Premium-only                     |
+| "Build images in Azure when the base image updates"                                  | **ACR Tasks**                                                                                                              | No local Docker needed                                                |
+| "Run a nightly batch container, billed only while running"                           | **ACI** with restart policy **OnFailure** (or Never)                                                                       | Always (default) would restart it forever                             |
+| "Web container + logging sidecar on the same host"                                   | ACI **multi-container group** via **YAML/ARM** (Linux)                                                                     | Portal only creates single containers; Windows doesn't support groups |
+| "Change an ACI container group's CPU from 1 to 2"                                    | **Delete and recreate** the group                                                                                          | CPU/memory aren't updatable in place                                  |
+| "Microservice that scales to zero on idle and splits traffic 80/20 between versions" | **Container Apps**, **multiple revision mode**                                                                             | ACI has no autoscale or revisions                                     |
+| "Scale a container app based on Service Bus queue length"                            | **Custom (KEDA) scale rule**                                                                                               | HTTP/TCP rules only count requests/connections                        |
+| "Container app must always have one replica warm"                                    | **Min replicas = 1**                                                                                                       | Default min is 0 (scale to zero)                                      |
+| "Web app needs autoscale and staging slots at lowest cost"                           | **Standard (S1)**                                                                                                          | Basic has neither                                                     |
+| "Web app needs 25 instances"                                                         | **Premium v3/v4**                                                                                                          | Standard caps at 10                                                   |
+| "Free TLS certificate for www.contoso.com"                                           | **App Service managed certificate** (Basic+)                                                                               | No wildcard, not exportable                                           |
+| "Wildcard certificate for *.contoso.com"                                             | **App Service certificate** or **import from Key Vault/upload PFX**                                                        | Managed certificates don't support wildcards                          |
+| "Map contoso.com (root) to a web app"                                                | **A record** + **TXT `asuid`**                                                                                             | CNAME isn't allowed at the root                                       |
+| "Web app must call a SQL VM in a VNet"                                               | **VNet integration** (outbound)                                                                                            | Private endpoint is inbound only                                      |
+| "Only users in the VNet may reach the web app"                                       | **Private endpoint** (and disable public access)                                                                           | VNet integration doesn't control inbound                              |
+| "Web app must reach one on-prem SQL server without a VPN"                            | **Hybrid Connections**                                                                                                     | Reaches a single host:port over outbound 443                          |
+| "Back up the app without configuring storage"                                        | **Automatic backups** (Basic+)                                                                                             | Custom backups need a storage account                                 |
+| "Staging must use a different database connection string after the swap"             | Mark the connection string **Deployment slot setting**                                                                     | Otherwise it moves with the code                                      |
+| "Custom domain disappeared from production after a swap"                             | It didn't — **custom domains don't swap**; check DNS/bindings                                                              | Domains and TLS bindings stay with the slot                           |
 
 ---
 ## 10. Portal Practice That Pays Off
 
-- [ ] Export a resource group's template as **Bicep** and as JSON; `az bicep decompile` the JSON and compare
-- [ ] Edit a template to add an `allowedValues` parameter and an output; deploy with **what-if** first
-- [ ] Deploy the same template in **Complete** mode to a test RG containing an extra resource and watch it get deleted
-- [ ] Register `EncryptionAtHost`, create a VM with encryption at host, then enable it on an existing VM (deallocate first)
-- [ ] Resize a VM; deallocate and resize to a size that wasn't offered while running
-- [ ] Add a data disk, expand it online, change an OS disk from Standard SSD to Premium SSD (deallocated), take an incremental snapshot
-- [ ] Move a VM and its dependencies to another resource group; try moving it alone and read the error
-- [ ] Create VMs in an availability set and in zones; compare fault/update domains
-- [ ] Create a **Flexible** scale set with autoscale rules and a scale-in policy; protect one instance from scale-in
-- [ ] Create an ACR, push/import an image, pull it from ACI using a managed identity with AcrPull
-- [ ] Deploy an ACI multi-container group from YAML with an Azure Files volume and `OnFailure` restart
-- [ ] Create a Container App with an HTTP scale rule (min 0, max 5), switch to multiple revisions and split traffic
-- [ ] Create a Standard App Service plan, add a staging slot with a sticky setting, swap, then swap back
-- [ ] Map a custom domain (A + TXT), add a managed certificate, enable HTTPS Only
-- [ ] Configure custom backups and restore to a new slot; add VNet integration and a private endpoint
+- [x] Export a resource group's template as **Bicep** and as JSON; `az bicep decompile` the JSON and compare
+- [x] Edit a template to add an `allowedValues` parameter and an output; deploy with **what-if** first
+- [x] Deploy the same template in **Complete** mode to a test RG containing an extra resource and watch it get deleted
+- [x] Register `EncryptionAtHost`, create a VM with encryption at host, then enable it on an existing VM (deallocate first)
+- [x] Resize a VM; deallocate and resize to a size that wasn't offered while running
+- [x] Add a data disk, expand it online, change an OS disk from Standard SSD to Premium SSD (deallocated), take an incremental snapshot
+- [x] Move a VM and its dependencies to another resource group; try moving it alone and read the error
+- [x] Create VMs in an availability set and in zones; compare fault/update domains
+- [x] Create a **Flexible** scale set with autoscale rules and a scale-in policy; protect one instance from scale-in
+- [x] Create an ACR, push/import an image, pull it from ACI using a managed identity with AcrPull
+- [x] Deploy an ACI multi-container group from YAML with an Azure Files volume and `OnFailure` restart
+- [x] Create a Container App with an HTTP scale rule (min 0, max 5), switch to multiple revisions and split traffic
+- [x] Create a Standard App Service plan, add a staging slot with a sticky setting, swap, then swap back
+- [x] Map a custom domain (A + TXT), add a managed certificate, enable HTTPS Only
+- [x] Configure custom backups and restore to a new slot; add VNet integration and a private endpoint
 
 ---
 ## 11. One-Line Exam Facts
