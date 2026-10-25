@@ -153,11 +153,11 @@ See also [[VM]], [[VM Sizes]], [[Azure Spot Instance]].
 * **Boot diagnostics** — serial console log and screenshot for unbootable VMs.
 
 ### VM States & Billing
-|State|Compute billed?|Notes|
-|---|---|---|
-|**Running**|✅|—|
-|**Stopped** (shut down from inside the OS)|✅ **still billed**|Hardware still allocated|
-|**Stopped (deallocated)** (Stop in portal/CLI)|❌|Disks still billed; **temp disk wiped**; dynamic IPs released|
+| State                                          | Compute billed?    | Notes                                                         |
+| ---------------------------------------------- | ------------------ | ------------------------------------------------------------- |
+| **Running**                                    | ✅                  | —                                                             |
+| **Stopped** (shut down from inside the OS)     | ✅ **still billed** | Hardware still allocated                                      |
+| **Stopped (deallocated)** (Stop in portal/CLI) | ❌                  | Disks still billed; **temp disk wiped**; dynamic IPs released |
 
 * **Temporary disk** (`D:` on Windows, `/dev/sdb1` on Linux) is lost on **deallocation, resize, redeploy, or host move** — never store data there.
 * **Redeploy** moves the VM to a new host (fixes host-level problems). **Reapply** reruns provisioning for a VM stuck in a failed state.
@@ -168,15 +168,15 @@ See also [[VM]], [[VM Sizes]], [[Azure Spot Instance]].
 * **Azure Monitor Agent**, **Network Watcher Agent**, **Run Command** (run scripts without RDP/SSH).
 
 ### VM Sizes
-|Family|Optimised for|
-|---|---|
-|**B**|Burstable — low baseline CPU with occasional spikes|
-|**D**|General purpose — balanced CPU/memory|
-|**F**|Compute — high CPU-to-memory|
-|**E / M**|Memory — databases, SAP HANA, caches|
-|**L**|Storage — high disk throughput / IOPS|
-|**N** (NC, ND, NV)|GPU — AI/ML, rendering|
-|**H** (HB, HC)|High-performance computing|
+| Family             | Optimised for                                       |
+| ------------------ | --------------------------------------------------- |
+| **B**              | Burstable — low baseline CPU with occasional spikes |
+| **D**              | General purpose — balanced CPU/memory               |
+| **F**              | Compute — high CPU-to-memory                        |
+| **E / M**          | Memory — databases, SAP HANA, caches                |
+| **L**              | Storage — high disk throughput / IOPS               |
+| **N** (NC, ND, NV) | GPU — AI/ML, rendering                              |
+| **H** (HB, HC)     | High-performance computing                          |
 
 **Reading a size name:** `Standard_D4ds_v5` → family **D**, **4** vCPUs, **d** = local temp disk, **s** = supports **Premium SSD**, **v5** = generation. **a** = AMD processor.
 
