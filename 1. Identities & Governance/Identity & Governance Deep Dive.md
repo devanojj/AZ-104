@@ -1,13 +1,7 @@
-Consolidated revision note for the exam area **Manage Azure identities and governance (20–25%)**, skills measured as of **17 April 2026**. Joint-largest area on the exam with compute.
-
 The official sub-skills are three groups:
 1. **Manage Microsoft Entra users and groups** — create users and groups, manage user and group properties, manage licences, manage external users, configure self-service password reset (SSPR)
 2. **Manage access to Azure resources** — manage built-in Azure roles, assign roles at different scopes, interpret access assignments
 3. **Manage Azure subscriptions and governance** — Azure Policy, resource locks, tags, resource groups, subscriptions, costs (alerts, budgets, Azure Advisor), management groups
-
-> [!tip] How to use this note
-> Sections follow the outline. Two distinctions decide most questions here: **Entra roles vs Azure roles**, and **RBAC vs Policy vs Locks**. If you can justify **why** you'd pick one option over another in section 15, this area is covered.
-> Practice questions for every section are in [[Identity & Governance Deep Dive - EQ]].
 
 > [!warning] Things that changed recently — older study material is wrong on these
 > * A new **Azure Policy assignment** takes about **5 minutes** to apply; results for a new/updated resource appear in about **15 minutes**; the full compliance scan runs every **24 hours**. Older material says 30 minutes.
@@ -18,41 +12,38 @@ The official sub-skills are three groups:
 
 ---
 ## 1. Microsoft Entra ID Fundamentals
-
-See also [[Identity]], [[AD]].
-
 ### Tenant, Directory, Subscription
 * A **tenant** is a dedicated instance of Microsoft Entra ID (the directory) for an organisation.
 * **Every subscription trusts exactly one tenant.** A tenant can have many subscriptions.
 * Identity is in Entra ID; authorisation to Azure resources is **Azure RBAC** — two separate systems.
 
 ### Entra ID vs Active Directory Domain Services
-|  |**Microsoft Entra ID**|**AD DS** (on-premises)|
-|---|---|---|
-|Protocols|HTTPS/REST, **OAuth 2.0, SAML, OpenID Connect**, WS-Fed|**Kerberos, NTLM, LDAP**|
-|Structure|**Flat** — no OUs, no GPOs|OUs, GPOs, forests, domains|
-|Querying|Microsoft Graph API|LDAP|
-|Devices|Entra join / registration|Domain join|
-|Federation|Built-in (SaaS apps, other IdPs)|Needs AD FS|
+|            | **Microsoft Entra ID**                                  | **AD DS** (on-premises)     |
+| ---------- | ------------------------------------------------------- | --------------------------- |
+| Protocols  | HTTPS/REST, **OAuth 2.0, SAML, OpenID Connect**, WS-Fed | **Kerberos, NTLM, LDAP**    |
+| Structure  | **Flat** — no OUs, no GPOs                              | OUs, GPOs, forests, domains |
+| Querying   | Microsoft Graph API                                     | LDAP                        |
+| Devices    | Entra join / registration                               | Domain join                 |
+| Federation | Built-in (SaaS apps, other IdPs)                        | Needs AD FS                 |
 
 * **Microsoft Entra Domain Services** = managed domain controllers (LDAP, Kerberos, NTLM, Group Policy) for legacy apps in Azure — you don't manage the DCs.
 * **Hybrid identity:** **Microsoft Entra Connect Sync** or **Entra Cloud Sync** syncs on-prem users/groups to Entra ID. Sign-in options: **password hash sync**, **pass-through authentication**, **federation**. See [[Microsoft Entra Connect Sync]], [[Entra Cloud Sync]].
 
 ### Licensing
-|Feature|**Free**|**P1**|**P2**|
-|---|---|---|---|
-|Users, groups, SSO, B2B guests|✅|✅|✅|
-|MFA via **security defaults**|✅|✅|✅|
-|**Conditional Access**|❌|✅|✅|
-|**Dynamic membership groups**|❌|✅|✅|
-|**Group-based licensing**|❌|✅ (or M365/O365 E3-level)|✅|
-|Self-service group management|❌|✅|✅|
-|**SSPR with on-prem writeback**|❌|✅|✅|
-|Administrative units (admins of an AU)|❌|✅|✅|
-|Custom Entra roles|❌|✅|✅|
-|**Entra ID Protection** (risk-based policies)|❌|❌|✅|
-|**Privileged Identity Management (PIM)**|❌|❌|✅|
-|SLA|—|99.9%|99.9%|
+| Feature                                       | **Free** | **P1**                    | **P2** |
+| --------------------------------------------- | -------- | ------------------------- | ------ |
+| Users, groups, SSO, B2B guests                | ✅        | ✅                         | ✅      |
+| MFA via **security defaults**                 | ✅        | ✅                         | ✅      |
+| **Conditional Access**                        | ❌        | ✅                         | ✅      |
+| **Dynamic membership groups**                 | ❌        | ✅                         | ✅      |
+| **Group-based licensing**                     | ❌        | ✅ (or M365/O365 E3-level) | ✅      |
+| Self-service group management                 | ❌        | ✅                         | ✅      |
+| **SSPR with on-prem writeback**               | ❌        | ✅                         | ✅      |
+| Administrative units (admins of an AU)        | ❌        | ✅                         | ✅      |
+| Custom Entra roles                            | ❌        | ✅                         | ✅      |
+| **Entra ID Protection** (risk-based policies) | ❌        | ❌                         | ✅      |
+| **Privileged Identity Management (PIM)**      | ❌        | ❌                         | ✅      |
+| SLA                                           | —        | 99.9%                     | 99.9%  |
 
 See [[Entra ID Protection]], [[Privileged Identity Management]], [[Conditional Access]].
 
@@ -90,12 +81,12 @@ See [[Entra ID Protection]], [[Privileged Identity Management]], [[Conditional A
 ## 3. Groups
 
 ### Group Types
-|  |**Security group**|**Microsoft 365 group**|
-|---|---|---|
-|Used for|Access to resources, **licences**, Azure/Entra role assignment|Collaboration: shared **mailbox, calendar, SharePoint, Teams**|
-|Members|Users, devices, service principals, **other security groups**|**Users only**|
-|Dynamic device membership|✅|❌|
-|Restorable after deletion|❌|✅ (30 days)|
+|                           | **Security group**                                             | **Microsoft 365 group**                                        |
+| ------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| Used for                  | Access to resources, **licences**, Azure/Entra role assignment | Collaboration: shared **mailbox, calendar, SharePoint, Teams** |
+| Members                   | Users, devices, service principals, **other security groups**  | **Users only**                                                 |
+| Dynamic device membership | ✅                                                              | ❌                                                              |
+| Restorable after deletion | ❌                                                              | ✅ (30 days)                                                    |
 
 ### Membership Types
 * **Assigned** — added manually.
@@ -142,12 +133,12 @@ See [[Entra ID Protection]], [[Privileged Identity Management]], [[Conditional A
 * Guests can be added to groups, apps and **Azure RBAC role assignments** like any user.
 
 ### External Collaboration Settings
-|Setting|Options (default in **bold**)|
-|---|---|
-|**Guest user access**|Same access as members · **Limited access to properties and memberships of directory objects** · Restricted to their own objects (most restrictive)|
-|**Guest invite settings**|**Anyone in the organisation, including guests and non-admins** · Members and specific admin roles · Only users with specific admin roles (e.g. **Guest Inviter**) · No one|
-|**Collaboration restrictions**|Allow invitations to any domain · **deny list** of domains · **allow list** of domains|
-|**Self-service sign-up**|Let external users sign up for apps via user flows|
+| Setting                        | Options (default in **bold**)                                                                                                                                               |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Guest user access**          | Same access as members · **Limited access to properties and memberships of directory objects** · Restricted to their own objects (most restrictive)                         |
+| **Guest invite settings**      | **Anyone in the organisation, including guests and non-admins** · Members and specific admin roles · Only users with specific admin roles (e.g. **Guest Inviter**) · No one |
+| **Collaboration restrictions** | Allow invitations to any domain · **deny list** of domains · **allow list** of domains                                                                                      |
+| **Self-service sign-up**       | Let external users sign up for apps via user flows                                                                                                                          |
 
 * **Cross-tenant access settings** control **inbound and outbound** B2B with **other Entra tenants** (by user, group, app) and can **trust their MFA and device claims**. When external collaboration settings and cross-tenant settings disagree, the **most restrictive** applies.
 * **B2B direct connect** — mutual trust for Teams shared channels without guest accounts.
@@ -170,20 +161,17 @@ See [[Entra ID Protection]], [[Privileged Identity Management]], [[Conditional A
 * **Registration:** require users to register at sign-in, and re-confirm every N days.
 * **Notifications:** notify users on reset; notify all admins when another admin resets.
 * **On-premises integration:** **password writeback** via **Entra Connect Sync** or **Cloud Sync** (outbound 443 only, no inbound firewall rules), and optional account unlock.
-* **Customisation:** helpdesk link/email, **company branding** on the sign-in page.
+* **Customisation:** Helpdesk link/email, **company branding** on the sign-in page.
 
 ---
 ## 7. Azure RBAC — Roles and Assignments
-
-See also the 1.5 RBAC units and [[Resource Lock vs RBAC]].
-
 ### Entra Roles vs Azure Roles
-|  |**Microsoft Entra roles**|**Azure roles (RBAC)**|
-|---|---|---|
-|Control|**The directory**: users, groups, licences, apps, domains|**Azure resources**: VMs, storage, networks…|
-|Examples|Global Administrator, User Administrator, Helpdesk Administrator, Guest Inviter, Billing Administrator|Owner, Contributor, Reader, User Access Administrator, VM Contributor|
-|Scope|Tenant or administrative unit|Management group → subscription → resource group → resource|
-|Portal|Entra ID → Roles and administrators|**Access control (IAM)** on any scope|
+|          | **Microsoft Entra roles**                                                                              | **Azure roles (RBAC)**                                                |
+| -------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| Control  | **The directory**: users, groups, licences, apps, domains                                              | **Azure resources**: VMs, storage, networks…                          |
+| Examples | Global Administrator, User Administrator, Helpdesk Administrator, Guest Inviter, Billing Administrator | Owner, Contributor, Reader, User Access Administrator, VM Contributor |
+| Scope    | Tenant or administrative unit                                                                          | Management group → subscription → resource group → resource           |
+| Portal   | Entra ID → Roles and administrators                                                                    | **Access control (IAM)** on any scope                                 |
 
 > [!tip] Global Administrator ≠ Owner
 > Entra roles grant **no** Azure resource access. A **Global Administrator** can **elevate access** (Entra ID → Properties → *Access management for Azure resources* = Yes), which grants **User Access Administrator at root scope `/`** — then they can assign themselves any Azure role. Remove it when done.

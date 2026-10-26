@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5. Monitor Resources/Monitor & Backup Deep Dive.md",
+                "file": "1. Identities & Governance/Identity & Governance Deep Dive.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Monitor & Backup Deep Dive"
+              "title": "Identity & Governance Deep Dive"
             }
           }
         ]
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -197,16 +198,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "12d87f6cf56ba3c9",
+  "active": "780477dfb8256baf",
   "lastOpenFiles": [
+    "1. Identities & Governance/Identity & Governance Deep Dive - EQ.md",
+    "5. Monitor Resources/Monitor & Backup Deep Dive.md",
     "networking.html",
     "storage.html",
     "identities.html",
     "4. Virtual Networking/Extra/Azure Network Watcher.md",
-    "5. Monitor Resources/Monitor & Backup Deep Dive.md",
     "5. Monitor Resources/Extra/DCR.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive - EQ.md",
-    "1. Identities & Governance/Identity & Governance Deep Dive - EQ.md",
     "monitor.html",
     "5. Monitor Resources/Extra/Types of Monitor.md",
     "3. Compute Resources/Compute Deep Dive.md",
@@ -234,7 +235,6 @@
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
     "6. Exams & Labs/Gemini Practice Exam",
-    "6. Exams & Labs",
     "4. Virtual Networking/Extra/Private DNS Zone Structure.canvas",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "5. Monitor Resources/Untitled.canvas",
