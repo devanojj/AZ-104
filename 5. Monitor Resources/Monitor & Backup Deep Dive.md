@@ -212,7 +212,7 @@ See also [[MARS vs MABS]], [[MARS]], [[Recovery Services Vault]], [[Backup Vault
 
 * The vault must be in the **same region** as the VMs it protects (VMs can be in other subscriptions in the same tenant).
 * Limits: up to **1,000 Azure VMs** per vault, **100 VMs per backup policy**, 500 vaults per subscription.
-* Manage everything from **Resiliency** (formerly Backup center / Business Continuity Center): protection status, jobs, policies, alerts, reports across subscriptions and regions.
+* Manage everything from **Resiliency** (formerly Backup centre / Business Continuity Center): protection status, jobs, policies, alerts, reports across subscriptions and regions.
 
 ### Vault Storage Redundancy
 * **LRS**, **ZRS** or **GRS** (default **GRS**).
@@ -235,13 +235,13 @@ See also [[MARS vs MABS]], [[MARS]], [[Recovery Services Vault]], [[Backup Vault
 * Backup works even if the VM is **stopped** (crash-consistent) and needs no explicit outbound connectivity. Enabling backup installs the **VM backup extension**.
 
 ### Restore Options (Azure VM)
-|Option|Result|Use when|
-|---|---|---|
-|**Create new VM**|A new VM from the recovery point|Quick full rebuild alongside the original|
-|**Restore disks**|Managed disks + an **ARM template** to customise|You need to change size, network, settings before creating the VM|
-|**Replace existing**|Swaps the disks on the **existing VM**|Keep the same VM identity and network config|
-|**File recovery (item-level)**|Script mounts the recovery point as drives over **iSCSI** for **12 hours**|Recover a few files/folders|
-|**Cross Region Restore**|Any of the above in the **paired region**|GRS + CRR enabled|
+| Option                         | Result                                                                     | Use when                                                          |
+| ------------------------------ | -------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| **Create new VM**              | A new VM from the recovery point                                           | Quick full rebuild alongside the original                         |
+| **Restore disks**              | Managed disks + an **ARM template** to customise                           | You need to change size, network, settings before creating the VM |
+| **Replace existing**           | Swaps the disks on the **existing VM**                                     | Keep the same VM identity and network config                      |
+| **File recovery (item-level)** | Script mounts the recovery point as drives over **iSCSI** for **12 hours** | Recover a few files/folders                                       |
+| **Cross Region Restore**       | Any of the above in the **paired region**                                  | GRS + CRR enabled                                                 |
 
 * **Instant restore** from snapshots is fastest (no data transfer from the vault).
 
@@ -267,13 +267,13 @@ See also [[MARS vs MABS]], [[MARS]], [[Recovery Services Vault]], [[Backup Vault
 See also [[Azure Site Recovery]], [[BCDR]].
 
 ### Backup vs Site Recovery
-|  |**Azure Backup**|**Azure Site Recovery**|
-|---|---|---|
-|Protects against|Data loss/corruption, accidental deletion, ransomware|**Region or site outage**|
-|How|Scheduled **recovery points** kept for a long time|**Continuous replication** of VMs to another region|
-|RPO|Hours (daily or every 4 h)|**Minutes** (crash-consistent points every 5 min)|
-|RTO|Hours (restore)|**Minutes** (failover)|
-|Result|Restore data/VMs|**Fail over** the running workload|
+|                  | **Azure Backup**                                      | **Azure Site Recovery**                             |
+| ---------------- | ----------------------------------------------------- | --------------------------------------------------- |
+| Protects against | Data loss/corruption, accidental deletion, ransomware | **Region or site outage**                           |
+| How              | Scheduled **recovery points** kept for a long time    | **Continuous replication** of VMs to another region |
+| RPO              | Hours (daily or every 4 h)                            | **Minutes** (crash-consistent points every 5 min)   |
+| RTO              | Hours (restore)                                       | **Minutes** (failover)                              |
+| Result           | Restore data/VMs                                      | **Fail over** the running workload                  |
 
 ### Azure-to-Azure Architecture
 1. Create a **Recovery Services vault in the target (secondary) region** — so you can still manage failover if the source region is down.
