@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a20a43a0cebb1c5",
@@ -198,8 +197,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "780477dfb8256baf",
+  "active": "12d87f6cf56ba3c9",
   "lastOpenFiles": [
+    "networking.html",
+    "storage.html",
+    "identities.html",
     "4. Virtual Networking/Extra/Azure Network Watcher.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive.md",
     "5. Monitor Resources/Extra/DCR.md",
@@ -228,14 +230,11 @@
     "2. Storage/Extra/Sync Group.md",
     "2. Storage/Extra/Storage Actions vs Tasks.md",
     "2. Storage/Extra/WORM vs Policy How it works.md",
-    "2. Storage/Extra/Azure Network Security Perimeter.md",
     "Untitled.base",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
     "6. Exams & Labs/Gemini Practice Exam",
     "6. Exams & Labs",
-    "6. Pra",
-    "6. Exams & Labs/Microsoft Practice Exam/3rd",
     "4. Virtual Networking/Extra/Private DNS Zone Structure.canvas",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "5. Monitor Resources/Untitled.canvas",

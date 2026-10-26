@@ -1,0 +1,1767 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AZ-104 Storage — Quiz</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card: #ffffff;
+    --text: #1f2430;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #4f6bed;
+    --accent-soft: #eef1fd;
+    --good: #0f8a5f;
+    --good-bg: #e7f6ef;
+    --good-line: #9fd9c1;
+    --bad: #c23b4b;
+    --bad-bg: #fdeced;
+    --bad-line: #f0b4bb;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(16,24,40,.05), 0 8px 24px rgba(16,24,40,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171c;
+      --card: #1d2026;
+      --text: #e8eaef;
+      --muted: #9aa1ad;
+      --line: #2c313a;
+      --accent: #8098ff;
+      --accent-soft: #232a3d;
+      --good: #4fcf9b;
+      --good-bg: #16302a;
+      --good-line: #2f6b57;
+      --bad: #ef8e9a;
+      --bad-bg: #331d21;
+      --bad-line: #74424a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 32px 16px 56px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrap { width: 100%; max-width: 680px; }
+
+  header { margin-bottom: 16px; }
+
+  .bar-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .score { font-variant-numeric: tabular-nums; }
+  .score b { color: var(--text); font-weight: 600; }
+
+  .track {
+    height: 6px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .fill {
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: width .25s ease;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 26px 26px 22px;
+  }
+
+  /* ---------- menu ---------- */
+  .menu-head { margin-bottom: 20px; }
+  .menu-head h1 {
+    font-size: 22px;
+    font-weight: 650;
+    letter-spacing: -.01em;
+    margin: 0 0 4px;
+  }
+  .menu-head p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .topics { display: flex; flex-direction: column; gap: 9px; }
+
+  .topic-btn {
+    width: 100%;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 14px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .topic-btn:hover { background: var(--accent-soft); border-color: var(--accent); }
+  .topic-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .topic-btn .name { flex: 1; font-weight: 550; }
+  .topic-btn .count {
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .topic-btn .arrow { color: var(--muted); font-size: 17px; line-height: 1; }
+  .topic-btn:hover .arrow, .topic-btn:hover .count { color: var(--accent); }
+
+  .topic-btn.all {
+    margin-top: 7px;
+    border-style: dashed;
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .topic-btn.all .name { color: var(--accent); }
+  .topic-btn.all .count, .topic-btn.all .arrow { color: var(--accent); }
+
+  /* ---------- quiz ---------- */
+  .topic {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  h1.q {
+    font-size: 19px;
+    line-height: 1.45;
+    font-weight: 600;
+    margin: 0 0 18px;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .opt {
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 13px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .opt:hover:not(:disabled) { background: var(--accent-soft); border-color: var(--accent); }
+  .opt:disabled { cursor: default; }
+  .opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .key {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .opt.correct { background: var(--good-bg); border-color: var(--good-line); }
+  .opt.correct .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.wrong { background: var(--bad-bg); border-color: var(--bad-line); }
+  .opt.wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .5; }
+
+  .verdict {
+    margin-top: 18px;
+    padding: 13px 15px;
+    border-radius: 11px;
+    border: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .verdict.good { background: var(--good-bg); border-color: var(--good-line); }
+  .verdict.bad { background: var(--bad-bg); border-color: var(--bad-line); }
+  .verdict .label { font-weight: 600; }
+  .verdict.good .label { color: var(--good); }
+  .verdict.bad .label { color: var(--bad); }
+  .verdict p { margin: 8px 0 0; color: var(--text); }
+
+  .foot {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    min-height: 42px;
+  }
+  .hint { font-size: 13px; color: var(--muted); margin-right: auto; }
+
+  .btn {
+    font: inherit;
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: filter .15s ease, background .15s ease;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .btn.ghost { background: transparent; color: var(--accent); border-color: var(--line); filter: none; }
+  .btn.ghost:hover { background: var(--accent-soft); }
+
+  .link {
+    font: inherit;
+    font-size: 14px;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .link:hover { color: var(--accent); }
+  .link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .hidden { display: none !important; }
+
+  /* ---------- results ---------- */
+  .result { text-align: center; padding: 10px 0 4px; }
+  .result .big {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+    margin: 6px 0 2px;
+  }
+  .result .sub { color: var(--muted); margin-bottom: 22px; }
+  .result h2 { font-size: 20px; margin: 0; font-weight: 600; }
+  .result .which { font-size: 13px; color: var(--muted); margin-bottom: 2px; }
+  .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  .breakdown {
+    text-align: left;
+    border-top: 1px solid var(--line);
+    margin-top: 22px;
+    padding-top: 16px;
+  }
+  .breakdown h3 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); font-weight: 600; margin: 0 0 10px;
+  }
+  .row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 6px 0; font-size: 14px;
+  }
+  .row span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .9em;
+    background: var(--accent-soft);
+    padding: 1px 5px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 520px) {
+    body { padding: 18px 12px 40px; }
+    .card { padding: 20px 17px 18px; border-radius: 12px; }
+    .menu-head h1 { font-size: 20px; }
+    h1.q { font-size: 17.5px; }
+    .opt, .topic-btn { padding: 12px 13px; }
+    .topic-btn .count { font-size: 12px; }
+    .hint { display: none; }
+    .foot .btn { flex: 1; }
+    .result .big { font-size: 44px; }
+    .actions .btn { flex: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header id="header" class="hidden">
+    <div class="bar-top">
+      <span id="progress">Question 1 of 1</span>
+      <span class="score" id="score">Score <b>0</b> / 0</span>
+    </div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+  </header>
+
+  <main class="card">
+
+    <section id="menu">
+      <div class="menu-head">
+        <h1>AZ-104 — Storage</h1>
+        <p>Pick a topic to start.</p>
+      </div>
+      <div class="topics" id="topics"></div>
+    </section>
+
+    <section id="quiz" class="hidden">
+      <span class="topic" id="topic"></span>
+      <h1 class="q" id="question"></h1>
+      <div class="options" id="options"></div>
+      <div class="verdict hidden" id="verdict"></div>
+      <div class="foot">
+        <span class="hint" id="hint">Pick an answer — or press 1-9</span>
+        <button class="link" id="quit">Back to topics</button>
+        <button class="btn hidden" id="next">Next</button>
+      </div>
+    </section>
+
+    <section id="results" class="hidden">
+      <div class="result">
+        <div class="which" id="whichTopic"></div>
+        <h2 id="verdictTitle">All done</h2>
+        <div class="big" id="finalPct">0%</div>
+        <div class="sub" id="finalScore"></div>
+        <div class="actions">
+          <button class="btn" id="again">Try again</button>
+          <button class="btn ghost" id="back">Back to topics</button>
+        </div>
+        <div class="breakdown hidden" id="breakdown">
+          <h3>By section</h3>
+          <div id="rows"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+const QUESTIONS =
+[
+ {
+  "section": "Storage Account Basics",
+  "q": "You need a storage account that will host SMB file shares, blob containers and queues for a line-of-business application. Which account type should you choose?",
+  "options": [
+   "Standard general-purpose v2",
+   "Premium block blobs",
+   "Premium page blobs"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Storage Account Basics",
+  "q": "Your organisation requires an NFS 4.1 file share for a Linux workload. Which storage account type must you create?",
+  "options": [
+   "Standard general-purpose v2 with large file shares enabled",
+   "Premium file shares (FileStorage)",
+   "Premium block blobs"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Storage Account Basics",
+  "q": "A storage account was created as Standard general-purpose v2. The application now requires single-digit millisecond latency on block blobs. What must you do?",
+  "options": [
+   "Change the performance tier from Standard to Premium on the existing account",
+   "Create a new Premium block blob account and copy the data with AzCopy",
+   "Change the account's access tier to Hot and enable last access time tracking"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Storage Account Basics",
+  "q": "Your company has a compliance requirement that data must be geo-replicated to a secondary region. The application team has requested a Premium block blob account for performance. What should you tell them?",
+  "options": [
+   "Premium block blob accounts support GRS but not GZRS",
+   "Premium accounts support only LRS or ZRS, so geo-redundancy is not possible",
+   "Premium accounts support RA-GZRS once large file shares are enabled"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Storage Account Basics",
+  "q": "Which storage account name is valid?",
+  "options": [
+   "Contoso-Data-01",
+   "contosodata01",
+   "contoso_data_prod_eastus_01"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Storage Account Basics",
+  "q": "You are reviewing an application's configuration and find the endpoint `https://contosodata.dfs.core.windows.net`. Which capability is this account using?",
+  "options": [
+   "Azure Data Lake Storage Gen2 (hierarchical namespace)",
+   "Azure Files over NFS",
+   "Static website hosting"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Storage Account Basics",
+  "q": "Which blob type should be used to back an unmanaged disk for a virtual machine?",
+  "options": [
+   "Page blob",
+   "Block blob",
+   "Append blob"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Storage Account Basics",
+  "q": "An application writes continuous log entries and only ever adds data to the end of the file. Which blob type is designed for this?",
+  "options": [
+   "Block blob",
+   "Append blob",
+   "Page blob"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "Your organisation needs storage that survives the loss of an entire availability zone but has a regulatory requirement that data must not leave the primary region. Which redundancy option should you configure?",
+  "options": [
+   "Geo-redundant storage (GRS)",
+   "Read-access geo-zone-redundant storage (RA-GZRS)",
+   "Zone-redundant storage (ZRS)"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "An application must continue to read data during a full regional outage, without waiting for Microsoft or an administrator to initiate a failover. Which redundancy options satisfy this?",
+  "options": [
+   "GRS or GZRS",
+   "ZRS or GZRS",
+   "RA-GRS or RA-GZRS"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "Which statement about geo-replication in Azure Storage is correct?",
+  "options": [
+   "Data is replicated synchronously to the secondary region, so there is no risk of data loss",
+   "Replication to the secondary region is asynchronous, so data written after the Last Sync Time can be lost",
+   "Replication to the secondary region is synchronous for GZRS and asynchronous for GRS"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "You initiate a customer-managed unplanned failover on an RA-GZRS account following a regional outage. What is the redundancy configuration of the account immediately afterwards?",
+  "options": [
+   "It becomes locally redundant storage (LRS) in the new primary region",
+   "It remains RA-GZRS in the new primary region",
+   "It becomes RA-GRS with the original primary as the new secondary"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "After completing an unplanned failover, your manager asks you to restore zone redundancy by converting the account to GZRS. What should you tell them?",
+  "options": [
+   "Conversion to ZRS, GZRS or RA-GZRS is not supported after an unplanned failover; only GRS or RA-GRS can be reconfigured",
+   "Conversion to GZRS is supported once the original primary region is available again",
+   "Conversion to GZRS is supported but requires the account to be converted to ZRS first"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "Which value should you check before initiating an unplanned failover to understand the potential data loss?",
+  "options": [
+   "Last Sync Time",
+   "Geo-replication lag threshold in the account's diagnostic settings",
+   "The secondary region's availability SLA"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "Your team wants to run a disaster recovery drill on a GZRS account without any data loss, and be able to fail back afterwards. Which option should you use?",
+  "options": [
+   "Unplanned failover, then reconfigure geo-redundancy",
+   "Microsoft-managed failover requested through a support ticket",
+   "Planned failover"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "A storage account is configured with Azure File Sync. The business continuity team asks you to document the customer-managed failover procedure for it. What is the correct response?",
+  "options": [
+   "Failover is supported but cloud tiering must be disabled first",
+   "Failover is supported only for the file service, not the blob service",
+   "Customer-managed failover is not supported for storage accounts used with Azure File Sync"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "After a storage account failover completes, what happens to the account's primary endpoint URL?",
+  "options": [
+   "A new URL is generated in the secondary region and must be updated in all applications",
+   "The URL stays the same; the DNS entry for the primary endpoint now points to the new primary region",
+   "The URL stays the same but applications must append the secondary region suffix"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "Which redundancy options offer 16 nines of durability?",
+  "options": [
+   "LRS and ZRS",
+   "ZRS and GZRS only",
+   "GRS, GZRS and their read-access variants"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Redundancy and Failover",
+  "q": "You need to add zone redundancy to an existing LRS account in a region that supports availability zones, with no downtime. What is the correct approach?",
+  "options": [
+   "Perform a redundancy conversion from LRS to ZRS",
+   "Create a new ZRS account and migrate the data with AzCopy, as conversion is unsupported",
+   "Change the account's performance tier to Premium, which enables ZRS automatically"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Networking and Security",
+  "q": "Your organisation requires that an Azure storage account is reachable from an on-premises datacentre over ExpressRoute using a private IP address, with no public endpoint exposure. What should you configure?",
+  "options": [
+   "A private endpoint with a corresponding private DNS zone",
+   "A virtual network service endpoint on the gateway subnet",
+   "A storage firewall rule allowing the on-premises public IP range"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Networking and Security",
+  "q": "You need to restrict a storage account so that only virtual machines in a specific subnet can access blob data. Cost must be minimised and on-premises access is not required. What should you configure?",
+  "options": [
+   "A private endpoint for the blob sub-resource",
+   "A virtual network service endpoint on the subnet, with a matching network rule on the account",
+   "A network security group rule denying all outbound traffic except to the storage service tag"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Networking and Security",
+  "q": "Which statement correctly contrasts service endpoints and private endpoints?",
+  "options": [
+   "A service endpoint keeps traffic on the Azure backbone but the account still resolves to a public IP, whereas a private endpoint assigns a private IP from your virtual network",
+   "Both assign a private IP from the virtual network to the storage account",
+   "A service endpoint is configured per sub-resource, whereas a private endpoint covers the whole storage account"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Networking and Security",
+  "q": "You create a private endpoint for a storage account, but virtual machines in the VNet still connect to the public IP address. What is the most likely cause?",
+  "options": [
+   "The private endpoint was created for the wrong subscription",
+   "Secure transfer required is disabled on the storage account",
+   "The private DNS zone is missing or not linked to the virtual network, so the name still resolves publicly"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Networking and Security",
+  "q": "An application needs private access to both blob containers and file shares on the same storage account. How many private endpoints are required?",
+  "options": [
+   "One, because a private endpoint covers the entire storage account",
+   "Two, because a private endpoint targets a single sub-resource",
+   "One, provided the hierarchical namespace is enabled"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Networking and Security",
+  "q": "You add a firewall rule to a storage account using the CIDR range 10.1.0.0/24 to allow a subnet, but the rule is rejected. Why?",
+  "options": [
+   "Storage firewall rules accept public IP ranges only; private RFC 1918 addresses are rejected",
+   "Firewall rules accept only single IP addresses, not CIDR ranges",
+   "The account must be converted to Premium before firewall rules can be added"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Networking and Security",
+  "q": "Azure Backup must write recovery points to a storage account whose public network access is set to \"Enabled from selected virtual networks and IP addresses\". What is the supported way to allow this?",
+  "options": [
+   "Add the published Azure datacentre IP ranges for the region as firewall rules",
+   "Enable the \"Allow trusted Microsoft services to access this storage account\" exception",
+   "Set the default network action to Allow for the duration of each backup job"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Networking and Security",
+  "q": "You want to grant a firewall exception to one specific Azure resource rather than to all trusted Microsoft services. What should you configure?",
+  "options": [
+   "A service endpoint policy on the resource's subnet",
+   "A managed identity with the Storage Account Contributor role",
+   "A resource instance rule on the storage account"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Networking and Security",
+  "q": "Which storage account setting forces all clients to use HTTPS?",
+  "options": [
+   "Minimum TLS version",
+   "Secure transfer required",
+   "Permitted scope for copy operations"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Networking and Security",
+  "q": "A container's public access level cannot be changed from Private to Blob, and the option is greyed out in the portal. What is the cause?",
+  "options": [
+   "\"Allow blob anonymous access\" is disabled at the storage account level",
+   "The account is using customer-managed keys",
+   "The container has an active legal hold"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Networking and Security",
+  "q": "Your security team requires that all access to blob data is authorised through Microsoft Entra ID and that account keys cannot be used. Which setting should you configure?",
+  "options": [
+   "Set the minimum TLS version to 1.2 and enable secure transfer required",
+   "Assign the Storage Blob Data Owner role and remove all Contributor assignments",
+   "Set `allowSharedKeyAccess` to false on the storage account"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Networking and Security",
+  "q": "After disabling shared key access on a storage account, an application that uses a service SAS stops working. Why?",
+  "options": [
+   "Service and account SAS tokens are signed with the account key, so they stop working when shared key access is disabled",
+   "Service SAS tokens require the hierarchical namespace to be enabled",
+   "Service SAS tokens must be regenerated with a minimum TLS version of 1.2"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Encryption",
+  "q": "Which statement about encryption at rest in Azure Storage is correct?",
+  "options": [
+   "It must be enabled during account creation and cannot be added later",
+   "It applies to blob and file data only, not to queues and tables",
+   "All data is encrypted with 256-bit AES by default and encryption cannot be disabled"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Encryption",
+  "q": "Your organisation must be able to revoke access to encrypted storage data by disabling the encryption key. What should you configure?",
+  "options": [
+   "Customer-managed keys stored in Azure Key Vault",
+   "Infrastructure encryption with Microsoft-managed keys",
+   "An encryption scope using Microsoft-managed keys"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Encryption",
+  "q": "You are configuring customer-managed keys for a storage account. Which two Key Vault settings are prerequisites?",
+  "options": [
+   "Private endpoint and firewall restrictions",
+   "Soft delete and purge protection",
+   "RBAC authorisation and a service endpoint"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Encryption",
+  "q": "How does a storage account authenticate to Azure Key Vault when using customer-managed keys?",
+  "options": [
+   "With a system-assigned or user-assigned managed identity",
+   "With the storage account's primary access key",
+   "With a user delegation SAS issued by the Key Vault"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Encryption",
+  "q": "A regulatory requirement states that storage data must be encrypted twice, with a second independent layer applied at the infrastructure level. The storage account already exists and holds production data. What should you tell the compliance team?",
+  "options": [
+   "Enable infrastructure encryption on the existing account from the Encryption blade",
+   "Infrastructure encryption can only be enabled at account creation, so a new account and data migration are required",
+   "Apply an encryption scope with infrastructure encryption to each existing container"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Encryption",
+  "q": "Different containers in the same storage account must be encrypted with different customer-managed keys. What should you configure?",
+  "options": [
+   "Encryption scopes",
+   "A separate storage account per key, as keys are account-level only",
+   "Customer-provided keys passed in each request header"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "External users need read access to a specific blob container for 24 hours. Your security policy forbids any credential derived from the storage account keys. What should you issue?",
+  "options": [
+   "A user delegation SAS",
+   "An account SAS restricted to the blob service with read permission",
+   "A service SAS bound to a stored access policy"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "Which SAS type is secured with Microsoft Entra ID credentials rather than the storage account key?",
+  "options": [
+   "Account SAS",
+   "User delegation SAS",
+   "Service SAS"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "What is the maximum validity period of a user delegation SAS?",
+  "options": [
+   "7 days",
+   "24 hours",
+   "90 days"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "A user must be able to create user delegation SAS tokens for a container. Which role grants the ability to request the user delegation key?",
+  "options": [
+   "Storage Blob Delegator",
+   "Storage Account Key Operator Service Role",
+   "Reader and Data Access"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "You need to issue a SAS that permits listing containers and reading the blob service properties at the account level. Which SAS type is required?",
+  "options": [
+   "Service SAS",
+   "Account SAS",
+   "User delegation SAS"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "A service SAS has been distributed to several partners and must be revoked immediately. Regenerating the account keys would break unrelated production applications. What is the correct approach?",
+  "options": [
+   "Delete the stored access policy that the SAS tokens reference",
+   "Set the account's minimum TLS version to 1.3, which invalidates existing tokens",
+   "Add a firewall rule denying the partners' IP addresses"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "On which resources can a stored access policy be defined?",
+  "options": [
+   "The storage account, so that it applies to every service",
+   "A blob container, file share, queue or table",
+   "An individual blob or file"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "What is the maximum number of stored access policies that can be defined on a single blob container?",
+  "options": [
+   "3",
+   "10",
+   "5"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "Why can an account SAS not be associated with a stored access policy?",
+  "options": [
+   "Stored access policies are defined on a container, share, queue or table, whereas an account SAS is scoped above that level",
+   "Account SAS tokens are signed with a user delegation key rather than the account key",
+   "Account SAS tokens have a hard-coded maximum lifetime of 7 days"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "You examine a SAS URI and find the parameters `skoid` and `sktid`. What does this tell you?",
+  "options": [
+   "The SAS is an account SAS covering multiple services",
+   "The SAS is a user delegation SAS, signed with an Entra ID identity",
+   "The SAS references a stored access policy"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "In a SAS token, which parameter should always be set to `https` to protect data in transit?",
+  "options": [
+   "`sv`",
+   "`sip`",
+   "`spr`"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "A developer has been assigned the Reader role on a storage account but cannot read blob data with their Entra ID credentials. What is the cause?",
+  "options": [
+   "Role assignments take up to 24 hours to propagate",
+   "Reader is a control-plane role and grants no data-plane access; a data role such as Storage Blob Data Reader is required",
+   "The developer must also be assigned the Storage Account Key Operator Service Role"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "A junior administrator holds the Contributor role on a storage account. Your security review flags this as excessive for data protection. Why?",
+  "options": [
+   "Contributor includes the Storage Blob Data Owner role by inheritance",
+   "Contributor allows anonymous public access to be enabled on containers",
+   "Contributor can read the account access keys, which grants full access to all data"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "An application's managed identity must read, write and delete blobs in a single container, and nothing else. What is the least-privilege assignment?",
+  "options": [
+   "Storage Blob Data Contributor at the subscription scope",
+   "Storage Account Contributor scoped to the storage account",
+   "Storage Blob Data Contributor scoped to that container"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "Which role allows a user to list and regenerate storage account keys without granting any other management permissions?",
+  "options": [
+   "Storage Account Key Operator Service Role",
+   "Storage Account Contributor",
+   "Reader and Data Access"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "You need to modify NTFS permissions on files inside an Azure file share using identity-based authentication. Which share-level role is required?",
+  "options": [
+   "Storage File Data SMB Share Contributor",
+   "Storage File Data Privileged Reader",
+   "Storage File Data SMB Share Elevated Contributor"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Access Control, SAS and RBAC",
+  "q": "What is the correct key rotation sequence for a storage account?",
+  "options": [
+   "Regenerate key1, regenerate key2, then update all applications to key1",
+   "Regenerate both keys simultaneously, then update all applications within the grace period",
+   "Switch applications to key2, regenerate key1, switch applications back to key1, regenerate key2"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "A dataset is accessed roughly once a month and must be available immediately when requested, with the lowest possible storage cost for an online tier. Which access tier should you use?",
+  "options": [
+   "Hot tier",
+   "Cold tier",
+   "Archive tier"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "Compliance records must be retained for seven years, are almost never read, and may take several hours to retrieve. Which access tier is most cost-effective?",
+  "options": [
+   "Archive tier",
+   "Cool tier",
+   "Cold tier"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "What is the minimum recommended retention period for data in the cold tier before an early deletion fee applies?",
+  "options": [
+   "30 days",
+   "180 days",
+   "90 days"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "A blob is moved to the archive tier and then deleted after 45 days. What is the billing consequence?",
+  "options": [
+   "No additional charge, because archive storage is billed monthly in arrears",
+   "An early deletion fee equivalent to 45 days of hot tier storage is charged",
+   "An early deletion fee equivalent to 135 days of archive storage is charged"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "You attempt to set the archive tier as the default access tier on a storage account, but the option is not available. Why?",
+  "options": [
+   "Archive can only be set at the individual blob level, not as the account default",
+   "The account must have the hierarchical namespace enabled first",
+   "The account must be converted to a Premium block blob account first"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "An application must read a 4 GB blob currently in the archive tier, and the business requires it within the hour. Which rehydration option should you choose?",
+  "options": [
+   "Standard priority rehydration",
+   "High priority rehydration",
+   "Change the account's default access tier to Hot"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "What is the maximum expected completion time for a standard priority rehydration from the archive tier?",
+  "options": [
+   "1 hour",
+   "15 hours",
+   "4 hours"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "You need to read an archived blob without incurring an early deletion fee and without making the original blob unavailable. What should you do?",
+  "options": [
+   "Change the blob's access tier to Hot, then change it back to Archive after reading",
+   "Copy the archived blob to a new blob in an online tier, leaving the original in the archive tier",
+   "Create a snapshot of the archived blob and read the snapshot"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "How can an application be notified automatically when a blob's rehydration from the archive tier has completed?",
+  "options": [
+   "Subscribe to the `BlobTierChanged` event in Azure Event Grid",
+   "Poll the blob's `x-ms-rehydrate-priority` header every 15 minutes",
+   "Enable the change feed and read the latest log segment"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "Even though archive blobs are offline, which operation can still be performed on them without rehydration?",
+  "options": [
+   "Reading the blob's content with a ranged GET request",
+   "Listing the blob and reading its metadata",
+   "Creating a snapshot of the blob"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "Your organisation wants blobs to move to the cool tier after 30 days, to the archive tier after 90 days, and to be deleted after 7 years, with no manual intervention. What should you configure?",
+  "options": [
+   "Azure Storage Actions with a conditional task",
+   "An object replication policy with a prefix filter",
+   "A blob lifecycle management policy"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "How often does a blob lifecycle management policy run?",
+  "options": [
+   "Continuously, as blobs are written",
+   "Every 6 hours",
+   "Once per day"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "You create a new lifecycle management policy, but no blobs have been tiered after two hours. What is the most likely explanation?",
+  "options": [
+   "A new or edited policy can take up to 48 hours to take effect on its first run",
+   "The policy requires the change feed to be enabled before it will run",
+   "Lifecycle policies only apply to blobs created after the policy was saved"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "A lifecycle rule must act on blobs based on how recently they were read rather than when they were last written. What must be enabled?",
+  "options": [
+   "Blob versioning on the storage account",
+   "Last access time tracking",
+   "The change feed on the source container"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Blob Storage Tiers and Lifecycle",
+  "q": "Which lifecycle management filter restricts a rule to blobs in a specific virtual folder path?",
+  "options": [
+   "Blob index tag match",
+   "Blob type filter",
+   "Prefix match"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "A user overwrote an important blob yesterday and needs the earlier content back. Which feature, if enabled beforehand, automatically retains the previous content of every write?",
+  "options": [
+   "Blob versioning",
+   "Blob snapshots",
+   "Container soft delete"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "An administrator deleted a container containing 4,000 blobs. Container soft delete is enabled with a 14-day retention period. What can you recover?",
+  "options": [
+   "Individual blobs, which must be restored one at a time from the soft-deleted state",
+   "Only the container's metadata and access policy; the blobs must be restored from a snapshot",
+   "The container and its contents, restored under the same container name"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "What is the maximum retention period that can be configured for blob soft delete?",
+  "options": [
+   "90 days",
+   "365 days",
+   "180 days"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "A script accidentally deleted and overwrote thousands of blobs across a container three hours ago. You need to return the container to its state before the script ran. Which feature should you use?",
+  "options": [
+   "Blob soft delete, restoring each affected blob",
+   "Point-in-time restore",
+   "Object replication from the secondary region"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "Which three features must be enabled before point-in-time restore can be configured for block blobs?",
+  "options": [
+   "Blob versioning, change feed and blob soft delete",
+   "Blob versioning, object replication and container soft delete",
+   "Change feed, last access time tracking and blob index tags"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "Financial records must be retained in an unalterable state for seven years to satisfy a regulatory audit, and no administrator may shorten that period. What should you configure?",
+  "options": [
+   "Container soft delete with a 2,555-day retention period",
+   "A locked time-based retention policy",
+   "A legal hold on the container"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "Which statement about a locked time-based retention policy is correct?",
+  "options": [
+   "It can only be extended, and cannot be shortened or deleted",
+   "It can be shortened by an account Owner but not by a Contributor",
+   "It is automatically removed once the retention interval elapses"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "Your legal team requires that data relating to an ongoing investigation cannot be deleted. The duration of the investigation is unknown. What should you apply?",
+  "options": [
+   "A locked time-based retention policy set to the maximum interval",
+   "A `CanNotDelete` resource lock on the storage account",
+   "A legal hold"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "Which operation is still permitted on a container protected by an active immutability policy?",
+  "options": [
+   "Reading existing blobs and creating new ones",
+   "Overwriting an existing blob with new content",
+   "Deleting a blob whose retention interval has not elapsed"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "You want to copy block blobs from a container in East US to a container in a separate, writable storage account in West Europe, and then archive the copies with a lifecycle policy. What should you configure?",
+  "options": [
+   "RA-GZRS redundancy with a lifecycle policy on the secondary region",
+   "An object replication policy",
+   "A planned failover to the West Europe paired region"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "Which prerequisites must be in place before an object replication policy can be created?",
+  "options": [
+   "Change feed on both the source and destination accounts",
+   "Point-in-time restore on the source account and blob soft delete on the destination",
+   "Blob versioning on both accounts and the change feed on the source account"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "What is the maximum number of rules that can be defined in a single object replication policy?",
+  "options": [
+   "10",
+   "5",
+   "50"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "Which of the following is not replicated by an object replication policy?",
+  "options": [
+   "Blob metadata",
+   "Blob access tiers",
+   "Blob snapshots"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Blob Data Protection",
+  "q": "You enable static website hosting on a storage account. Which container is created to serve the content?",
+  "options": [
+   "`$root`",
+   "`$logs`",
+   "`$web`"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Files",
+  "q": "Which Azure Files configuration supports the NFS 4.1 protocol?",
+  "options": [
+   "Standard general-purpose v2 with large file shares enabled",
+   "Premium file shares (FileStorage)",
+   "Standard general-purpose v2 in the transaction optimised tier"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Files",
+  "q": "An NFS file share must be secured. Which statement is correct?",
+  "options": [
+   "NFS shares support Microsoft Entra Kerberos authentication for Linux clients",
+   "NFS shares are encrypted in transit by default, so no network restriction is required",
+   "NFS shares have no identity-based authentication, so access must be restricted with a private endpoint or service endpoint"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Files",
+  "q": "Your organisation has on-premises Active Directory users who must access an Azure file share over SMB and retain their existing NTFS permissions. Which identity source should you configure?",
+  "options": [
+   "Microsoft Entra Kerberos",
+   "Microsoft Entra Domain Services",
+   "On-premises Active Directory Domain Services (AD DS)"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Files",
+  "q": "Remote workers use Microsoft Entra joined Windows laptops with no connectivity to any domain controller, and your organisation has no on-premises Active Directory. Which identity source supports SMB access to an Azure file share?",
+  "options": [
+   "On-premises Active Directory Domain Services",
+   "Microsoft Entra Kerberos",
+   "Microsoft Entra Domain Services"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Files",
+  "q": "Why can Microsoft Entra Kerberos authentication work without line of sight to a domain controller?",
+  "options": [
+   "The storage account acts as a read-only domain controller for the share",
+   "Microsoft Entra ID issues the Kerberos tickets directly",
+   "Kerberos tickets are cached indefinitely on the Entra joined device"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Files",
+  "q": "Which limitation applies to Microsoft Entra Kerberos authentication for Azure Files?",
+  "options": [
+   "It supports only Premium file shares",
+   "It cannot be used with hybrid identities synced from on-premises Active Directory",
+   "Linux client authentication is not supported"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Files",
+  "q": "You need to change an Azure file share's identity source from Microsoft Entra Domain Services to on-premises AD DS. What must you do first?",
+  "options": [
+   "Create a second storage account, as the identity source is immutable",
+   "Enable both sources and set AD DS as the preferred provider",
+   "Disable the existing identity source before enabling the new one"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Files",
+  "q": "With identity-based authentication configured, how is access to files inside an Azure file share determined?",
+  "options": [
+   "Entirely by the share-level RBAC role assignment",
+   "Entirely by NTFS permissions on the directories and files",
+   "By the share-level RBAC role first, then by the NTFS permissions inside the share"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Files",
+  "q": "A user cannot mount an Azure file share from a home network, although the credentials are correct and the share is accessible from an Azure VM. What is the most likely cause?",
+  "options": [
+   "The share is in the cool tier, which does not support direct mounting",
+   "The storage account's minimum TLS version is set to 1.2",
+   "The internet service provider is blocking outbound TCP port 445"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Files",
+  "q": "What is the maximum number of snapshots that can be retained for a single Azure file share?",
+  "options": [
+   "100",
+   "200",
+   "365"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Files",
+  "q": "Which Windows feature allows end users to restore an earlier version of a file themselves from an Azure file share snapshot?",
+  "options": [
+   "File History",
+   "Previous Versions in File Explorer",
+   "Storage Spaces Direct"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Files",
+  "q": "Soft delete is enabled on the file service. An administrator deletes a single file from a share by mistake. What can soft delete recover?",
+  "options": [
+   "The individual file, from the share's soft-deleted items view",
+   "Nothing — file share soft delete recovers a deleted share, not individual files",
+   "The individual file, but only if versioning is also enabled on the share"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Files",
+  "q": "A standard file share must grow beyond 5 TiB. What must be enabled?",
+  "options": [
+   "The hierarchical namespace on the storage account",
+   "The Premium performance tier on the file share",
+   "Large file shares on the storage account"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure File Sync",
+  "q": "An on-premises Windows file server is running out of disk space, but users must continue to access all files at local network speed. Which solution addresses both requirements?",
+  "options": [
+   "Migrate the share to Azure Files and map a drive over the internet",
+   "Deploy Azure Storage Mover with a scheduled migration job",
+   "Deploy Azure File Sync with cloud tiering enabled"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure File Sync",
+  "q": "In Azure File Sync, what does a cloud endpoint represent?",
+  "options": [
+   "The Azure file share that the sync group synchronises with",
+   "The registered Windows Server that hosts the local cache",
+   "A path on the server that is synchronised, such as a volume or folder"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure File Sync",
+  "q": "How many cloud endpoints can a single Azure File Sync sync group contain?",
+  "options": [
+   "Up to 5",
+   "Up to 100, matching the server endpoint limit",
+   "One"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure File Sync",
+  "q": "What does a server endpoint define in an Azure File Sync topology?",
+  "options": [
+   "A specific path on a registered server, such as a volume or folder, that is synchronised",
+   "The Storage Sync Service resource in Azure",
+   "The network path used by clients to reach the Azure file share"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure File Sync",
+  "q": "When cloud tiering replaces a file's content with a pointer, what remains on the local server?",
+  "options": [
+   "The file's namespace entry, as a reparse point, so the file is still visible",
+   "Nothing; the file disappears from the directory listing until recalled",
+   "A compressed copy of the file, restored transparently on access"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure File Sync",
+  "q": "Which cloud tiering policy is always honoured first?",
+  "options": [
+   "The volume free space policy",
+   "The date policy, which tiers files not accessed within a set number of days",
+   "The maximum file size policy"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure File Sync",
+  "q": "A file is added directly to the Azure file share through the portal rather than on the server. How long can it take before the registered servers see the change?",
+  "options": [
+   "Within 5 minutes, as change detection is event-driven",
+   "Up to 24 hours, because the Azure-side change detection job runs daily",
+   "Up to 48 hours, matching the lifecycle management interval"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure File Sync",
+  "q": "Which operating system is required for an Azure File Sync server endpoint?",
+  "options": [
+   "Windows Server, with the Azure File Sync agent installed and the server registered",
+   "Any Linux distribution with the `cifs-utils` package installed",
+   "Windows 10 or Windows 11 with the SMB Direct feature enabled"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Tools",
+  "q": "You need to copy 20 TB of blobs between two storage accounts in different regions without downloading the data to an intermediate machine. Which tool should you use?",
+  "options": [
+   "AzCopy, using a server-to-server copy",
+   "Azure Storage Explorer",
+   "Robocopy from an Azure virtual machine"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Tools",
+  "q": "Which AzCopy command makes the destination container match the source exactly, removing files that no longer exist at the source?",
+  "options": [
+   "`azcopy copy` with the `--recursive` flag",
+   "`azcopy jobs resume` with the `--mirror` flag",
+   "`azcopy sync` with `--delete-destination=true`"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Tools",
+  "q": "You authenticate AzCopy with `azcopy login` using your Entra ID account, which holds the Contributor role on the storage account. Uploads fail with an authorisation error. What should you do?",
+  "options": [
+   "Set the account's minimum TLS version to 1.2",
+   "Assign a data-plane role such as Storage Blob Data Contributor",
+   "Re-authenticate using a service SAS instead, as Entra ID is unsupported by AzCopy"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Tools",
+  "q": "Which tool provides a free, cross-platform graphical interface for managing blobs, file shares, queues, tables and Data Lake ACLs?",
+  "options": [
+   "Azure Cloud Shell",
+   "Azure Storage Explorer",
+   "Azure Storage Mover"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Tools",
+  "q": "Your organisation must transfer 500 TB of data to Azure, and the available WAN bandwidth would make an online transfer take months. What should you use?",
+  "options": [
+   "AzCopy with the `--cap-mbps` flag removed to maximise throughput",
+   "Azure Data Box",
+   "Azure Data Factory with a self-hosted integration runtime"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Tools",
+  "q": "You need to export data from Azure to physical disks shipped back to your datacentre. Which option is not suitable?",
+  "options": [
+   "Azure Data Box Disk",
+   "Azure Data Box",
+   "Azure Import/Export"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Tools",
+  "q": "You are copying files from an on-premises Windows file server into a mounted Azure file share and must preserve the NTFS access control lists. Which tool is designed for this?",
+  "options": [
+   "Robocopy",
+   "AzCopy with the `--preserve-smb-permissions` flag disabled",
+   "Azure Storage Explorer"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Tools",
+  "q": "Which managed service uses an agent to migrate on-premises SMB and NFS shares into Azure with centralised job tracking?",
+  "options": [
+   "Azure File Sync",
+   "Azure Import/Export",
+   "Azure Storage Mover"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Queue, Table and Data Lake Gen2",
+  "q": "What is the maximum size of a message in Azure Queue storage?",
+  "options": [
+   "4 KB",
+   "256 KB",
+   "64 KB"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Queue, Table and Data Lake Gen2",
+  "q": "An application requires message sessions, topics with subscriptions and guaranteed FIFO ordering. Which service should you choose?",
+  "options": [
+   "Azure Queue storage with a 7-day time to live",
+   "Azure Table storage with a partitioned schema",
+   "Azure Service Bus"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Queue, Table and Data Lake Gen2",
+  "q": "Which two properties together form the unique key of an entity in Azure Table storage?",
+  "options": [
+   "PartitionKey and RowKey",
+   "AccountKey and RowKey",
+   "PartitionKey and Timestamp"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Queue, Table and Data Lake Gen2",
+  "q": "How is Azure Data Lake Storage Gen2 enabled on a storage account?",
+  "options": [
+   "By creating a Premium block blob account and enabling the dfs endpoint",
+   "By enabling the hierarchical namespace",
+   "By assigning the Storage Blob Data Owner role and enabling POSIX ACLs"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Queue, Table and Data Lake Gen2",
+  "q": "Which capability does the hierarchical namespace add to a general-purpose v2 account?",
+  "options": [
+   "True directory objects with atomic directory rename and POSIX ACLs",
+   "Synchronous replication across three availability zones",
+   "Identity-based authentication for SMB file shares"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Queue, Table and Data Lake Gen2",
+  "q": "You enable the hierarchical namespace on an existing general-purpose v2 account to support an analytics workload. The project is later cancelled and you are asked to revert the change. What should you tell the team?",
+  "options": [
+   "The hierarchical namespace can be disabled from the Data Lake Gen2 blade",
+   "The namespace can be disabled only after all containers are deleted",
+   "Upgrading an account to enable the hierarchical namespace is a one-way operation and cannot be reversed"
+  ],
+  "answer": 2
+ }
+];
+
+const $ = id => document.getElementById(id);
+
+function esc(s) {
+  return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+// escape first, then turn `...` into <code>
+function fmt(s) {
+  return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// topics in the order they appear in the notes
+const TOPICS = [];
+QUESTIONS.forEach(q => { if (!TOPICS.includes(q.section)) TOPICS.push(q.section); });
+
+const ALL = '__all__';
+let topic = null, order = [], idx = 0, score = 0, answered = false, perSection = {};
+
+/* ---------------- menu ---------------- */
+
+function buildMenu() {
+  const box = $('topics');
+  box.innerHTML = '';
+
+  TOPICS.forEach(name => {
+    const n = QUESTIONS.filter(q => q.section === name).length;
+    box.appendChild(topicButton(name, name, `${n} question${n === 1 ? '' : 's'}`, false));
+  });
+
+  box.appendChild(topicButton(ALL, 'All topics', `${QUESTIONS.length} questions`, true));
+}
+
+function topicButton(value, label, count, isAll) {
+  const b = document.createElement('button');
+  b.className = 'topic-btn' + (isAll ? ' all' : '');
+  b.innerHTML =
+    `<span class="name">${esc(label)}</span>` +
+    `<span class="count">${count}</span>` +
+    `<span class="arrow">&rsaquo;</span>`;
+  b.addEventListener('click', () => startTopic(value));
+  return b;
+}
+
+function showMenu() {
+  topic = null;
+  $('menu').classList.remove('hidden');
+  $('quiz').classList.add('hidden');
+  $('results').classList.add('hidden');
+  $('header').classList.add('hidden');
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- quiz ---------------- */
+
+function startTopic(which) {
+  topic = which;
+  const pool = QUESTIONS
+    .map((q, i) => i)
+    .filter(i => which === ALL || QUESTIONS[i].section === which);
+
+  order = shuffle(pool);
+  idx = 0;
+  score = 0;
+  perSection = {};
+
+  $('menu').classList.add('hidden');
+  $('results').classList.add('hidden');
+  $('quiz').classList.remove('hidden');
+  $('header').classList.remove('hidden');
+  render();
+  window.scrollTo(0, 0);
+}
+
+function topicLabel() {
+  return topic === ALL ? 'All topics' : topic;
+}
+
+function render() {
+  answered = false;
+  const q = QUESTIONS[order[idx]];
+
+  $('progress').textContent = `Question ${idx + 1} of ${order.length}`;
+  $('score').innerHTML = `Score <b>${score}</b> / ${idx}`;
+  $('fill').style.width = (idx / order.length * 100) + '%';
+
+  $('topic').textContent = q.section || '';
+  $('topic').classList.toggle('hidden', !q.section);
+  $('question').innerHTML = fmt(q.q);
+
+  const box = $('options');
+  box.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="key">${i + 1}</span><span>${fmt(opt)}</span>`;
+    b.addEventListener('click', () => choose(i));
+    box.appendChild(b);
+  });
+
+  const v = $('verdict');
+  v.className = 'verdict hidden';
+  v.innerHTML = '';
+  $('next').classList.add('hidden');
+  $('hint').textContent = 'Pick an answer — or press 1-9';
+}
+
+function choose(picked) {
+  if (answered) return;
+  answered = true;
+
+  const q = QUESTIONS[order[idx]];
+  const right = picked === q.answer;
+  if (right) score++;
+
+  const sec = q.section || 'Other';
+  if (!perSection[sec]) perSection[sec] = { right: 0, total: 0 };
+  perSection[sec].total++;
+  if (right) perSection[sec].right++;
+
+  [...$('options').children].forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.answer) b.classList.add('correct');
+    else if (i === picked) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+
+  const v = $('verdict');
+  v.className = 'verdict ' + (right ? 'good' : 'bad');
+  let html = `<span class="label">${right ? 'Correct' : 'Not quite'}</span>`;
+  if (!right) html += ` — the answer is <strong>${fmt(q.options[q.answer])}</strong>`;
+  if (q.explanation) html += `<p>${fmt(q.explanation)}</p>`;
+  v.innerHTML = html;
+
+  $('score').innerHTML = `Score <b>${score}</b> / ${idx + 1}`;
+  $('fill').style.width = ((idx + 1) / order.length * 100) + '%';
+
+  const next = $('next');
+  next.textContent = idx + 1 < order.length ? 'Next' : 'See results';
+  next.classList.remove('hidden');
+  next.focus();
+  $('hint').textContent = 'Press Enter to continue';
+}
+
+function advance() {
+  idx++;
+  if (idx < order.length) render();
+  else finish();
+}
+
+/* ---------------- results ---------------- */
+
+function finish() {
+  $('quiz').classList.add('hidden');
+  $('results').classList.remove('hidden');
+
+  const pct = Math.round(score / order.length * 100);
+  $('whichTopic').textContent = topicLabel();
+  $('finalPct').textContent = pct + '%';
+  $('finalScore').textContent = `${score} of ${order.length} correct`;
+  $('verdictTitle').textContent =
+    pct >= 90 ? 'Exam ready' : pct >= 75 ? 'Nearly there' : pct >= 50 ? 'Worth another pass' : 'Back to the notes';
+  $('progress').textContent = `Finished — ${order.length} questions`;
+  $('fill').style.width = '100%';
+
+  // the per-section table only tells you anything when more than one section ran
+  const sections = Object.keys(perSection);
+  const bd = $('breakdown');
+  if (sections.length > 1) {
+    const rows = $('rows');
+    rows.innerHTML = '';
+    TOPICS.filter(t => perSection[t]).forEach(name => {
+      const s = perSection[name];
+      const div = document.createElement('div');
+      div.className = 'row';
+      div.innerHTML = `<span>${esc(name)}</span><span>${s.right} / ${s.total}</span>`;
+      rows.appendChild(div);
+    });
+    bd.classList.remove('hidden');
+  } else {
+    bd.classList.add('hidden');
+  }
+
+  $('again').focus();
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- wiring ---------------- */
+
+$('next').addEventListener('click', advance);
+$('again').addEventListener('click', () => startTopic(topic));
+$('back').addEventListener('click', showMenu);
+$('quit').addEventListener('click', showMenu);
+
+document.addEventListener('keydown', e => {
+  if ($('quiz').classList.contains('hidden')) return;   // only while a question is up
+  if (!answered && /^[1-9]$/.test(e.key)) {
+    const i = Number(e.key) - 1;
+    if (i < QUESTIONS[order[idx]].options.length) { e.preventDefault(); choose(i); }
+  } else if (answered && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    advance();
+  } else if (e.key === 'Escape') {
+    showMenu();
+  }
+});
+
+buildMenu();
+showMenu();
+</script>
+</body>
+</html>

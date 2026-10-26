@@ -1,0 +1,2017 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AZ-104 Identity &amp; Governance — Quiz</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card: #ffffff;
+    --text: #1f2430;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #4f6bed;
+    --accent-soft: #eef1fd;
+    --good: #0f8a5f;
+    --good-bg: #e7f6ef;
+    --good-line: #9fd9c1;
+    --bad: #c23b4b;
+    --bad-bg: #fdeced;
+    --bad-line: #f0b4bb;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(16,24,40,.05), 0 8px 24px rgba(16,24,40,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171c;
+      --card: #1d2026;
+      --text: #e8eaef;
+      --muted: #9aa1ad;
+      --line: #2c313a;
+      --accent: #8098ff;
+      --accent-soft: #232a3d;
+      --good: #4fcf9b;
+      --good-bg: #16302a;
+      --good-line: #2f6b57;
+      --bad: #ef8e9a;
+      --bad-bg: #331d21;
+      --bad-line: #74424a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 32px 16px 56px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrap { width: 100%; max-width: 680px; }
+
+  header { margin-bottom: 16px; }
+
+  .bar-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .score { font-variant-numeric: tabular-nums; }
+  .score b { color: var(--text); font-weight: 600; }
+
+  .track {
+    height: 6px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .fill {
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: width .25s ease;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 26px 26px 22px;
+  }
+
+  /* ---------- menu ---------- */
+  .menu-head { margin-bottom: 20px; }
+  .menu-head h1 {
+    font-size: 22px;
+    font-weight: 650;
+    letter-spacing: -.01em;
+    margin: 0 0 4px;
+  }
+  .menu-head p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .topics { display: flex; flex-direction: column; gap: 9px; }
+
+  .topic-btn {
+    width: 100%;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 14px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .topic-btn:hover { background: var(--accent-soft); border-color: var(--accent); }
+  .topic-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .topic-btn .name { flex: 1; font-weight: 550; }
+  .topic-btn .count {
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .topic-btn .arrow { color: var(--muted); font-size: 17px; line-height: 1; }
+  .topic-btn:hover .arrow, .topic-btn:hover .count { color: var(--accent); }
+
+  .topic-btn.all {
+    margin-top: 7px;
+    border-style: dashed;
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .topic-btn.all .name { color: var(--accent); }
+  .topic-btn.all .count, .topic-btn.all .arrow { color: var(--accent); }
+
+  /* ---------- quiz ---------- */
+  .topic {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  h1.q {
+    font-size: 19px;
+    line-height: 1.45;
+    font-weight: 600;
+    margin: 0 0 18px;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .opt {
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 13px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .opt:hover:not(:disabled) { background: var(--accent-soft); border-color: var(--accent); }
+  .opt:disabled { cursor: default; }
+  .opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .key {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .opt.correct { background: var(--good-bg); border-color: var(--good-line); }
+  .opt.correct .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.wrong { background: var(--bad-bg); border-color: var(--bad-line); }
+  .opt.wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .5; }
+
+  .verdict {
+    margin-top: 18px;
+    padding: 13px 15px;
+    border-radius: 11px;
+    border: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .verdict.good { background: var(--good-bg); border-color: var(--good-line); }
+  .verdict.bad { background: var(--bad-bg); border-color: var(--bad-line); }
+  .verdict .label { font-weight: 600; }
+  .verdict.good .label { color: var(--good); }
+  .verdict.bad .label { color: var(--bad); }
+  .verdict p { margin: 8px 0 0; color: var(--text); }
+
+  .foot {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    min-height: 42px;
+  }
+  .hint { font-size: 13px; color: var(--muted); margin-right: auto; }
+
+  .btn {
+    font: inherit;
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: filter .15s ease, background .15s ease;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .btn.ghost { background: transparent; color: var(--accent); border-color: var(--line); filter: none; }
+  .btn.ghost:hover { background: var(--accent-soft); }
+
+  .link {
+    font: inherit;
+    font-size: 14px;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .link:hover { color: var(--accent); }
+  .link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .hidden { display: none !important; }
+
+  /* ---------- results ---------- */
+  .result { text-align: center; padding: 10px 0 4px; }
+  .result .big {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+    margin: 6px 0 2px;
+  }
+  .result .sub { color: var(--muted); margin-bottom: 22px; }
+  .result h2 { font-size: 20px; margin: 0; font-weight: 600; }
+  .result .which { font-size: 13px; color: var(--muted); margin-bottom: 2px; }
+  .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  .breakdown {
+    text-align: left;
+    border-top: 1px solid var(--line);
+    margin-top: 22px;
+    padding-top: 16px;
+  }
+  .breakdown h3 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); font-weight: 600; margin: 0 0 10px;
+  }
+  .row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 6px 0; font-size: 14px;
+  }
+  .row span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .9em;
+    background: var(--accent-soft);
+    padding: 1px 5px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 520px) {
+    body { padding: 18px 12px 40px; }
+    .card { padding: 20px 17px 18px; border-radius: 12px; }
+    .menu-head h1 { font-size: 20px; }
+    h1.q { font-size: 17.5px; }
+    .opt, .topic-btn { padding: 12px 13px; }
+    .topic-btn .count { font-size: 12px; }
+    .hint { display: none; }
+    .foot .btn { flex: 1; }
+    .result .big { font-size: 44px; }
+    .actions .btn { flex: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header id="header" class="hidden">
+    <div class="bar-top">
+      <span id="progress">Question 1 of 1</span>
+      <span class="score" id="score">Score <b>0</b> / 0</span>
+    </div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+  </header>
+
+  <main class="card">
+
+    <section id="menu">
+      <div class="menu-head">
+        <h1>AZ-104 — Identity &amp; Governance</h1>
+        <p>Pick a topic to start.</p>
+      </div>
+      <div class="topics" id="topics"></div>
+    </section>
+
+    <section id="quiz" class="hidden">
+      <span class="topic" id="topic"></span>
+      <h1 class="q" id="question"></h1>
+      <div class="options" id="options"></div>
+      <div class="verdict hidden" id="verdict"></div>
+      <div class="foot">
+        <span class="hint" id="hint">Pick an answer — or press 1-9</span>
+        <button class="link" id="quit">Back to topics</button>
+        <button class="btn hidden" id="next">Next</button>
+      </div>
+    </section>
+
+    <section id="results" class="hidden">
+      <div class="result">
+        <div class="which" id="whichTopic"></div>
+        <h2 id="verdictTitle">All done</h2>
+        <div class="big" id="finalPct">0%</div>
+        <div class="sub" id="finalScore"></div>
+        <div class="actions">
+          <button class="btn" id="again">Try again</button>
+          <button class="btn ghost" id="back">Back to topics</button>
+        </div>
+        <div class="breakdown hidden" id="breakdown">
+          <h3>By section</h3>
+          <div id="rows"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+const QUESTIONS =
+[
+ {
+  "section": "Microsoft Entra ID Fundamentals",
+  "q": "How many Microsoft Entra tenants can a single Azure subscription trust at one time?",
+  "options": [
+   "Two, one for users and one for guests",
+   "Unlimited",
+   "One"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Microsoft Entra ID Fundamentals",
+  "q": "Which protocols does Microsoft Entra ID use for authentication, unlike on-premises AD DS?",
+  "options": [
+   "Kerberos and NTLM",
+   "OAuth 2.0, SAML and OpenID Connect over HTTPS",
+   "LDAP and Kerberos"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Microsoft Entra ID Fundamentals",
+  "q": "A legacy application in Azure needs LDAP and Kerberos authentication, but you don't want to deploy and manage domain controllers. What should you use?",
+  "options": [
+   "Microsoft Entra Connect Sync",
+   "Microsoft Entra ID Protection",
+   "Microsoft Entra Domain Services"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Microsoft Entra ID Fundamentals",
+  "q": "Which feature is available in Microsoft Entra ID P1 but not in the Free edition?",
+  "options": [
+   "Single sign-on to SaaS apps",
+   "MFA through security defaults",
+   "Conditional Access"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Microsoft Entra ID Fundamentals",
+  "q": "Your organisation needs risk-based sign-in policies that respond to leaked credentials and unusual sign-in activity. Which licence is required?",
+  "options": [
+   "Microsoft Entra ID Free",
+   "Microsoft Entra ID P1",
+   "Microsoft Entra ID P2"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Microsoft Entra ID Fundamentals",
+  "q": "Administrators must activate privileged roles just-in-time with approval and time limits. Which feature and licence do you need?",
+  "options": [
+   "Privileged Identity Management with P2",
+   "Conditional Access with P1",
+   "Administrative units with P1"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Microsoft Entra ID Fundamentals",
+  "q": "On-premises AD users must be synchronised to Microsoft Entra ID using a lightweight agent that supports disconnected forests. What should you use?",
+  "options": [
+   "Microsoft Entra Domain Services",
+   "Microsoft Entra Cloud Sync",
+   "Microsoft Identity Manager"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Users",
+  "q": "Before you can assign a Microsoft 365 licence to a new user, which property must be set?",
+  "options": [
+   "Job title",
+   "Manager",
+   "Usage location"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Users",
+  "q": "You need to create 300 user accounts from an HR spreadsheet. What is the most efficient method in the Microsoft Entra admin center?",
+  "options": [
+   "Create each user from the New user page",
+   "Invite each user as an external user",
+   "Bulk create using the CSV template"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Users",
+  "q": "What is the least-privileged Microsoft Entra role that can create, edit and delete users?",
+  "options": [
+   "User Administrator",
+   "Global Administrator",
+   "Helpdesk Administrator"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Users",
+  "q": "A user account was deleted 12 days ago and must be recovered with its properties. What should you do?",
+  "options": [
+   "Restore the user from Deleted users",
+   "Recreate the account with the same UPN",
+   "Contact Microsoft Support to recover it"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Users",
+  "q": "For how long can a deleted user account be restored?",
+  "options": [
+   "7 days",
+   "90 days",
+   "30 days"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Users",
+  "q": "A security group was deleted by mistake yesterday. How can you recover it?",
+  "options": [
+   "You can't; security groups are permanently deleted and must be recreated",
+   "Restore it from Deleted groups within 30 days",
+   "Restore it from the Microsoft Entra recycle bin with PowerShell"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Users",
+  "q": "You change a synchronised user's department in the Microsoft Entra admin center, but it reverts. What should you do?",
+  "options": [
+   "Change the attribute in on-premises Active Directory, which is the source of authority",
+   "Block the user from syncing",
+   "Change the attribute with Microsoft Graph instead"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Users",
+  "q": "Helpdesk staff in London must be able to reset passwords only for users in the London office. What should you configure?",
+  "options": [
+   "A dynamic security group for London users",
+   "A custom Azure RBAC role",
+   "An administrative unit containing the London users, with Helpdesk Administrator scoped to it"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Users",
+  "q": "Which licence is required for an administrator who is assigned a role scoped to an administrative unit?",
+  "options": [
+   "Microsoft Entra ID Free",
+   "Microsoft Entra ID P1",
+   "Microsoft Entra ID P2"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Users",
+  "q": "A Global Administrator can't see or assign custom security attributes. Why?",
+  "options": [
+   "Global Administrators don't have access by default; Attribute Definition/Assignment Administrator roles are needed",
+   "Custom security attributes require P2",
+   "They must first be enabled in Azure Policy"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Groups",
+  "q": "A team needs a shared mailbox, calendar, SharePoint site and Teams workspace. Which group type should you create?",
+  "options": [
+   "Microsoft 365 group",
+   "Security group",
+   "Distribution list"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Groups",
+  "q": "You need a group of all Windows devices so you can target them with policies. Which group should you create?",
+  "options": [
+   "A dynamic Microsoft 365 group",
+   "An assigned Microsoft 365 group",
+   "A dynamic device security group"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Groups",
+  "q": "Which objects can be members of a Microsoft 365 group?",
+  "options": [
+   "Users, devices and security groups",
+   "Users only",
+   "Users and service principals"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Groups",
+  "q": "All users whose department is Sales must be added to a group automatically, and removed when they leave the department. What should you configure?",
+  "options": [
+   "An assigned security group maintained by a scheduled script",
+   "An administrative unit",
+   "A dynamic user group with the rule user.department -eq \"Sales\""
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Groups",
+  "q": "What licence is required for dynamic membership groups?",
+  "options": [
+   "Microsoft Entra ID Free for each group owner",
+   "Microsoft Entra ID P2 for each administrator",
+   "Microsoft Entra ID P1 for each unique user who's a member"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Groups",
+  "q": "You try to manually add a user to a dynamic membership group. What happens?",
+  "options": [
+   "The user is added and kept until the rule next runs",
+   "The user is added permanently",
+   "You can't; membership of a dynamic group is controlled only by the rule"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Groups",
+  "q": "You need a single dynamic group containing both users and devices from the Finance department. What should you tell the team?",
+  "options": [
+   "A dynamic rule can't contain both users and devices; create separate groups",
+   "Use a Microsoft 365 group with a combined rule",
+   "Use the advanced rule builder"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Groups",
+  "q": "A device rule must include devices owned by users in the Sales department. Why does the rule fail?",
+  "options": [
+   "Device rules require P2",
+   "Device rules must use the rule builder",
+   "Device membership rules can reference only device attributes, not the owner's attributes"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Groups",
+  "q": "A licence is assigned to Group A. Group B is a member of Group A. Do users in Group B receive the licence?",
+  "options": [
+   "Yes, licences flow to all nested members",
+   "Only if Group B is also a dynamic group",
+   "No, group-based licensing applies only to direct members"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Groups",
+  "q": "You need a group that can be assigned Microsoft Entra roles. What must you configure?",
+  "options": [
+   "A security group created with \"Microsoft Entra roles can be assigned to the group\" enabled, with assigned membership",
+   "A dynamic security group",
+   "A Microsoft 365 group with owners"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Licences",
+  "q": "What is the most efficient way to license a large, changing team?",
+  "options": [
+   "Assign licences to each user directly",
+   "Assign the licence to a security group (group-based licensing)",
+   "Ask users to request licences from the admin portal"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Licences",
+  "q": "Group-based licence assignment fails with CountViolation. What should you do?",
+  "options": [
+   "Buy more licences or free unused ones, then reprocess",
+   "Remove conflicting service plans",
+   "Change the users' usage location"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Licences",
+  "q": "A user has both an E1 and an E3 licence that include the same service plan, and assignment fails. Which error is this?",
+  "options": [
+   "CountViolation",
+   "DependencyViolation",
+   "MutuallyExclusiveViolation"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Licences",
+  "q": "An add-on licence can't be assigned because it requires another licence the user doesn't have. Which error is this?",
+  "options": [
+   "DependencyViolation",
+   "CountViolation",
+   "MutuallyExclusiveViolation"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Licences",
+  "q": "A licence can't be assigned because it isn't available in the user's country. What should you change?",
+  "options": [
+   "The user's UPN suffix",
+   "The user's usage location",
+   "The user's job title"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Licences",
+  "q": "Users show LicenseAssignmentAttributeConcurrencyException. What should you do?",
+  "options": [
+   "Remove the users from the group and re-add them",
+   "Reprocess every user manually",
+   "Nothing; Microsoft Entra ID retries automatically"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Licences",
+  "q": "After fixing the cause of a licence error, how do you apply the licence without waiting?",
+  "options": [
+   "Select Reprocess on the user or group",
+   "Remove and re-add the licence to the group",
+   "Delete and recreate the group"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Licences",
+  "q": "A user gets the same licence directly and through a group. How many licences are consumed?",
+  "options": [
+   "One",
+   "Two",
+   "None until the direct assignment is removed"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Licences",
+  "q": "You plan to delete a group that has licences assigned. What should you do first?",
+  "options": [
+   "Remove the licences from the group",
+   "Convert it to a dynamic group",
+   "Nothing; licences are removed automatically and immediately"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Licences",
+  "q": "One of three licences assigned to a group fails for a particular user. What happens to the other two licences for that user?",
+  "options": [
+   "None of the group's licences are assigned to that user",
+   "They're assigned normally",
+   "They're assigned directly instead"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "External Users (B2B)",
+  "q": "A contractor from a partner company needs temporary access to an internal app using their own company credentials. What should you do?",
+  "options": [
+   "Invite the contractor as a B2B guest user",
+   "Create a new member account in your tenant",
+   "Synchronise the contractor's account with Entra Connect"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "External Users (B2B)",
+  "q": "By default, who can invite guest users into your tenant?",
+  "options": [
+   "Anyone in the organisation, including guests and non-admins",
+   "Only Global Administrators",
+   "Only users with the Guest Inviter role"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "External Users (B2B)",
+  "q": "Only administrators and users with the Guest Inviter role should be able to invite guests. Where should you configure this?",
+  "options": [
+   "Cross-tenant access settings",
+   "External collaboration settings – guest invite settings",
+   "Conditional Access"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "External Users (B2B)",
+  "q": "You must prevent users from inviting guests from a competitor's domain. What should you configure?",
+  "options": [
+   "An Azure Policy deny assignment",
+   "A Conditional Access named location",
+   "Collaboration restrictions with a deny list of domains"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "External Users (B2B)",
+  "q": "Guests must only be able to see their own profile and not browse the directory. Which guest user access setting should you choose?",
+  "options": [
+   "Restricted to properties and memberships of their own directory objects",
+   "Same access as members",
+   "Limited access to properties and memberships of directory objects"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "External Users (B2B)",
+  "q": "What is the default guest user access level?",
+  "options": [
+   "Limited access to properties and memberships of directory objects",
+   "Same access as members",
+   "Restricted to their own objects"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "External Users (B2B)",
+  "q": "You want to trust MFA performed in a partner's Microsoft Entra tenant so their users aren't prompted again. What should you configure?",
+  "options": [
+   "External collaboration settings",
+   "Cross-tenant access settings (inbound trust)",
+   "An identity provider for Google federation"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "External Users (B2B)",
+  "q": "External collaboration settings allow all domains, but cross-tenant access settings block a specific organisation. What happens when you invite a user from that organisation?",
+  "options": [
+   "The invitation succeeds because external collaboration settings allow it",
+   "The most restrictive setting applies, so the collaboration is blocked",
+   "The invitation is sent but the guest can't sign in to apps"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "External Users (B2B)",
+  "q": "You need to invite 200 external auditors at once. What should you use?",
+  "options": [
+   "Bulk invite with the CSV template",
+   "Bulk create users",
+   "Entra Connect Sync"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Self-Service Password Reset",
+  "q": "Cloud-only users with only a Microsoft Entra ID Free licence forget their passwords. Can they use SSPR to reset them?",
+  "options": [
+   "Yes, SSPR reset is included in Free",
+   "Yes, but only from the Windows sign-in screen",
+   "No; Free allows only a password change; reset needs Microsoft 365 Business Standard or Entra ID P1/P2"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Self-Service Password Reset",
+  "q": "Hybrid users reset their passwords in the cloud, and the new password must apply to on-premises AD. What's required?",
+  "options": [
+   "Pass-through authentication only",
+   "Password writeback via Entra Connect or Cloud Sync, with P1/P2 or Microsoft 365 Business Premium",
+   "Microsoft Entra Domain Services"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Self-Service Password Reset",
+  "q": "You want to pilot SSPR with only the IT department. Which setting should you choose for \"Self service password reset enabled\"?",
+  "options": [
+   "Selected, targeting the IT group",
+   "All",
+   "None"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Self-Service Password Reset",
+  "q": "How many authentication methods can you require for a user to reset a password?",
+  "options": [
+   "1 to 3",
+   "1 or 2",
+   "Exactly 2"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Self-Service Password Reset",
+  "q": "Which statement about SSPR for administrator accounts is correct?",
+  "options": [
+   "Administrators follow the same policy as users",
+   "Administrators can use security questions",
+   "Administrators always require two methods and can't use security questions"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Self-Service Password Reset",
+  "q": "Which SSPR authentication method is least recommended?",
+  "options": [
+   "Microsoft Authenticator notification",
+   "Security questions",
+   "Email to an alternate address"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Self-Service Password Reset",
+  "q": "Users must register their SSPR methods the first time they sign in. Which setting should you enable?",
+  "options": [
+   "Notify users on password resets",
+   "Require users to register when signing in",
+   "Allow users to unlock accounts"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Self-Service Password Reset",
+  "q": "How does password writeback communicate with on-premises AD?",
+  "options": [
+   "Through an inbound firewall rule on port 389",
+   "Through an outbound connection over port 443, with no inbound firewall rules needed",
+   "Through a site-to-site VPN"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "What three elements make up an Azure role assignment?",
+  "options": [
+   "Security principal, role definition and scope",
+   "User, group and subscription",
+   "Role, policy and lock"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "What is the correct order of Azure RBAC scopes, from broadest to narrowest?",
+  "options": [
+   "Subscription, management group, resource group, resource",
+   "Management group, resource group, subscription, resource",
+   "Management group, subscription, resource group, resource"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "A user must create and manage all resources in a subscription but must not grant access to others. Which role should you assign?",
+  "options": [
+   "Contributor",
+   "Owner",
+   "User Access Administrator"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "What is the difference between Owner and Contributor?",
+  "options": [
+   "Contributor can delete resources; Owner can't",
+   "Owner can only read resources",
+   "Owner can also assign roles to others; Contributor can't"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "An administrator must be able to assign roles but should not be able to manage resources. Which roles meet the requirement?",
+  "options": [
+   "Contributor or Reader",
+   "User Access Administrator or Role Based Access Control Administrator",
+   "Owner or Contributor"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "A team lead must be allowed to assign only the Backup Reader and Backup Contributor roles, and only to the Sales group. What should you assign?",
+  "options": [
+   "Owner at the subscription",
+   "Role Based Access Control Administrator with a condition restricting roles and principals",
+   "User Access Administrator at the resource group"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "A user in another department needs to manage a single VM. Following least privilege, where should you assign the role?",
+  "options": [
+   "At the subscription scope",
+   "At the resource group scope",
+   "At the virtual machine (resource) scope"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "A developer needs full access to everything in one resource group. Which assignment follows least privilege?",
+  "options": [
+   "Owner at the subscription",
+   "Contributor at the subscription",
+   "Contributor at the resource group"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "The same group needs Reader on 40 subscriptions. What is the most efficient approach?",
+  "options": [
+   "Assign Reader on each subscription",
+   "Create a custom role for each subscription",
+   "Place the subscriptions in a management group and assign Reader there"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "A user has Reader on the subscription and Contributor on RG-Web. What are their effective permissions on resources in RG-Web?",
+  "options": [
+   "Reader, because the subscription assignment takes precedence",
+   "No access, because the assignments conflict",
+   "Contributor, because role assignments are additive"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "A custom role has Actions of `*` and NotActions of `Microsoft.Compute/virtualMachines/delete`. The same user also has Virtual Machine Contributor. Can they delete VMs?",
+  "options": [
+   "No, NotActions is an explicit deny",
+   "No, custom roles take precedence over built-in roles",
+   "Yes, NotActions only excludes from that role; another role's Actions still grants it"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "Which role definition property lists permissions for working with data inside a resource, such as reading blob contents?",
+  "options": [
+   "Actions",
+   "AssignableScopes",
+   "DataActions"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "None of the built-in roles let operators only start, restart and deallocate VMs. What should you do?",
+  "options": [
+   "Create a custom role containing only those actions",
+   "Assign Virtual Machine Contributor with a resource lock",
+   "Use Azure Policy to deny other actions"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "Which value is NOT allowed in a custom role's AssignableScopes?",
+  "options": [
+   "A subscription",
+   "The root scope \"/\"",
+   "A resource group"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "A custom role includes DataActions. At which scope can it NOT be assigned?",
+  "options": [
+   "Subscription",
+   "Management group",
+   "Resource group"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "How many management groups can you list in the AssignableScopes of one custom role?",
+  "options": [
+   "Unlimited",
+   "Up to 10",
+   "One"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "What is the maximum number of Azure role assignments per subscription?",
+  "options": [
+   "5,000",
+   "2,000",
+   "4,000"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "You need to block a specific action for everyone, including Owners. Can you create a deny assignment directly?",
+  "options": [
+   "Yes, from Access control (IAM) > Deny assignments > Add",
+   "No, deny assignments are created only by Azure (for example by managed applications or deployment stacks)",
+   "Yes, with New-AzDenyAssignment"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "A Global Administrator signs in to the Azure portal and can't see any subscriptions. What should they do?",
+  "options": [
+   "Elevate access, which grants User Access Administrator at the root scope \"/\"",
+   "Assign themselves Owner from Microsoft Entra roles",
+   "Ask Microsoft Support to grant access"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "Which statement about Microsoft Entra roles and Azure roles is correct?",
+  "options": [
+   "They are separate; Entra roles manage the directory and Azure roles manage Azure resources",
+   "Entra roles automatically grant equivalent Azure permissions",
+   "Azure Owner can manage users in Entra ID"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "A team member can't view resources in a resource group. Where should you check their access?",
+  "options": [
+   "The resource group > Access control (IAM) > Check access",
+   "Their profile > My permissions",
+   "Microsoft Entra ID > Roles and administrators"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "You need a report of role assignments created during the last week. Where should you look?",
+  "options": [
+   "The Activity log filtered on the Create role assignment operation",
+   "Access control (IAM) > Role assignments",
+   "Access control (IAM) > Download role assignments"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure RBAC",
+  "q": "You remove a user's role assignment on a VM, but they can still manage it. What is the most likely cause?",
+  "options": [
+   "Role assignment removals take 24 hours",
+   "The access is inherited from a higher scope and must be removed where it was assigned",
+   "The VM has a resource lock"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "What does an Azure Policy initiative contain?",
+  "options": [
+   "A set of role assignments",
+   "A single policy rule with multiple effects",
+   "A group of policy definitions assigned together"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Policy",
+  "q": "At which scopes can you assign an Azure Policy?",
+  "options": [
+   "Management group only",
+   "Management group, subscription and resource group",
+   "Subscription and resource group only"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "Resources may only be created in UK South and UK West. Which built-in policy should you assign?",
+  "options": [
+   "Allowed locations",
+   "Allowed resource types",
+   "Require a tag and its value"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Policy",
+  "q": "Which policy effect blocks a non-compliant resource from being created?",
+  "options": [
+   "Audit",
+   "Deny",
+   "Append"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "You assign a Deny policy for allowed locations. What happens to existing resources in other regions?",
+  "options": [
+   "They're deleted",
+   "They remain and are reported as non-compliant",
+   "They're moved to an allowed region"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "You need to log non-compliant resources without blocking deployments. Which effect should you use?",
+  "options": [
+   "Deny",
+   "Audit",
+   "DenyAction"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "Every resource must get its resource group's CostCentre tag, including resources that already exist. What should you use?",
+  "options": [
+   "The Require a tag and its value policy with Deny",
+   "The Inherit a tag from the resource group policy (Modify) plus a remediation task",
+   "Tags on the resource group, which are inherited automatically"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "Diagnostic settings must be deployed automatically on any resource that doesn't have them. Which effect should you use?",
+  "options": [
+   "AuditIfNotExists",
+   "DeployIfNotExists",
+   "Append"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "What does a policy assignment that uses Modify or DeployIfNotExists require?",
+  "options": [
+   "A resource lock on the scope",
+   "A managed identity with permissions to make the changes",
+   "An initiative containing at least two definitions"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "A DeployIfNotExists policy fixes new resources, but existing non-compliant resources are unchanged. What should you do?",
+  "options": [
+   "Reassign the policy with Deny",
+   "Create a remediation task",
+   "Wait for the 24-hour compliance scan"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "You want to see the compliance impact of a Deny policy on an existing environment without blocking anything. What should you set?",
+  "options": [
+   "The assignment's enforcement mode to Disabled",
+   "The effect to Disabled",
+   "An exemption for every resource group"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Policy",
+  "q": "One storage account must be temporarily excused from an initiative while a fix is planned. What should you create?",
+  "options": [
+   "An exclusion when editing the assignment",
+   "A policy exemption with the Waiver category and an expiry date",
+   "A resource lock"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "What does the Mitigated exemption category mean?",
+  "options": [
+   "The resource's non-compliance is temporarily accepted",
+   "The resource was deleted",
+   "The policy's intent is met through another method"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Policy",
+  "q": "You assigned a new policy 10 minutes ago and the compliance dashboard is empty. What should you do?",
+  "options": [
+   "Reassign the policy at a higher scope",
+   "Wait for evaluation to complete, or start an on-demand scan with az policy state trigger-scan",
+   "Delete and recreate the assignment"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Policy",
+  "q": "How often does the standard Azure Policy compliance evaluation run?",
+  "options": [
+   "Every hour",
+   "Every 7 days",
+   "Every 24 hours"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Policy",
+  "q": "A custom policy checks tags and location. Which mode should the definition use?",
+  "options": [
+   "Indexed",
+   "All",
+   "Microsoft.KeyVault.Data"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Policy",
+  "q": "Which statement best distinguishes Azure Policy from Azure RBAC?",
+  "options": [
+   "RBAC controls what users can do; Policy controls what state resources must be in",
+   "Policy controls who can deploy resources; RBAC controls their properties",
+   "Both control user permissions"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Policy",
+  "q": "At request time, which effect is evaluated before Deny?",
+  "options": [
+   "Audit",
+   "DeployIfNotExists",
+   "Modify"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Policy",
+  "q": "Which built-in role allows a user to create and manage policy assignments without full Owner rights?",
+  "options": [
+   "Resource Policy Contributor",
+   "Policy Insights Data Writer",
+   "Security Reader"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Resource Locks",
+  "q": "Nobody, including subscription Owners, should be able to delete a production resource group, but changes must still be allowed. What should you apply?",
+  "options": [
+   "A ReadOnly lock",
+   "A CanNotDelete (Delete) lock",
+   "A Deny policy for delete operations"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Resource Locks",
+  "q": "A firewall's configuration must not be changed or deleted by anyone. What should you apply?",
+  "options": [
+   "A CanNotDelete lock",
+   "Reader role for all users",
+   "A ReadOnly lock"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Resource Locks",
+  "q": "A resource group has a CanNotDelete lock. What can an Owner do to a VM inside it?",
+  "options": [
+   "Nothing; the VM is read-only",
+   "Delete the VM but not change it",
+   "Modify the VM but not delete it"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Resource Locks",
+  "q": "Which roles can create or remove management locks?",
+  "options": [
+   "Owner and User Access Administrator",
+   "Contributor and Owner",
+   "Reader and Contributor"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Resource Locks",
+  "q": "An Owner needs to delete a resource that has a CanNotDelete lock. What must happen?",
+  "options": [
+   "A support ticket must be raised",
+   "The Owner must elevate access",
+   "The lock must be removed first, then the resource deleted"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Resource Locks",
+  "q": "A lock is applied to a resource group. Which resources does it protect?",
+  "options": [
+   "Only resources that existed when the lock was applied",
+   "All current and future resources in the resource group",
+   "Only the resource group object"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Resource Locks",
+  "q": "A ReadOnly lock is applied to a storage account. An application that lists the account keys starts failing. Why?",
+  "options": [
+   "Listing keys is a POST operation, which a ReadOnly lock blocks",
+   "ReadOnly locks rotate the keys",
+   "ReadOnly locks block all data-plane access"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Resource Locks",
+  "q": "A CanNotDelete lock is on a storage account. Can users still delete blobs in it?",
+  "options": [
+   "No, the lock protects all data in the account",
+   "Yes, locks apply to the control plane and don't protect data-plane operations",
+   "Only if they're Owners"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Resource Locks",
+  "q": "A resource group containing VMs has a ReadOnly lock. What happens when an operator tries to start a stopped VM?",
+  "options": [
+   "It starts normally because start isn't a modify operation",
+   "It fails, because starting a VM is a POST operation that the lock blocks",
+   "It starts, but can't be stopped again"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Resource Locks",
+  "q": "One resource in a resource group has a CanNotDelete lock. What happens when you try to delete the resource group?",
+  "options": [
+   "The whole deletion fails",
+   "All unlocked resources are deleted and the locked one remains",
+   "The resource group is deleted along with the locked resource"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Tags",
+  "q": "You add a CostCentre tag to a resource group. Do the resources in it get the tag?",
+  "options": [
+   "No, tags aren't inherited; use Azure Policy to apply them",
+   "Yes, tags are inherited automatically",
+   "Only resources created after the tag was added"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Tags",
+  "q": "What is the maximum number of tag name-value pairs on a single resource?",
+  "options": [
+   "15",
+   "50",
+   "100"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Tags",
+  "q": "Which of these can't be tagged?",
+  "options": [
+   "A management group",
+   "A subscription",
+   "A resource group"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Tags",
+  "q": "A finance user must add and update tags on resources without being able to change the resources. Which role should you assign?",
+  "options": [
+   "Contributor",
+   "Reader",
+   "Tag Contributor"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Tags",
+  "q": "Which statement about tag case-sensitivity is correct?",
+  "options": [
+   "Tag names are case-insensitive and tag values are case-sensitive",
+   "Tag names and values are both case-sensitive",
+   "Tag names and values are both case-insensitive"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Tags",
+  "q": "You run Update-AzTag with -Operation Replace on a resource that has five tags, supplying one new tag. What is the result?",
+  "options": [
+   "Six tags",
+   "Only the one new tag",
+   "The five original tags, unchanged"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Tags",
+  "q": "You need cost reports grouped by department. What should you use?",
+  "options": [
+   "Resource locks",
+   "Management groups per department",
+   "Tags with a department value, filtered in Cost analysis"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Resource Groups",
+  "q": "How many resource groups can a resource belong to at the same time?",
+  "options": [
+   "One",
+   "Two",
+   "As many as needed"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Resource Groups",
+  "q": "Which statement about resource groups is correct?",
+  "options": [
+   "Resource groups can be nested inside other resource groups",
+   "All resources in a group must be in the group's region",
+   "A resource group's location stores its metadata, but it can contain resources from any region"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Resource Groups",
+  "q": "A resource group must be renamed to match a new naming convention. What should you do?",
+  "options": [
+   "Rename it from its Overview page",
+   "Create a new resource group and move the resources into it",
+   "Rename it with az group update"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Resource Groups",
+  "q": "What happens when you delete a resource group?",
+  "options": [
+   "Only empty resource groups can be deleted",
+   "All resources in it are deleted",
+   "Resources are moved to the default resource group"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Resource Groups",
+  "q": "A deployment fails because the subscription isn't registered for Microsoft.ContainerInstance. What should you do?",
+  "options": [
+   "Request a quota increase",
+   "Change the subscription's directory",
+   "Register the resource provider in the subscription"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Subscriptions",
+  "q": "You change the Microsoft Entra directory associated with a subscription. What happens to existing Azure role assignments?",
+  "options": [
+   "They're copied to the new tenant",
+   "They remain but are disabled",
+   "They're permanently deleted"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Subscriptions",
+  "q": "Which of the following is also lost when a subscription is associated with a different tenant?",
+  "options": [
+   "Policy assignments and custom roles",
+   "The resources in the subscription",
+   "The subscription's billing owner"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Subscriptions",
+  "q": "After associating a subscription with a new tenant, VMs can no longer access Key Vault with their managed identities. What should you do?",
+  "options": [
+   "Restore the old tenant association",
+   "Re-enable or recreate the managed identities, update the Key Vault tenant ID and re-grant permissions",
+   "Reassign the same object IDs in the new tenant"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Subscriptions",
+  "q": "What is required to change a subscription's directory?",
+  "options": [
+   "Global Administrator in the target tenant only",
+   "Contributor on the subscription",
+   "Owner on the subscription and an account that exists in both tenants"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Subscriptions",
+  "q": "A deployment fails because the region's vCPU limit for the subscription has been reached. What should you do?",
+  "options": [
+   "Request a quota increase for the subscription",
+   "Move the subscription to a management group",
+   "Create a new resource group"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Subscriptions",
+  "q": "A subscription with CanNotDelete locks on its resources is cancelled. What happens?",
+  "options": [
+   "Cancellation is blocked until the locks are removed",
+   "The cancellation proceeds; locks don't block it",
+   "Locked resources are moved to another subscription"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Cost Management",
+  "q": "Finance wants an email when spending on a subscription reaches 80% of a monthly budget. What should you create?",
+  "options": [
+   "An Azure Advisor alert",
+   "A metric alert on the subscription",
+   "A Cost Management budget with an 80% actual-cost alert"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Cost Management",
+  "q": "You want to be warned before spending is likely to exceed the budget. Which alert type should you configure?",
+  "options": [
+   "An actual-cost alert at 100%",
+   "A forecasted-cost alert",
+   "An anomaly alert"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Cost Management",
+  "q": "What happens to resources when a budget's 100% threshold is reached?",
+  "options": [
+   "They're stopped automatically",
+   "They're deallocated but not deleted",
+   "Nothing; budgets only notify unless an action group automates a response"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Cost Management",
+  "q": "VMs must be shut down automatically when a resource group's budget is exceeded. What should you configure?",
+  "options": [
+   "A budget alert that triggers an action group running an automation runbook or Logic App",
+   "An Azure Policy Deny effect",
+   "A ReadOnly lock triggered by the budget"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Cost Management",
+  "q": "At which scopes can a budget trigger an action group?",
+  "options": [
+   "Management group and billing account",
+   "Subscription and resource group",
+   "Any scope"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Cost Management",
+  "q": "How many alert thresholds can a single budget have?",
+  "options": [
+   "5",
+   "1",
+   "10"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Cost Management",
+  "q": "You need to be notified of an unexpected spike in daily spend, even if the budget hasn't been reached. What should you configure?",
+  "options": [
+   "A forecasted budget alert",
+   "A cost anomaly alert",
+   "A credit alert"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Cost Management",
+  "q": "Which five categories does Azure Advisor use?",
+  "options": [
+   "Reliability, Security, Performance, Cost and Operational excellence",
+   "Cost, Security, Compliance, Identity and Networking",
+   "Availability, Backup, Cost, Monitoring and Performance"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Cost Management",
+  "q": "You need to find underutilised VMs that could be resized or shut down. What should you use?",
+  "options": [
+   "Azure Policy compliance",
+   "Azure Advisor cost recommendations",
+   "Cost analysis"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Cost Management",
+  "q": "You need to estimate the monthly cost of a new deployment before building it. What should you use?",
+  "options": [
+   "The TCO calculator",
+   "Azure Advisor",
+   "The Azure pricing calculator"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Management Groups",
+  "q": "How many levels of management groups can you create below the root?",
+  "options": [
+   "6",
+   "3",
+   "10"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Management Groups",
+  "q": "What is the maximum number of management groups in a tenant?",
+  "options": [
+   "1,000",
+   "10,000",
+   "100"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Management Groups",
+  "q": "How many parent management groups can a subscription have?",
+  "options": [
+   "Up to 6",
+   "Unlimited",
+   "One"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Management Groups",
+  "q": "By default, where are new subscriptions placed in the management group hierarchy?",
+  "options": [
+   "In a management group named Default",
+   "Under the root management group",
+   "Outside the hierarchy until assigned"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Management Groups",
+  "q": "New subscriptions created by developers must automatically land in a Sandbox management group with restrictive policies. What should you configure?",
+  "options": [
+   "Sandbox as the default management group in hierarchy settings",
+   "An Azure Policy assignment at the root",
+   "A resource lock on the root management group"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Management Groups",
+  "q": "Which statement about the root management group is correct?",
+  "options": [
+   "It can be renamed and deleted by a Global Administrator",
+   "It can't be moved or deleted, and nobody has access to it by default",
+   "All users have Reader on it by default"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Management Groups",
+  "q": "You want to move a subscription from MG-A to MG-B. Which permissions are required?",
+  "options": [
+   "Contributor on the subscription only",
+   "Owner on the subscription and management group write access on both MG-A and MG-B",
+   "Owner on MG-B only"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Management Groups",
+  "q": "A policy that restricts VM SKUs is assigned to a management group. Which resources does it apply to?",
+  "options": [
+   "Only resources created directly in the management group",
+   "Only the first level of child subscriptions",
+   "All child management groups, subscriptions, resource groups and resources"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Management Groups",
+  "q": "By default, who can create new management groups in a tenant?",
+  "options": [
+   "Only Global Administrators",
+   "Only Owners of the root management group",
+   "Any user in the tenant, unless you require authorisation in hierarchy settings"
+  ],
+  "answer": 2
+ }
+];
+
+const $ = id => document.getElementById(id);
+
+function esc(s) {
+  return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+// escape first, then turn `...` into <code>
+function fmt(s) {
+  return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// topics in the order they appear in the notes
+const TOPICS = [];
+QUESTIONS.forEach(q => { if (!TOPICS.includes(q.section)) TOPICS.push(q.section); });
+
+const ALL = '__all__';
+let topic = null, order = [], idx = 0, score = 0, answered = false, perSection = {};
+
+/* ---------------- menu ---------------- */
+
+function buildMenu() {
+  const box = $('topics');
+  box.innerHTML = '';
+
+  TOPICS.forEach(name => {
+    const n = QUESTIONS.filter(q => q.section === name).length;
+    box.appendChild(topicButton(name, name, `${n} question${n === 1 ? '' : 's'}`, false));
+  });
+
+  box.appendChild(topicButton(ALL, 'All topics', `${QUESTIONS.length} questions`, true));
+}
+
+function topicButton(value, label, count, isAll) {
+  const b = document.createElement('button');
+  b.className = 'topic-btn' + (isAll ? ' all' : '');
+  b.innerHTML =
+    `<span class="name">${esc(label)}</span>` +
+    `<span class="count">${count}</span>` +
+    `<span class="arrow">&rsaquo;</span>`;
+  b.addEventListener('click', () => startTopic(value));
+  return b;
+}
+
+function showMenu() {
+  topic = null;
+  $('menu').classList.remove('hidden');
+  $('quiz').classList.add('hidden');
+  $('results').classList.add('hidden');
+  $('header').classList.add('hidden');
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- quiz ---------------- */
+
+function startTopic(which) {
+  topic = which;
+  const pool = QUESTIONS
+    .map((q, i) => i)
+    .filter(i => which === ALL || QUESTIONS[i].section === which);
+
+  order = shuffle(pool);
+  idx = 0;
+  score = 0;
+  perSection = {};
+
+  $('menu').classList.add('hidden');
+  $('results').classList.add('hidden');
+  $('quiz').classList.remove('hidden');
+  $('header').classList.remove('hidden');
+  render();
+  window.scrollTo(0, 0);
+}
+
+function topicLabel() {
+  return topic === ALL ? 'All topics' : topic;
+}
+
+function render() {
+  answered = false;
+  const q = QUESTIONS[order[idx]];
+
+  $('progress').textContent = `Question ${idx + 1} of ${order.length}`;
+  $('score').innerHTML = `Score <b>${score}</b> / ${idx}`;
+  $('fill').style.width = (idx / order.length * 100) + '%';
+
+  $('topic').textContent = q.section || '';
+  $('topic').classList.toggle('hidden', !q.section);
+  $('question').innerHTML = fmt(q.q);
+
+  const box = $('options');
+  box.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="key">${i + 1}</span><span>${fmt(opt)}</span>`;
+    b.addEventListener('click', () => choose(i));
+    box.appendChild(b);
+  });
+
+  const v = $('verdict');
+  v.className = 'verdict hidden';
+  v.innerHTML = '';
+  $('next').classList.add('hidden');
+  $('hint').textContent = 'Pick an answer — or press 1-9';
+}
+
+function choose(picked) {
+  if (answered) return;
+  answered = true;
+
+  const q = QUESTIONS[order[idx]];
+  const right = picked === q.answer;
+  if (right) score++;
+
+  const sec = q.section || 'Other';
+  if (!perSection[sec]) perSection[sec] = { right: 0, total: 0 };
+  perSection[sec].total++;
+  if (right) perSection[sec].right++;
+
+  [...$('options').children].forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.answer) b.classList.add('correct');
+    else if (i === picked) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+
+  const v = $('verdict');
+  v.className = 'verdict ' + (right ? 'good' : 'bad');
+  let html = `<span class="label">${right ? 'Correct' : 'Not quite'}</span>`;
+  if (!right) html += ` — the answer is <strong>${fmt(q.options[q.answer])}</strong>`;
+  if (q.explanation) html += `<p>${fmt(q.explanation)}</p>`;
+  v.innerHTML = html;
+
+  $('score').innerHTML = `Score <b>${score}</b> / ${idx + 1}`;
+  $('fill').style.width = ((idx + 1) / order.length * 100) + '%';
+
+  const next = $('next');
+  next.textContent = idx + 1 < order.length ? 'Next' : 'See results';
+  next.classList.remove('hidden');
+  next.focus();
+  $('hint').textContent = 'Press Enter to continue';
+}
+
+function advance() {
+  idx++;
+  if (idx < order.length) render();
+  else finish();
+}
+
+/* ---------------- results ---------------- */
+
+function finish() {
+  $('quiz').classList.add('hidden');
+  $('results').classList.remove('hidden');
+
+  const pct = Math.round(score / order.length * 100);
+  $('whichTopic').textContent = topicLabel();
+  $('finalPct').textContent = pct + '%';
+  $('finalScore').textContent = `${score} of ${order.length} correct`;
+  $('verdictTitle').textContent =
+    pct >= 90 ? 'Exam ready' : pct >= 75 ? 'Nearly there' : pct >= 50 ? 'Worth another pass' : 'Back to the notes';
+  $('progress').textContent = `Finished — ${order.length} questions`;
+  $('fill').style.width = '100%';
+
+  // the per-section table only tells you anything when more than one section ran
+  const sections = Object.keys(perSection);
+  const bd = $('breakdown');
+  if (sections.length > 1) {
+    const rows = $('rows');
+    rows.innerHTML = '';
+    TOPICS.filter(t => perSection[t]).forEach(name => {
+      const s = perSection[name];
+      const div = document.createElement('div');
+      div.className = 'row';
+      div.innerHTML = `<span>${esc(name)}</span><span>${s.right} / ${s.total}</span>`;
+      rows.appendChild(div);
+    });
+    bd.classList.remove('hidden');
+  } else {
+    bd.classList.add('hidden');
+  }
+
+  $('again').focus();
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- wiring ---------------- */
+
+$('next').addEventListener('click', advance);
+$('again').addEventListener('click', () => startTopic(topic));
+$('back').addEventListener('click', showMenu);
+$('quit').addEventListener('click', showMenu);
+
+document.addEventListener('keydown', e => {
+  if ($('quiz').classList.contains('hidden')) return;   // only while a question is up
+  if (!answered && /^[1-9]$/.test(e.key)) {
+    const i = Number(e.key) - 1;
+    if (i < QUESTIONS[order[idx]].options.length) { e.preventDefault(); choose(i); }
+  } else if (answered && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    advance();
+  } else if (e.key === 'Escape') {
+    showMenu();
+  }
+});
+
+buildMenu();
+showMenu();
+</script>
+</body>
+</html>

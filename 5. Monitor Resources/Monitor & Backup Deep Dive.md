@@ -315,51 +315,51 @@ See also [[Azure Site Recovery]], [[BCDR]].
 ---
 ## 11. Exam Scenario → Answer (and *why*)
 
-|Scenario|Answer|Why that one|
-|---|---|---|
-|"Alert when a VM's CPU exceeds 80% for 5 minutes"|**Metric alert**|Numeric platform metric, near-real-time|
-|"Alert on low available memory / free disk space in the guest"|Install **AMA + DCR**, then a metric or log alert|Host metrics don't include in-guest memory/disk|
-|"Alert when anyone deletes a VM"|**Activity log alert** on the delete operation|Deletion is a control-plane event|
-|"Alert when event ID 4625 appears 10 times in 5 minutes"|**Log search alert** (KQL on `Event`)|Needs log data and query logic|
-|"Alert when a VM hasn't sent a heartbeat for 10 minutes"|**Log search alert** on `Heartbeat`|Heartbeat is a log table|
-|"Be told when Azure has an outage in my regions"|**Service Health alert**|Platform-wide incidents|
-|"Be told when my specific VM becomes unavailable"|**Resource Health alert**|Your resource's health|
-|"Threshold should adapt to normal daily patterns"|Metric alert with **dynamic thresholds**|ML-learned baseline|
-|"Stop alert emails during Saturday maintenance"|**Alert processing rule** — suppress, scheduled|Alerts still fire and are logged; notifications don't|
-|"Add the on-call action group to every alert in a subscription"|**Alert processing rule** — apply action group|No need to edit each alert rule|
-|"Restart a service automatically when an alert fires"|Action group → **Automation runbook** (or Function/Logic App)|Notifications alone don't remediate|
-|"SMS notifications are being dropped"|SMS rate limit — **1 per 5 minutes per number**; use webhook/Logic App for volume|Rate limiting|
-|"Keep activity log data for 2 years and query it"|**Diagnostic setting** on the activity log → **Log Analytics** (set retention)|Activity log alone keeps 90 days|
-|"Keep storage resource logs for 7 years cheaply"|Diagnostic setting → **storage account** (or workspace long-term retention)|Archive destination|
-|"Send resource logs to a third-party SIEM in real time"|Diagnostic setting → **Event Hubs**|Streaming destination|
-|"Collect Windows Application/System event logs from 50 VMs"|**DCR** + **AMA**, assigned at scale (or via Azure Policy)|One DCR, many VMs|
-|"Chart blob transactions by response type"|Metrics explorer with **splitting** by ResponseType|Splitting = one line per value|
-|"Compare capacity and availability of all storage accounts"|**Storage insights**|Multi-account view, no agent|
-|"See performance of all VMs in one place"|**VM insights**|Curated multi-VM performance|
-|"Continuously monitor latency from on-prem servers to an Azure VM"|**Connection monitor**|Continuous, hybrid, alerts|
-|"Is port 3389 to this VM blocked, and by which rule?"|**IP flow verify**|Returns allow/deny + rule|
-|"Back up Azure VMs, SQL in VMs and Azure Files"|**Recovery Services vault**|Those workloads live there|
-|"Back up Azure Blobs, managed disks or PostgreSQL"|**Backup vault**|Newer workloads|
-|"VM backups every 4 hours" or "back up a Trusted Launch VM"|**Enhanced** backup policy|Standard = once daily; Trusted Launch/Ultra need Enhanced|
-|"Restore VMs in the paired region during an audit, any time"|**GRS** vault + **Cross Region Restore**|Plain GRS only allows secondary access after Microsoft declares a disaster|
-|"Change vault from GRS to LRS — it's greyed out"|Items are already protected; **stop protection and delete data**, or use a new vault|Redundancy is fixed once backups exist|
-|"Recover a few deleted files from a VM backup"|**File recovery** (iSCSI script, 12 hours)|No full restore needed|
-|"Customise size/network before recreating a VM from backup"|**Restore disks** (+ ARM template)|Create new VM doesn't allow that customisation|
-|"Restore in place keeping the same VM and IP"|**Replace existing**|Swaps disks on the original VM|
-|"Fastest possible restore"|From an **instant restore snapshot**|No vault data transfer|
-|"Someone deleted backup data yesterday"|**Undelete** within the **soft delete** window (14 days default)|Soft delete keeps it free|
-|"Prevent a rogue admin disabling soft delete or deleting backups"|**MUA with Resource Guard** (+ immutable vault / always-on soft delete)|Needs a second approver|
-|"Linux VM backups must be application-consistent"|**Pre- and post-scripts**|Linux defaults to file-system consistent|
-|"Back up on-prem Windows files and folders directly to Azure"|**MARS agent**|No backup server needed|
-|"Show backup storage used and failed jobs over 6 months"|Vault **diagnostic settings → Log Analytics**, then **Backup reports**|Reports are built on workspace data|
-|"Get notified of backup job failures"|Built-in **Azure Monitor alerts** + **alert processing rule** + **action group**|Alerts already exist; route them|
-|"VMs must keep running in another region if a region fails, RPO in minutes"|**Azure Site Recovery**|Backup RPO is hours|
-|"Where should the ASR vault be?"|In the **target (secondary) region**|Still manageable when the source region is down|
-|"Validate DR without affecting production"|**Test failover** into an **isolated VNet**, then cleanup|Replication continues|
-|"Fail over with the least data loss"|Recovery point **Latest**|Processes all pending data|
-|"Fail over as fast as possible"|Recovery point **Latest processed**|Lowest RTO|
-|"After failover, replicate back to the original region"|**Commit**, then **Re-protect**|Reverses replication direction|
-|"Several VMs must fail over in a defined order"|**Recovery plan** with boot groups|Orchestrated failover|
+| Scenario                                                                    | Answer                                                                               | Why that one                                                               |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| "Alert when a VM's CPU exceeds 80% for 5 minutes"                           | **Metric alert**                                                                     | Numeric platform metric, near-real-time                                    |
+| "Alert on low available memory / free disk space in the guest"              | Install **AMA + DCR**, then a metric or log alert                                    | Host metrics don't include in-guest memory/disk                            |
+| "Alert when anyone deletes a VM"                                            | **Activity log alert** on the delete operation                                       | Deletion is a control-plane event                                          |
+| "Alert when event ID 4625 appears 10 times in 5 minutes"                    | **Log search alert** (KQL on `Event`)                                                | Needs log data and query logic                                             |
+| "Alert when a VM hasn't sent a heartbeat for 10 minutes"                    | **Log search alert** on `Heartbeat`                                                  | Heartbeat is a log table                                                   |
+| "Be told when Azure has an outage in my regions"                            | **Service Health alert**                                                             | Platform-wide incidents                                                    |
+| "Be told when my specific VM becomes unavailable"                           | **Resource Health alert**                                                            | Your resource's health                                                     |
+| "Threshold should adapt to normal daily patterns"                           | Metric alert with **dynamic thresholds**                                             | ML-learned baseline                                                        |
+| "Stop alert emails during Saturday maintenance"                             | **Alert processing rule** — suppress, scheduled                                      | Alerts still fire and are logged; notifications don't                      |
+| "Add the on-call action group to every alert in a subscription"             | **Alert processing rule** — apply action group                                       | No need to edit each alert rule                                            |
+| "Restart a service automatically when an alert fires"                       | Action group → **Automation runbook** (or Function/Logic App)                        | Notifications alone don't remediate                                        |
+| "SMS notifications are being dropped"                                       | SMS rate limit — **1 per 5 minutes per number**; use webhook/Logic App for volume    | Rate limiting                                                              |
+| "Keep activity log data for 2 years and query it"                           | **Diagnostic setting** on the activity log → **Log Analytics** (set retention)       | Activity log alone keeps 90 days                                           |
+| "Keep storage resource logs for 7 years cheaply"                            | Diagnostic setting → **storage account** (or workspace long-term retention)          | Archive destination                                                        |
+| "Send resource logs to a third-party SIEM in real time"                     | Diagnostic setting → **Event Hubs**                                                  | Streaming destination                                                      |
+| "Collect Windows Application/System event logs from 50 VMs"                 | **DCR** + **AMA**, assigned at scale (or via Azure Policy)                           | One DCR, many VMs                                                          |
+| "Chart blob transactions by response type"                                  | Metrics explorer with **splitting** by ResponseType                                  | Splitting = one line per value                                             |
+| "Compare capacity and availability of all storage accounts"                 | **Storage insights**                                                                 | Multi-account view, no agent                                               |
+| "See performance of all VMs in one place"                                   | **VM insights**                                                                      | Curated multi-VM performance                                               |
+| "Continuously monitor latency from on-prem servers to an Azure VM"          | **Connection monitor**                                                               | Continuous, hybrid, alerts                                                 |
+| "Is port 3389 to this VM blocked, and by which rule?"                       | **IP flow verify**                                                                   | Returns allow/deny + rule                                                  |
+| "Back up Azure VMs, SQL in VMs and Azure Files"                             | **Recovery Services vault**                                                          | Those workloads live there                                                 |
+| "Back up Azure Blobs, managed disks or PostgreSQL"                          | **Backup vault**                                                                     | Newer workloads                                                            |
+| "VM backups every 4 hours" or "back up a Trusted Launch VM"                 | **Enhanced** backup policy                                                           | Standard = once daily; Trusted Launch/Ultra need Enhanced                  |
+| "Restore VMs in the paired region during an audit, any time"                | **GRS** vault + **Cross Region Restore**                                             | Plain GRS only allows secondary access after Microsoft declares a disaster |
+| "Change vault from GRS to LRS — it's greyed out"                            | Items are already protected; **stop protection and delete data**, or use a new vault | Redundancy is fixed once backups exist                                     |
+| "Recover a few deleted files from a VM backup"                              | **File recovery** (iSCSI script, 12 hours)                                           | No full restore needed                                                     |
+| "Customise size/network before recreating a VM from backup"                 | **Restore disks** (+ ARM template)                                                   | Create new VM doesn't allow that customisation                             |
+| "Restore in place keeping the same VM and IP"                               | **Replace existing**                                                                 | Swaps disks on the original VM                                             |
+| "Fastest possible restore"                                                  | From an **instant restore snapshot**                                                 | No vault data transfer                                                     |
+| "Someone deleted backup data yesterday"                                     | **Undelete** within the **soft delete** window (14 days default)                     | Soft delete keeps it free                                                  |
+| "Prevent a rogue admin disabling soft delete or deleting backups"           | **MUA with Resource Guard** (+ immutable vault / always-on soft delete)              | Needs a second approver                                                    |
+| "Linux VM backups must be application-consistent"                           | **Pre- and post-scripts**                                                            | Linux defaults to file-system consistent                                   |
+| "Back up on-prem Windows files and folders directly to Azure"               | **MARS agent**                                                                       | No backup server needed                                                    |
+| "Show backup storage used and failed jobs over 6 months"                    | Vault **diagnostic settings → Log Analytics**, then **Backup reports**               | Reports are built on workspace data                                        |
+| "Get notified of backup job failures"                                       | Built-in **Azure Monitor alerts** + **alert processing rule** + **action group**     | Alerts already exist; route them                                           |
+| "VMs must keep running in another region if a region fails, RPO in minutes" | **Azure Site Recovery**                                                              | Backup RPO is hours                                                        |
+| "Where should the ASR vault be?"                                            | In the **target (secondary) region**                                                 | Still manageable when the source region is down                            |
+| "Validate DR without affecting production"                                  | **Test failover** into an **isolated VNet**, then cleanup                            | Replication continues                                                      |
+| "Fail over with the least data loss"                                        | Recovery point **Latest**                                                            | Processes all pending data                                                 |
+| "Fail over as fast as possible"                                             | Recovery point **Latest processed**                                                  | Lowest RTO                                                                 |
+| "After failover, replicate back to the original region"                     | **Commit**, then **Re-protect**                                                      | Reverses replication direction                                             |
+| "Several VMs must fail over in a defined order"                             | **Recovery plan** with boot groups                                                   | Orchestrated failover                                                      |
 
 ---
 ## 12. Portal Practice That Pays Off

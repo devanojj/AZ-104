@@ -1,0 +1,2287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AZ-104 Virtual Networking — Quiz</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card: #ffffff;
+    --text: #1f2430;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #4f6bed;
+    --accent-soft: #eef1fd;
+    --good: #0f8a5f;
+    --good-bg: #e7f6ef;
+    --good-line: #9fd9c1;
+    --bad: #c23b4b;
+    --bad-bg: #fdeced;
+    --bad-line: #f0b4bb;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(16,24,40,.05), 0 8px 24px rgba(16,24,40,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171c;
+      --card: #1d2026;
+      --text: #e8eaef;
+      --muted: #9aa1ad;
+      --line: #2c313a;
+      --accent: #8098ff;
+      --accent-soft: #232a3d;
+      --good: #4fcf9b;
+      --good-bg: #16302a;
+      --good-line: #2f6b57;
+      --bad: #ef8e9a;
+      --bad-bg: #331d21;
+      --bad-line: #74424a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 32px 16px 56px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrap { width: 100%; max-width: 680px; }
+
+  header { margin-bottom: 16px; }
+
+  .bar-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .score { font-variant-numeric: tabular-nums; }
+  .score b { color: var(--text); font-weight: 600; }
+
+  .track {
+    height: 6px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .fill {
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: width .25s ease;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 26px 26px 22px;
+  }
+
+  /* ---------- menu ---------- */
+  .menu-head { margin-bottom: 20px; }
+  .menu-head h1 {
+    font-size: 22px;
+    font-weight: 650;
+    letter-spacing: -.01em;
+    margin: 0 0 4px;
+  }
+  .menu-head p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .topics { display: flex; flex-direction: column; gap: 9px; }
+
+  .topic-btn {
+    width: 100%;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 14px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .topic-btn:hover { background: var(--accent-soft); border-color: var(--accent); }
+  .topic-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .topic-btn .name { flex: 1; font-weight: 550; }
+  .topic-btn .count {
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .topic-btn .arrow { color: var(--muted); font-size: 17px; line-height: 1; }
+  .topic-btn:hover .arrow, .topic-btn:hover .count { color: var(--accent); }
+
+  .topic-btn.all {
+    margin-top: 7px;
+    border-style: dashed;
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .topic-btn.all .name { color: var(--accent); }
+  .topic-btn.all .count, .topic-btn.all .arrow { color: var(--accent); }
+
+  /* ---------- quiz ---------- */
+  .topic {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  h1.q {
+    font-size: 19px;
+    line-height: 1.45;
+    font-weight: 600;
+    margin: 0 0 18px;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .opt {
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 13px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .opt:hover:not(:disabled) { background: var(--accent-soft); border-color: var(--accent); }
+  .opt:disabled { cursor: default; }
+  .opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .key {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .opt.correct { background: var(--good-bg); border-color: var(--good-line); }
+  .opt.correct .key { background: var(--good); border-color: var(--good); color: #fff; }
+  .opt.wrong { background: var(--bad-bg); border-color: var(--bad-line); }
+  .opt.wrong .key { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .opt.dim { opacity: .5; }
+
+  .verdict {
+    margin-top: 18px;
+    padding: 13px 15px;
+    border-radius: 11px;
+    border: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .verdict.good { background: var(--good-bg); border-color: var(--good-line); }
+  .verdict.bad { background: var(--bad-bg); border-color: var(--bad-line); }
+  .verdict .label { font-weight: 600; }
+  .verdict.good .label { color: var(--good); }
+  .verdict.bad .label { color: var(--bad); }
+  .verdict p { margin: 8px 0 0; color: var(--text); }
+
+  .foot {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    min-height: 42px;
+  }
+  .hint { font-size: 13px; color: var(--muted); margin-right: auto; }
+
+  .btn {
+    font: inherit;
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: filter .15s ease, background .15s ease;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .btn.ghost { background: transparent; color: var(--accent); border-color: var(--line); filter: none; }
+  .btn.ghost:hover { background: var(--accent-soft); }
+
+  .link {
+    font: inherit;
+    font-size: 14px;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .link:hover { color: var(--accent); }
+  .link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .hidden { display: none !important; }
+
+  /* ---------- results ---------- */
+  .result { text-align: center; padding: 10px 0 4px; }
+  .result .big {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+    margin: 6px 0 2px;
+  }
+  .result .sub { color: var(--muted); margin-bottom: 22px; }
+  .result h2 { font-size: 20px; margin: 0; font-weight: 600; }
+  .result .which { font-size: 13px; color: var(--muted); margin-bottom: 2px; }
+  .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  .breakdown {
+    text-align: left;
+    border-top: 1px solid var(--line);
+    margin-top: 22px;
+    padding-top: 16px;
+  }
+  .breakdown h3 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); font-weight: 600; margin: 0 0 10px;
+  }
+  .row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 6px 0; font-size: 14px;
+  }
+  .row span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .9em;
+    background: var(--accent-soft);
+    padding: 1px 5px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 520px) {
+    body { padding: 18px 12px 40px; }
+    .card { padding: 20px 17px 18px; border-radius: 12px; }
+    .menu-head h1 { font-size: 20px; }
+    h1.q { font-size: 17.5px; }
+    .opt, .topic-btn { padding: 12px 13px; }
+    .topic-btn .count { font-size: 12px; }
+    .hint { display: none; }
+    .foot .btn { flex: 1; }
+    .result .big { font-size: 44px; }
+    .actions .btn { flex: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header id="header" class="hidden">
+    <div class="bar-top">
+      <span id="progress">Question 1 of 1</span>
+      <span class="score" id="score">Score <b>0</b> / 0</span>
+    </div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+  </header>
+
+  <main class="card">
+
+    <section id="menu">
+      <div class="menu-head">
+        <h1>AZ-104 — Virtual Networking</h1>
+        <p>Pick a topic to start.</p>
+      </div>
+      <div class="topics" id="topics"></div>
+    </section>
+
+    <section id="quiz" class="hidden">
+      <span class="topic" id="topic"></span>
+      <h1 class="q" id="question"></h1>
+      <div class="options" id="options"></div>
+      <div class="verdict hidden" id="verdict"></div>
+      <div class="foot">
+        <span class="hint" id="hint">Pick an answer — or press 1-9</span>
+        <button class="link" id="quit">Back to topics</button>
+        <button class="btn hidden" id="next">Next</button>
+      </div>
+    </section>
+
+    <section id="results" class="hidden">
+      <div class="result">
+        <div class="which" id="whichTopic"></div>
+        <h2 id="verdictTitle">All done</h2>
+        <div class="big" id="finalPct">0%</div>
+        <div class="sub" id="finalScore"></div>
+        <div class="actions">
+          <button class="btn" id="again">Try again</button>
+          <button class="btn ghost" id="back">Back to topics</button>
+        </div>
+        <div class="breakdown hidden" id="breakdown">
+          <h3>By section</h3>
+          <div id="rows"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+const QUESTIONS =
+[
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "How many IP addresses can be assigned to resources in a subnet with a /28 prefix?",
+  "options": [
+   "11",
+   "14",
+   "16"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "You need a subnet that will host exactly 25 virtual machines. Which is the smallest subnet prefix that meets the requirement?",
+  "options": [
+   "/27",
+   "/28",
+   "/26"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "In the subnet 10.1.2.0/24, which IP address can never be assigned to a virtual machine?",
+  "options": [
+   "10.1.2.4",
+   "10.1.2.3",
+   "10.1.2.254"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "What is the smallest IPv4 subnet that Azure supports?",
+  "options": [
+   "/30",
+   "/28",
+   "/29"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "A team asks you to create a single virtual network that spans the East US and West Europe regions. What should you tell them?",
+  "options": [
+   "Create the virtual network with zone-redundant subnets so it spans both regions",
+   "Add a GatewaySubnet in each region inside the same virtual network",
+   "A virtual network is regional; create one per region and connect them with peering"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "Which address range cannot be used in a virtual network's address space?",
+  "options": [
+   "10.0.0.0/16",
+   "172.20.0.0/16",
+   "169.254.0.0/16"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "You change the DNS servers configured on a virtual network, but existing VMs continue to use the old DNS servers. What should you do?",
+  "options": [
+   "Restart the VMs so they receive the new DNS settings",
+   "Re-associate the network security group with the subnet",
+   "Recreate the subnets so they inherit the new setting"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "You need to enlarge a subnet that already contains running VMs. Which statement is correct?",
+  "options": [
+   "The subnet can be resized as long as the new range still contains every IP address in use",
+   "All VMs must be deleted before a subnet can be resized",
+   "Subnets cannot be resized after creation"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "How many route tables can be associated with a single subnet?",
+  "options": [
+   "One",
+   "Two — one for inbound and one for outbound",
+   "Unlimited, evaluated by priority"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "You need to deploy a PaaS service that injects its resources into a dedicated subnet in your virtual network. Which subnet configuration hands the subnet to that service?",
+  "options": [
+   "A service endpoint",
+   "Subnet delegation",
+   "Private endpoint network policies"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "What is required for VMs in two different subnets of the same virtual network to communicate?",
+  "options": [
+   "Nothing — Azure routes traffic between subnets in a virtual network by default",
+   "A route table with a route whose next hop is Virtual network",
+   "VNet peering between the two subnets"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Virtual Networks & Subnets",
+  "q": "VMs in VNet A use Azure-provided DNS and cannot resolve the host names of VMs in peered VNet B. What should you do?",
+  "options": [
+   "Enable \"Allow forwarded traffic\" on both peering links",
+   "Enable gateway transit on the VNet A peering",
+   "Create a private DNS zone and link it to both virtual networks"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "IP Addressing",
+  "q": "A VM running as a domain controller must keep the same private IP address permanently. How should you configure this?",
+  "options": [
+   "Set a static IP address in the Windows network adapter settings inside the VM",
+   "Reserve the address by creating a public IP prefix",
+   "Set the private IP allocation to Static on the NIC's IP configuration in Azure"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "IP Addressing",
+  "q": "Which allocation method is available when you create a Standard SKU public IP address?",
+  "options": [
+   "Dynamic or static",
+   "Dynamic only",
+   "Static only"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "IP Addressing",
+  "q": "You attach a Standard SKU public IP address to a VM's NIC. No NSG is associated with the NIC or subnet. RDP connections from the internet fail. Why?",
+  "options": [
+   "Standard public IPs support outbound traffic only",
+   "The routing preference must be set to Internet for inbound traffic",
+   "Standard public IPs are secure by default and are closed to inbound traffic until an NSG allows it"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "IP Addressing",
+  "q": "You are deploying a cross-region load balancer. What type of public IP address must its frontend use?",
+  "options": [
+   "A Standard SKU, regional tier, zone-redundant public IP",
+   "A public IP prefix with one address in each region",
+   "A Standard SKU public IP with the Global tier"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "IP Addressing",
+  "q": "A partner organisation needs to add your outbound public IP addresses to an allow list and requires a predictable, contiguous range. What should you deploy?",
+  "options": [
+   "A NAT gateway with a single public IP",
+   "Several Standard public IPs in the same resource group",
+   "A public IP prefix"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "IP Addressing",
+  "q": "You want outbound traffic from a public IP to leave Microsoft's network as soon as possible to reduce bandwidth costs. What should you configure?",
+  "options": [
+   "The Global tier on the public IP",
+   "A zone-redundant public IP",
+   "Routing preference set to Internet"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "IP Addressing",
+  "q": "Your cost report shows charges for several Standard public IP addresses that are not attached to any resource. What is the explanation?",
+  "options": [
+   "Standard public IPs are billed whether or not they are attached to a resource",
+   "Unattached public IPs are free; the charges are for outbound data transfer",
+   "Charges apply only because the IPs are zone-redundant"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "IP Addressing",
+  "q": "You create a new virtual network using a current API version and deploy a VM without a public IP. The VM cannot reach the internet. What is the most likely cause?",
+  "options": [
+   "New virtual networks use private subnets by default, so the VM needs an explicit outbound method",
+   "The AllowInternetOutBound default NSG rule is missing",
+   "Azure-provided DNS is not configured on the virtual network"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "IP Addressing",
+  "q": "Which explicit outbound connectivity method does Microsoft recommend for a subnet of VMs that need scalable internet access?",
+  "options": [
+   "Default outbound access",
+   "A Standard public IP on every VM",
+   "NAT gateway"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "IP Addressing",
+  "q": "VMs in a busy subnet experience intermittent outbound connection failures under load, and you suspect SNAT port exhaustion. What should you do?",
+  "options": [
+   "Increase the idle timeout on the VMs' public IPs",
+   "Associate a NAT gateway with the subnet",
+   "Add the VMs to an application security group"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "IP Addressing",
+  "q": "What is the maximum number of public IP addresses that can be associated with a single NAT gateway?",
+  "options": [
+   "8",
+   "16",
+   "32"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "IP Addressing",
+  "q": "What is the current status of the Basic SKU public IP address?",
+  "options": [
+   "It is still recommended for development and test workloads",
+   "It was retired on 30 September 2025; Standard SKU must be used",
+   "It is required for VPN gateways"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "IP Addressing",
+  "q": "You mark an existing subnet as private, but a VM in it still egresses using its default outbound IP. What must you do for the change to apply to that VM?",
+  "options": [
+   "Stop (deallocate) the VM and start it again",
+   "Restart the VM from inside the guest operating system",
+   "Delete and recreate the VM's network interface"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VNet Peering",
+  "q": "VMs in two virtual networks in different Azure regions must communicate privately with the lowest latency and without deploying gateways. What should you configure?",
+  "options": [
+   "A VNet-to-VNet VPN connection",
+   "ExpressRoute Global Reach",
+   "Global virtual network peering"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "VNet A is peered with VNet B, and VNet B is peered with VNet C. VMs in VNet A cannot reach VMs in VNet C. Why?",
+  "options": [
+   "Global peering supports a maximum of two virtual networks",
+   "\"Allow gateway transit\" must be enabled on VNet B",
+   "Virtual network peering is non-transitive"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "A peering shows a status of Initiated. What should you do?",
+  "options": [
+   "Select Sync on the peering",
+   "Delete and recreate the peering on both virtual networks",
+   "Create the peering link from the remote virtual network"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "A peering shows a status of Disconnected. What should you do?",
+  "options": [
+   "Select Sync on the remaining peering link",
+   "Enable \"Allow access to remote virtual network\" on the remaining link",
+   "Delete the remaining peering link and recreate both links"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "You try to peer VNet1 (10.0.0.0/16) with VNet2 (10.0.128.0/17). What happens?",
+  "options": [
+   "The peering succeeds and routing uses longest prefix match",
+   "The peering succeeds only if the virtual networks are in different regions",
+   "The peering fails because the address spaces overlap"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "You add a new address range to a hub virtual network that is peered with several spokes. VMs in the spokes cannot reach resources in the new range. What should you do?",
+  "options": [
+   "Delete and recreate every peering",
+   "Restart the VMs in the spoke virtual networks",
+   "Sync the peering for each remote peered virtual network"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "Can you peer virtual networks that belong to subscriptions in different Microsoft Entra tenants?",
+  "options": [
+   "Yes, peering is supported across subscriptions and across Microsoft Entra tenants",
+   "No, peering requires both virtual networks to be in the same tenant",
+   "Only by using a VNet-to-VNet VPN connection instead of peering"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VNet Peering",
+  "q": "Spoke virtual networks must use a VPN gateway deployed in the hub virtual network to reach on-premises. Which peering settings are required?",
+  "options": [
+   "\"Allow gateway transit\" on the hub peering, and \"Use remote gateways\" on the spoke peerings",
+   "\"Use remote gateways\" on the hub peering, and \"Allow gateway transit\" on the spoke peerings",
+   "\"Allow forwarded traffic\" on both sides of every peering"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VNet Peering",
+  "q": "You cannot enable \"Use remote gateways\" on a spoke's peering to the hub. What is the most likely cause?",
+  "options": [
+   "The hub is in a different region from the spoke",
+   "The spoke is in a different subscription from the hub",
+   "The spoke virtual network already has its own virtual network gateway"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "Gateway transit is not working, and the hub's VPN gateway is the Basic SKU. What is the cause?",
+  "options": [
+   "Global peering doesn't support gateway transit",
+   "\"Allow forwarded traffic\" must be disabled for gateway transit",
+   "The Basic VPN Gateway SKU doesn't support gateway transit"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "Spoke1 and Spoke2 are peered with a hub that contains an NVA. UDRs on the spoke subnets send traffic to the NVA, and IP forwarding is enabled on the NVA's NIC. Spoke-to-spoke traffic is still dropped. What should you enable?",
+  "options": [
+   "Gateway transit on the hub peerings",
+   "\"Use remote gateways\" on the spoke peerings",
+   "\"Allow forwarded traffic\" on the spoke peerings"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "You need to move a peered virtual network to a different resource group. What must you do?",
+  "options": [
+   "Delete the peering, move the virtual network, then recreate the peering",
+   "Move it directly; peerings move with the virtual network",
+   "Move it only within the same subscription, which preserves the peering"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "VNet Peering",
+  "q": "You need to temporarily stop traffic over a peering without deleting it. What should you do?",
+  "options": [
+   "Disable \"Allow forwarded traffic\"",
+   "Remove the route table from the subnets",
+   "Disable \"Allow access to remote virtual network\" on the peering"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "An NSG on a spoke subnet allows inbound traffic from the VirtualNetwork service tag. Does this include traffic from a peered virtual network?",
+  "options": [
+   "No, the VirtualNetwork tag includes only the local address space",
+   "Only when gateway transit is enabled",
+   "Yes, the VirtualNetwork service tag includes the address spaces of peered virtual networks"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "Your security policy requires that all traffic between two virtual networks is encrypted with IPsec. Which connectivity option meets the requirement?",
+  "options": [
+   "Global virtual network peering",
+   "Regional virtual network peering with \"Allow forwarded traffic\"",
+   "A VNet-to-VNet VPN connection"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "VNet Peering",
+  "q": "Can a virtual network have \"Use remote gateways\" enabled on two different peerings at the same time?",
+  "options": [
+   "Yes, if both remote virtual networks are in the same region",
+   "No, only one peering per virtual network can use remote gateways",
+   "Yes, up to five peerings"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "What is the next hop type of the default system route for 0.0.0.0/0?",
+  "options": [
+   "None",
+   "Internet",
+   "Virtual network gateway"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "A VM in a virtual network with address space 10.0.0.0/16 sends traffic to 172.16.5.4. There are no route tables, peerings or gateways. What happens to the traffic?",
+  "options": [
+   "It is dropped, because the default system route for 172.16.0.0/12 has a next hop of None",
+   "It is sent to the internet",
+   "It is routed within the virtual network"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "All internet-bound traffic from workload subnets must pass through an Azure Firewall with the private IP 10.0.1.4. What should you configure?",
+  "options": [
+   "An NSG outbound rule that allows traffic only to 10.0.1.4",
+   "A UDR for 0.0.0.0/0 with next hop type Virtual appliance and next hop address 10.0.1.4",
+   "A UDR for 0.0.0.0/0 with next hop type Internet and next hop address 10.0.1.4"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "A subnet's effective routes include a UDR for 10.0.0.0/16 to a virtual appliance and a system route for 10.0.0.0/24 to Virtual network. Which route is used for traffic to 10.0.0.25?",
+  "options": [
+   "The 10.0.0.0/24 route, because longest prefix match is evaluated first",
+   "The UDR, because user-defined routes always override system routes",
+   "Both, using equal-cost multipath"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "A UDR, a BGP route and a system route all have exactly the same address prefix. Which is used?",
+  "options": [
+   "The system route",
+   "The user-defined route",
+   "The BGP route"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "Traffic is correctly routed to an NVA by a UDR, but the NVA drops packets that aren't addressed to it. What should you configure?",
+  "options": [
+   "Accelerated networking on the NVA's NIC",
+   "A public IP address on the NVA",
+   "IP forwarding on the NVA's NIC in Azure"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "Which UDR next hop type causes matching traffic to be dropped?",
+  "options": [
+   "Internet",
+   "None",
+   "Virtual network"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "A route table in West Europe cannot be associated with a subnet in an East US virtual network. Why?",
+  "options": [
+   "A route table must be in the same region and subscription as the virtual network",
+   "The virtual networks must be peered first",
+   "Gateway route propagation must be enabled"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "By default, what is the maximum number of user-defined routes in a single route table?",
+  "options": [
+   "100",
+   "400",
+   "1,000"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "Workload subnets are learning on-premises routes from the VPN gateway through BGP, which lets traffic bypass the hub firewall. What should you do?",
+  "options": [
+   "Disable \"Propagate gateway routes\" on the route table associated with the workload subnets",
+   "Disable gateway route propagation on the GatewaySubnet route table",
+   "Add a route for 0.0.0.0/0 with next hop None"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "On which subnet should you never disable gateway route propagation?",
+  "options": [
+   "AzureBastionSubnet",
+   "GatewaySubnet",
+   "AzureFirewallSubnet"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "Which next hop type can you NOT select when creating a user-defined route?",
+  "options": [
+   "VirtualNetworkServiceEndpoint",
+   "Virtual appliance",
+   "Virtual network gateway"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "All internet-bound traffic from Azure VMs must be sent to on-premises for inspection (forced tunnelling). Which UDR achieves this?",
+  "options": [
+   "0.0.0.0/0 with next hop type Internet",
+   "0.0.0.0/0 with next hop type None",
+   "0.0.0.0/0 with next hop type Virtual network gateway"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "A UDR sends 10.0.0.0/8 to a firewall, but traffic to a private endpoint in the same virtual network bypasses the firewall. Why?",
+  "options": [
+   "The private endpoint adds a more specific /32 route, which wins on longest prefix match",
+   "Service endpoint routes can't be overridden",
+   "UDRs don't apply to traffic within the same virtual network"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "For outbound traffic from a subnet that has both an NSG and a route table, which is processed first?",
+  "options": [
+   "The NSG outbound rules, then the route table",
+   "The route table, then the NSG",
+   "Both are evaluated simultaneously and the most restrictive wins"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Routing & User-Defined Routes",
+  "q": "You deploy two NVAs for high availability. What should UDRs use as the next hop address?",
+  "options": [
+   "The public IP of the active NVA",
+   "The frontend IP of an internal Standard Load Balancer with HA ports in front of the NVAs",
+   "The virtual network gateway"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "What is the valid range for a custom NSG rule priority?",
+  "options": [
+   "1–65535",
+   "100–65000",
+   "100–4096"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "An NSG has a rule at priority 100 that denies all inbound traffic, and a rule at priority 200 that allows inbound TCP 443. What happens to inbound HTTPS traffic?",
+  "options": [
+   "It is allowed, because the 443 rule is more specific",
+   "It is denied, because priority 100 is processed first and processing stops at the first match",
+   "It is allowed, because allow rules take precedence over deny rules"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "A new NSG containing only the default rules is associated with a subnet. Which traffic is blocked?",
+  "options": [
+   "Inbound traffic from the internet",
+   "Traffic between VMs in the same virtual network",
+   "Outbound traffic to the internet"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "NSGs are associated with both a subnet and a VM's NIC. In what order are they evaluated for inbound traffic?",
+  "options": [
+   "The NIC NSG, then the subnet NSG",
+   "The subnet NSG, then the NIC NSG",
+   "Only the NIC NSG, because it is more specific"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "NSGs are associated with both a subnet and a VM's NIC. In what order are they evaluated for outbound traffic?",
+  "options": [
+   "The subnet NSG, then the NIC NSG",
+   "The NIC NSG, then the subnet NSG",
+   "Only the subnet NSG"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "The subnet NSG allows inbound TCP 3389 from your admin IP at priority 100. The VM's NIC has an NSG with only the default rules. Can you RDP to the VM?",
+  "options": [
+   "No, the NIC NSG blocks it with DenyAllInBound",
+   "Yes, because the subnet NSG allowed the traffic",
+   "Yes, because AllowVNetInBound permits it"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "How many NSGs can be associated with a single network interface?",
+  "options": [
+   "Two",
+   "Unlimited",
+   "One"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "An inbound NSG rule allows TCP 443 to a web server. Do you need an outbound rule to allow the responses?",
+  "options": [
+   "No, NSGs are stateful, so return traffic is allowed automatically",
+   "Yes, an outbound rule for the ephemeral ports is required",
+   "Only for UDP traffic"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "You need an NSG rule that allows only Azure Load Balancer health probes. Which source should you use?",
+  "options": [
+   "VirtualNetwork",
+   "Internet",
+   "The AzureLoadBalancer service tag"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "A VM has a public IP address. When you write an inbound NSG rule for traffic to it, what destination should you use?",
+  "options": [
+   "The VM's public IP address",
+   "The VM's private IP address, because NSGs evaluate inbound traffic after public-to-private translation",
+   "Either address; NSGs evaluate both"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "You try to create a single NSG rule with both the Storage and Sql service tags in the destination field. What happens?",
+  "options": [
+   "It isn't supported; a rule field can contain only one service tag",
+   "It succeeds as an augmented security rule",
+   "It succeeds only for outbound rules"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "You try to add NICs from VMs in two different virtual networks to the same application security group, and it fails. Why?",
+  "options": [
+   "All NICs in an application security group must be in the same virtual network",
+   "ASGs can contain a maximum of two NICs",
+   "ASGs are scoped to a single subnet"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "What is an application security group associated with?",
+  "options": [
+   "Subnets",
+   "Network interfaces",
+   "Virtual networks"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "What is the maximum number of application security groups that can be referenced in the source of a single NSG rule?",
+  "options": [
+   "1",
+   "10",
+   "100"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "You need to see the combined NSG rules from both the subnet and the NIC that apply to a VM. What should you use?",
+  "options": [
+   "Network Watcher next hop",
+   "Effective security rules on the VM's network interface",
+   "Network Watcher topology"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "Effective security rules for a VM's NIC are unavailable in the portal. What is the most likely reason?",
+  "options": [
+   "Network Watcher is in a different resource group",
+   "The NSG is associated with the subnet rather than the NIC",
+   "The VM isn't running"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "You need to block all traffic between two VMs in the same subnet. What should you do?",
+  "options": [
+   "Add a UDR with next hop None for the subnet range",
+   "This isn't possible, because traffic within a subnet bypasses NSGs",
+   "Add NSG deny rules with priority numbers lower than 65000"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "You cannot associate an NSG in East US with a subnet in West US. Why?",
+  "options": [
+   "An NSG must be in the same region as the subnet or NIC it's associated with",
+   "The NSG must be in the same resource group as the virtual network",
+   "NSGs can only be associated with NICs across regions"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "NSGs & ASGs",
+  "q": "After you add a \"deny all inbound\" rule at priority 4000, every backend VM behind a load balancer is marked unhealthy. What should you add?",
+  "options": [
+   "An allow rule from the AzureLoadBalancer service tag on the probe port with a priority number lower than 4000",
+   "An allow rule from the Internet service tag at priority 4001",
+   "An allow rule from VirtualNetwork at priority 65000"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "Developers need free, browser-based access to one test VM at a time. Which Bastion SKU should you use?",
+  "options": [
+   "Developer",
+   "Basic",
+   "Standard"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "One Bastion host in a hub virtual network must provide access to VMs in peered spoke virtual networks, at the lowest cost. Which SKU should you choose?",
+  "options": [
+   "Basic",
+   "Developer",
+   "Premium"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "Administrators want to connect to VMs through Bastion using the native RDP client on their own computers. What is the minimum SKU?",
+  "options": [
+   "Standard",
+   "Developer",
+   "Basic"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "Compliance requires that all Bastion RDP and SSH sessions are recorded. Which SKU is required?",
+  "options": [
+   "Premium",
+   "Standard",
+   "Basic"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "Your security team does not allow a public IP address on the Bastion host. What should you deploy?",
+  "options": [
+   "Bastion Standard with IP-based connection",
+   "Bastion Premium with private-only deployment",
+   "Bastion Basic with a NAT gateway"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "What are the subnet requirements for a Basic, Standard or Premium Bastion deployment?",
+  "options": [
+   "A subnet named BastionSubnet with a /27 or larger prefix",
+   "A subnet named AzureBastionSubnet with a /26 or larger prefix",
+   "The GatewaySubnet with a /26 or larger prefix"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "You deployed Bastion Standard and now want to downgrade to Basic to save money. What should you do?",
+  "options": [
+   "Delete the Bastion host and redeploy it with the Basic SKU, as downgrading isn't supported",
+   "Change the SKU in the portal's Configuration blade",
+   "Change the SKU with the Azure CLI, as the portal blocks downgrades"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "Which port and protocol do users' browsers use to connect to Azure Bastion?",
+  "options": [
+   "HTTPS over TCP 443",
+   "RDP over TCP 3389",
+   "SSH over TCP 22"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "Do VMs accessed through Azure Bastion require public IP addresses?",
+  "options": [
+   "No, Bastion connects to the VMs' private IP addresses",
+   "Yes, Bastion forwards to the VM's public IP",
+   "Only Linux VMs accessed by SSH"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "You want to add a route table to AzureBastionSubnet so that Bastion traffic passes through a firewall. What is the result?",
+  "options": [
+   "It's required for Bastion to reach peered virtual networks",
+   "It isn't supported; UDRs can't be applied to AzureBastionSubnet",
+   "It's supported only with the Premium SKU"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "Administrators need to use Bastion to reach an on-premises server over a site-to-site VPN by entering its IP address. Which SKUs support this?",
+  "options": [
+   "Developer and Basic",
+   "Basic only, through virtual network peering",
+   "Standard and Premium, using IP-based connection"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "A contractor without Azure portal access needs temporary RDP access to one VM through Bastion. Which feature should you use, and what is the minimum SKU?",
+  "options": [
+   "Kerberos authentication, Basic SKU",
+   "Native client support, Developer SKU",
+   "A shareable link, Standard SKU"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "Your organisation needs about 300 concurrent RDP sessions through Bastion. Which SKUs can support this?",
+  "options": [
+   "Basic, which has two fixed instances",
+   "Standard or Premium, with host scaling",
+   "Developer, which uses a shared pool"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Bastion",
+  "q": "What must the NSG on a target VM's subnet allow for Bastion connections to work?",
+  "options": [
+   "Inbound TCP 3389/22 from the AzureBastionSubnet address range",
+   "Inbound TCP 443 from the Internet service tag",
+   "Inbound TCP 3389 from the Internet service tag"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "Only VMs in a specific subnet should be able to reach a storage account. There must be no extra cost and no on-premises access is required. What should you configure?",
+  "options": [
+   "A service endpoint on the subnet and a virtual network rule on the storage account",
+   "A private endpoint for the blob sub-resource",
+   "Azure Bastion with an NSG"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "On-premises servers connected through ExpressRoute must reach an Azure SQL database over a private IP address. What should you configure?",
+  "options": [
+   "A Microsoft.Sql service endpoint on the GatewaySubnet",
+   "A private endpoint for the SQL server",
+   "A service endpoint policy"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "A subnet uses a storage service endpoint. You must stop VMs in the subnet from copying data to storage accounts outside your organisation. What should you configure?",
+  "options": [
+   "A service endpoint policy that allows only your storage accounts",
+   "An NSG outbound rule using the Storage service tag",
+   "A private DNS zone for privatelink.blob.core.windows.net"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "A VM in a subnet with a storage service endpoint resolves the storage account's DNS name. What does it resolve to?",
+  "options": [
+   "The storage account's public IP address",
+   "A private IP address from the subnet",
+   "168.63.129.16"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "You enable a Microsoft.Storage service endpoint on a subnet, but VMs are still denied by the storage account firewall. What should you do?",
+  "options": [
+   "Add a virtual network rule for that subnet in the storage account's networking settings",
+   "Restart the storage account",
+   "Create a private endpoint as well"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "What happens when you enable a service endpoint on a subnet that has running workloads?",
+  "options": [
+   "The VMs in the subnet restart",
+   "The DNS servers for the subnet change to private resolvers",
+   "Existing TCP connections from the subnet to that service are reset"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "You enable a Microsoft.Sql service endpoint on a subnet. Where must the Azure SQL server be located?",
+  "options": [
+   "In any region",
+   "In the same region as the virtual network",
+   "In the paired region of the virtual network"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "What is created in your virtual network when you deploy a private endpoint?",
+  "options": [
+   "A route table with a route to the service",
+   "A NAT gateway for the service",
+   "A network interface with a private IP address from the subnet"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "Applications must reach both blob and file services on one storage account privately. How many private endpoints do you need?",
+  "options": [
+   "One, because a private endpoint covers the whole account",
+   "Two, one for each sub-resource",
+   "One, provided the hierarchical namespace is enabled"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "After creating a private endpoint, VMs still connect to the service's public IP. What should you fix?",
+  "options": [
+   "Link the matching private link private DNS zone to the virtual network",
+   "Add a service endpoint on the subnet",
+   "Enable \"Allow trusted Microsoft services\""
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "NSG rules on the subnet that contains a private endpoint are not filtering traffic to it. What should you do?",
+  "options": [
+   "Associate the NSG directly with the private endpoint's NIC",
+   "Add the private endpoint to an application security group",
+   "Enable private endpoint network policies for NSGs on the subnet"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "A user who has no permissions on the target resource creates a private endpoint to it. What is the connection's status?",
+  "options": [
+   "Approved",
+   "Pending, until the resource owner approves it",
+   "Rejected"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "You create an approved private endpoint for a storage account. Is the account's public endpoint automatically disabled?",
+  "options": [
+   "No, you must restrict public network access separately",
+   "Yes, for all Azure PaaS services",
+   "Yes, but only for storage accounts"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "You want to let customers in other Microsoft Entra tenants reach your application, which runs behind a Standard internal load balancer, through private endpoints in their own virtual networks. What should you create?",
+  "options": [
+   "A service endpoint",
+   "A virtual network peering to each customer",
+   "A Private Link service"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Service Endpoints vs Private Endpoints",
+  "q": "A subnet already has the Microsoft.Storage service endpoint. You want to use Microsoft.Storage.Global instead. What should you do?",
+  "options": [
+   "Remove Microsoft.Storage and then add Microsoft.Storage.Global, because they can't coexist on one subnet",
+   "Add Microsoft.Storage.Global alongside the existing endpoint",
+   "Create a private endpoint, which is required for cross-region access"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure DNS",
+  "q": "You create a public DNS zone for contoso.com in Azure DNS. What must you do so that Azure DNS answers queries for the domain?",
+  "options": [
+   "Create a CNAME record at your registrar pointing to the Azure zone",
+   "Update the NS records at the domain registrar to the Azure DNS name servers",
+   "Add an SOA record in the Azure zone"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure DNS",
+  "q": "Can you purchase a new domain name directly through Azure DNS?",
+  "options": [
+   "No, Azure DNS hosts zones but doesn't register domain names",
+   "Yes, for .com and .net domains",
+   "Yes, for any top-level domain"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure DNS",
+  "q": "You need contoso.com (the zone apex) to resolve to an Azure Front Door endpoint. What should you create?",
+  "options": [
+   "An alias record at the apex",
+   "A CNAME record at the apex",
+   "An A record pointing to the Front Door endpoint's IP address"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure DNS",
+  "q": "Which record types support Azure DNS alias record sets?",
+  "options": [
+   "A, MX and TXT",
+   "All record types",
+   "A, AAAA and CNAME"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure DNS",
+  "q": "When a public IP address is deleted, you want the DNS record pointing to it to stop returning a stale address automatically. What should you use?",
+  "options": [
+   "An alias record that references the public IP resource",
+   "A record set with a TTL of 0",
+   "A PTR record"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure DNS",
+  "q": "You need to delegate partners.contoso.com to a separate Azure DNS zone. contoso.com is already hosted in Azure DNS. What should you do?",
+  "options": [
+   "Create a CNAME record for partners in the contoso.com zone",
+   "Register partners.contoso.com with a new registrar",
+   "Create the partners.contoso.com zone, then add an NS record set for partners in the contoso.com zone"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure DNS",
+  "q": "Which record sets are created automatically at the apex when you create a public DNS zone?",
+  "options": [
+   "A and AAAA",
+   "MX and TXT",
+   "SOA and NS"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure DNS",
+  "q": "How many records can a CNAME record set contain?",
+  "options": [
+   "20",
+   "Unlimited",
+   "One"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure DNS",
+  "q": "VMs should be registered automatically in the private DNS zone corp.contoso.com as they're deployed. What should you configure?",
+  "options": [
+   "A conditional forwarder to 168.63.129.16",
+   "A virtual network link with autoregistration enabled",
+   "An alias record set for each VM"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure DNS",
+  "q": "A virtual network already has autoregistration enabled with one private DNS zone. You try to enable autoregistration with a second zone, and it fails. Why?",
+  "options": [
+   "Private DNS zones can't share virtual networks",
+   "A virtual network can have only one registration zone",
+   "The virtual networks must be peered first"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure DNS",
+  "q": "VMs in two virtual networks that are not peered must resolve records in the same private DNS zone. What is required?",
+  "options": [
+   "Peering between the virtual networks",
+   "Link both virtual networks to the private DNS zone",
+   "An Azure DNS Private Resolver in each virtual network"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure DNS",
+  "q": "You want an internal load balancer's frontend IP to be registered in a private DNS zone with autoregistration enabled. What happens?",
+  "options": [
+   "The ILB is registered automatically with its frontend name",
+   "The ILB is registered only if it has a static frontend IP",
+   "Nothing — autoregistration supports VMs only, so you must create the record manually"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure DNS",
+  "q": "A virtual network uses a custom DNS server running on a VM. VMs can't resolve records in a private DNS zone linked to the virtual network. What should you configure on the DNS server?",
+  "options": [
+   "A forwarder to the registrar's name servers",
+   "A conditional forwarder for the zone to 168.63.129.16",
+   "A secondary zone transferred from Azure DNS"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure DNS",
+  "q": "On-premises clients must resolve records in an Azure private DNS zone. Which Azure DNS Private Resolver component should on-premises DNS servers forward to?",
+  "options": [
+   "An outbound endpoint",
+   "A DNS forwarding ruleset",
+   "An inbound endpoint"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure DNS",
+  "q": "Azure VMs must resolve names in an on-premises domain. Which Azure DNS Private Resolver components do you need?",
+  "options": [
+   "An inbound endpoint only",
+   "An outbound endpoint and a DNS forwarding ruleset",
+   "A virtual network link with autoregistration"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure DNS",
+  "q": "You create public and private DNS zones that both use the name contoso.com. What do VMs in a virtual network linked to the private zone receive?",
+  "options": [
+   "An error, because zone names must be unique",
+   "The private zone's records (split-horizon DNS)",
+   "The public records, because public zones take precedence"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure DNS",
+  "q": "A user must manage records in public DNS zones, and nothing else. Which built-in role follows least privilege?",
+  "options": [
+   "Network Contributor",
+   "Private DNS Zone Contributor",
+   "DNS Zone Contributor"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure DNS",
+  "q": "What is the maximum number of virtual networks that can be linked with autoregistration enabled to a single private DNS zone?",
+  "options": [
+   "1",
+   "100",
+   "1,000"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "At which OSI layer does Azure Load Balancer operate?",
+  "options": [
+   "Layer 3",
+   "Layer 7",
+   "Layer 4"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "Which health probe protocols does a Standard Load Balancer support?",
+  "options": [
+   "TCP and UDP",
+   "TCP, HTTP and HTTPS",
+   "HTTP only"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "When does an HTTP health probe mark a backend instance as healthy?",
+  "options": [
+   "When the instance returns any HTTP response",
+   "When the instance returns a 3xx redirect",
+   "When the instance returns HTTP 200"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "From which IP address do Azure Load Balancer health probes originate?",
+  "options": [
+   "The load balancer's frontend IP",
+   "168.63.129.16",
+   "169.254.169.254"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "What is the default distribution mode of Azure Load Balancer?",
+  "options": [
+   "A five-tuple hash",
+   "A two-tuple hash of source and destination IP",
+   "Round robin"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "Requests from the same client IP must always reach the same backend VM. Which session persistence setting should you choose?",
+  "options": [
+   "Client IP (two-tuple)",
+   "None",
+   "Client IP and protocol (three-tuple)"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "Which type of load balancer supports HA ports?",
+  "options": [
+   "A public Standard Load Balancer",
+   "A Gateway Load Balancer only",
+   "An internal Standard Load Balancer"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "Administrators need to RDP to a specific backend VM by connecting to the load balancer's public IP on port 50001. What should you configure?",
+  "options": [
+   "An inbound NAT rule",
+   "A load-balancing rule with Client IP session persistence",
+   "An outbound rule"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "Backend VMs in a Standard public load balancer's pool need outbound internet access through the load balancer's public IP. What should you configure?",
+  "options": [
+   "An outbound rule",
+   "An inbound NAT rule",
+   "An HA ports rule"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "Health probes succeed, but clients on the internet can't reach a public Standard Load Balancer. What is the most likely cause?",
+  "options": [
+   "Floating IP is disabled on the load-balancing rule",
+   "No NSG rule allows the client traffic on the data port, because Standard Load Balancer is secure by default",
+   "The load balancer must be downgraded to Basic for internet traffic"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "A VM in an internal load balancer's backend pool can't connect to that load balancer's frontend IP, but other clients can. What is the cause?",
+  "options": [
+   "The VM's NSG blocks the AzureLoadBalancer service tag",
+   "A backend VM connecting to the frontend of its own internal load balancer (hairpin) isn't supported",
+   "Session persistence is set to None"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "Which load balancer metric shows whether the frontend is reachable end to end?",
+  "options": [
+   "Health Probe Status",
+   "SNAT connection count",
+   "Data Path Availability"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "Which load balancer metric shows the health of each individual backend instance?",
+  "options": [
+   "Data Path Availability",
+   "Health Probe Status",
+   "Used SNAT ports"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "An HTTP health probe uses the path /health, but the application returns 404 for that path. All backends are marked down. What should you do?",
+  "options": [
+   "Update the probe to use a path that returns HTTP 200",
+   "Change the probe interval to 60 seconds",
+   "Change the distribution mode to Client IP"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "Does changing a load balancer's distribution mode cause downtime?",
+  "options": [
+   "Yes, existing connections are reset",
+   "No, the distribution mode can be changed without downtime",
+   "Yes, the frontend IP is reassigned"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "On a Standard Load Balancer, what happens to established TCP connections when a backend instance starts failing its health probe?",
+  "options": [
+   "They are reset immediately",
+   "They stay alive; only new flows are sent to healthy instances",
+   "They are drained over 30 minutes"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "Which public IP SKU must a Standard public load balancer's frontend use?",
+  "options": [
+   "Basic",
+   "Standard",
+   "Either Basic or Standard"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "What is the scope of backend pool members in a Standard Load Balancer?",
+  "options": [
+   "VMs or scale set instances in a single virtual network",
+   "VMs in a single availability set",
+   "VMs in a single subnet"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "You need to load-balance TCP 1433 across SQL Server VMs for clients inside the virtual network only. What should you deploy?",
+  "options": [
+   "A public Standard Load Balancer",
+   "Application Gateway v2",
+   "An internal Standard Load Balancer"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "A web application must route /images and /video to different backend pools and needs a web application firewall. What should you deploy?",
+  "options": [
+   "A public Standard Load Balancer with two backend pools",
+   "Traffic Manager with path-based routing",
+   "Application Gateway v2 with the WAF_v2 SKU"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Azure Load Balancer",
+  "q": "You need DNS-based global routing for a non-HTTP application deployed in three regions. What should you use?",
+  "options": [
+   "Traffic Manager",
+   "Azure Front Door",
+   "Application Gateway"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "Traffic from VM1 to 10.0.2.4 on TCP 1433 fails. You need to know whether it's allowed and which NSG rule is responsible. What should you use?",
+  "options": [
+   "Next hop",
+   "Connection monitor",
+   "IP flow verify"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "You suspect traffic from a VM is being sent to the wrong place. Which Network Watcher tool shows the next hop type and the route responsible?",
+  "options": [
+   "IP flow verify",
+   "Next hop",
+   "Packet capture"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "You need continuous monitoring of latency and reachability between Azure VMs and an on-premises server, with alerts on changes. What should you use?",
+  "options": [
+   "Connection troubleshoot",
+   "IP flow verify",
+   "Connection monitor"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "You need a one-time check of whether a VM can reach sql.contoso.com on port 1433, including the hops and any NSG, UDR or DNS fault. What should you use?",
+  "options": [
+   "Connection monitor",
+   "Connection troubleshoot",
+   "Topology"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "You need to inspect the actual packets sent and received by a VM. What should you use?",
+  "options": [
+   "VNet flow logs",
+   "Packet capture",
+   "IP flow verify"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "You need to log all allowed and denied IP flows across a virtual network. NSG flow logs aren't available to create. What should you use?",
+  "options": [
+   "NSG diagnostics",
+   "Virtual network flow logs",
+   "Connection monitor"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "What is the status of NSG flow logs?",
+  "options": [
+   "They are fully supported and recommended for new deployments",
+   "New NSG flow logs can't be created since 30 June 2025, and the feature retires on 30 September 2027",
+   "They were retired on 30 September 2025"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "How is Azure Network Watcher enabled?",
+  "options": [
+   "It must be deployed manually in each subscription",
+   "It's enabled once per subscription in the subscription's home region",
+   "It's enabled automatically per region when you create or update a virtual network, in the NetworkWatcherRG resource group"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "What must be installed on an Azure VM before you can run a packet capture on it?",
+  "options": [
+   "The Azure Monitor Agent",
+   "The Network Watcher Agent VM extension",
+   "The Log Analytics gateway"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "A site-to-site VPN connection is down and you need a diagnosis of the gateway and connection. Which tool should you use?",
+  "options": [
+   "VPN troubleshoot",
+   "Next hop",
+   "IP flow verify"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "You need a visual diagram of the resources in a virtual network and how they're connected. What should you use?",
+  "options": [
+   "Topology",
+   "Effective routes",
+   "Traffic analytics"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "What does traffic analytics require in addition to flow logs?",
+  "options": [
+   "An Azure Firewall policy",
+   "A Log Analytics workspace",
+   "A Network Watcher agent on every VM"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "Next hop shows the next hop type None for traffic from a VM to the internet. What is the most likely cause?",
+  "options": [
+   "A user-defined route with next hop None matches the destination",
+   "An NSG is denying outbound internet traffic",
+   "The VM has no public IP address"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Troubleshooting Network Connectivity",
+  "q": "Connection troubleshoot reports a UserDefinedRoute fault. What should you investigate?",
+  "options": [
+   "The VM's guest firewall",
+   "The route table associated with the source subnet",
+   "The VM's CPU and memory usage"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Related Topics",
+  "q": "What must the subnet that hosts a VPN gateway be named?",
+  "options": [
+   "GatewaySubnet",
+   "VPNSubnet",
+   "AzureGatewaySubnet"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Related Topics",
+  "q": "In a site-to-site VPN configuration, which Azure resource represents the on-premises VPN device and its address prefixes?",
+  "options": [
+   "The virtual network gateway",
+   "The local network gateway",
+   "The connection resource"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Related Topics",
+  "q": "Remote employees need to connect their individual laptops to an Azure virtual network over an encrypted tunnel. Which connection type should you use?",
+  "options": [
+   "Site-to-site VPN",
+   "ExpressRoute",
+   "Point-to-site VPN"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Related Topics",
+  "q": "Your organisation needs a private connection between its datacentre and Azure that doesn't traverse the public internet. What should you use?",
+  "options": [
+   "ExpressRoute",
+   "Site-to-site VPN",
+   "Global VNet peering"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Related Topics",
+  "q": "You need to filter outbound traffic from Azure VMs by fully qualified domain name. What should you deploy?",
+  "options": [
+   "An NSG with service tags",
+   "Azure Firewall",
+   "A NAT gateway"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Related Topics",
+  "q": "What subnet does Azure Firewall require?",
+  "options": [
+   "GatewaySubnet, /27",
+   "A subnet of any name, /24",
+   "AzureFirewallSubnet, /26"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Related Topics",
+  "q": "What is the current status of Application Gateway v1?",
+  "options": [
+   "It's supported but no longer receives new features",
+   "It was retired on 28 April 2026; v2 must be used",
+   "It's recommended for small workloads"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Related Topics",
+  "q": "One Application Gateway must serve contoso.com and fabrikam.com, each with its own backend pool. Which feature should you use?",
+  "options": [
+   "Multi-site hosting",
+   "URL path-based routing",
+   "Cookie-based session affinity"
+  ],
+  "answer": 0
+ },
+ {
+  "section": "Related Topics",
+  "q": "During maintenance, a backend VM must stop receiving new connections while existing ones complete. Which Application Gateway feature should you use?",
+  "options": [
+   "Session affinity",
+   "Connection draining",
+   "Health probes"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Related Topics",
+  "q": "A global web application needs a single HTTP(S) entry point with caching, a web application firewall and fast regional failover. What should you use?",
+  "options": [
+   "Traffic Manager",
+   "Azure Front Door",
+   "Application Gateway v2"
+  ],
+  "answer": 1
+ },
+ {
+  "section": "Related Topics",
+  "q": "You need to centrally manage hub-and-spoke peering across dozens of virtual networks in several subscriptions. What should you use?",
+  "options": [
+   "Azure Policy only",
+   "Network Watcher",
+   "Azure Virtual Network Manager"
+  ],
+  "answer": 2
+ },
+ {
+  "section": "Related Topics",
+  "q": "How many VPN gateways can a single virtual network have?",
+  "options": [
+   "Two, for active-active mode",
+   "One per GatewaySubnet, with up to two GatewaySubnets",
+   "One"
+  ],
+  "answer": 2
+ }
+];
+
+const $ = id => document.getElementById(id);
+
+function esc(s) {
+  return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+// escape first, then turn `...` into <code>
+function fmt(s) {
+  return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// topics in the order they appear in the notes
+const TOPICS = [];
+QUESTIONS.forEach(q => { if (!TOPICS.includes(q.section)) TOPICS.push(q.section); });
+
+const ALL = '__all__';
+let topic = null, order = [], idx = 0, score = 0, answered = false, perSection = {};
+
+/* ---------------- menu ---------------- */
+
+function buildMenu() {
+  const box = $('topics');
+  box.innerHTML = '';
+
+  TOPICS.forEach(name => {
+    const n = QUESTIONS.filter(q => q.section === name).length;
+    box.appendChild(topicButton(name, name, `${n} question${n === 1 ? '' : 's'}`, false));
+  });
+
+  box.appendChild(topicButton(ALL, 'All topics', `${QUESTIONS.length} questions`, true));
+}
+
+function topicButton(value, label, count, isAll) {
+  const b = document.createElement('button');
+  b.className = 'topic-btn' + (isAll ? ' all' : '');
+  b.innerHTML =
+    `<span class="name">${esc(label)}</span>` +
+    `<span class="count">${count}</span>` +
+    `<span class="arrow">&rsaquo;</span>`;
+  b.addEventListener('click', () => startTopic(value));
+  return b;
+}
+
+function showMenu() {
+  topic = null;
+  $('menu').classList.remove('hidden');
+  $('quiz').classList.add('hidden');
+  $('results').classList.add('hidden');
+  $('header').classList.add('hidden');
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- quiz ---------------- */
+
+function startTopic(which) {
+  topic = which;
+  const pool = QUESTIONS
+    .map((q, i) => i)
+    .filter(i => which === ALL || QUESTIONS[i].section === which);
+
+  order = shuffle(pool);
+  idx = 0;
+  score = 0;
+  perSection = {};
+
+  $('menu').classList.add('hidden');
+  $('results').classList.add('hidden');
+  $('quiz').classList.remove('hidden');
+  $('header').classList.remove('hidden');
+  render();
+  window.scrollTo(0, 0);
+}
+
+function topicLabel() {
+  return topic === ALL ? 'All topics' : topic;
+}
+
+function render() {
+  answered = false;
+  const q = QUESTIONS[order[idx]];
+
+  $('progress').textContent = `Question ${idx + 1} of ${order.length}`;
+  $('score').innerHTML = `Score <b>${score}</b> / ${idx}`;
+  $('fill').style.width = (idx / order.length * 100) + '%';
+
+  $('topic').textContent = q.section || '';
+  $('topic').classList.toggle('hidden', !q.section);
+  $('question').innerHTML = fmt(q.q);
+
+  const box = $('options');
+  box.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="key">${i + 1}</span><span>${fmt(opt)}</span>`;
+    b.addEventListener('click', () => choose(i));
+    box.appendChild(b);
+  });
+
+  const v = $('verdict');
+  v.className = 'verdict hidden';
+  v.innerHTML = '';
+  $('next').classList.add('hidden');
+  $('hint').textContent = 'Pick an answer — or press 1-9';
+}
+
+function choose(picked) {
+  if (answered) return;
+  answered = true;
+
+  const q = QUESTIONS[order[idx]];
+  const right = picked === q.answer;
+  if (right) score++;
+
+  const sec = q.section || 'Other';
+  if (!perSection[sec]) perSection[sec] = { right: 0, total: 0 };
+  perSection[sec].total++;
+  if (right) perSection[sec].right++;
+
+  [...$('options').children].forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.answer) b.classList.add('correct');
+    else if (i === picked) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+
+  const v = $('verdict');
+  v.className = 'verdict ' + (right ? 'good' : 'bad');
+  let html = `<span class="label">${right ? 'Correct' : 'Not quite'}</span>`;
+  if (!right) html += ` — the answer is <strong>${fmt(q.options[q.answer])}</strong>`;
+  if (q.explanation) html += `<p>${fmt(q.explanation)}</p>`;
+  v.innerHTML = html;
+
+  $('score').innerHTML = `Score <b>${score}</b> / ${idx + 1}`;
+  $('fill').style.width = ((idx + 1) / order.length * 100) + '%';
+
+  const next = $('next');
+  next.textContent = idx + 1 < order.length ? 'Next' : 'See results';
+  next.classList.remove('hidden');
+  next.focus();
+  $('hint').textContent = 'Press Enter to continue';
+}
+
+function advance() {
+  idx++;
+  if (idx < order.length) render();
+  else finish();
+}
+
+/* ---------------- results ---------------- */
+
+function finish() {
+  $('quiz').classList.add('hidden');
+  $('results').classList.remove('hidden');
+
+  const pct = Math.round(score / order.length * 100);
+  $('whichTopic').textContent = topicLabel();
+  $('finalPct').textContent = pct + '%';
+  $('finalScore').textContent = `${score} of ${order.length} correct`;
+  $('verdictTitle').textContent =
+    pct >= 90 ? 'Exam ready' : pct >= 75 ? 'Nearly there' : pct >= 50 ? 'Worth another pass' : 'Back to the notes';
+  $('progress').textContent = `Finished — ${order.length} questions`;
+  $('fill').style.width = '100%';
+
+  // the per-section table only tells you anything when more than one section ran
+  const sections = Object.keys(perSection);
+  const bd = $('breakdown');
+  if (sections.length > 1) {
+    const rows = $('rows');
+    rows.innerHTML = '';
+    TOPICS.filter(t => perSection[t]).forEach(name => {
+      const s = perSection[name];
+      const div = document.createElement('div');
+      div.className = 'row';
+      div.innerHTML = `<span>${esc(name)}</span><span>${s.right} / ${s.total}</span>`;
+      rows.appendChild(div);
+    });
+    bd.classList.remove('hidden');
+  } else {
+    bd.classList.add('hidden');
+  }
+
+  $('again').focus();
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- wiring ---------------- */
+
+$('next').addEventListener('click', advance);
+$('again').addEventListener('click', () => startTopic(topic));
+$('back').addEventListener('click', showMenu);
+$('quit').addEventListener('click', showMenu);
+
+document.addEventListener('keydown', e => {
+  if ($('quiz').classList.contains('hidden')) return;   // only while a question is up
+  if (!answered && /^[1-9]$/.test(e.key)) {
+    const i = Number(e.key) - 1;
+    if (i < QUESTIONS[order[idx]].options.length) { e.preventDefault(); choose(i); }
+  } else if (answered && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    advance();
+  } else if (e.key === 'Escape') {
+    showMenu();
+  }
+});
+
+buildMenu();
+showMenu();
+</script>
+</body>
+</html>
