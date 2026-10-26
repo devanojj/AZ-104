@@ -243,17 +243,15 @@ Service-specific roles to recognise:
 ---
 ## 8. Azure Policy
 
-See also the 1.4 Azure Policy units and [[Modify]].
-
 ### Building Blocks
-|Object|What it is|
-|---|---|
-|**Policy definition**|JSON `if` (conditions) → `then` (**effect**)|
-|**Initiative** (policy set)|A group of definitions assigned together (e.g. a regulatory standard)|
-|**Assignment**|A definition/initiative applied at a **management group, subscription or resource group**, with **parameters**|
-|**Exclusion** (`notScopes`)|Child scopes skipped when the assignment is created|
-|**Exemption**|Resource/scope excused from an assignment (or specific definitions in an initiative): **Waiver** (accepting non-compliance temporarily) or **Mitigated** (intent met another way); optional **expiry date**|
-|**Remediation task**|Fixes **existing** non-compliant resources for **Modify / DeployIfNotExists**|
+| Object                      | What it is                                                                                                                                                                                                  |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Policy definition**       | JSON `if` (conditions) → `then` (**effect**)                                                                                                                                                                |
+| **Initiative** (policy set) | A group of definitions assigned together (e.g. a regulatory standard)                                                                                                                                       |
+| **Assignment**              | A definition/initiative applied at a **management group, subscription or resource group**, with **parameters**                                                                                              |
+| **Exclusion** (`notScopes`) | Child scopes skipped when the assignment is created                                                                                                                                                         |
+| **Exemption**               | Resource/scope excused from an assignment (or specific definitions in an initiative): **Waiver** (accepting non-compliance temporarily) or **Mitigated** (intent met another way); optional **expiry date** |
+| **Remediation task**        | Fixes **existing** non-compliant resources for **Modify / DeployIfNotExists**                                                                                                                               |
 
 ### Effects
 |Effect|What it does|When|
