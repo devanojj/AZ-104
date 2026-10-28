@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "46c392cb86c0219f",
+        "id": "713d2174bd0e9a73",
         "type": "tabs",
         "children": [
           {
-            "id": "780477dfb8256baf",
+            "id": "78053ee5a1d3b4f6",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -198,8 +198,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "780477dfb8256baf",
+  "active": "78053ee5a1d3b4f6",
   "lastOpenFiles": [
+    "3. Compute Resources/Compute Deep Dive.md",
+    "1. Identities & Governance/Identity & Governance Deep Dive.md",
     "1. Identities & Governance/Identity & Governance Deep Dive - EQ.md",
     "5. Monitor Resources/Monitor & Backup Deep Dive.md",
     "networking.html",
@@ -210,13 +212,11 @@
     "5. Monitor Resources/Monitor & Backup Deep Dive - EQ.md",
     "monitor.html",
     "5. Monitor Resources/Extra/Types of Monitor.md",
-    "3. Compute Resources/Compute Deep Dive.md",
     "compute.html",
     "quiz.html",
     "4. Virtual Networking/Virtual Networking Deep Dive - EQ.md",
     "4. Virtual Networking/Virtual Networking Deep Dive.md",
     "4. Virtual Networking/Extra/Azure Front Door vs Express Route.md",
-    "1. Identities & Governance/Identity & Governance Deep Dive.md",
     "3. Compute Resources/Compute Deep Dive - EQ.md",
     "2. Storage/Extra/Azure Storage Mover.md",
     "2. Storage/Extra/Backup.md",
