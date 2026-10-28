@@ -13,15 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5. Monitor Resources/5.1 Monitor & Backup/Monitor & Backup.md",
+                "file": "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Monitor & Backup"
+              "title": "Backup VM"
+            }
+          },
+          {
+            "id": "d0bfbc05c42749f8",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.14.5"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.14.5"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -197,8 +210,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "78053ee5a1d3b4f6",
+  "active": "d0bfbc05c42749f8",
   "lastOpenFiles": [
+    "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - EQ Monitor & Backup.md",
+    "5. Monitor Resources/5.1 Monitor & Backup/Monitor & Backup.md",
     "1. Identities & Governance/Identity & Governance Deep Dive.md",
     "3. Compute Resources/Compute Deep Dive.md",
     "1. Identities & Governance/Identity & Governance Deep Dive - EQ.md",
@@ -229,7 +244,6 @@
     "2. Storage/Extra/Storage Account Keys.md",
     "2. Storage/Extra/Sync Group.md",
     "2. Storage/Extra/Storage Actions vs Tasks.md",
-    "2. Storage/Extra/WORM vs Policy How it works.md",
     "Untitled.base",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
