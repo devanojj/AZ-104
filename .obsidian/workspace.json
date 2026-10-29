@@ -4,37 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "713d2174bd0e9a73",
+        "id": "c1569823afddf90c",
         "type": "tabs",
         "children": [
           {
-            "id": "78053ee5a1d3b4f6",
+            "id": "dff14a4e1d36b0ca",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Backup VM"
-            }
-          },
-          {
-            "id": "d0bfbc05c42749f8",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.14.5"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.14.5"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -210,8 +193,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "d0bfbc05c42749f8",
+  "active": "dff14a4e1d36b0ca",
   "lastOpenFiles": [
+    "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
     "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - EQ Monitor & Backup.md",
     "5. Monitor Resources/5.1 Monitor & Backup/Monitor & Backup.md",
     "1. Identities & Governance/Identity & Governance Deep Dive.md",
@@ -243,7 +227,6 @@
     "2. Storage/Extra/Queue Storage vs Service Bus.md",
     "2. Storage/Extra/Storage Account Keys.md",
     "2. Storage/Extra/Sync Group.md",
-    "2. Storage/Extra/Storage Actions vs Tasks.md",
     "Untitled.base",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
