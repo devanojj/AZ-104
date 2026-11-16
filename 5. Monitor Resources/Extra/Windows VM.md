@@ -1,0 +1,1 @@
+On windows VMs, Azure Backup uses the Azure VM Snapshot Extension with Volume Shadow Copy Service, to take application consistent snapshots of memory state

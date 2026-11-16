@@ -1,0 +1,1 @@
+Enabling auto-registration on a virtual network creates a matching A record in the linked Private DNS Zone

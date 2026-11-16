@@ -11,10 +11,14 @@
             "id": "dff14a4e1d36b0ca",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "1. Identities & Governance/Extra/SAS.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "SAS"
             }
           }
         ]
@@ -51,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "azure file sync",
+                "query": "\"Applicat",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -195,6 +199,22 @@
   },
   "active": "dff14a4e1d36b0ca",
   "lastOpenFiles": [
+    "5. Monitor Resources/Extra/Windows VM.md",
+    "4. Virtual Networking/Extra/Auto-registration.md",
+    "4. Virtual Networking/Extra/Application Gateway.md",
+    "4. Virtual Networking/Extra/Private DNS Zone Structure.canvas",
+    "4. Virtual Networking/4.7 Application Gateway/Unit 2 - Application Gateway.md",
+    "3. Compute Resources/Extra/Azure Bastion.md",
+    "3. Compute Resources/Extra/Azure Bastion 1.md",
+    "3. Compute Resources/3.1 Introduction to VM/All Units - Intro VM.md",
+    "1. Identities & Governance/1.3 Core Azure/Azure Lock.md",
+    "AZ-104 Plan.md",
+    "0. Prerequisite/Azure CLI 1.md",
+    "6. Exams & Labs/ChatGPT Practice Exam/Mock Exam 1 - Incorrect.md",
+    "6. Exams & Labs/Gemini Practice Exam/Gemini Exams.md",
+    "6. Exams & Labs/GitHub Labs/Lab 11.md",
+    "6. Exams & Labs/GitHub Labs/Lab 10.md",
+    "6. Exams & Labs/GitHub Labs/Lab 9.md",
     "exam-50.html",
     "5. Monitor Resources/5.2 Backup VM/Backup VM.md",
     "5. Monitor Resources/5.1 Monitor & Backup/Unit 5 - EQ Monitor & Backup.md",
@@ -213,25 +233,9 @@
     "5. Monitor Resources/Extra/Types of Monitor.md",
     "compute.html",
     "quiz.html",
-    "4. Virtual Networking/Virtual Networking Deep Dive - EQ.md",
-    "4. Virtual Networking/Virtual Networking Deep Dive.md",
-    "4. Virtual Networking/Extra/Azure Front Door vs Express Route.md",
-    "3. Compute Resources/Compute Deep Dive - EQ.md",
-    "2. Storage/Extra/Azure Storage Mover.md",
-    "2. Storage/Extra/Backup.md",
-    "5. Monitor Resources/Extra/MARS.md",
-    "2. Storage/Extra/BCDR.md",
-    "2. Storage/Extra/Cloud Tiering.md",
-    "2. Storage/Extra/Hierarchical Namespace - POSIX ACLs.md",
-    "2. Storage/Extra/Instant Restore.md",
-    "2. Storage/Extra/Microsoft Defender for Storage.md",
-    "2. Storage/Extra/Queue Storage vs Service Bus.md",
-    "2. Storage/Extra/Storage Account Keys.md",
     "Untitled.base",
     "6. Exams & Labs/ChatGPT Practice Exam",
     "6. Exams & Labs/GitHub Labs",
-    "6. Exams & Labs/Gemini Practice Exam",
-    "4. Virtual Networking/Extra/Private DNS Zone Structure.canvas",
     "6. Microsoft Practice Exam/Untitled.canvas",
     "5. Monitor Resources/Untitled.canvas",
     "4. Virtual Networking/Untitled.canvas",
