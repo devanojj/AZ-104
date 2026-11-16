@@ -38,5 +38,9 @@ Need to link the VNet to the private DNS Zone
 For DNS between Azure and on-prem
 
 Configuring a custom DNS server **doesn't make it a Private DNS Zone**.
+Configure the custom DNS server to forward the relevant Azure Private DNS namespace to `168.63.129.16` (Azure DNS).
+
+
+
 
 

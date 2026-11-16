@@ -1,0 +1,1 @@
+Archive is blob-level only, offline, and carries a 180-day minimum retention — normally applied by a lifecycle rule. Lifecycle runs once a day and a new policy can take up to 48 hours to first take effect.

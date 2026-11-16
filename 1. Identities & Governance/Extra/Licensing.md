@@ -1,0 +1,1 @@
+Group-based licensing never traverses nested groups

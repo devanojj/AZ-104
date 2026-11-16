@@ -13,3 +13,5 @@ Verbose - Information - Warning - Error - Critical
 If you configure warning, you also get error & critical 
 
 You must enable the Application Logging (Blob) diagnostic, which can be stored for more than a week. You must also set the severity level to warning, to store warning, error, and critical log messages.
+
+The limit of 100 activity log alert rules per subscription cannot be raised.
