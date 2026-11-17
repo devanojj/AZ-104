@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AZ-104 Mock Exam — Set 2</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card: #ffffff;
+    --text: #1f2430;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #4f6bed;
+    --accent-soft: #eef1fd;
+    --good: #0f8a5f;
+    --good-bg: #e7f6ef;
+    --good-line: #9fd9c1;
+    --bad: #c23b4b;
+    --bad-bg: #fdeced;
+    --bad-line: #f0b4bb;
+    --warn: #b4690e;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(16,24,40,.05), 0 8px 24px rgba(16,24,40,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171c;
+      --card: #1d2026;
+      --text: #e8eaef;
+      --muted: #9aa1ad;
+      --line: #2c313a;
+      --accent: #8098ff;
+      --accent-soft: #232a3d;
+      --good: #4fcf9b;
+      --good-bg: #16302a;
+      --good-line: #2f6b57;
+      --bad: #ef8e9a;
+      --bad-bg: #331d21;
+      --bad-line: #74424a;
+      --warn: #e0a558;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 32px 16px 64px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrap { width: 100%; max-width: 720px; }
+  .hidden { display: none !important; }
+
+  h1 { font-size: 24px; line-height: 1.25; margin: 0 0 8px; letter-spacing: -.01em; }
+  h2 { font-size: 17px; margin: 0 0 10px; }
+  p  { margin: 0 0 12px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .lede { color: var(--muted); font-size: 15px; }
+
+  /* ---- top bar ---- */
+  .bar-top {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; font-size: 14px; color: var(--muted); margin-bottom: 10px;
+  }
+  .score { font-variant-numeric: tabular-nums; }
+  .track { height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .fill { height: 100%; width: 0; background: var(--accent); border-radius: 999px; transition: width .25s ease; }
+
+  /* ---- chips ---- */
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .chip {
+    font-size: 12px; letter-spacing: .02em; padding: 3px 9px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent); border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .chip.plain { background: transparent; color: var(--muted); border-color: var(--line); }
+
+  /* ---- question ---- */
+  .qtext { font-size: 17px; font-weight: 500; margin: 0 0 16px; }
+  .qtext .scenario { display: block; font-weight: 400; color: var(--text); margin-bottom: 10px; }
+
+  .options { display: grid; gap: 8px; }
+  button.opt {
+    display: flex; gap: 12px; align-items: flex-start; width: 100%;
+    text-align: left; font: inherit; color: inherit; cursor: pointer;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px 14px;
+    transition: border-color .15s ease, background .15s ease;
+  }
+  button.opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+  button.opt:disabled { cursor: default; }
+  .key {
+    flex: 0 0 22px; height: 22px; border-radius: 6px; background: var(--line);
+    color: var(--muted); font-size: 12px; font-weight: 600;
+    display: grid; place-items: center; margin-top: 1px;
+  }
+  button.opt.picked { border-color: var(--accent); background: var(--accent-soft); }
+  button.opt.picked .key { background: var(--accent); color: #fff; }
+  button.opt.right { border-color: var(--good-line); background: var(--good-bg); }
+  button.opt.right .key { background: var(--good); color: #fff; }
+  button.opt.wrong { border-color: var(--bad-line); background: var(--bad-bg); }
+  button.opt.wrong .key { background: var(--bad); color: #fff; }
+
+  .why {
+    margin-top: 14px; padding: 12px 14px; border-radius: 10px;
+    background: var(--bg); border: 1px solid var(--line);
+    font-size: 14.5px; color: var(--text);
+  }
+  .why b { color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 11.5px; letter-spacing: .06em; display: block; margin-bottom: 4px; }
+
+  /* ---- controls ---- */
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .row.end { justify-content: flex-end; }
+  .spacer { flex: 1 1 auto; }
+
+  button.btn {
+    font: inherit; font-weight: 500; cursor: pointer;
+    border-radius: 10px; padding: 10px 16px;
+    border: 1px solid var(--line); background: var(--card); color: var(--text);
+    transition: border-color .15s ease, background .15s ease;
+  }
+  button.btn:hover { border-color: var(--accent); }
+  button.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button.btn.primary:hover { filter: brightness(1.06); }
+  button.btn:disabled { opacity: .45; cursor: default; }
+  button.btn.flagged { border-color: var(--warn); color: var(--warn); }
+
+  /* ---- navigator ---- */
+  .nav-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top: 4px; }
+  @media (max-width: 480px) { .nav-grid { grid-template-columns: repeat(8, 1fr); } }
+  button.cell {
+    font: inherit; font-size: 12.5px; cursor: pointer; padding: 7px 0;
+    border-radius: 7px; border: 1px solid var(--line);
+    background: var(--card); color: var(--muted); font-variant-numeric: tabular-nums;
+  }
+  button.cell.done { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-soft); }
+  button.cell.flag { border-color: var(--warn); color: var(--warn); }
+  button.cell.now  { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  /* ---- results ---- */
+  .big { font-size: 44px; font-weight: 600; letter-spacing: -.02em; line-height: 1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+  .verdict { font-size: 15px; color: var(--muted); }
+
+  .bars { display: grid; gap: 10px; margin-top: 4px; }
+  .barrow { font-size: 14px; }
+  .barrow .lbl { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+  .barrow .lbl span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .barline { height: 7px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .barline i { display: block; height: 100%; border-radius: 999px; background: var(--accent); }
+  .barline i.hi { background: var(--good); }
+  .barline i.lo { background: var(--bad); }
+
+  ul.read { margin: 0; padding-left: 18px; }
+  ul.read li { margin-bottom: 8px; font-size: 15px; }
+  ul.read li b { font-weight: 600; }
+  .tagline { color: var(--muted); font-size: 13.5px; }
+
+  .review-item { border-top: 1px solid var(--line); padding: 16px 0 4px; }
+  .review-item:first-child { border-top: 0; padding-top: 0; }
+  .ans { font-size: 14.5px; margin: 2px 0; }
+  .ans .mk { font-weight: 600; }
+  .ans.you .mk { color: var(--bad); }
+  .ans.ok .mk { color: var(--good); }
+
+  .muted-note { font-size: 13px; color: var(--muted); margin-top: 18px; text-align: center; }
+  kbd {
+    font: inherit; font-size: 12px; padding: 1px 5px; border-radius: 5px;
+    border: 1px solid var(--line); background: var(--bg); color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ================= START ================= -->
+<section id="start">
+  <div class="card">
+    <h1>AZ-104 Mock Exam · Set 2</h1>
+    <p class="lede">A second set of 50 questions across all five study areas, with no repeats from Set 1. They're written at real AZ-104 difficulty: scenario-based, with distractors that look plausible, testing the detail that decides the answer rather than the headline fact.</p>
+    <div class="chips" id="startChips"></div>
+    <div class="row">
+      <button class="btn primary" id="go">Start exam</button>
+      <button class="btn" id="goInstant">Start with instant feedback</button>
+    </div>
+    <p class="muted-note" style="text-align:left;margin-top:16px">
+      In exam mode nothing is revealed until you finish — you can move back and forth and flag questions.
+      Keys <kbd>1</kbd>–<kbd>4</kbd> pick an answer, <kbd>←</kbd> <kbd>→</kbd> move, <kbd>f</kbd> flags.
+    </p>
+  </div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section id="quiz" class="hidden">
+  <header>
+    <div class="bar-top">
+      <span id="progress">Question 1 of 50</span>
+      <span class="score" id="liveScore"></span>
+    </div>
+    <div class="track"><i class="fill" id="fill"></i></div>
+  </header>
+
+  <div class="card" style="margin-top:16px">
+    <div class="chips" id="qchips"></div>
+    <div class="qtext" id="qtext"></div>
+    <div class="options" id="options"></div>
+    <div class="why hidden" id="why"></div>
+  </div>
+
+  <div class="row">
+    <button class="btn" id="prev">Back</button>
+    <button class="btn" id="flag">Flag</button>
+    <span class="spacer"></span>
+    <button class="btn" id="map">Overview</button>
+    <button class="btn primary" id="next">Next</button>
+  </div>
+
+  <div class="card hidden" id="mapCard" style="margin-top:16px">
+    <h2>All questions</h2>
+    <p class="tagline" id="mapSummary"></p>
+    <div class="nav-grid" id="navGrid"></div>
+    <div class="row end" style="margin-top:16px">
+      <button class="btn primary" id="finish">Finish &amp; see results</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESULTS ================= -->
+<section id="results" class="hidden">
+  <div class="card">
+    <div class="big" id="finalPct">0%</div>
+    <div class="verdict" id="verdictTitle"></div>
+    <p class="tagline" id="finalScore" style="margin-top:10px"></p>
+  </div>
+
+  <div class="card">
+    <h2>What went well</h2>
+    <ul class="read" id="strengths"></ul>
+  </div>
+
+  <div class="card">
+    <h2>Where to look next</h2>
+    <ul class="read" id="weaknesses"></ul>
+  </div>
+
+  <div class="card">
+    <h2>By study area</h2>
+    <div class="bars" id="domainBars"></div>
+  </div>
+
+  <div class="card">
+    <h2>By kind of question</h2>
+    <p class="tagline" style="margin-bottom:14px">Every question is also tagged by what it actually tests, which is usually a better guide than the topic name.</p>
+    <div class="bars" id="skillBars"></div>
+  </div>
+
+  <div class="card">
+    <div class="row" style="margin-bottom:4px">
+      <h2 style="margin:0">Review</h2>
+      <span class="spacer"></span>
+      <button class="btn" id="toggleReview">Show all 50</button>
+    </div>
+    <div id="review"></div>
+  </div>
+
+  <div class="row">
+    <button class="btn primary" id="again">Retake all 50</button>
+    <button class="btn" id="retryWrong">Retry the ones I missed</button>
+  </div>
+</section>
+
+</div>
+
+<script>
+/* =======================================================================
+   Questions. Each carries:
+     d  domain          — the AZ-104 study area
+     s  skill           — what the question actually tests
+     q  question text   ("\n" splits the scenario from the ask)
+     o  options         — four, exam style
+     a  answer index
+     e  explanation
+   ======================================================================= */
+const QUESTIONS = [
+
+/* ---------------- Identity & Governance (11) ---------------- */
+{
+  d: "Identity & Governance", s: "Picking between lookalikes",
+  q: "A Deny policy assigned at a management group is blocking a migration project in resource group RG-Migrate. The policy must stop applying to RG-Migrate for 60 days, then apply again automatically, and auditors want the reason recorded.\nWhat do you create?",
+  o: [
+    "An exclusion (notScopes) for RG-Migrate on the existing assignment",
+    "A policy exemption on RG-Migrate with the Waiver category and an expiration date",
+    "A second assignment of the same policy at RG-Migrate with the effect set to Disabled",
+    "A CanNotDelete lock on RG-Migrate"
+  ],
+  a: 1,
+  e: "Exemptions are objects in their own right, with a category (Waiver or Mitigated), a description and an optional expiration date. Once it expires the policy applies again without anyone having to remember. Exclusions never expire and record no reason. Assignments add up, so a second assignment set to Disabled doesn't cancel the first."
+},
+{
+  d: "Identity & Governance", s: "Limits & defaults",
+  q: "You assigned an Audit policy to a subscription 15 minutes ago. Compliance still shows no results for existing resources, and the auditors want them today.\nWhat do you do?",
+  o: [
+    "Nothing. Existing resources are only evaluated in the weekly compliance cycle.",
+    "Create a remediation task on the assignment.",
+    "Change the effect to Deny so that existing resources are evaluated straight away.",
+    "Give the assignment up to about 30 minutes to apply, then start an on-demand evaluation scan, for example with az policy state trigger-scan."
+  ],
+  a: 3,
+  e: "A new assignment takes up to about 30 minutes to apply, and the standard compliance cycle runs once every 24 hours. An on-demand scan (az policy state trigger-scan, or Start-AzPolicyComplianceScan) evaluates existing resources without waiting for that cycle. Remediation tasks only exist for Modify and DeployIfNotExists, so they don't help with Audit."
+},
+{
+  d: "Identity & Governance", s: "Picking between lookalikes",
+  q: "The operations lead must be able to assign Virtual Machine Contributor and Backup Operator to other people on a subscription, and no other roles. They must not be able to create or change resources themselves.\nWhat do you assign them?",
+  o: [
+    "Owner",
+    "Role Based Access Control Administrator, with a condition that limits which roles they can assign",
+    "User Access Administrator",
+    "Contributor, plus a custom role containing Microsoft.Authorization/roleAssignments/write"
+  ],
+  a: 1,
+  e: "Role Based Access Control Administrator can manage role assignments but not resources, and it supports conditions that restrict which roles (and which kinds of principal) can be assigned. User Access Administrator can assign any role, Owner included, so it fails the requirement. Owner and Contributor can both change resources."
+},
+{
+  d: "Identity & Governance", s: "Scope & plane",
+  q: "A Global Administrator signs in to the portal and sees none of the tenant's twelve subscriptions. They need to get back into one subscription whose only Owner has left the company.\nWhat should they do first?",
+  o: [
+    "Assign themselves Owner on the subscription from Microsoft Entra roles and administrators",
+    "Ask Microsoft support to transfer ownership of the subscription",
+    "Turn on Access management for Azure resources, which gives them User Access Administrator at root scope",
+    "Add themselves to the Privileged Role Administrator role"
+  ],
+  a: 2,
+  e: "Entra roles and Azure roles are separate systems, and Global Administrator gives no access to Azure resources on its own. Elevating access grants User Access Administrator at root scope (/). From there they can assign themselves Owner on the subscription. They should remove the elevated assignment once they're done."
+},
+{
+  d: "Identity & Governance", s: "Limits & defaults",
+  q: "A user account was deleted from Microsoft Entra ID 35 days ago. The manager wants it back with its original object ID, so that app permissions keep working.\nWhat can you do?",
+  o: [
+    "Nothing that keeps the object ID. Deleted users are permanently removed after 30 days, so you have to create a new account.",
+    "Restore it with PowerShell, which can reach past the portal's time limit.",
+    "Restore it from Deleted users, which keeps accounts for 90 days.",
+    "Restore it from the Microsoft Entra audit log."
+  ],
+  a: 0,
+  e: "A deleted user stays soft-deleted for 30 days and can be restored with its original object ID during that time. After 30 days the deletion is permanent. A new account gets a new object ID, so every role and app assignment has to be made again. Audit logs record what happened; they can't bring objects back."
+},
+{
+  d: "Identity & Governance", s: "Scope & plane",
+  q: "Helpdesk staff in the Paris office must be able to reset passwords for Paris users only, and for no one else in the tenant.\nWhat do you configure?",
+  o: [
+    "User Administrator assigned on a resource group named RG-Paris",
+    "Helpdesk Administrator at tenant scope, plus a dynamic group of Paris users",
+    "An administrative unit that contains the Paris users, with Helpdesk Administrator assigned at the scope of that unit",
+    "A management group for Paris, with Helpdesk Administrator assigned on it"
+  ],
+  a: 2,
+  e: "Administrative units limit the scope of Entra roles to a chosen set of users, groups or devices. A group on its own doesn't scope a role. Resource groups and management groups are Azure RBAC scopes and have nothing to do with Entra directory roles. Administrators assigned roles over an administrative unit need Microsoft Entra ID P1."
+},
+{
+  d: "Identity & Governance", s: "Prerequisites & dependencies",
+  q: "Resource group RG-Data has a CanNotDelete lock. A user with Contributor on the subscription tries to remove the lock before a planned clean-up and is refused.\nWhich built-in role would let them remove it?",
+  o: [
+    "Contributor assigned at the resource group instead of the subscription",
+    "Storage Account Contributor",
+    "Owner or User Access Administrator",
+    "Reader plus Resource Policy Contributor"
+  ],
+  a: 2,
+  e: "Creating or deleting locks needs Microsoft.Authorization/locks/* (or Microsoft.Authorization/*). Of the built-in roles, only Owner and User Access Administrator have it. Contributor can manage resources but not Microsoft.Authorization operations, whatever scope it's assigned at. A lock applies to everyone, Owners included, until someone removes it."
+},
+{
+  d: "Identity & Governance", s: "Limits & defaults",
+  q: "A governance design proposes a management group hierarchy eight levels deep below the tenant root group, with subscriptions under the lowest level.\nWhat is wrong with it?",
+  o: [
+    "Management group hierarchies support at most six levels of depth, not counting the root level or the subscription level.",
+    "Each management group can have only one child.",
+    "Nothing. Depth is unlimited; only the total of 10,000 management groups is capped.",
+    "A subscription can only sit directly under the tenant root group."
+  ],
+  a: 0,
+  e: "A hierarchy can go up to six levels deep, excluding the root level and the subscription level, and a directory can hold 10,000 management groups. Each management group and subscription has exactly one parent, but a parent can have many children."
+},
+{
+  d: "Identity & Governance", s: "Order & precedence",
+  q: "An Allowed locations policy with the Deny effect, allowing only UK South, is assigned at a management group. A user who is Owner of a subscription beneath it tries to create a storage account in West Europe.\nWhat happens?",
+  o: [
+    "The deployment succeeds, because Owner overrides Azure Policy.",
+    "The deployment succeeds and the account is reported as non-compliant.",
+    "The deployment is denied. RBAC allows the request, then Azure Policy evaluates it and blocks it.",
+    "The deployment is denied only if the policy is also assigned directly to the subscription."
+  ],
+  a: 2,
+  e: "RBAC decides whether this person may perform the action. Policy decides whether the resource is allowed to look like this. A request has to pass both, so Owner doesn't get around a Deny. Assignments at a management group are inherited by every subscription and resource group below it. Existing resources in the wrong region aren't removed; they're just reported as non-compliant."
+},
+{
+  d: "Identity & Governance", s: "Prerequisites & dependencies",
+  q: "Hybrid users synchronized with Microsoft Entra Connect can reset their password through SSPR, but the new password doesn't work when they sign in to on-premises domain-joined PCs.\nWhat is missing?",
+  o: [
+    "Password hash synchronization",
+    "Password writeback, turned on in Microsoft Entra Connect and in the SSPR on-premises integration settings",
+    "Seamless single sign-on",
+    "A Conditional Access policy requiring MFA for security info registration"
+  ],
+  a: 1,
+  e: "Without writeback, SSPR only changes the cloud password. Writeback, through Entra Connect sync or Cloud Sync, pushes the new password down to AD DS, and it needs Microsoft Entra ID P1 or higher. Password hash sync works in the opposite direction, from on-premises up to the cloud."
+},
+{
+  d: "Identity & Governance", s: "Diagnosing a failure",
+  q: "Deploying the first Azure Container Instances group into a new subscription with an ARM template fails with MissingSubscriptionRegistration for Microsoft.ContainerInstance.\nWhat do you do?",
+  o: [
+    "Register the Microsoft.ContainerInstance resource provider on the subscription.",
+    "Assign yourself Owner at subscription scope.",
+    "Deploy to a region where Container Instances is generally available.",
+    "Request a quota increase for container groups."
+  ],
+  a: 0,
+  e: "A resource provider has to be registered on a subscription before its resource types can be deployed there. The portal registers many of them for you, but template and CLI deployments can hit this error. Registering needs the */register/action permission, which Contributor and Owner both include."
+},
+
+/* ---------------- Storage (10) ---------------- */
+{
+  d: "Storage", s: "Picking between lookalikes",
+  q: "A storage account must keep running if one availability zone fails, survive a full regional outage, and let the application keep reading from the secondary region without waiting for a failover.\nWhich redundancy option meets every requirement?",
+  o: [
+    "GZRS",
+    "RA-GRS",
+    "RA-GZRS",
+    "ZRS"
+  ],
+  a: 2,
+  e: "GZRS copies data synchronously across zones in the primary region and asynchronously to the secondary region. The RA- prefix adds a read-only secondary endpoint (accountname-secondary) that's available at all times. RA-GRS has no zone redundancy in the primary, and plain GZRS only exposes the secondary after a failover."
+},
+{
+  d: "Storage", s: "Prerequisites & dependencies",
+  q: "You set up object replication from a container in account A to a container in account B. The policy can't be saved.\nWhich requirements must be met?",
+  o: [
+    "Blob versioning on both accounts, change feed on the source account, and no hierarchical namespace on either account",
+    "Geo-redundant storage on both accounts, with both accounts in the same resource group",
+    "Blob soft delete on the destination account and a lifecycle policy on the source account",
+    "Both accounts must be Premium block blob accounts in the same region"
+  ],
+  a: 0,
+  e: "Object replication copies block blobs asynchronously. It needs versioning on both the source and the destination, plus change feed on the source. Accounts with a hierarchical namespace (Data Lake Storage) aren't supported. The two accounts can be in different regions and subscriptions, and replicated blobs in the destination are read-only."
+},
+{
+  d: "Storage", s: "Scope & plane",
+  q: "An engineer with Owner on a storage account runs azcopy login successfully, then uses azcopy copy to upload files to a container. The copy fails with 403 AuthorizationPermissionMismatch.\nWhat is the fix?",
+  o: [
+    "Run azcopy login again with --tenant-id",
+    "Assign the engineer Storage Blob Data Contributor on the account or the container",
+    "Enable the hierarchical namespace on the account",
+    "Raise the account's minimum TLS version to 1.2"
+  ],
+  a: 1,
+  e: "AzCopy with an Entra identity needs a data-plane role. Owner is a control-plane role with no DataActions, so it can't write blobs through Entra authentication; Storage Blob Data Contributor or Storage Blob Data Owner can. New role assignments can take a few minutes to take effect."
+},
+{
+  d: "Storage", s: "Picking between lookalikes",
+  q: "On-premises servers connect to Azure over a site-to-site VPN. They must reach a storage account across that VPN at a private IP address, and public network access to the account must be turned off.\nWhat do you configure?",
+  o: [
+    "A service endpoint for Microsoft.Storage on the GatewaySubnet",
+    "A storage firewall IP rule for the on-premises range 10.20.0.0/16",
+    "A private endpoint for the account, plus DNS that resolves the privatelink name to the endpoint's private IP for on-premises clients",
+    "Allow trusted Microsoft services to access this storage account"
+  ],
+  a: 2,
+  e: "Service endpoints only cover traffic from the subnet they're enabled on and don't reach on-premises. Storage IP rules accept public addresses only, never RFC 1918 ranges. A private endpoint gives the account an IP inside your virtual network that can be reached over VPN or ExpressRoute, provided DNS hands out that private IP."
+},
+{
+  d: "Storage", s: "Creation-time & one-way choices",
+  q: "A container has a locked time-based retention policy of seven years. Legal now says five years is enough and asks for the policy to be shortened.\nWhat can you do?",
+  o: [
+    "Unlock the policy, edit the interval, then lock it again.",
+    "Shorten it. Locked policies allow the interval to be reduced but not deleted.",
+    "Delete the container and create it again with a five-year policy.",
+    "Nothing. A locked policy can't be shortened or deleted; it can only be extended."
+  ],
+  a: 3,
+  e: "Unlocked policies are for testing and can be changed or removed. Once a policy is locked, the retention interval can only be increased, up to five times, and the policy can't be deleted. A container can't be deleted while it holds blobs that are still protected."
+},
+{
+  d: "Storage", s: "Prerequisites & dependencies",
+  q: "A lifecycle rule should move blobs to Cool when nobody has read them for 60 days, using the daysAfterLastAccessTimeGreaterThan condition. The rule can't be saved.\nWhat must you do first?",
+  o: [
+    "Enable blob versioning",
+    "Enable last access time tracking on the account",
+    "Enable the change feed",
+    "Upgrade the account to Premium performance"
+  ],
+  a: 1,
+  e: "Conditions based on last access need access time tracking turned on. Without it, only modification and creation times are available. Tracking adds a small charge on reads. Lifecycle management runs roughly once a day, and new or changed rules can take up to 48 hours to act for the first time."
+},
+{
+  d: "Storage", s: "Limits & defaults",
+  q: "A 500 GB blob is uploaded straight into the Cool tier and deleted 10 days later.\nHow is it billed?",
+  o: [
+    "Storage for 10 days only",
+    "Storage for 10 days, plus an early deletion charge equal to the remaining 80 days",
+    "Storage for 10 days, plus an early deletion charge equal to the remaining 20 days",
+    "No storage charge, because Cool bills only for reads"
+  ],
+  a: 2,
+  e: "Cool has a 30-day minimum, Cold 90 days and Archive 180 days. Deleting a blob, or moving it to another tier, before the minimum is up triggers a prorated early deletion charge. Hot has no minimum."
+},
+{
+  d: "Storage", s: "Limits & defaults",
+  q: "A 2 GB blob in the Archive tier is needed by an investigator within the hour.\nWhat do you do?",
+  o: [
+    "Download it directly. Archive blobs can be read, just with higher latency.",
+    "Change its tier to Hot with Standard rehydration priority.",
+    "Restore it from the account's most recent snapshot.",
+    "Change its tier to Hot, or copy it to an online tier, with High rehydration priority."
+  ],
+  a: 3,
+  e: "Archive is offline, so a blob has to be rehydrated before anyone can read it. Standard priority can take up to 15 hours. High priority can finish in under an hour for blobs smaller than 10 GB, at a higher cost. Copying to a new blob in an online tier leaves the archived original where it is."
+},
+{
+  d: "Storage", s: "Diagnosing a failure",
+  q: "Remote staff can mount an Azure file share from the office, but at home on Windows 11 the net use command fails with System error 53 (network path not found).\nWhat is the most likely cause?",
+  o: [
+    "Their home internet provider blocks outbound TCP 445",
+    "Windows 11 doesn't support SMB 3.x encryption",
+    "The share has reached its quota",
+    "The storage account key was rotated"
+  ],
+  a: 0,
+  e: "SMB uses TCP port 445, which many internet providers block. You can check with Test-NetConnection -Port 445. Workarounds include a point-to-site or site-to-site VPN, ExpressRoute, or Azure File Sync to a local server. A rotated key or a full share produces different errors (access denied, or disk full)."
+},
+{
+  d: "Storage", s: "Creation-time & one-way choices",
+  q: "An existing Standard general-purpose v2 account holds analytics data that now needs consistently low-latency block blob performance.\nWhat do you do?",
+  o: [
+    "Convert the account to ZRS.",
+    "Change the account's performance setting from Standard to Premium.",
+    "Move the blobs to the Hot tier.",
+    "Create a Premium block blob (BlockBlobStorage) account and copy the data across, for example with AzCopy."
+  ],
+  a: 3,
+  e: "Performance is fixed when an account is created, so getting to Premium means a new account and a copy. The Hot tier is still Standard (HDD-backed) storage. Premium block blob accounts support only LRS and ZRS, and they don't have access tiers."
+},
+
+/* ---------------- Compute (12) ---------------- */
+{
+  d: "Compute", s: "Limits & defaults",
+  q: "You want to resize a running VM from D4s_v3 to an M-series size, but that size isn't listed in the Size blade.\nWhat do you do?",
+  o: [
+    "Raise the regional vCPU quota.",
+    "Recreate the VM, because sizes can't be changed after creation.",
+    "Redeploy the VM to a new host.",
+    "Stop (deallocate) the VM so it can be placed on hardware that offers the size, then resize it."
+  ],
+  a: 3,
+  e: "A running VM can only be resized to sizes available on its current hardware cluster. Deallocating releases it from that cluster, so every size the region offers becomes available. Resizing always restarts the VM, and the new size must support the VM's generation and disk types."
+},
+{
+  d: "Compute", s: "Picking between lookalikes",
+  q: "A stateless web tier needs a 99.99% VM connectivity SLA.\nWhich deployment meets it with the least complexity?",
+  o: [
+    "Two or more VMs spread across two or more availability zones in one region",
+    "Two VMs in an availability set",
+    "One VM with Premium SSD for every disk",
+    "Two VMs in a proximity placement group"
+  ],
+  a: 0,
+  e: "Two or more VMs across availability zones get 99.99%. Two or more VMs in an availability set get 99.95%, and a single VM with Premium SSD or Ultra Disk for every disk gets 99.9%. Proximity placement groups reduce latency and don't improve the SLA."
+},
+{
+  d: "Compute", s: "Picking between lookalikes",
+  q: "A database VM needs disks whose IOPS and throughput can be tuned separately from capacity, without detaching them. The design also asks for the OS disk to use the same disk type.\nWhat do you tell the architect?",
+  o: [
+    "Use Ultra Disk for both the OS disk and the data disks.",
+    "Use Premium SSD v2 or Ultra Disk for the data disks. Neither can be an OS disk, so the OS disk should be Premium SSD.",
+    "Use Premium SSD with performance tiers for every disk, since tiers set IOPS independently of size.",
+    "Use Standard SSD with bursting for every disk."
+  ],
+  a: 1,
+  e: "Premium SSD v2 and Ultra Disk let you set capacity, IOPS and throughput separately and change performance while the disk is attached. Both can only be data disks. Premium SSD performance tiers move a disk up to a larger tier's fixed figures, which isn't independent tuning."
+},
+{
+  d: "Compute", s: "Prerequisites & dependencies",
+  q: "A Bicep deployment reads the VM administrator password from a Key Vault secret through a reference in the parameter file. It fails with an error saying the vault isn't accessible for template deployment.\nWhat do you change?",
+  o: [
+    "Grant the deploying user Key Vault Secrets Officer on the vault.",
+    "Move the vault into the same resource group as the VM.",
+    "Turn on the vault's enabledForTemplateDeployment setting, and make sure the deploying user has Microsoft.KeyVault/vaults/deploy/action on the vault.",
+    "Switch the vault to the access policy permission model."
+  ],
+  a: 2,
+  e: "Resource Manager fetches the secret itself, so the vault must allow template deployment and the person deploying needs the deploy/action permission, which Owner and Contributor include. The vault can sit in a different resource group or subscription, and it works with either permission model."
+},
+{
+  d: "Compute", s: "Limits & defaults",
+  q: "A scale set's autoscale profile has a minimum of 2, a maximum of 10 and a default of 4 instances. It is running 2 instances when autoscale loses the ability to read the CPU metric its rules depend on.\nWhat does autoscale do?",
+  o: [
+    "Stays at 2, the minimum, until the metric returns",
+    "Scales out to 10 so that it fails safe",
+    "Disables the autoscale profile and alerts the owner",
+    "Scales out to 4, the default instance count"
+  ],
+  a: 3,
+  e: "The default count is only used when metrics can't be read. Autoscale scales out to it if the current count is lower, and doesn't scale in if the current count is higher. Choose a default that's safe for your load. Scaling actions also respect a cool-down period, 5 minutes by default."
+},
+{
+  d: "Compute", s: "Diagnosing a failure",
+  q: "A Custom Script Extension ran successfully on a VM. To run the script again, you redeploy the same extension with identical settings, but nothing happens.\nWhy?",
+  o: [
+    "An extension with unchanged settings isn't run again. Change a setting such as timestamp, or remove and re-add the extension.",
+    "The VM must be deallocated before an extension can run.",
+    "Custom Script Extension can run only once in a VM's lifetime.",
+    "The extension only runs scripts stored in Azure Files."
+  ],
+  a: 0,
+  e: "Resource Manager sees no change, so it doesn't trigger the extension. Changing the timestamp, or any other setting, forces a re-run. Only one Custom Script Extension can be applied to a VM at a time, and its scripts run as SYSTEM on Windows or root on Linux, with a 90-minute time limit."
+},
+{
+  d: "Compute", s: "Limits & defaults",
+  q: "A web app on the Free F1 tier needs a custom domain secured with a TLS/SSL binding.\nWhat is the lowest tier that supports this?",
+  o: [
+    "Free F1, after adding the domain and uploading a certificate",
+    "Shared D1",
+    "Standard S1",
+    "Basic B1"
+  ],
+  a: 3,
+  e: "Free doesn't support custom domains. Shared supports custom domains but not TLS bindings. Basic is the lowest tier with both, App Service managed certificates included. Standard adds autoscale and deployment slots, which aren't needed here."
+},
+{
+  d: "Compute", s: "Scope & plane",
+  q: "Five web apps share one Standard App Service plan. You scale the plan out to six instances because one of the apps is busy.\nWhat happens to the other four apps, and how would you scale the busy app on its own?",
+  o: [
+    "Only the busy app gets the extra instances, so nothing else is needed.",
+    "Each app is pinned to a single instance in turn, so the busy app only gets one more.",
+    "The other apps are stopped to free up capacity for the busy one.",
+    "All five apps run on all six instances. To scale the busy app on its own, move it to a separate App Service plan."
+  ],
+  a: 3,
+  e: "An App Service plan is the unit of scale: every app in the plan runs on every instance. To scale one app separately, move it to a different plan in the same region and resource group, or create a new plan for it."
+},
+{
+  d: "Compute", s: "Limits & defaults",
+  q: "A container registry must replicate images to three regions and be reachable only through a private endpoint.\nWhich SKU does it need?",
+  o: [
+    "Standard",
+    "Premium",
+    "Basic",
+    "Any SKU, since both features are free add-ons"
+  ],
+  a: 1,
+  e: "Geo-replication, private endpoints and customer-managed keys are Premium-only. Basic and Standard differ mainly in included storage and throughput. You can change the SKU in place, so upgrading doesn't need a new registry."
+},
+{
+  d: "Compute", s: "Picking between lookalikes",
+  q: "A container app must send 20% of traffic to a new version and 80% to the current one, then shift the balance gradually.\nWhat do you configure?",
+  o: [
+    "Single revision mode with a scale rule",
+    "Multiple revision mode, with traffic weights on the revisions",
+    "Two container apps behind Traffic Manager with weighted routing",
+    "A deployment slot with traffic routing"
+  ],
+  a: 1,
+  e: "In single revision mode, a new revision replaces the old one. Multiple revision mode keeps several revisions active and lets ingress split traffic between them by percentage, with labels for testing a revision directly. Deployment slots belong to App Service, not Container Apps."
+},
+{
+  d: "Compute", s: "Diagnosing a failure",
+  q: "A Windows VM stopped responding after a firewall change inside the guest OS, and both RDP and Bastion time out. You want to fix it from a text console without restoring a backup.\nWhat must be in place for Serial Console to work?",
+  o: [
+    "Boot diagnostics enabled on the VM, and a role of at least Virtual Machine Contributor",
+    "A public IP address on the VM",
+    "The Azure Monitor Agent installed and reporting",
+    "Just-in-time VM access enabled in Microsoft Defender for Cloud"
+  ],
+  a: 0,
+  e: "Serial Console depends on boot diagnostics (a managed storage account is fine) and needs Virtual Machine Contributor or higher. It reaches the VM through the host rather than the network, so it still works when the guest firewall blocks everything. Run Command is the other option that doesn't depend on the network."
+},
+{
+  d: "Compute", s: "Picking between lookalikes",
+  q: "Batch jobs run on Spot VMs. When Azure reclaims the capacity, the VMs must stop generating any storage costs.\nWhich eviction policy do you set?",
+  o: [
+    "Delete",
+    "Stop",
+    "Capacity only",
+    "Deallocate"
+  ],
+  a: 0,
+  e: "Deallocate, the default for single VMs, stops the VM but keeps its disks, which you go on paying for, so you can restart it later. Delete removes the VM and its disks. Capacity only is an eviction type: it controls when eviction happens, not what happens to the VM."
+},
+
+/* ---------------- Virtual Networking (11) ---------------- */
+{
+  d: "Virtual Networking", s: "Limits & defaults",
+  q: "You create a subnet with a /29 prefix.\nHow many of its addresses can you assign to resources?",
+  o: [
+    "8",
+    "6",
+    "5",
+    "3"
+  ],
+  a: 3,
+  e: "Azure reserves five addresses in every subnet: the network address, the next three (the default gateway and two for Azure DNS) and the broadcast address. A /29 has eight addresses, which leaves three. /29 is also the smallest subnet Azure allows."
+},
+{
+  d: "Virtual Networking", s: "Prerequisites & dependencies",
+  q: "You try to peer VNet-A (10.0.0.0/16) with VNet-B (10.0.128.0/17). The portal rejects the configuration.\nWhat must you do?",
+  o: [
+    "Use global peering instead of regional peering.",
+    "Turn on Allow forwarded traffic on both peering links.",
+    "Re-address one of the virtual networks so their address spaces no longer overlap.",
+    "Deploy a VPN gateway in each virtual network."
+  ],
+  a: 2,
+  e: "Peered virtual networks can't have overlapping address spaces, and 10.0.128.0/17 falls inside 10.0.0.0/16. VPN gateway connections have the same restriction. You can change the address space of an already-peered network and then sync the peering, but the overlap has to go first."
+},
+{
+  d: "Virtual Networking", s: "Picking between lookalikes",
+  q: "A VM can't receive HTTPS traffic from a particular internet IP, and you need to know exactly which NSG rule is dropping it.\nWhich Network Watcher tool do you use?",
+  o: [
+    "Next hop",
+    "Packet capture",
+    "IP flow verify",
+    "Topology"
+  ],
+  a: 2,
+  e: "IP flow verify tests a 5-tuple against the effective security rules and names the rule that allows or denies it. Next hop shows routing, not filtering. Packet capture records traffic but doesn't tie it to a rule."
+},
+{
+  d: "Virtual Networking", s: "Order & precedence",
+  q: "A NIC's NSG has these inbound rules, plus the defaults: priority 200 denies all ports from the Internet service tag, and priority 4000 allows TCP 443 from any source. A VM in a peered virtual network connects to it on TCP 443.\nWhat decides the outcome?",
+  o: [
+    "Rule 4000 allows it. Rule 200 doesn't match, because traffic from a peered network counts as VirtualNetwork, not Internet.",
+    "Rule 200 denies it, because the lowest priority number is evaluated first.",
+    "The default AllowVnetInBound rule allows it, because default rules are evaluated first.",
+    "DenyAllInBound blocks it, because custom allow rules don't apply to peered traffic."
+  ],
+  a: 0,
+  e: "Rules are processed in priority order, and processing stops at the first match. The Internet tag covers addresses outside the virtual network's address space. Peered ranges belong to the VirtualNetwork tag, so rule 200 is skipped and rule 4000 is the first match. AllowVnetInBound at 65000 would also allow the traffic, but processing never reaches it."
+},
+{
+  d: "Virtual Networking", s: "Limits & defaults",
+  q: "You add the NIC of a VM in VNet2 to an application security group that NICs in VNet1 already use. The operation fails.\nWhy?",
+  o: [
+    "An application security group can hold at most 10 NICs.",
+    "Every NIC in an application security group must be in the same virtual network as the first NIC added to it.",
+    "VNet1 and VNet2 have to be peered first.",
+    "Application security groups only work in subnet-level NSGs."
+  ],
+  a: 1,
+  e: "An ASG is tied to the virtual network of its first member, and a rule that uses ASGs as both source and destination needs both of them in the same virtual network. Peering doesn't change this. In NSG rules, you reference an ASG in place of IP addresses."
+},
+{
+  d: "Virtual Networking", s: "Diagnosing a failure",
+  q: "A new VM has a Standard SKU public IP. Neither its NIC nor its subnet has an NSG, and RDP from the internet times out.\nWhy?",
+  o: [
+    "Standard public IPs are secure by default, so inbound traffic is blocked until an NSG explicitly allows it.",
+    "The public IP must be Basic SKU to allow RDP.",
+    "The VM needs a NAT gateway for inbound traffic.",
+    "RDP is blocked on every Azure public IP, so Bastion is mandatory."
+  ],
+  a: 0,
+  e: "Standard public IPs and Standard load balancers block inbound traffic by default, so you associate an NSG with an allow rule. Basic public IPs, which were open by default, were retired on 30 September 2025. A NAT gateway handles outbound traffic only."
+},
+{
+  d: "Virtual Networking", s: "Picking between lookalikes",
+  q: "One public endpoint in a single region must send /images/* to one pool of VMs and /api/* to another, terminate TLS, and inspect requests with a web application firewall.\nWhich service do you deploy?",
+  o: [
+    "Azure Load Balancer (Standard)",
+    "Azure Application Gateway with WAF",
+    "Azure Traffic Manager",
+    "A NAT gateway"
+  ],
+  a: 1,
+  e: "Application Gateway is a regional layer 7 load balancer with path-based routing, TLS termination and WAF. Load Balancer works at layer 4 and can't see URLs. Traffic Manager works through DNS, globally. Front Door would also do path routing with WAF, but it's global, so it's the answer when users are spread across regions."
+},
+{
+  d: "Virtual Networking", s: "Picking between lookalikes",
+  q: "Users of an app behind a Standard internal load balancer lose their session when consecutive requests reach different backend VMs. The app can't be changed.\nWhat do you configure on the load-balancing rule?",
+  o: [
+    "Session persistence set to Client IP",
+    "An idle timeout of 30 minutes",
+    "TCP reset",
+    "Floating IP"
+  ],
+  a: 0,
+  e: "By default traffic is distributed on a five-tuple hash, so a client's new connections can reach different backends. Session persistence set to Client IP (two-tuple) or Client IP and protocol (three-tuple) keeps a client on the same backend. Cookie-based affinity would need Application Gateway."
+},
+{
+  d: "Virtual Networking", s: "Creation-time & one-way choices",
+  q: "An existing VPN gateway was created as policy-based. Remote users now need point-to-site connections.\nWhat do you do?",
+  o: [
+    "Turn on point-to-site on the existing gateway.",
+    "Change the VPN type to route-based on the gateway's Configuration blade.",
+    "Add a second gateway to the same GatewaySubnet.",
+    "Delete the gateway, create a route-based gateway, then recreate the connections."
+  ],
+  a: 3,
+  e: "Point-to-site needs a route-based gateway, and the VPN type can't be changed after the gateway is created. A virtual network can have only one VPN gateway. Route-based is also needed for BGP, multiple site-to-site tunnels and coexistence with ExpressRoute."
+},
+{
+  d: "Virtual Networking", s: "Limits & defaults",
+  q: "VNet1 is linked to the private DNS zone corp.contoso.com with autoregistration turned on. You also want VM records registered automatically in a second private zone, dev.contoso.com.\nWhat happens?",
+  o: [
+    "You can't do it. A virtual network can have autoregistration on for only one private DNS zone, though it can be linked to many zones for resolution.",
+    "It works, but only if both zones are in the same resource group.",
+    "It works. A virtual network can have autoregistration links to up to five zones.",
+    "It works if you turn on registration on each NIC instead of on the link."
+  ],
+  a: 0,
+  e: "A virtual network can be a registration network for only one private zone. Resolution-only links can go to many zones. Autoregistration creates A records for VMs when they're created and removes them when they're deleted."
+},
+{
+  d: "Virtual Networking", s: "Diagnosing a failure",
+  q: "You created a public DNS zone for fabrikam.com in Azure DNS and added the records, but internet clients still get answers from the old DNS provider.\nWhat is missing?",
+  o: [
+    "A virtual network link from the zone",
+    "NS records at the domain registrar that point to the Azure DNS name servers assigned to the zone",
+    "An alias record at the zone apex",
+    "DNSSEC signing on the zone"
+  ],
+  a: 1,
+  e: "Azure DNS only answers once the domain is delegated to it, which means the registrar's NS records must point to the name servers assigned to the zone. For a child zone such as sales.fabrikam.com hosted separately in Azure, you delegate with an NS record set in the parent zone instead."
+},
+
+/* ---------------- Monitor & Backup (6) ---------------- */
+{
+  d: "Monitor & Backup", s: "Limits & defaults",
+  q: "Security logs in a Log Analytics workspace must be kept for seven years at the lowest cost. They're only queried for occasional investigations.\nWhat do you configure?",
+  o: [
+    "Interactive retention of seven years on the workspace",
+    "A daily cap on ingestion",
+    "A diagnostic setting that sends the activity log to a storage account",
+    "Total retention of seven years on the tables, with a short interactive retention so that older data moves to long-term retention"
+  ],
+  a: 3,
+  e: "Interactive (analytics) retention defaults to 30 days and can go up to two years. Total retention can be set per table for up to 12 years. Data older than the interactive period moves to cheaper long-term retention, which you query with search jobs or bring back with a restore. A daily cap limits ingestion, not retention."
+},
+{
+  d: "Monitor & Backup", s: "Limits & defaults",
+  q: "Nine days ago an administrator stopped protection on a VM and deleted its backup data. The data is needed again.\nWhat can you do?",
+  o: [
+    "Nothing. Deleted backup data is removed immediately.",
+    "Undelete the backup item, which soft delete keeps for 14 days by default, then resume protection.",
+    "Restore it from the vault's geo-secondary copy.",
+    "Open a support request, since Microsoft keeps deleted backup data for 30 days."
+  ],
+  a: 1,
+  e: "Soft delete is on by default and keeps deleted backup data for 14 days at no extra cost. Enhanced soft delete lets you extend that to as much as 180 days and make it always-on. Undeleting returns the item to the Stop protection with retain data state, and then you resume backup."
+},
+{
+  d: "Monitor & Backup", s: "Diagnosing a failure",
+  q: "Deleting a Recovery Services vault fails with an error saying the vault still contains resources, although the list of backup items looks empty.\nWhat is the most likely cause?",
+  o: [
+    "The vault's storage redundancy is GRS.",
+    "Backup items in a soft-deleted state still count, as do registered servers, registered storage accounts and private endpoints.",
+    "Cross Region Restore must be turned off first.",
+    "Recovery Services vaults can't be deleted once they have protected any items."
+  ],
+  a: 1,
+  e: "A vault can only be deleted once it has no protected items, soft-deleted ones included, and no registered servers, storage account registrations or private endpoints. Undelete the soft-deleted items and delete them permanently (or let their retention run out), then unregister everything else."
+},
+{
+  d: "Monitor & Backup", s: "Picking between lookalikes",
+  q: "You need snapshot-based backup for Azure managed disks and operational backup for Azure Blob storage.\nWhere do you configure these?",
+  o: [
+    "A Recovery Services vault",
+    "A Log Analytics workspace",
+    "A Backup vault",
+    "A storage account with blob versioning"
+  ],
+  a: 2,
+  e: "Azure Disks, Azure Blobs, Azure Database for PostgreSQL and AKS back up to a Backup vault. Azure VMs, SQL Server and SAP HANA in VMs, Azure Files and the MARS agent use a Recovery Services vault. Business Continuity Center can manage both kinds of vault."
+},
+{
+  d: "Monitor & Backup", s: "Prerequisites & dependencies",
+  q: "A VM in West Europe doesn't appear when you configure backup from a Recovery Services vault in North Europe.\nWhy?",
+  o: [
+    "The VM must be stopped before it can be selected.",
+    "The VM needs the MARS agent installed.",
+    "Cross Region Restore isn't turned on for the vault.",
+    "The vault must be in the same region as the VM."
+  ],
+  a: 3,
+  e: "Azure VM backup needs the vault and the VM in the same region, so you create a vault in West Europe. The backup extension is installed on Azure VMs automatically; the MARS agent is for files and folders on Windows machines. Cross Region Restore is about restoring into the paired region, not about protecting VMs in another region."
+},
+{
+  d: "Monitor & Backup", s: "Picking between lookalikes",
+  q: "You need continuous measurements of latency and packet loss between on-premises servers and an Azure VM, with an alert when round-trip time goes over 100 ms.\nWhat do you use?",
+  o: [
+    "IP flow verify",
+    "Packet capture",
+    "Connection Monitor in Network Watcher",
+    "VPN troubleshoot"
+  ],
+  a: 2,
+  e: "Connection Monitor runs ongoing tests from Azure VMs, scale sets, or on-premises machines running the Azure Monitor Agent. It records latency and packet loss and works with Azure Monitor alerts. IP flow verify and VPN troubleshoot are one-off diagnostics, and packet capture is a time-limited trace."
+}
+];
+
+/* =======================================================================
+   What each skill tag means when it goes well, and when it doesn't.
+   ======================================================================= */
+const SKILL_NOTES = {
+  "Order & precedence": {
+    good: "You work through what Azure evaluates first instead of grabbing the obvious answer: NSG rules stop at the first match, and RBAC and Policy each have to say yes.",
+    bad:  "Questions that turn on evaluation order caught you out. Two to remember: NSG processing stops at the first matching rule (so check which service tag really matches), and Azure Policy is checked after RBAC, so Owner doesn't get around a Deny."
+  },
+  "Creation-time & one-way choices": {
+    good: "You recognise the settings Azure fixes at creation, so you think of recreating a resource when that really is the only answer.",
+    bad:  "A few answers assumed a setting could be changed later. Worth keeping as one list: storage performance tier, locked immutability policies (they can only be extended), and the VPN gateway type (policy-based or route-based)."
+  },
+  "Prerequisites & dependencies": {
+    good: "You check what else has to be in place before a feature works, rather than stopping once you've named the right feature.",
+    bad:  "You tended to pick the right feature but miss what it depends on. Common ones: versioning and change feed for object replication, access time tracking for last-access lifecycle rules, enabledForTemplateDeployment on Key Vault, password writeback for hybrid SSPR, and a vault in the same region as the VM."
+  },
+  "Scope & plane": {
+    good: "You keep control plane and data plane apart, and Entra roles apart from Azure roles.",
+    bad:  "Watch two boundaries. Owner on a storage account isn't a data role (AzCopy with Entra still needs Storage Blob Data Contributor), and Global Administrator isn't an Azure role until you elevate access. Administrative units scope Entra roles; resource groups don't."
+  },
+  "Limits & defaults": {
+    good: "The numbers and default behaviours are sticking, which is where a lot of marks quietly sit.",
+    bad:  "Specific numbers and defaults are the weak spot: five reserved IPs per subnet, a 30-day soft delete for users, 14 days for backup soft delete, six management group levels, and the 30/90/180-day tier minimums. One slow pass through the fact lists in your notes would pay off."
+  },
+  "Picking between lookalikes": {
+    good: "You can tell apart services that look interchangeable and choose on what only one of them does.",
+    bad:  "When two options could both work, the deciding detail slipped past. Practise naming the one thing only the right answer does: exemptions expire and exclusions don't, Application Gateway sees URLs and Load Balancer doesn't, a Backup vault rather than a Recovery Services vault for disks and blobs."
+  },
+  "Diagnosing a failure": {
+    good: "You read the symptom and go to the cause rather than the nearest setting you can change.",
+    bad:  "Questions that start from a symptom tripped you up. Ask first what changed or what is blocking: port 445 at the ISP, a Standard public IP that is closed by default, NS records still at the registrar, or a resource provider that isn't registered."
+  }
+};
+
+const DOMAIN_ORDER = [
+  "Identity & Governance",
+  "Storage",
+  "Compute",
+  "Virtual Networking",
+  "Monitor & Backup"
+];
+
+/* =======================================================================
+   State
+   ======================================================================= */
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+const LETTERS = ['A','B','C','D','E','F'];
+
+let order = [];          // indexes into QUESTIONS, in the order presented
+let picks = [];          // picks[position] = chosen option index, or null
+let flags = [];          // flags[position] = bool
+let pos = 0;
+let instant = false;     // reveal after each answer
+let startedAt = 0;
+let reviewAll = false;
+
+/* ---------------- start screen ---------------- */
+function buildStartChips() {
+  const counts = {};
+  QUESTIONS.forEach(q => counts[q.d] = (counts[q.d] || 0) + 1);
+  $('startChips').innerHTML = DOMAIN_ORDER
+    .filter(d => counts[d])
+    .map(d => `<span class="chip">${esc(d)} · ${counts[d]}</span>`)
+    .join('');
+}
+
+function begin(withFeedback, subset) {
+  instant = withFeedback;
+  order = (subset && subset.length ? subset.slice() : QUESTIONS.map((_, i) => i));
+  shuffle(order);
+  picks = order.map(() => null);
+  flags = order.map(() => false);
+  pos = 0;
+  startedAt = Date.now();
+  reviewAll = false;
+  $('start').classList.add('hidden');
+  $('results').classList.add('hidden');
+  $('quiz').classList.remove('hidden');
+  $('mapCard').classList.add('hidden');
+  render();
+  window.scrollTo(0, 0);
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+}
+
+/* ---------------- question rendering ---------------- */
+function render() {
+  const q = QUESTIONS[order[pos]];
+  const answered = picks[pos] !== null;
+
+  $('progress').textContent = `Question ${pos + 1} of ${order.length}`;
+  $('fill').style.width = ((pos + 1) / order.length * 100) + '%';
+  const done = picks.filter(p => p !== null).length;
+  $('liveScore').textContent = instant
+    ? `${scoreSoFar()} right of ${done} answered`
+    : `${done} of ${order.length} answered`;
+
+  $('qchips').innerHTML =
+    `<span class="chip">${esc(q.d)}</span><span class="chip plain">${esc(q.s)}</span>`;
+
+  const parts = q.q.split('\n');
+  const ask = parts.pop();
+  $('qtext').innerHTML =
+    parts.map(p => `<span class="scenario">${esc(p)}</span>`).join('') + esc(ask);
+
+  const box = $('options');
+  box.innerHTML = '';
+  q.o.forEach((text, i) => {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="key">${LETTERS[i]}</span><span>${esc(text)}</span>`;
+    if (answered) {
+      if (instant) {
+        if (i === q.a) b.classList.add('right');
+        else if (i === picks[pos]) b.classList.add('wrong');
+        b.disabled = true;
+      } else if (i === picks[pos]) {
+        b.classList.add('picked');
+      }
+    }
+    b.addEventListener('click', () => choose(i));
+    box.appendChild(b);
+  });
+
+  const why = $('why');
+  if (instant && answered) {
+    why.classList.remove('hidden');
+    why.innerHTML = `<b>${picks[pos] === q.a ? 'Correct' : 'The answer is ' + LETTERS[q.a]}</b>${esc(q.e)}`;
+  } else {
+    why.classList.add('hidden');
+  }
+
+  $('prev').disabled = pos === 0;
+  $('next').textContent = pos === order.length - 1 ? 'Overview' : 'Next';
+  $('flag').classList.toggle('flagged', flags[pos]);
+  $('flag').textContent = flags[pos] ? 'Flagged' : 'Flag';
+  if (!$('mapCard').classList.contains('hidden')) buildMap();
+}
+
+function choose(i) {
+  if (instant && picks[pos] !== null) return;   // locked once revealed
+  picks[pos] = i;
+  if (instant) {
+    render();
+  } else {
+    render();
+    if (pos < order.length - 1) { pos++; render(); }
+    else { showMap(); }
+  }
+}
+
+function scoreSoFar() {
+  return picks.reduce((n, p, i) => n + (p !== null && p === QUESTIONS[order[i]].a ? 1 : 0), 0);
+}
+
+/* ---------------- navigator ---------------- */
+function buildMap() {
+  const grid = $('navGrid');
+  grid.innerHTML = '';
+  order.forEach((qi, i) => {
+    const b = document.createElement('button');
+    b.className = 'cell';
+    if (picks[i] !== null) b.classList.add('done');
+    if (flags[i]) b.classList.add('flag');
+    if (i === pos) b.classList.add('now');
+    b.textContent = i + 1;
+    b.addEventListener('click', () => { pos = i; render(); window.scrollTo(0, 0); });
+    grid.appendChild(b);
+  });
+  const left = picks.filter(p => p === null).length;
+  const fl = flags.filter(Boolean).length;
+  $('mapSummary').textContent =
+    (left ? `${left} unanswered` : 'All questions answered') +
+    (fl ? ` · ${fl} flagged` : '');
+}
+
+function showMap() {
+  $('mapCard').classList.remove('hidden');
+  buildMap();
+  $('mapCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ---------------- results ---------------- */
+function finish() {
+  const total = order.length;
+  const right = scoreSoFar();
+  const pct = Math.round(right / total * 100);
+  const mins = Math.max(1, Math.round((Date.now() - startedAt) / 60000));
+
+  $('quiz').classList.add('hidden');
+  $('results').classList.remove('hidden');
+
+  $('finalPct').textContent = pct + '%';
+  $('finalScore').textContent =
+    `${right} of ${total} correct · ${mins} minute${mins === 1 ? '' : 's'}` +
+    (picks.some(p => p === null) ? ` · ${picks.filter(p => p === null).length} left blank` : '');
+  $('verdictTitle').textContent =
+    pct >= 90 ? 'Comfortably exam ready' :
+    pct >= 80 ? 'Exam ready, with a few edges to tidy' :
+    pct >= 70 ? 'Close — the gaps are specific, not broad' :
+    pct >= 55 ? 'Solid base, worth another pass' :
+                'Back to the deep dives for a round';
+
+  const byDomain = tally(q => q.d);
+  const bySkill  = tally(q => q.s);
+
+  drawBars('domainBars', DOMAIN_ORDER.filter(d => byDomain[d]).map(d => [d, byDomain[d]]));
+  drawBars('skillBars', Object.keys(SKILL_NOTES).filter(s => bySkill[s]).map(s => [s, bySkill[s]]));
+
+  writeInsights(byDomain, bySkill);
+  drawReview();
+
+  window.scrollTo(0, 0);
+}
+
+function tally(keyOf) {
+  const out = {};
+  order.forEach((qi, i) => {
+    const k = keyOf(QUESTIONS[qi]);
+    out[k] = out[k] || { right: 0, total: 0 };
+    out[k].total++;
+    if (picks[i] === QUESTIONS[qi].a) out[k].right++;
+  });
+  return out;
+}
+
+function drawBars(id, rows) {
+  $(id).innerHTML = rows.map(([name, s]) => {
+    const pct = Math.round(s.right / s.total * 100);
+    const cls = pct >= 80 ? 'hi' : pct < 60 ? 'lo' : '';
+    return `<div class="barrow">
+      <div class="lbl"><span>${esc(name)}</span><span>${s.right}/${s.total} · ${pct}%</span></div>
+      <div class="barline"><i class="${cls}" style="width:${pct}%"></i></div>
+    </div>`;
+  }).join('');
+}
+
+function writeInsights(byDomain, bySkill) {
+  // Rank skills by accuracy, needing at least 3 questions to be worth a comment.
+  const ranked = Object.keys(bySkill)
+    .filter(k => bySkill[k].total >= 3)
+    .map(k => ({ k, pct: bySkill[k].right / bySkill[k].total, n: bySkill[k].total }))
+    .sort((a, b) => b.pct - a.pct || b.n - a.n);
+
+  const strong = ranked.filter(r => r.pct >= 0.7).slice(0, 2);
+  const weak = ranked.filter(r => r.pct < 0.7).slice(-2).reverse();
+
+  const domains = DOMAIN_ORDER.filter(d => byDomain[d])
+    .map(d => ({ d, pct: byDomain[d].right / byDomain[d].total }))
+    .sort((a, b) => b.pct - a.pct);
+
+  const pc = x => Math.round(x * 100) + '%';
+
+  const sList = strong.map(r =>
+    `<li><b>${esc(r.k)} — ${pc(r.pct)}.</b> ${esc(SKILL_NOTES[r.k].good)}</li>`);
+  if (domains.length && domains[0].pct >= 0.7) {
+    sList.push(`<li><b>${esc(domains[0].d)}</b> was your strongest study area at ${pc(domains[0].pct)}.</li>`);
+  }
+  if (!sList.length) {
+    sList.push('<li>Nothing cleared 70% this time, so take the next list as the whole plan rather than a set of gaps.</li>');
+  }
+  $('strengths').innerHTML = sList.join('');
+
+  const wList = weak.map(r =>
+    `<li><b>${esc(r.k)} — ${pc(r.pct)}.</b> ${esc(SKILL_NOTES[r.k].bad)}</li>`);
+  const worst = domains[domains.length - 1];
+  if (worst && worst.pct < 0.8) {
+    wList.push(`<li><b>${esc(worst.d)}</b> was the weakest area at ${pc(worst.pct)} — the review below shows exactly which ones went.</li>`);
+  }
+  if (!wList.length) {
+    wList.push('<li>Nothing fell below 70%. Re-sit it in a few days and see whether the same answers hold, or raise the stakes with timed full-length practice exams.</li>');
+  }
+  $('weaknesses').innerHTML = wList.join('');
+}
+
+function drawReview() {
+  const box = $('review');
+  const rows = order
+    .map((qi, i) => ({ q: QUESTIONS[qi], pick: picks[i], n: i + 1 }))
+    .filter(r => reviewAll || r.pick !== r.q.a);
+
+  $('toggleReview').textContent = reviewAll ? 'Show only what I missed' : `Show all ${order.length}`;
+
+  if (!rows.length) {
+    box.innerHTML = '<p class="tagline">Nothing missed — switch to the full list to read the explanations anyway.</p>';
+    return;
+  }
+
+  box.innerHTML = rows.map(r => {
+    const parts = r.q.q.split('\n');
+    const ask = parts.pop();
+    const wrong = r.pick !== r.q.a;
+    return `<div class="review-item">
+      <div class="chips">
+        <span class="chip">${esc(r.q.d)}</span>
+        <span class="chip plain">${esc(r.q.s)}</span>
+      </div>
+      <div class="qtext" style="font-size:16px">
+        ${parts.map(p => `<span class="scenario">${esc(p)}</span>`).join('')}${esc(ask)}
+      </div>
+      ${wrong ? `<div class="ans you"><span class="mk">You chose:</span> ${
+        r.pick === null ? 'nothing' : esc(LETTERS[r.pick] + ' · ' + r.q.o[r.pick])
+      }</div>` : ''}
+      <div class="ans ok"><span class="mk">Answer:</span> ${esc(LETTERS[r.q.a] + ' · ' + r.q.o[r.q.a])}</div>
+      <div class="why" style="margin-top:10px"><b>Why</b>${esc(r.q.e)}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ---------------- wiring ---------------- */
+$('go').addEventListener('click', () => begin(false));
+$('goInstant').addEventListener('click', () => begin(true));
+
+$('next').addEventListener('click', () => {
+  if (pos < order.length - 1) { pos++; render(); window.scrollTo(0, 0); }
+  else showMap();
+});
+$('prev').addEventListener('click', () => {
+  if (pos > 0) { pos--; render(); window.scrollTo(0, 0); }
+});
+$('flag').addEventListener('click', () => { flags[pos] = !flags[pos]; render(); });
+$('map').addEventListener('click', () => {
+  const card = $('mapCard');
+  if (card.classList.contains('hidden')) showMap();
+  else card.classList.add('hidden');
+});
+$('finish').addEventListener('click', () => {
+  const left = picks.filter(p => p === null).length;
+  if (left && !confirm(`${left} question${left === 1 ? '' : 's'} still unanswered. Finish anyway?`)) return;
+  finish();
+});
+
+$('again').addEventListener('click', () => begin(instant));
+$('retryWrong').addEventListener('click', () => {
+  const missed = order.filter((qi, i) => picks[i] !== QUESTIONS[qi].a);
+  if (!missed.length) { alert('You did not miss any — retaking all 50 instead.'); begin(instant); return; }
+  begin(instant, missed);
+});
+$('toggleReview').addEventListener('click', () => { reviewAll = !reviewAll; drawReview(); });
+
+document.addEventListener('keydown', e => {
+  if ($('quiz').classList.contains('hidden')) return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const q = QUESTIONS[order[pos]];
+  if (/^[1-9]$/.test(e.key)) {
+    const i = Number(e.key) - 1;
+    if (i < q.o.length) { e.preventDefault(); choose(i); }
+  } else if (e.key === 'ArrowRight') {
+    e.preventDefault(); $('next').click();
+  } else if (e.key === 'ArrowLeft') {
+    e.preventDefault(); $('prev').click();
+  } else if (e.key.toLowerCase() === 'f') {
+    e.preventDefault(); $('flag').click();
+  }
+});
+
+buildStartChips();
+</script>
+</body>
+</html>
