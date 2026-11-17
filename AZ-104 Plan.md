@@ -43,6 +43,5 @@ Create a VM using the Azure portal
 ~~Go back over notes written down~~ 
 ~~Azure CLI~~ 
 
-Find more exams : Gemini Exam
-John Savill - Study Cram v2 : 21
+
 
