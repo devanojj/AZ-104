@@ -137,3 +137,12 @@ After tightening NSG rules, every backend behind a Standard public load balancer
 AThat the load balancer SKU matches the public IP SKUBThat no custom deny rule above priority 65001 is blocking the AzureLoadBalancer service tag on the probe portCThat session persistence is set to Client IPDThat the backend pool was added by IP address rather than by NIC
 
 **CORRECT**Probes originate from 168.63.129.16, covered by the AzureLoadBalancer service tag and permitted by the default rule at 65001. A custom deny with a lower priority number overrides it. Then check the app is actually listening on the probe port, the HTTP path returns 200, and the guest firewall allows it.
+
+
+
+
+Encryption at host must be enabled on an existing production virtual machine, but the option is unavailable.Which three things do you check?
+
+AThe OS disk is Premium SSD, the VM is zonal, and it has a public IPBThe EncryptionAtHost feature is registered on the subscription, the VM is deallocated, and the VM size supports itCA Disk Encryption Set exists, the VM is running, and boot diagnostics are enabledDAzure Disk Encryption is already enabled, the VM is deallocated, and its disks are LRS
+
+**CORRECT**Register the feature on the subscription, deallocate the VM, and confirm the size supports it. It also cannot be enabled on a VM that has ever had Azure Disk Encryption — migrating from ADE means new disks and a new VM. ADE itself retires on 15 September 2028.
